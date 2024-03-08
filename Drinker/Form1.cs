@@ -8,9 +8,9 @@ namespace Drinker
 {
     public partial class Form1 : Form
     {
-
         // set it to true for debug mode
         private const bool DEBUG = true;
+
         private bool initIsComplite = false;
 
         FlasksSettingsFrom? SettingsForm;
@@ -32,18 +32,18 @@ namespace Drinker
             // BOT LOGIC:
             // screen loop refactoring
             // screen loop chek refactoring
+            // gui callbacks to bot logic
 
             // loop run/full pause/slowMode
             // full pause on settings form opening
 
             // MAIN GUI FORM:
             // fix crush on form closing (need stop bot loops)
+            // start stop button colors and text
 
             // FLASKS SETUP GUI:
-            // global pause when second key..
-
+            // global pause when second key.. (!)
             // screen update button
-
             // additional actions
 
 
@@ -51,6 +51,7 @@ namespace Drinker
             // in game test
             // low resolution test
             // logging
+            // BotKeyHook Send to bot logick all things on pause or not wor update button gui
 
             // sort profiles by creation time
 
@@ -60,7 +61,6 @@ namespace Drinker
             ApplyAppSettings();
 
             PoeFlasks3.BotLogic.Bot.updateGUI += UpdateUPS;
-
 
             Thread.Sleep(500);
             Log.Write("Init cpmplite!");
@@ -273,6 +273,12 @@ namespace Drinker
         private void StartStop_button_Click(object sender, EventArgs e)
         {
             Log.Write("Start/Stop button click!");
+            Bot.OnStartStopChange();
+        }
+
+        private void ChangeStartStopButton()
+        {
+
         }
 
         private void GamePath_label_TextChanged(object sender, EventArgs e)
@@ -288,6 +294,11 @@ namespace Drinker
         private void SubscribeEvents()
         {
             PauseEnable_chekbox.CheckStateChanged += PauseEnable_chekbox_CheckStateChanged;
+        }
+
+        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Bot.StopLoop();
         }
     }
 }

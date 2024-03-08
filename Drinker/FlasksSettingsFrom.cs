@@ -51,7 +51,7 @@ namespace DrinkerForm
 
         private void FlasksSettingsFrom_FormClosed(object sender, FormClosedEventArgs e)
         {
-            ProfileManager.SaveAllAsync();
+            ProfileManager.SaveAll();
             Program.DrinkerForm.InitProfilesDropBox();
         }
 
@@ -80,7 +80,7 @@ namespace DrinkerForm
             ProfileManager.UpdateProfile(PoeFlasks3.Program.Settings.SelectedProfile.Profile);
             PoeFlasks3.Program.Settings.ChangeSelectedProfile(Profiles_dropBox.SelectedIndex);
             FlasksGUIManager.onProfileChange?.Invoke(PoeFlasks3.Program.Settings.SelectedProfile.Profile);
-            ProfileManager.SaveAllAsync();
+            ProfileManager.SaveAll();
         }
 
         private void RenameProfile_button_Click(object sender, EventArgs e)

@@ -1,4 +1,5 @@
 ﻿using BotFW_CvSharp_01;
+using PoeFlasks3.BotLogic;
 using PoeFlasks3.Settings;
 
 namespace PoeFlasks3.SettingsThings
@@ -33,6 +34,9 @@ namespace PoeFlasks3.SettingsThings
                 if (!ProfileManager.TrySelectProfile(AppConfig.SelectedProfile, out SelectedProfile))
                     throw new Exception("Very strange things happend here"); // this is newer happend
             }
+
+            BotKeyHook.Init();
+            BotKeyHook.UpdatePauseWhenSecondKeyNotUsedRecently(SelectedProfile.Profile);
         }
 
 
@@ -70,6 +74,8 @@ namespace PoeFlasks3.SettingsThings
 
             SelectedProfile = ProfileManager.SelectProfile(0);
             Log.Write($"Selected profile change to: {SelectedProfile.Name}");
+
+            BotKeyHook.UpdatePauseWhenSecondKeyNotUsedRecently(SelectedProfile.Profile);
         }
 
         public void CreateAndSelectNewProfile()
@@ -78,6 +84,8 @@ namespace PoeFlasks3.SettingsThings
             SelectedProfile = newSelectedProfile;
             UpdateAndSave_SelectedProfile_inConfig();
             Log.Write($"Create new profile: {SelectedProfile.Name}");
+
+            BotKeyHook.UpdatePauseWhenSecondKeyNotUsedRecently(SelectedProfile.Profile);
         }
 
         public void ChangeSelectedProfile(int index)
@@ -85,6 +93,8 @@ namespace PoeFlasks3.SettingsThings
             SelectedProfile = ProfileManager.SelectProfile(index);
             UpdateAndSave_SelectedProfile_inConfig();
             Log.Write($"Selected profile change to: {SelectedProfile.Name}");
+
+            BotKeyHook.UpdatePauseWhenSecondKeyNotUsedRecently(SelectedProfile.Profile);
         }
 
         private void UpdateAndSave_SelectedProfile_inConfig()

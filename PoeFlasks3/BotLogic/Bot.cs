@@ -19,6 +19,7 @@ namespace PoeFlasks3.BotLogic
         private static State state = State.None;
         private static PoeClinet Client;
 
+        private static bool Run = true;
         private static bool IsStart = false;
         private static bool IsPause = false;
 
@@ -40,66 +41,46 @@ namespace PoeFlasks3.BotLogic
             DEBUG = debug;
 
             OnFlasksSetupChange(selectedProfile.Profile);
+            //BotKeyHook.OnStartStopChange += OnStartStopChange;
+
         }
 
-        public static void Run()
+        public static void RunLoop()
         {
-            // ==init things==
             state = State.Start;
             Screen = new Bitmap(1920, 1080, System.Drawing.Imaging.PixelFormat.Format24bppRgb);
 
-
-
-            //FlaskProfiles.Save();
-            //AppConfig.Save();
-
-            //Console.WriteLine(  );
-
-
-            // ==chek things==
-            // chek flask setup profile (?)
-
-
-            // if start/stop == start => ok
-            // else => sleep
-
-            if (Client.ScreenResolutionIsAccept)
-            {
-                // ok
-            }
-            else
-            {
-                // rise msg box with screen res error
-            }
-
-            if (Client.Window.IsActive)
-            {
-                // ok
-            }
-            else
-            {
-                // slow mode && pause
-            }
-
-            TestLoop();
+            _runLoop();
         }
 
-        async private static void TestLoop()
+        public static void StopLoop()
+        {
+            Run = false;
+        }
+
+        async private static void _runLoop()
         {
             Stopwatch timer = new Stopwatch();
             timer.Start();
-            while (true)
+            while (Run)
             {
-                await Task.Run(TestDataGrab);
-                await Task.Run(TestScreenLoop);
+                await Task.Run(DataGrabLoop);
+                await Task.Run(ScreenLoop);
 
+                // if slow mode
+                // task delay
 
-                while(!ScreenIsReady && !DataGrabIsDone)
+                while (!ScreenIsReady && !DataGrabIsDone)
                 {
+                    if (!Run)
+                        break;
                     await Task.Delay(10);
                 }
+                if (!Run)
+                    break;
 
-                DoActions(Manager);
+                // if state == Start
+                DoActions(Manager); // its already async!
 
 
                 timer.Stop();
@@ -112,7 +93,7 @@ namespace PoeFlasks3.BotLogic
             }
         }
 
-        private static void TestScreenLoop()
+        private static void ScreenLoop()
         {
             ScreenIsReady = false;
             {
@@ -122,8 +103,12 @@ namespace PoeFlasks3.BotLogic
                 // if old creen fetched, wait
                 while (ScreenIsFetched)
                 {
+                    if (!Run)
+                        break;
                     Thread.Sleep(1);
                 }
+                if (!Run)
+                    return;
 
                 // update screen
                 ScreenIsBusy = true;
@@ -140,15 +125,19 @@ namespace PoeFlasks3.BotLogic
             Screen = (Bitmap)_screen.Clone();
         }
 
-        private static void TestDataGrab()
+        private static void DataGrabLoop()
         {
             DataGrabIsDone = false;
             {
                 // if screen updated right now, wait
                 while (ScreenIsBusy)
                 {
+                    if (!Run)
+                        break;
                     Thread.Sleep(1);
                 }
+                if (!Run)
+                    return;
 
                 ScreenIsFetched = true;
                 {
@@ -167,9 +156,10 @@ namespace PoeFlasks3.BotLogic
         {
             manager.UseFlasks(GrabedData);
         }
-        public static void OnStartStopChange(bool startStop)
+        public static void OnStartStopChange()
         {
-            IsStart = startStop;
+            IsStart = !IsStart;
+            Log.Write($"Start/Stop change to: {IsStart}");
         }
 
         public static void OnPauseChange(bool pause)
@@ -183,15 +173,18 @@ namespace PoeFlasks3.BotLogic
             FlasksProfile = setup;
         }
 
+        private static State GetState()
+        {
+            // chek things
+            return State.None;
+        }
 
         private enum State
         {
-            None,
-            Start,
-            Chek,
-            DataGrab,
-
-            ScreenResError,
+            None, // on app start
+            Run,  // work
+            Stop, // not work
+            Pause, // pause
         }
     }
 }

@@ -23,7 +23,7 @@ namespace PoeFlasks3
 
             poeClinet = new PoeClinet(debug);
             Bot.Init(poeClinet, Settings.SelectedProfile, debug);
-            Bot.Run();
+            Bot.RunLoop();
         }
     }
 }

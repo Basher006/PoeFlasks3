@@ -185,6 +185,7 @@
             Name = "Form1";
             StartPosition = FormStartPosition.Manual;
             Text = "Drinker";
+            FormClosing += Form1_FormClosing;
             ResizeEnd += Form1_ResizeEnd;
             ResumeLayout(false);
             PerformLayout();

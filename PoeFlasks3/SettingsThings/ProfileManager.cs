@@ -1,5 +1,4 @@
 ﻿using BotFW_CvSharp_01.GlobalStructs;
-using System.Linq;
 using System.Text.Json;
 using System.Text.Json.Serialization;
 
@@ -141,11 +140,22 @@ namespace PoeFlasks3.SettingsThings
     public struct PauseWhenSecondKeyNotUsedRecently
     {
         private const float MAX_SECONDS_WAIT_FOR_USE_KEY_RECENTLY = 30f;
+        private static int id;
+
+        private readonly int _id;
 
         public bool Enable { get; set; }
         public Keys Key { get; set; }
         public float PauseActivationDelay { get => _pauseActivationDelay; set => _pauseActivationDelay = SetPauseActivationDelay(value); }
         private float _pauseActivationDelay;
+
+        public PauseWhenSecondKeyNotUsedRecently()
+        {
+            Enable = false;
+            Key = Keys.NUM_1;
+            _pauseActivationDelay = 15f;
+            _id = id++;
+        }
 
         private readonly float SetPauseActivationDelay(float value)
         {
@@ -192,11 +202,13 @@ namespace PoeFlasks3.SettingsThings
         public static List<string> ProfileNames { get => Profiles.Keys.ToList(); }
 
 
-        public static async void SaveAllAsync()
+        public static void SaveAll()
         {
+            Profiles[Program.Settings.SelectedProfile.Name] = Program.Settings.SelectedProfile.Profile;
+
             foreach (var profile in Profiles)
             {
-                await new Task(() =>  profile.Value.TrySave());
+                profile.Value.TrySave();
             }
         }
 

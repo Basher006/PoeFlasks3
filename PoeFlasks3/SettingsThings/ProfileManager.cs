@@ -425,6 +425,8 @@ namespace PoeFlasks3.SettingsThings
 
                 AdditionalActions = new(),
 
+                GlobalPauseWhenSecondKeyNotUsedRecently = new() { Enable = false, Key = Keys.MouseRight, PauseActivationDelay = 15f },
+
                 FlasksImagePreview = "imgs\\Flasks screens\\DefaultFlaskSetupScreen.png"
             };
 

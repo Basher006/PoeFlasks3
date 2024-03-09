@@ -59,11 +59,11 @@ namespace DrinkerForm
         private static FlaskGUIElements[] Guielements;
 
 
-        public static void Init(Profile profile, ref FlaskGUIElements[] guielements)
+        public static void Init(Profile profile, ref FlaskGUIElements[] guielements, ref ComboBox globalSecondKey)
         {
             FlasksSetup = profile;
 
-            SetDropBoxesValuesRange(ref guielements);
+            SetDropBoxesValuesRange(ref guielements, ref globalSecondKey);
 
             SetFlasksGuiValues(ref guielements);
             SetPanelColor(ref guielements);
@@ -84,7 +84,7 @@ namespace DrinkerForm
         }
 
 
-        private static void SetDropBoxesValuesRange(ref FlaskGUIElements[] guielements)
+        private static void SetDropBoxesValuesRange(ref FlaskGUIElements[] guielements, ref ComboBox globalSecondKey)
         {
             for (int i = 0; i < guielements.Length; i++)
             {
@@ -96,6 +96,8 @@ namespace DrinkerForm
                 guielements[i].FlaskGroupBox.DrawItem += DrawDropBoxItem;
                 guielements[i].FlaskGroupBox.DrawMode = DrawMode.OwnerDrawFixed;
             }
+
+            globalSecondKey.Items.AddRange(SecondKey_dropBox_values.Keys.ToArray());
         }
         private static void SetFlasksGuiValues(ref FlaskGUIElements[] guielements)
         {
@@ -109,8 +111,8 @@ namespace DrinkerForm
                 int inGameHotkeyIndex = FlaskInGameHotkey_dropBox_values.Values.ToList().IndexOf(FlasksSetup.Setup.FlasksList[i].BaseAction.HotKey);
                 guielements[i].FlaskInGameHotkey.SelectedIndex = inGameHotkeyIndex;
 
-                int secondKeyIndex = SecondKey_dropBox_values.Values.ToList().IndexOf(FlasksSetup.Setup.FlasksList[i].BaseAction.PauseWhenSecondKeyNotUsedRecently.Key);
-                guielements[i].SecondKey.SelectedIndex = secondKeyIndex;
+                //int secondKeyIndex = SecondKey_dropBox_values.Values.ToList().IndexOf(FlasksSetup.Setup.FlasksList[i].BaseAction.PauseWhenSecondKeyNotUsedRecently.Key);
+                guielements[i].SecondKey.SelectedIndex = GetSecondKeyIndex(FlasksSetup.Setup.FlasksList[i].BaseAction.PauseWhenSecondKeyNotUsedRecently.Key);
 
                 int flaskGroupIndex = FlaskGroups_dropBox_values.Values.ToList().IndexOf(FlasksSetup.Setup.FlasksList[i].Group);
                 guielements[i].FlaskGroupBox.SelectedIndex = flaskGroupIndex;
@@ -215,10 +217,20 @@ namespace DrinkerForm
                     // standart enable thing
                     guielements[i].ActType.Enabled = true;
 
-                    guielements[i].PercentRadioButton.Enabled = true;
-                    guielements[i].FlatRadioButton.Enabled = true;
-                    guielements[i].PercentValue.Enabled = baseAction.UseActPercent;
-                    guielements[i].FlatValue.Enabled = !baseAction.UseActPercent;
+                    if (flaskActType == ActivationType.HP || flaskActType == ActivationType.MP || flaskActType == ActivationType.ES)
+                    {
+                        guielements[i].PercentRadioButton.Enabled = true;
+                        guielements[i].FlatRadioButton.Enabled = true;
+                        guielements[i].PercentValue.Enabled = baseAction.UseActPercent;
+                        guielements[i].FlatValue.Enabled = !baseAction.UseActPercent;
+                    }
+                    else
+                    {
+                        guielements[i].PercentRadioButton.Enabled = false;
+                        guielements[i].FlatRadioButton.Enabled = false;
+                        guielements[i].PercentValue.Enabled = false;
+                        guielements[i].FlatValue.Enabled = false;
+                    }
 
                     guielements[i].PauseEnable.Enabled = true;
                     guielements[i].SecondKey.Enabled = guielements[i].PauseEnable.Checked;
@@ -433,7 +445,8 @@ namespace DrinkerForm
                     slot = (FlaskSlot)i - 1;
 
                     int index = s.SelectedIndex;
-                    var newKey = SecondKey_dropBox_values.Values.ToList()[index];
+                    //var newKey = SecondKey_dropBox_values.Values.ToList()[index];
+                    var newKey = GetSecondKey(index);
 
                     var flaskSlot = FlasksSetup.Setup.Flasks[slot];
                     var basAction = flaskSlot.BaseAction;
@@ -528,6 +541,16 @@ namespace DrinkerForm
                 e.Graphics.FillRectangle(br, e.Bounds);
                 e.Graphics.DrawString(FlaskGroups_dropBox_values.Keys.ToList()[e.Index], e.Font, Brushes.Black, e.Bounds);
             }
+        }
+
+        public static int GetSecondKeyIndex(Keys k)
+        {
+            return SecondKey_dropBox_values.Values.ToList().IndexOf(k);
+        }
+
+        public static Keys GetSecondKey(int index)
+        {
+            return SecondKey_dropBox_values.Values.ToList()[index];
         }
 
         private enum PanelColors

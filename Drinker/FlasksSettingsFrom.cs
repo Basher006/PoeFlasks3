@@ -1,4 +1,5 @@
 ﻿using Drinker;
+using PoeFlasks3.BotLogic;
 using PoeFlasks3.SettingsThings;
 
 namespace DrinkerForm
@@ -19,7 +20,7 @@ namespace DrinkerForm
             InitializeComponent();
 
             InitGuiElements();
-            InitFlask();
+            //InitFlask(); // it moved to on_window_shown
         }
 
 
@@ -27,7 +28,7 @@ namespace DrinkerForm
         private void InitFlask()
         {
             InitProfilesDropBox();
-            FlasksGUIManager.Init(PoeFlasks3.Program.Settings.SelectedProfile.Profile, ref FlasksGUIElements);
+            FlasksGUIManager.Init(PoeFlasks3.Program.Settings.SelectedProfile.Profile, ref FlasksGUIElements, ref Global_SecondKey_dropBox);
             FlasksGUIManager.onProfileChange += UpdProfile;
         }
 
@@ -39,9 +40,12 @@ namespace DrinkerForm
             Profiles_dropBox.SelectedIndex = PoeFlasks3.Program.Settings.SelectedProfile.Index;
         }
 
-        private void UpdProfile(Profile profile)
+
+
+        private void UpdProfile(Profile profile) // (!?)
         {
             FlasksGUIManager.Update(PoeFlasks3.Program.Settings.SelectedProfile.Profile, ref FlasksGUIElements);
+            Bot.OnFlasksSetupChange(profile);
         }
 
         private void Close_button_Click(object sender, EventArgs e)
@@ -139,6 +143,51 @@ namespace DrinkerForm
                 RenameCancel_button_Click(sender, e);
             else if (e.KeyCode == System.Windows.Forms.Keys.Enter)
                 RenameProfile_button_Click(sender, e);
+        }
+
+        private void Global_SecondKey_dropBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (Global_SecondKey_dropBox.SelectedIndex == -1)
+                return;
+
+            var pauseWhen = PoeFlasks3.Program.Settings.SelectedProfile.Profile.Setup.GlobalPauseWhenSecondKeyNotUsedRecently;
+            var newKey = FlasksGUIManager.GetSecondKey(Global_SecondKey_dropBox.SelectedIndex);
+            pauseWhen.Key = newKey;
+
+            PoeFlasks3.Program.Settings.SelectedProfile.Profile.Setup.GlobalPauseWhenSecondKeyNotUsedRecently = pauseWhen;
+        }
+
+        private void Global_EnablePause_chekbox_CheckedChanged(object sender, EventArgs e)
+        {
+            var pauseWhen = PoeFlasks3.Program.Settings.SelectedProfile.Profile.Setup.GlobalPauseWhenSecondKeyNotUsedRecently;
+            pauseWhen.Enable = Global_EnablePause_chekbox.Checked;
+
+            PoeFlasks3.Program.Settings.SelectedProfile.Profile.Setup.GlobalPauseWhenSecondKeyNotUsedRecently = pauseWhen;
+        }
+
+        private void Global_PauseSec_numericUpDown_ValueChanged(object sender, EventArgs e)
+        {
+            var pauseWhen = PoeFlasks3.Program.Settings.SelectedProfile.Profile.Setup.GlobalPauseWhenSecondKeyNotUsedRecently;
+            pauseWhen.PauseActivationDelay = (float)Global_PauseSec_numericUpDown.Value;
+
+            PoeFlasks3.Program.Settings.SelectedProfile.Profile.Setup.GlobalPauseWhenSecondKeyNotUsedRecently = pauseWhen;
+        }
+
+        private void FlasksSettingsFrom_Shown(object sender, EventArgs e)
+        {
+            InitFlask();
+
+
+
+            Global_EnablePause_chekbox.Checked = 
+                PoeFlasks3.Program.Settings.SelectedProfile.Profile.Setup.GlobalPauseWhenSecondKeyNotUsedRecently.Enable;
+
+            var key = PoeFlasks3.Program.Settings.SelectedProfile.Profile.Setup.GlobalPauseWhenSecondKeyNotUsedRecently.Key;
+            var index = FlasksGUIManager.GetSecondKeyIndex(key);
+            Global_SecondKey_dropBox.SelectedIndex = index;
+
+            var pauseSec = PoeFlasks3.Program.Settings.SelectedProfile.Profile.Setup.GlobalPauseWhenSecondKeyNotUsedRecently.PauseActivationDelay;
+            Global_PauseSec_numericUpDown.Value = (decimal)pauseSec;
         }
 
         private void InitGuiElements()

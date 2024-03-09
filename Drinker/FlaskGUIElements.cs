@@ -1,6 +1,4 @@
-﻿using PoeFlasks3.SettingsThings;
-
-namespace DrinkerForm
+﻿namespace DrinkerForm
 {
     public partial class FlasksSettingsFrom : Form
     {

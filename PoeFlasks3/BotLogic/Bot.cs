@@ -47,7 +47,7 @@ namespace PoeFlasks3.BotLogic
 
         public static void RunLoop()
         {
-            state = State.Start;
+            state = State.Run;
             Screen = new Bitmap(1920, 1080, System.Drawing.Imaging.PixelFormat.Format24bppRgb);
 
             _runLoop();
@@ -80,7 +80,7 @@ namespace PoeFlasks3.BotLogic
                     break;
 
                 // if state == Start
-                DoActions(Manager); // its already async!
+                DoActions(); // its already async!
 
 
                 timer.Stop();
@@ -152,9 +152,9 @@ namespace PoeFlasks3.BotLogic
             DataGrabIsDone = true;
         }
 
-        private static void DoActions(FlasksManager manager)
+        private static void DoActions()
         {
-            manager.UseFlasks(GrabedData);
+            Manager.UseFlasks(GrabedData);
         }
         public static void OnStartStopChange()
         {

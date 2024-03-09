@@ -26,7 +26,7 @@ namespace PoeFlasks3.BotLogic.Flasks
             };
 
             // Add Non groups Flasks
-            var nonGroupFlasks = Profile.Setup.Flasks.Where((x) => x.Value.Group == FlaskGroup.None);
+            var nonGroupFlasks = Profile.Setup.Flasks.Where((x) => x.Value.Group == FlaskGroup.None).ToList();
             foreach (var fl in nonGroupFlasks)
             {
                 UsableThings.Add(new Flask(fl.Value, DEBUG));
@@ -41,24 +41,25 @@ namespace PoeFlasks3.BotLogic.Flasks
 
         public void UseFlasks(GrabedData? data)
         {
-            List<Action> useActions = new();
+            List<IUsable> useActions = new();
 
             foreach (var useblaThing in UsableThings)
             {
                 if (useblaThing.Chek(data, FlaskUseRecentlyCheker))
-                    useActions.Add(useblaThing.Use);
+                    useActions.Add(useblaThing);
             }
 
             // Use async
             foreach (var useAct in useActions)
             {
-                _useFlaskAsync(useAct);
+                _useFlask(useAct);
             }
         }
 
-        private async void _useFlaskAsync(Action useAction)
+        private void _useFlask(IUsable useAction)
         {
-            await new Task(useAction);
+            useAction.UseAsync();
+            //await new Task(useAction.Use);
         }
 
         public void Dispose()

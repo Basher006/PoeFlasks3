@@ -34,13 +34,6 @@
             DeleteProfile_button = new Button();
             tabControl1 = new TabControl();
             tabPage1 = new TabPage();
-            Close_button = new Button();
-            groupBox1 = new GroupBox();
-            label3 = new Label();
-            Global_PauseSec_numericUpDown = new NumericUpDown();
-            label2 = new Label();
-            Global_SecondKey_dropBox = new ComboBox();
-            Global_EnablePause_chekbox = new CheckBox();
             tableLayoutPanel1 = new TableLayoutPanel();
             Flask4_panel = new Panel();
             panel5 = new Panel();
@@ -140,12 +133,17 @@
             ScreenUpdate_button = new Button();
             pictureBox1 = new PictureBox();
             tabPage2 = new TabPage();
+            Close_button = new Button();
+            groupBox1 = new GroupBox();
+            label3 = new Label();
+            Global_PauseSec_numericUpDown = new NumericUpDown();
+            label2 = new Label();
+            Global_SecondKey_dropBox = new ComboBox();
+            Global_EnablePause_chekbox = new CheckBox();
             RenameProfile_button = new Button();
             RenameCancel_button = new Button();
             tabControl1.SuspendLayout();
             tabPage1.SuspendLayout();
-            groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)Global_PauseSec_numericUpDown).BeginInit();
             tableLayoutPanel1.SuspendLayout();
             Flask4_panel.SuspendLayout();
             panel5.SuspendLayout();
@@ -183,6 +181,8 @@
             ((System.ComponentModel.ISupportInitialize)Flask2_Flat_numericUpDown).BeginInit();
             ((System.ComponentModel.ISupportInitialize)Flask2_Percent_numericUpDown).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)Global_PauseSec_numericUpDown).BeginInit();
             SuspendLayout();
             // 
             // label1
@@ -241,98 +241,21 @@
             tabControl1.Location = new Point(0, 49);
             tabControl1.Name = "tabControl1";
             tabControl1.SelectedIndex = 0;
-            tabControl1.Size = new Size(825, 738);
+            tabControl1.Size = new Size(825, 665);
             tabControl1.TabIndex = 4;
             // 
             // tabPage1
             // 
             tabPage1.BackColor = SystemColors.Control;
-            tabPage1.Controls.Add(Close_button);
-            tabPage1.Controls.Add(groupBox1);
             tabPage1.Controls.Add(tableLayoutPanel1);
             tabPage1.Controls.Add(ScreenUpdate_button);
             tabPage1.Controls.Add(pictureBox1);
             tabPage1.Location = new Point(4, 24);
             tabPage1.Name = "tabPage1";
             tabPage1.Padding = new Padding(3);
-            tabPage1.Size = new Size(817, 710);
+            tabPage1.Size = new Size(817, 637);
             tabPage1.TabIndex = 0;
             tabPage1.Text = "Flasks Setup";
-            // 
-            // Close_button
-            // 
-            Close_button.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-            Close_button.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            Close_button.Location = new Point(727, 655);
-            Close_button.Name = "Close_button";
-            Close_button.Size = new Size(84, 52);
-            Close_button.TabIndex = 4;
-            Close_button.Text = "Close";
-            Close_button.UseVisualStyleBackColor = true;
-            Close_button.Click += Close_button_Click;
-            // 
-            // groupBox1
-            // 
-            groupBox1.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            groupBox1.Controls.Add(label3);
-            groupBox1.Controls.Add(Global_PauseSec_numericUpDown);
-            groupBox1.Controls.Add(label2);
-            groupBox1.Controls.Add(Global_SecondKey_dropBox);
-            groupBox1.Controls.Add(Global_EnablePause_chekbox);
-            groupBox1.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            groupBox1.Location = new Point(8, 645);
-            groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(712, 62);
-            groupBox1.TabIndex = 3;
-            groupBox1.TabStop = false;
-            groupBox1.Text = "Global settings:";
-            // 
-            // label3
-            // 
-            label3.AutoSize = true;
-            label3.Location = new Point(517, 25);
-            label3.Name = "label3";
-            label3.Size = new Size(121, 21);
-            label3.TabIndex = 4;
-            label3.Text = "Pause after(sec):";
-            // 
-            // Global_PauseSec_numericUpDown
-            // 
-            Global_PauseSec_numericUpDown.DecimalPlaces = 1;
-            Global_PauseSec_numericUpDown.Location = new Point(644, 21);
-            Global_PauseSec_numericUpDown.Maximum = new decimal(new int[] { 30, 0, 0, 0 });
-            Global_PauseSec_numericUpDown.Name = "Global_PauseSec_numericUpDown";
-            Global_PauseSec_numericUpDown.Size = new Size(58, 29);
-            Global_PauseSec_numericUpDown.TabIndex = 3;
-            Global_PauseSec_numericUpDown.Value = new decimal(new int[] { 15, 0, 0, 0 });
-            // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.Location = new Point(311, 25);
-            label2.Name = "label2";
-            label2.Size = new Size(92, 21);
-            label2.TabIndex = 2;
-            label2.Text = "Second key:";
-            // 
-            // Global_SecondKey_dropBox
-            // 
-            Global_SecondKey_dropBox.FormattingEnabled = true;
-            Global_SecondKey_dropBox.Location = new Point(409, 21);
-            Global_SecondKey_dropBox.Name = "Global_SecondKey_dropBox";
-            Global_SecondKey_dropBox.Size = new Size(103, 29);
-            Global_SecondKey_dropBox.TabIndex = 1;
-            // 
-            // Global_EnablePause_chekbox
-            // 
-            Global_EnablePause_chekbox.AutoSize = true;
-            Global_EnablePause_chekbox.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            Global_EnablePause_chekbox.Location = new Point(6, 26);
-            Global_EnablePause_chekbox.Name = "Global_EnablePause_chekbox";
-            Global_EnablePause_chekbox.Size = new Size(304, 21);
-            Global_EnablePause_chekbox.TabIndex = 0;
-            Global_EnablePause_chekbox.Text = "Enable pause when second key not use recently";
-            Global_EnablePause_chekbox.UseVisualStyleBackColor = true;
             // 
             // tableLayoutPanel1
             // 
@@ -1402,9 +1325,88 @@
             tabPage2.Location = new Point(4, 24);
             tabPage2.Name = "tabPage2";
             tabPage2.Padding = new Padding(3);
-            tabPage2.Size = new Size(817, 710);
+            tabPage2.Size = new Size(817, 637);
             tabPage2.TabIndex = 1;
             tabPage2.Text = "Addtitional actions";
+            // 
+            // Close_button
+            // 
+            Close_button.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            Close_button.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            Close_button.Location = new Point(730, 730);
+            Close_button.Name = "Close_button";
+            Close_button.Size = new Size(84, 52);
+            Close_button.TabIndex = 4;
+            Close_button.Text = "Close";
+            Close_button.UseVisualStyleBackColor = true;
+            Close_button.Click += Close_button_Click;
+            // 
+            // groupBox1
+            // 
+            groupBox1.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            groupBox1.Controls.Add(label3);
+            groupBox1.Controls.Add(Global_PauseSec_numericUpDown);
+            groupBox1.Controls.Add(label2);
+            groupBox1.Controls.Add(Global_SecondKey_dropBox);
+            groupBox1.Controls.Add(Global_EnablePause_chekbox);
+            groupBox1.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            groupBox1.Location = new Point(12, 720);
+            groupBox1.Name = "groupBox1";
+            groupBox1.Size = new Size(712, 62);
+            groupBox1.TabIndex = 3;
+            groupBox1.TabStop = false;
+            groupBox1.Text = "Global settings:";
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Location = new Point(517, 25);
+            label3.Name = "label3";
+            label3.Size = new Size(121, 21);
+            label3.TabIndex = 4;
+            label3.Text = "Pause after(sec):";
+            // 
+            // Global_PauseSec_numericUpDown
+            // 
+            Global_PauseSec_numericUpDown.DecimalPlaces = 1;
+            Global_PauseSec_numericUpDown.Location = new Point(644, 21);
+            Global_PauseSec_numericUpDown.Maximum = new decimal(new int[] { 30, 0, 0, 0 });
+            Global_PauseSec_numericUpDown.Name = "Global_PauseSec_numericUpDown";
+            Global_PauseSec_numericUpDown.Size = new Size(58, 29);
+            Global_PauseSec_numericUpDown.TabIndex = 3;
+            Global_PauseSec_numericUpDown.Value = new decimal(new int[] { 15, 0, 0, 0 });
+            Global_PauseSec_numericUpDown.ValueChanged += Global_PauseSec_numericUpDown_ValueChanged;
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Location = new Point(311, 25);
+            label2.Name = "label2";
+            label2.Size = new Size(92, 21);
+            label2.TabIndex = 2;
+            label2.Text = "Second key:";
+            // 
+            // Global_SecondKey_dropBox
+            // 
+            Global_SecondKey_dropBox.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            Global_SecondKey_dropBox.FormattingEnabled = true;
+            Global_SecondKey_dropBox.Location = new Point(409, 21);
+            Global_SecondKey_dropBox.Name = "Global_SecondKey_dropBox";
+            Global_SecondKey_dropBox.Size = new Size(103, 25);
+            Global_SecondKey_dropBox.TabIndex = 1;
+            Global_SecondKey_dropBox.SelectedIndexChanged += Global_SecondKey_dropBox_SelectedIndexChanged;
+            // 
+            // Global_EnablePause_chekbox
+            // 
+            Global_EnablePause_chekbox.AutoSize = true;
+            Global_EnablePause_chekbox.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            Global_EnablePause_chekbox.Location = new Point(6, 26);
+            Global_EnablePause_chekbox.Name = "Global_EnablePause_chekbox";
+            Global_EnablePause_chekbox.Size = new Size(304, 21);
+            Global_EnablePause_chekbox.TabIndex = 0;
+            Global_EnablePause_chekbox.Text = "Enable pause when second key not use recently";
+            Global_EnablePause_chekbox.UseVisualStyleBackColor = true;
+            Global_EnablePause_chekbox.CheckedChanged += Global_EnablePause_chekbox_CheckedChanged;
             // 
             // RenameProfile_button
             // 
@@ -1438,7 +1440,9 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(826, 787);
+            Controls.Add(Close_button);
             Controls.Add(RenameCancel_button);
+            Controls.Add(groupBox1);
             Controls.Add(RenameProfile_button);
             Controls.Add(tabControl1);
             Controls.Add(DeleteProfile_button);
@@ -1451,11 +1455,9 @@
             Name = "FlasksSettingsFrom";
             Text = "FlasksSettingsFrom";
             FormClosed += FlasksSettingsFrom_FormClosed;
+            Shown += FlasksSettingsFrom_Shown;
             tabControl1.ResumeLayout(false);
             tabPage1.ResumeLayout(false);
-            groupBox1.ResumeLayout(false);
-            groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)Global_PauseSec_numericUpDown).EndInit();
             tableLayoutPanel1.ResumeLayout(false);
             Flask4_panel.ResumeLayout(false);
             Flask4_panel.PerformLayout();
@@ -1498,6 +1500,9 @@
             ((System.ComponentModel.ISupportInitialize)Flask2_Flat_numericUpDown).EndInit();
             ((System.ComponentModel.ISupportInitialize)Flask2_Percent_numericUpDown).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            groupBox1.ResumeLayout(false);
+            groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)Global_PauseSec_numericUpDown).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }

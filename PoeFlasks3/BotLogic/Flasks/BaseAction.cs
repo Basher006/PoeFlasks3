@@ -1,4 +1,5 @@
 ﻿using BotFW_CvSharp_01;
+using BotFW_CvSharp_01.GlobalStructs;
 using PoeFlasks3.SettingsThings;
 
 namespace PoeFlasks3.BotLogic.Flasks
@@ -8,12 +9,24 @@ namespace PoeFlasks3.BotLogic.Flasks
         private const float MINIMUM_STATE_FOR_USE_FLASK = 0.05f;
         private const int OneUseTimerTreshold = 3000;
 
-        private BaseActionSettings Setup { get; }
+        public BaseActionSettings Setup { get; private set; }
         private readonly MyTimer ActionTimer;
         private readonly MyTimer OneUseTimer;
 
         private readonly bool DEBUG;
 
+        private FlaskSlot? Slot { get; }
+
+
+        public BaseAction(BaseAction baseAct)
+        {
+            Setup = baseAct.Setup;
+
+            ActionTimer = baseAct.ActionTimer;
+            OneUseTimer = baseAct.OneUseTimer;
+
+            Slot = baseAct.Slot;
+        }
 
         public BaseAction(BaseActionSettings setup, bool debug = false)
         {
@@ -22,14 +35,27 @@ namespace PoeFlasks3.BotLogic.Flasks
             Setup = setup;
             ActionTimer = new();
             OneUseTimer = new();
+
+            Slot = null;
+        }
+
+        public BaseAction(BaseActionSettings setup, FlaskSlot slot, bool debug = false)
+        {
+            DEBUG = debug;
+
+            Setup = setup;
+            ActionTimer = new();
+            OneUseTimer = new();
+
+            Slot = slot;
         }
 
 
-        public void Use()
+        public async void UseAsync()
         {
             ActionTimer.Update();
-            BotFW.SendKey(Setup.HotKey, debug: DEBUG);
-
+            Log.Write($"Send key: {Setup.HotKey}");
+            await Task.Run(() => BotFW.SendKey(Setup.HotKey, debug: DEBUG));
         }
 
         public bool Chek(GrabedData? grabedData, FlaskKeyUsedRecentlyCheker pauseCheker)
@@ -40,7 +66,7 @@ namespace PoeFlasks3.BotLogic.Flasks
             // None
             if (Setup.ActType == ActivationType.None)
                 return false;
-            if (!ChekFlaskMinCD())
+            if (!ChekMinCD())
                 return false;
 
             // chek pause on not use other skill recently
@@ -59,54 +85,67 @@ namespace PoeFlasks3.BotLogic.Flasks
 
             // CD
             if (Setup.ActType == ActivationType.CD)
-                return ChekFlaskMinCD(); // this is newer happend (!)
+            {
+                if (Slot == null)
+                    return ChekMinCD();
+                else
+                    return ChekCD(grabedData.Value, Slot.Value);
+            }
 
-            // not avalible in base action (!)
-
-            //// oneTime
-            //if (Setup.ActType == ActivationType.OneTime)
-            //    return ChekOnetime(grabedData.Value);
-
-
-            throw new Exception("Uncorrect Activation Type!");
-        }
-
-        protected bool Chek(GrabedData? grabedData, FlaskKeyUsedRecentlyCheker pauseCheker, FlaskSlot slot)
-        {
-            if (!grabedData.HasValue)
-                return false;
-
-            // None
-            if (Setup.ActType == ActivationType.None)
-                return false;
-            if (!ChekFlaskMinCD())
-                return false;
-
-            // chek pause on not use other skill recently
-            if (pauseCheker.PauseIsEnable(Setup))
-                return false;
-
-            // HP
-            if (Setup.ActType == ActivationType.HP)
-                return ChekHP(grabedData.Value);
-            // MP
-            if (Setup.ActType == ActivationType.MP)
-                return ChekMP(grabedData.Value);
-            // ES
-            if (Setup.ActType == ActivationType.ES)
-                return ChekES(grabedData.Value);
-            // CD
-            if (Setup.ActType == ActivationType.CD)
-                return ChekCD(grabedData.Value, slot);
             // oneTime
-            if (Setup.ActType == ActivationType.OneTime)
-                return ChekOnetime(grabedData.Value, slot);
-
+            if (Slot != null)
+            {
+                
+                if (Setup.ActType == ActivationType.OneTime)
+                    return ChekOnetime(grabedData.Value, Slot.Value);
+            }
 
             throw new Exception("Uncorrect Activation Type!");
         }
 
-        private bool ChekFlaskMinCD()
+        public void UpdateKey(Keys k)
+        {
+            var s = Setup;
+            s.HotKey = k;
+            Setup = s;
+        }
+
+        //private bool _chek(GrabedData? grabedData, FlaskKeyUsedRecentlyCheker pauseCheker, FlaskSlot slot)
+        //{
+        //    if (!grabedData.HasValue)
+        //        return false;
+
+        //    // None
+        //    if (Setup.ActType == ActivationType.None)
+        //        return false;
+        //    if (!ChekFlaskMinCD())
+        //        return false;
+
+        //    // chek pause on not use other skill recently
+        //    if (pauseCheker.PauseIsEnable(Setup))
+        //        return false;
+
+        //    // HP
+        //    if (Setup.ActType == ActivationType.HP)
+        //        return ChekHP(grabedData.Value);
+        //    // MP
+        //    if (Setup.ActType == ActivationType.MP)
+        //        return ChekMP(grabedData.Value);
+        //    // ES
+        //    if (Setup.ActType == ActivationType.ES)
+        //        return ChekES(grabedData.Value);
+        //    // CD
+        //    if (Setup.ActType == ActivationType.CD)
+        //        return ChekCD(grabedData.Value, slot);
+        //    // oneTime
+        //    if (Setup.ActType == ActivationType.OneTime)
+        //        return ChekOnetime(grabedData.Value, slot);
+
+
+        //    throw new Exception("Uncorrect Activation Type!");
+        //}
+
+        private bool ChekMinCD()
         {
             return ActionTimer.Chek((int)(Setup.MinCD * 1000f));
         }

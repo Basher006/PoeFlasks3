@@ -2,7 +2,7 @@
 {
     internal interface IUsable
     {
-        public void Use();
+        public void UseAsync();
         public bool Chek(GrabedData? grabedData, FlaskKeyUsedRecentlyCheker pauseCheker);
     }
 }

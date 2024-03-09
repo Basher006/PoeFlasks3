@@ -10,6 +10,8 @@ namespace PoeFlasks3.BotLogic.Flasks
         private int FlaskPointer;
         private readonly int GroupSize;
 
+        private BaseAction firstFlaskBaseAction;
+
         public FlasksGroup(Profile profile, FlaskGroup group, bool debug = false)
         {
             Group = group;
@@ -24,11 +26,15 @@ namespace PoeFlasks3.BotLogic.Flasks
             {
                 Flasks[i] = new(flasksSettings[i].Value, debug);
             }
+            if (Flasks.Length > 0)
+                firstFlaskBaseAction = new(Flasks[0]);
         }
 
-        public void Use()
+        public void UseAsync()
         {
-            Flasks[FlaskPointer++].Use();
+            firstFlaskBaseAction.UpdateKey(Flasks[FlaskPointer++].Setup.HotKey);
+            firstFlaskBaseAction.UseAsync();
+            //Flasks[FlaskPointer++].UseAsync();
 
             if (FlaskPointer >= GroupSize)
                 FlaskPointer = 0;
@@ -38,7 +44,7 @@ namespace PoeFlasks3.BotLogic.Flasks
         {
             if (Flasks.Length < 1)
                 return false;
-            return Flasks[FlaskPointer].Chek(grabedData, pauseCheker);
+            return Flasks[0].Chek(grabedData, pauseCheker);
         }
     }
 }

@@ -30,19 +30,14 @@ namespace Drinker
             // TODO:
 
             // BOT LOGIC:
-            // screen loop refactoring
-            // screen loop chek refactoring
             // gui callbacks to bot logic
-
             // loop run/full pause/slowMode
             // full pause on settings form opening
 
             // MAIN GUI FORM:
-            // fix crush on form closing (need stop bot loops)
             // start stop button colors and text
 
             // FLASKS SETUP GUI:
-            // global pause when second key.. (!)
             // screen update button
             // additional actions
 
@@ -50,8 +45,8 @@ namespace Drinker
             // OTHER:
             // in game test
             // low resolution test
-            // logging
             // BotKeyHook Send to bot logick all things on pause or not wor update button gui
+            // Full eng lang
 
             // sort profiles by creation time
 

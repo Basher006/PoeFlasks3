@@ -28,7 +28,7 @@ namespace PoeFlasks3.BotLogic
 
             Hook.AddHook(StartStopHotKey, StartStopChange, suppress: true);
 
-            //Hook.HookEnable();
+            Hook.HookEnable();
             ActivatePauseAcyncLoop();
         }
 

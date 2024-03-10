@@ -1,4 +1,5 @@
-﻿using System.Text;
+﻿using BotFW_CvSharp_01;
+using System.Text;
 
 namespace PoeFlasks3.GameClinet
 {
@@ -21,8 +22,19 @@ namespace PoeFlasks3.GameClinet
         private static string _logFilePath = "";
         private static long initlogFileSize;
 
+        private static bool initDone = false;
 
-        public static void InintChek(string logFilePath)
+        public static void Chek(string? logFilePath = null)
+        {
+            if (!initDone && !string.IsNullOrEmpty(logFilePath))
+                InintChek(logFilePath);
+            else if (initDone)
+                Update();
+            else
+                Log.Write("Try to chek poe log without init PoeLogReader!", Log.LogType.Error);
+        }
+
+        private static void InintChek(string logFilePath)
         {
             _logFilePath = logFilePath;
             initlogFileSize = GetFileSize();
@@ -31,12 +43,14 @@ namespace PoeFlasks3.GameClinet
             var logLines = GetLogTextLines();
             if (TryGetLastZonechangedLine(logLines, out string zonechangedtext))
             {
-                ParseZonechangedText_And_SetPauseFlag(zonechangedtext);
+                ParseZoneChangedText_And_SetPauseFlag(zonechangedtext);
                 OnZoneWasChanged?.Invoke();
             }
+
+            initDone = true;
         }
 
-        public static void Update()
+        private static void Update()
         {
             var nowLogSize = GetFileSize();
             if (nowLogSize > initlogFileSize)
@@ -47,7 +61,7 @@ namespace PoeFlasks3.GameClinet
 
                 if (TryGetLastZonechangedLine(updatetdText_lines, out string zonechangedtext))
                 {
-                    ParseZonechangedText_And_SetPauseFlag(zonechangedtext);
+                    ParseZoneChangedText_And_SetPauseFlag(zonechangedtext);
                     OnZoneWasChanged?.Invoke();
                 }
             }
@@ -76,8 +90,8 @@ namespace PoeFlasks3.GameClinet
             //bool finded_eng = TryGetLastZonechangedLine_ENG(logLines, out string lastZonechangedLine_eng, out int foundPos_eng);
             //bool finded_rus = TryGetLastZonechangedLine_RUS(logLines, out string lastZonechangedLine_rus, out int foundPos_rus);
 
-            bool finded_eng = TryGetLastZonechangedLine(logLines, out string lastZonechangedLine_eng, out int foundPos_eng, Language.Eng);
-            bool finded_rus = TryGetLastZonechangedLine(logLines, out string lastZonechangedLine_rus, out int foundPos_rus, Language.Rus);
+            bool finded_eng = TryGetLastZoneChangedLine(logLines, out string lastZonechangedLine_eng, out int foundPos_eng, GameClinetLanguage.Eng);
+            bool finded_rus = TryGetLastZoneChangedLine(logLines, out string lastZonechangedLine_rus, out int foundPos_rus, GameClinetLanguage.Rus);
 
             if (lastZonechangedLine_eng != lastZoneChangedText && lastZonechangedLine_rus != lastZoneChangedText)
             {
@@ -101,7 +115,7 @@ namespace PoeFlasks3.GameClinet
             return false;
         }
 
-        private static bool TryGetLastZonechangedLine(string[] logLines, out string lastZonechangedLine, out int foundPos, Language lang)
+        private static bool TryGetLastZoneChangedLine(string[] logLines, out string lastZonechangedLine, out int foundPos, GameClinetLanguage lang)
         {
             lastZonechangedLine = "non";
             foundPos = -1;
@@ -117,7 +131,7 @@ namespace PoeFlasks3.GameClinet
             return false;
         }
 
-        private static void ParseZonechangedText_And_SetPauseFlag(string zonechangedText)
+        private static void ParseZoneChangedText_And_SetPauseFlag(string zonechangedText)
         {
             if (zonechangedText != lastZoneChangedText)
             {
@@ -162,7 +176,7 @@ namespace PoeFlasks3.GameClinet
             return Encoding.UTF8.GetString(bytes);
         }
 
-        private enum Language
+        private enum GameClinetLanguage
         {
             Rus,
             Eng

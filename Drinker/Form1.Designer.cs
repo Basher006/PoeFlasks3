@@ -44,6 +44,7 @@
             // StartStop_button
             // 
             StartStop_button.BackColor = Color.IndianRed;
+            StartStop_button.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 204);
             StartStop_button.Location = new Point(12, 41);
             StartStop_button.Name = "StartStop_button";
             StartStop_button.Size = new Size(138, 75);
@@ -67,12 +68,12 @@
             // PauseEnable_chekbox
             // 
             PauseEnable_chekbox.AutoSize = true;
-            PauseEnable_chekbox.Location = new Point(13, 143);
+            PauseEnable_chekbox.Location = new Point(13, 144);
             PauseEnable_chekbox.Name = "PauseEnable_chekbox";
             PauseEnable_chekbox.RightToLeft = RightToLeft.Yes;
-            PauseEnable_chekbox.Size = new Size(113, 19);
+            PauseEnable_chekbox.Size = new Size(120, 19);
             PauseEnable_chekbox.TabIndex = 2;
-            PauseEnable_chekbox.Text = "Авто пауза в ХО";
+            PauseEnable_chekbox.Text = "Auto pause in HO";
             PauseEnable_chekbox.UseVisualStyleBackColor = true;
             // 
             // GamePath_label
@@ -80,11 +81,11 @@
             GamePath_label.AutoSize = true;
             GamePath_label.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Underline);
             GamePath_label.ForeColor = Color.RoyalBlue;
-            GamePath_label.Location = new Point(13, 127);
+            GamePath_label.Location = new Point(13, 130);
             GamePath_label.Name = "GamePath_label";
-            GamePath_label.Size = new Size(116, 13);
+            GamePath_label.Size = new Size(105, 13);
             GamePath_label.TabIndex = 3;
-            GamePath_label.Text = "Указать путь к игре..";
+            GamePath_label.Text = "Set path to PoE log..";
             GamePath_label.TextChanged += GamePath_label_TextChanged;
             GamePath_label.Click += GamePath_label_Click;
             // 

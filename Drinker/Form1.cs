@@ -3,6 +3,7 @@ using DrinkerForm;
 using PoeFlasks3.BotLogic;
 using PoeFlasks3.Settings;
 using PoeFlasks3.SettingsThings;
+using static PoeFlasks3.BotLogic.Bot;
 
 namespace Drinker
 {
@@ -10,6 +11,7 @@ namespace Drinker
     {
         // set it to true for debug mode
         private const bool DEBUG = true;
+        //private const bool DEBUG = false;
 
         private bool initIsComplite = false;
 
@@ -17,25 +19,28 @@ namespace Drinker
 
         private Color GamePathColor_set = Color.Black;
         private Color GamePathColor_NotSet = Color.RoyalBlue;
-        private string GamePathText_NotSet = "”казать путь к игре..";
+        private string GamePathText_NotSet = "Set path to game..";
         private int GamePath_textMaxLenght = 25;
 
+        private readonly Dictionary<BotState, Color> StartStopButtonCollors = new() 
+        { { BotState.Stop, Color.IndianRed }, { BotState.Run, Color.YellowGreen }, { BotState.Pause, Color.RosyBrown } };
+        private readonly Dictionary<BotState, string> StartStopButtonText = new() 
+        { { BotState.Stop, "Stopped.. Press (F4) for start" }, { BotState.Run, "Working.. Press (F4) for stop" }, { BotState.Pause, "Pause.. Press (F4) for stop" } };
+        private readonly string PauseWithText_text = "Press (F4) for stop";
 
         public Form1()
         {
             if (DEBUG)
-                Log.Write("Run in debug mode");
+                Log.Write("Run in debug mode!");
             InitializeComponent();
 
             // TODO:
 
             // BOT LOGIC:
-            // gui callbacks to bot logic
-            // loop run/full pause/slowMode
             // full pause on settings form opening
+            // pause for key bulshit not work blyat
 
             // MAIN GUI FORM:
-            // start stop button colors and text
 
             // FLASKS SETUP GUI:
             // screen update button
@@ -45,8 +50,6 @@ namespace Drinker
             // OTHER:
             // in game test
             // low resolution test
-            // BotKeyHook Send to bot logick all things on pause or not wor update button gui
-            // Full eng lang
 
             // sort profiles by creation time
 
@@ -55,12 +58,14 @@ namespace Drinker
             InitProfilesDropBox();
             ApplyAppSettings();
 
-            PoeFlasks3.BotLogic.Bot.updateGUI += UpdateUPS;
+            Bot.updateGUI += UpdateUPS;
+            Bot.updateStartStopButton += ChangeStartStopButton;
+            ChangeStartStopButton(BotState.Stop, null);
 
             Thread.Sleep(500);
-            Log.Write("Init cpmplite!");
             SubscribeEvents();
             initIsComplite = true;
+            Log.Write("Init cpmplite!");
         }
 
         public void UpdateUPS(GrabedData? data, long ups)
@@ -101,6 +106,33 @@ namespace Drinker
 
         }
 
+        public void ChangeStartStopButton(BotState state, string? whyNotRun)
+        {
+            if (state == BotState.None)
+                state = BotState.Stop;
+
+            string startStopButtonText;
+            if (!string.IsNullOrEmpty(whyNotRun))
+            {
+                if (state == BotState.Pause)
+                    startStopButtonText = whyNotRun + PauseWithText_text;
+                else
+                    startStopButtonText = whyNotRun;
+            }
+            else
+                startStopButtonText = StartStopButtonText[state];
+            try
+            {
+                StartStop_button.Text = startStopButtonText;
+            }
+            catch (Exception)
+            {
+                Log.Write("Update Start/Stop button text Exeption!", Log.LogType.Warn);
+            }
+
+            StartStop_button.BackColor = StartStopButtonCollors[state];
+        }
+
         public void InitProfilesDropBox()
         {
             // add profiles to drop box
@@ -138,10 +170,15 @@ namespace Drinker
             }
         }
 
+        private void SubscribeEvents()
+        {
+            PauseEnable_chekbox.CheckStateChanged += PauseEnable_chekbox_CheckStateChanged;
+        }
+
         private void PauseEnable_chekbox_CheckStateChanged(object sender, EventArgs e)
         {
             Log.Write($"Enable pause in ho chekbox state shanged to: {PauseEnable_chekbox.Checked}");
-            Bot.OnPauseChange(PauseEnable_chekbox.Checked);
+
 
             PoeFlasks3.Program.Settings.AppConfig.PauseInHo_checkboxState = PauseEnable_chekbox.Checked;
             PoeFlasks3.Program.Settings.AppConfig.Save();
@@ -150,8 +187,11 @@ namespace Drinker
             {
                 TryGetPoeLogPath(out string poeLogPath);
                 UpdatePoeLogPathInGUI(poeLogPath);
+                Bot.OnPauseChange(PauseEnable_chekbox.Checked, poeLogPath);
                 Log.Write($"PoE Log path changed to: {poeLogPath}");
             }
+            else
+                Bot.OnPauseChange(PauseEnable_chekbox.Checked, null);
         }
 
         private bool TryGetPoeLogPath(out string poeLogPath)
@@ -271,11 +311,6 @@ namespace Drinker
             Bot.OnStartStopChange();
         }
 
-        private void ChangeStartStopButton()
-        {
-
-        }
-
         private void GamePath_label_TextChanged(object sender, EventArgs e)
         {
             if (GamePath_label.Text.Length > GamePath_textMaxLenght + 2)
@@ -284,11 +319,6 @@ namespace Drinker
                 newText += "..";
                 GamePath_label.Text = newText;
             }
-        }
-
-        private void SubscribeEvents()
-        {
-            PauseEnable_chekbox.CheckStateChanged += PauseEnable_chekbox_CheckStateChanged;
         }
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)

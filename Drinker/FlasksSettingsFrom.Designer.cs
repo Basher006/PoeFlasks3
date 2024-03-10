@@ -241,7 +241,7 @@
             tabControl1.Location = new Point(0, 49);
             tabControl1.Name = "tabControl1";
             tabControl1.SelectedIndex = 0;
-            tabControl1.Size = new Size(825, 665);
+            tabControl1.Size = new Size(825, 675);
             tabControl1.TabIndex = 4;
             // 
             // tabPage1
@@ -253,7 +253,7 @@
             tabPage1.Location = new Point(4, 24);
             tabPage1.Name = "tabPage1";
             tabPage1.Padding = new Padding(3);
-            tabPage1.Size = new Size(817, 637);
+            tabPage1.Size = new Size(817, 647);
             tabPage1.TabIndex = 0;
             tabPage1.Text = "Flasks Setup";
             // 

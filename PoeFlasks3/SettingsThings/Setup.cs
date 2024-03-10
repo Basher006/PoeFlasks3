@@ -16,6 +16,7 @@ namespace PoeFlasks3.SettingsThings
             // load flask setup profiles
             ProfileManager.Load();
             Log.Write($"Load total: {ProfileManager.ProfileNames.Count} Flasks profiles.");
+
             // load App Settings
             AppConfig = AppSettings.Load();
             Log.Write("Load app settings.");
@@ -24,7 +25,6 @@ namespace PoeFlasks3.SettingsThings
                 Log.Write("App settings dont have valide PoE log path!", Log.LogType.Warn);
 
             // select profile
-
             if (!ProfileManager.TrySelectProfile(AppConfig.SelectedProfile, out SelectedProfile))
             {
                 // Not correct profile name in AppConfig
@@ -37,6 +37,9 @@ namespace PoeFlasks3.SettingsThings
 
             BotKeyHook.Init();
             BotKeyHook.UpdatePauseWhenSecondKeyNotUsedRecently(SelectedProfile.Profile);
+
+            if (AppConfig.HaveValidePoeLogPath)
+                Bot.OnPauseChange(AppConfig.PauseInHo_checkboxState, AppConfig.PoeLogPath);
         }
 
 
@@ -50,6 +53,12 @@ namespace PoeFlasks3.SettingsThings
 
             return false;
         }
+
+        //public bool CharacterInPauseZone()
+        //{
+        //    if (HaveValidePoeLogPath)
+
+        //}
 
         public bool TryRenameSelectedFrofile(string newName)
         {

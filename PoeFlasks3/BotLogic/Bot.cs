@@ -6,6 +6,7 @@ using PoeFlasks3.GameClinet;
 using PoeFlasks3.SettingsThings;
 using System.Diagnostics;
 using System.Drawing;
+using System.Text;
 
 namespace PoeFlasks3.BotLogic
 {
@@ -14,14 +15,18 @@ namespace PoeFlasks3.BotLogic
         public delegate void UpdateGUI(GrabedData? data, long ups);
         public static UpdateGUI updateGUI;
 
+        public delegate void UpdateStartStopButton(BotState state, string? whyPause);
+        public static UpdateStartStopButton updateStartStopButton;
+
 
         private static bool DEBUG;
-        private static State state = State.None;
+        private static BotState state = BotState.None;
         private static PoeClinet Client;
 
         private static bool Run = true;
         private static bool IsStart = false;
-        private static bool IsPause = false;
+        private static bool PauseEnable = false;
+        private static bool PlayerInPauseZone = false;
 
         private static Bitmap _screen;
         public static Bitmap Screen;
@@ -47,7 +52,7 @@ namespace PoeFlasks3.BotLogic
 
         public static void RunLoop()
         {
-            state = State.Run;
+            state = BotState.Run;
             Screen = new Bitmap(1920, 1080, System.Drawing.Imaging.PixelFormat.Format24bppRgb);
 
             _runLoop();
@@ -62,25 +67,45 @@ namespace PoeFlasks3.BotLogic
         {
             Stopwatch timer = new Stopwatch();
             timer.Start();
+
+            BotState state = BotState.None;
+            BotState oldState = BotState.None;
+
             while (Run)
             {
-                await Task.Run(DataGrabLoop);
-                await Task.Run(ScreenLoop);
+                if (PauseEnable)
+                    PoeLogReader.Chek();
 
-                // if slow mode
-                // task delay
+                if (!Client.Window.IsFinded)
+                    Client.Window.TryFindWindow();
 
-                while (!ScreenIsReady && !DataGrabIsDone)
+
+                state = GetState(out string? whyPause);
+                if (state != oldState)
+                    updateStartStopButton?.Invoke(state, whyPause);
+                oldState = state;
+
+
+
+                if (state == BotState.Run || state == BotState.Pause)
                 {
+                    await Task.Run(DataGrabLoop);
+                    await Task.Run(ScreenLoop);
+
+                    while (!ScreenIsReady && !DataGrabIsDone)
+                    {
+                        if (!Run)
+                            break;
+                        await Task.Delay(10);
+                    }
                     if (!Run)
                         break;
-                    await Task.Delay(10);
                 }
-                if (!Run)
-                    break;
 
-                // if state == Start
-                DoActions(); // its already async!
+
+
+                if (state == BotState.Run)
+                    DoActions(); // its already async!
 
 
                 timer.Stop();
@@ -90,6 +115,9 @@ namespace PoeFlasks3.BotLogic
                 updateGUI?.Invoke(GrabedData, loopTime);
                 GC.Collect();
                 timer.Restart();
+
+                if (state != BotState.Run)
+                    await Task.Delay(250);
             }
         }
 
@@ -160,11 +188,21 @@ namespace PoeFlasks3.BotLogic
         {
             IsStart = !IsStart;
             Log.Write($"Start/Stop change to: {IsStart}");
+            var state = GetState(out string? whyPause);
+            updateStartStopButton?.Invoke(state, whyPause);
         }
 
-        public static void OnPauseChange(bool pause)
+        public static void OnPauseChange(bool pause, string? poeLogPath )
         {
-            IsPause = pause;
+            PauseEnable = pause;
+            PoeLogReader.OnZoneWasChanged = null;
+            PoeLogReader.OnZoneWasChanged += OnZoneChange;
+            PoeLogReader.Chek(poeLogPath);
+        }
+
+        private static void OnZoneChange()
+        {
+            PlayerInPauseZone = PoeLogReader.characterIsInPauseZone;
         }
 
         public static void OnFlasksSetupChange(Profile setup)
@@ -173,18 +211,62 @@ namespace PoeFlasks3.BotLogic
             FlasksProfile = setup;
         }
 
-        private static State GetState()
+        private static BotState GetState(out string? whyNotRun)
         {
-            // chek things
-            return State.None;
+            whyNotRun = null;
+
+            if (IsStart)
+            {
+                // Window
+                if (!Client.Window.IsFinded)
+                {
+                    IsStart = false;
+                    Log.Write("Cannot Find Game window! Stoped bot.", Log.LogType.Error);
+                    whyNotRun = "Cannot Find Game window! Stoped bot.";
+                    return BotState.Stop;
+                }
+                else if (!Client.ScreenResolutionIsAccept)
+                {
+                    IsStart = false;
+                    Log.Write($"Game Resolution not accept({Client.Window.Resolution})! Accepdet resolutions: {string.Join(", ", PoeClinet.ACCEPT_SCREEN_RES)}", Log.LogType.Error);
+                    whyNotRun = "Game Resolution not accept!";
+                    return BotState.Stop;
+                }
+                else if (!Client.Window.IsActive)
+                {
+                    whyNotRun = "Game window not active, Pause.. ";
+                    return BotState.Pause;
+                }
+
+                // Data
+                if (GrabedData == null || !GrabedData.Value.FindedFlags.Any_isFind)
+                {
+                    whyNotRun = "Pause.. Cannot find any data ";
+                    return BotState.Pause;
+                }
+
+                if (PauseEnable && PlayerInPauseZone)
+                {
+                    whyNotRun = "Pause in HO ";
+                    return BotState.Pause;
+                }
+                else
+                    return BotState.Run;
+            }
+
+            else if (!IsStart)
+                return BotState.Stop;
+
+            Log.Write("Cannot correct define State", Log.LogType.Error);
+            return BotState.None;
         }
 
-        private enum State
+        public enum BotState
         {
             None, // on app start
             Run,  // work
             Stop, // not work
-            Pause, // pause
+            Pause, // pause/slow mode
         }
     }
 }

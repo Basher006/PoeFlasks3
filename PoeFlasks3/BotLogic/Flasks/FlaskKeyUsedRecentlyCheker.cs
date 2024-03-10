@@ -51,8 +51,20 @@ namespace PoeFlasks3.BotLogic.Flasks
 
         public bool PauseIsEnable(BaseActionSettings baseAction)
         {
+            var globapPause = Program.Settings.SelectedProfile.Profile.Setup.GlobalPauseWhenSecondKeyNotUsedRecently;
+            if (globapPause.Enable)
+            {
+                if (FlasksKeyIsUsedRecently.ContainsKey(globapPause))
+                {
+                    return FlasksKeysTimers[globapPause].Chek((int)(globapPause.PauseActivationDelay * 1000f));
+                }
+            }
+
             if (FlasksKeyIsUsedRecently.ContainsKey(baseAction.PauseWhenSecondKeyNotUsedRecently))
-                return FlasksKeyIsUsedRecently[baseAction.PauseWhenSecondKeyNotUsedRecently];
+            {
+                //return FlasksKeyIsUsedRecently[baseAction.PauseWhenSecondKeyNotUsedRecently];
+                return FlasksKeysTimers[baseAction.PauseWhenSecondKeyNotUsedRecently].Chek((int)(baseAction.PauseWhenSecondKeyNotUsedRecently.PauseActivationDelay * 1000f));
+            }
 
             return false;
         }
@@ -70,7 +82,9 @@ namespace PoeFlasks3.BotLogic.Flasks
             foreach (var item in FlasksKeyIsUsedRecently)
             {
                 if (item.Key.Key == k)
-                    FlasksKeyIsUsedRecently[item.Key] = FlasksKeysTimers[item.Key].Chek((int)(item.Key.PauseActivationDelay * 1000f));
+                {
+                    FlasksKeysTimers[item.Key].Update();
+                }
             }
         }
 

@@ -20,23 +20,13 @@ namespace PoeFlasks3.GameClinet
 
         public static readonly Dictionary<AcceptPoeResolutions, WindowResolution> ACCEPT_SCREEN_RES = new()
         {
-            { AcceptPoeResolutions.x_983, new (983, 1280)  },
-            { AcceptPoeResolutions.x_1050, new (1050, 1920) },
-            { AcceptPoeResolutions.x_1080, new (1080, 1920) }
+            { AcceptPoeResolutions.x_983,  new (1280, 983) },
+            { AcceptPoeResolutions.x_1050, new (1920, 1050) },
+            { AcceptPoeResolutions.x_1080, new (1920, 1080) }
         };
 
 
-        //private static readonly WindowResolution[] ACCEPT_SCREEN_RES = 
-        //{ 
-        //    new (1050, 1920), new (1080, 1920), new (983, 1280) 
-        //};
-
-
         public Game Window;
-
-
-        //public string PoeLogPath;
-        //public bool SucsessedGettedPoeInstallPath = false;
         public bool ScreenResolutionIsAccept { get => ScreenResIsAccept(); }
 
 
@@ -48,17 +38,14 @@ namespace PoeFlasks3.GameClinet
             DEBUG = debug;
 
             Window = new Game(POE_CLIENT_WINDOW_NAME, DEBUG);
-            //SucsessedGettedPoeInstallPath = TryGetPoeLogFolderFromRegistry(out PoeLogPath);
         }
 
-        public PoeClinet(bool debug, string poeLogFolder)
-        {
-            DEBUG = debug;
+        //public PoeClinet(bool debug, string poeLogFolder)
+        //{
+        //    DEBUG = debug;
 
-            Window = new Game(POE_CLIENT_WINDOW_NAME, DEBUG);
-            //PoeLogPath = poeLogFolder;
-            //SucsessedGettedPoeInstallPath = true;
-        }
+        //    Window = new Game(POE_CLIENT_WINDOW_NAME, DEBUG);
+        //}
 
 
 

@@ -359,8 +359,6 @@ namespace PoeFlasks3.SettingsThings
 
         private static string[] GetProfilesFileNames()
         {
-            //var files = Directory.EnumerateFiles(SaveDirectory, FileExtension);
-            //return files.Where(x => x.Contains(FileExtension)).ToArray();
             if (Directory.Exists(SaveDirectory))
             {
                 var files = Directory.EnumerateFiles(SaveDirectory);
@@ -371,8 +369,6 @@ namespace PoeFlasks3.SettingsThings
                         result.Add(f);
                 }
                 return result.ToArray();
-
-                //return Directory.EnumerateFiles(SaveDirectory, FileExtension).ToArray();
             }
             else
                 return Array.Empty<string>();

@@ -38,7 +38,6 @@ namespace Drinker
 
             // BOT LOGIC:
             // full pause on settings form opening
-            // pause for key bulshit not work blyat
 
             // MAIN GUI FORM:
 
@@ -51,6 +50,7 @@ namespace Drinker
             // in game test
             // low resolution test
 
+            // add buffer to log, and async save log
             // sort profiles by creation time
 
 

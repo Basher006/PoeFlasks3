@@ -142,6 +142,24 @@
             Global_EnablePause_chekbox = new CheckBox();
             RenameProfile_button = new Button();
             RenameCancel_button = new Button();
+            panel10 = new Panel();
+            button1 = new Button();
+            button2 = new Button();
+            comboBox1 = new ComboBox();
+            numericUpDown1 = new NumericUpDown();
+            numericUpDown2 = new NumericUpDown();
+            radioButton1 = new RadioButton();
+            radioButton2 = new RadioButton();
+            panel12 = new Panel();
+            numericUpDown3 = new NumericUpDown();
+            label29 = new Label();
+            comboBox2 = new ComboBox();
+            label30 = new Label();
+            checkBox1 = new CheckBox();
+            numericUpDown4 = new NumericUpDown();
+            label31 = new Label();
+            label32 = new Label();
+            comboBox3 = new ComboBox();
             tabControl1.SuspendLayout();
             tabPage1.SuspendLayout();
             tableLayoutPanel1.SuspendLayout();
@@ -181,8 +199,15 @@
             ((System.ComponentModel.ISupportInitialize)Flask2_Flat_numericUpDown).BeginInit();
             ((System.ComponentModel.ISupportInitialize)Flask2_Percent_numericUpDown).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            tabPage2.SuspendLayout();
             groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)Global_PauseSec_numericUpDown).BeginInit();
+            panel10.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)numericUpDown1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)numericUpDown2).BeginInit();
+            panel12.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)numericUpDown3).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)numericUpDown4).BeginInit();
             SuspendLayout();
             // 
             // label1
@@ -1322,10 +1347,12 @@
             // tabPage2
             // 
             tabPage2.BackColor = SystemColors.Control;
+            tabPage2.Controls.Add(button1);
+            tabPage2.Controls.Add(panel10);
             tabPage2.Location = new Point(4, 24);
             tabPage2.Name = "tabPage2";
             tabPage2.Padding = new Padding(3);
-            tabPage2.Size = new Size(817, 637);
+            tabPage2.Size = new Size(817, 647);
             tabPage2.TabIndex = 1;
             tabPage2.Text = "Addtitional actions";
             // 
@@ -1350,9 +1377,9 @@
             groupBox1.Controls.Add(Global_SecondKey_dropBox);
             groupBox1.Controls.Add(Global_EnablePause_chekbox);
             groupBox1.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            groupBox1.Location = new Point(12, 720);
+            groupBox1.Location = new Point(4, 726);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(712, 62);
+            groupBox1.Size = new Size(720, 56);
             groupBox1.TabIndex = 3;
             groupBox1.TabStop = false;
             groupBox1.Text = "Global settings:";
@@ -1435,6 +1462,200 @@
             RenameCancel_button.Visible = false;
             RenameCancel_button.Click += RenameCancel_button_Click;
             // 
+            // panel10
+            // 
+            panel10.BackColor = Color.SkyBlue;
+            panel10.Controls.Add(numericUpDown4);
+            panel10.Controls.Add(label31);
+            panel10.Controls.Add(label32);
+            panel10.Controls.Add(comboBox3);
+            panel10.Controls.Add(numericUpDown3);
+            panel10.Controls.Add(label29);
+            panel10.Controls.Add(comboBox2);
+            panel10.Controls.Add(label30);
+            panel10.Controls.Add(checkBox1);
+            panel10.Controls.Add(panel12);
+            panel10.Controls.Add(numericUpDown1);
+            panel10.Controls.Add(numericUpDown2);
+            panel10.Controls.Add(radioButton1);
+            panel10.Controls.Add(radioButton2);
+            panel10.Controls.Add(button2);
+            panel10.Location = new Point(6, 6);
+            panel10.Name = "panel10";
+            panel10.Size = new Size(804, 100);
+            panel10.TabIndex = 0;
+            // 
+            // button1
+            // 
+            button1.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            button1.Location = new Point(6, 112);
+            button1.Name = "button1";
+            button1.Size = new Size(804, 34);
+            button1.TabIndex = 1;
+            button1.Text = "Add new action";
+            button1.UseVisualStyleBackColor = true;
+            // 
+            // button2
+            // 
+            button2.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            button2.Location = new Point(703, 63);
+            button2.Name = "button2";
+            button2.Size = new Size(98, 34);
+            button2.TabIndex = 0;
+            button2.Text = "delete action";
+            button2.UseVisualStyleBackColor = true;
+            // 
+            // comboBox1
+            // 
+            comboBox1.BackColor = Color.White;
+            comboBox1.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBox1.FlatStyle = FlatStyle.Popup;
+            comboBox1.FormattingEnabled = true;
+            comboBox1.Location = new Point(-1, -1);
+            comboBox1.Name = "comboBox1";
+            comboBox1.Size = new Size(127, 23);
+            comboBox1.TabIndex = 5;
+            // 
+            // numericUpDown1
+            // 
+            numericUpDown1.Location = new Point(57, 61);
+            numericUpDown1.Maximum = new decimal(new int[] { 100000, 0, 0, 0 });
+            numericUpDown1.Name = "numericUpDown1";
+            numericUpDown1.Size = new Size(77, 23);
+            numericUpDown1.TabIndex = 9;
+            numericUpDown1.Value = new decimal(new int[] { 3000, 0, 0, 0 });
+            // 
+            // numericUpDown2
+            // 
+            numericUpDown2.Location = new Point(74, 36);
+            numericUpDown2.Name = "numericUpDown2";
+            numericUpDown2.Size = new Size(60, 23);
+            numericUpDown2.TabIndex = 8;
+            numericUpDown2.Value = new decimal(new int[] { 50, 0, 0, 0 });
+            // 
+            // radioButton1
+            // 
+            radioButton1.AutoSize = true;
+            radioButton1.Location = new Point(7, 61);
+            radioButton1.Name = "radioButton1";
+            radioButton1.Size = new Size(44, 19);
+            radioButton1.TabIndex = 7;
+            radioButton1.Text = "Flat";
+            radioButton1.UseVisualStyleBackColor = true;
+            // 
+            // radioButton2
+            // 
+            radioButton2.AutoSize = true;
+            radioButton2.Checked = true;
+            radioButton2.Location = new Point(7, 36);
+            radioButton2.Name = "radioButton2";
+            radioButton2.Size = new Size(65, 19);
+            radioButton2.TabIndex = 6;
+            radioButton2.TabStop = true;
+            radioButton2.Text = "Percent";
+            radioButton2.UseVisualStyleBackColor = true;
+            // 
+            // panel12
+            // 
+            panel12.BackColor = Color.Transparent;
+            panel12.BorderStyle = BorderStyle.FixedSingle;
+            panel12.Controls.Add(comboBox1);
+            panel12.Location = new Point(7, 7);
+            panel12.Name = "panel12";
+            panel12.Size = new Size(127, 23);
+            panel12.TabIndex = 10;
+            // 
+            // numericUpDown3
+            // 
+            numericUpDown3.DecimalPlaces = 1;
+            numericUpDown3.Location = new Point(247, 74);
+            numericUpDown3.Maximum = new decimal(new int[] { 30, 0, 0, 0 });
+            numericUpDown3.Name = "numericUpDown3";
+            numericUpDown3.Size = new Size(43, 23);
+            numericUpDown3.TabIndex = 15;
+            numericUpDown3.Value = new decimal(new int[] { 15, 0, 0, 0 });
+            // 
+            // label29
+            // 
+            label29.AutoSize = true;
+            label29.Font = new Font("Segoe UI", 8.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            label29.Location = new Point(161, 78);
+            label29.Name = "label29";
+            label29.Size = new Size(89, 13);
+            label29.TabIndex = 14;
+            label29.Text = "Pause after(sec):";
+            // 
+            // comboBox2
+            // 
+            comboBox2.DropDownHeight = 200;
+            comboBox2.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBox2.FlatStyle = FlatStyle.Popup;
+            comboBox2.FormattingEnabled = true;
+            comboBox2.IntegralHeight = false;
+            comboBox2.Location = new Point(163, 48);
+            comboBox2.Name = "comboBox2";
+            comboBox2.Size = new Size(127, 23);
+            comboBox2.TabIndex = 13;
+            // 
+            // label30
+            // 
+            label30.AutoSize = true;
+            label30.Location = new Point(163, 25);
+            label30.Name = "label30";
+            label30.Size = new Size(115, 15);
+            label30.TabIndex = 12;
+            label30.Text = "second key not used";
+            // 
+            // checkBox1
+            // 
+            checkBox1.AutoSize = true;
+            checkBox1.Location = new Point(163, 4);
+            checkBox1.Name = "checkBox1";
+            checkBox1.Size = new Size(127, 19);
+            checkBox1.TabIndex = 11;
+            checkBox1.Text = "enable pause when";
+            checkBox1.UseVisualStyleBackColor = true;
+            // 
+            // numericUpDown4
+            // 
+            numericUpDown4.DecimalPlaces = 1;
+            numericUpDown4.Location = new Point(404, 60);
+            numericUpDown4.Maximum = new decimal(new int[] { 10, 0, 0, 0 });
+            numericUpDown4.Name = "numericUpDown4";
+            numericUpDown4.Size = new Size(43, 23);
+            numericUpDown4.TabIndex = 19;
+            numericUpDown4.Value = new decimal(new int[] { 3, 0, 0, 0 });
+            // 
+            // label31
+            // 
+            label31.AutoSize = true;
+            label31.Location = new Point(319, 63);
+            label31.Name = "label31";
+            label31.Size = new Size(82, 15);
+            label31.TabIndex = 18;
+            label31.Text = "Minimum CD:";
+            // 
+            // label32
+            // 
+            label32.AutoSize = true;
+            label32.Location = new Point(319, 8);
+            label32.Name = "label32";
+            label32.Size = new Size(94, 15);
+            label32.TabIndex = 17;
+            label32.Text = "In game Hotkey:";
+            // 
+            // comboBox3
+            // 
+            comboBox3.DropDownHeight = 200;
+            comboBox3.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBox3.FlatStyle = FlatStyle.Popup;
+            comboBox3.FormattingEnabled = true;
+            comboBox3.IntegralHeight = false;
+            comboBox3.Location = new Point(319, 26);
+            comboBox3.Name = "comboBox3";
+            comboBox3.Size = new Size(127, 23);
+            comboBox3.TabIndex = 16;
+            // 
             // FlasksSettingsFrom
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -1500,9 +1721,17 @@
             ((System.ComponentModel.ISupportInitialize)Flask2_Flat_numericUpDown).EndInit();
             ((System.ComponentModel.ISupportInitialize)Flask2_Percent_numericUpDown).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            tabPage2.ResumeLayout(false);
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)Global_PauseSec_numericUpDown).EndInit();
+            panel10.ResumeLayout(false);
+            panel10.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)numericUpDown1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)numericUpDown2).EndInit();
+            panel12.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)numericUpDown3).EndInit();
+            ((System.ComponentModel.ISupportInitialize)numericUpDown4).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -1623,5 +1852,23 @@
         private Button Close_button;
         private Button RenameProfile_button;
         private Button RenameCancel_button;
+        private Button button1;
+        private Panel panel10;
+        private NumericUpDown numericUpDown3;
+        private Label label29;
+        private ComboBox comboBox2;
+        private Label label30;
+        private CheckBox checkBox1;
+        private Panel panel12;
+        private ComboBox comboBox1;
+        private NumericUpDown numericUpDown1;
+        private NumericUpDown numericUpDown2;
+        private RadioButton radioButton1;
+        private RadioButton radioButton2;
+        private Button button2;
+        private NumericUpDown numericUpDown4;
+        private Label label31;
+        private Label label32;
+        private ComboBox comboBox3;
     }
 }

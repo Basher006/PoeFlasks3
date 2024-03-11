@@ -2,21 +2,19 @@
 
 namespace PoeFlasks3.BotLogic.Flasks
 {
-    public class FlasksManager : IDisposable
+    public class FlasksManager
     {
         private readonly Profile Profile;
         private readonly List<IUsable> UsableThings;
-        private readonly FlaskKeyUsedRecentlyCheker FlaskUseRecentlyCheker;
 
         private readonly bool DEBUG;
 
         public FlasksManager(Profile profile, bool debug = false)
         {
-            FlaskUseRecentlyCheker = new(profile.Setup);
-
             DEBUG = debug;
 
             Profile = profile;
+            BotKeyHook.UpdatePauseWhenSecondKeyNotUsedRecently(Profile);
 
             // Add Flasks groups;
             UsableThings = new()
@@ -45,7 +43,7 @@ namespace PoeFlasks3.BotLogic.Flasks
 
             foreach (var useblaThing in UsableThings)
             {
-                if (useblaThing.Chek(data, FlaskUseRecentlyCheker))
+                if (useblaThing.Chek(data))
                     useActions.Add(useblaThing);
             }
 
@@ -60,11 +58,6 @@ namespace PoeFlasks3.BotLogic.Flasks
         {
             useAction.UseAsync();
             //await new Task(useAction.Use);
-        }
-
-        public void Dispose()
-        {
-            FlaskUseRecentlyCheker.Dispose();
         }
     }
 }

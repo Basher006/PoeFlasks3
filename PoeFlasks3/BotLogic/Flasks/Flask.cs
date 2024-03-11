@@ -9,10 +9,5 @@ namespace PoeFlasks3.BotLogic.Flasks
         {
             FlaskSetup = setup;
         }
-
-        //public new bool Chek(GrabedData? grabedData, FlaskKeyUsedRecentlyCheker pauseCheker)
-        //{
-        //    return Chek(grabedData, pauseCheker, FlaskSetup.Slot);
-        //}
     }
 }

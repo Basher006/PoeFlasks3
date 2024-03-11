@@ -40,11 +40,11 @@ namespace PoeFlasks3.BotLogic.Flasks
                 FlaskPointer = 0;
         }
 
-        public bool Chek(GrabedData? grabedData, FlaskKeyUsedRecentlyCheker pauseCheker)
+        public bool Chek(GrabedData? grabedData)
         {
             if (Flasks.Length < 1)
                 return false;
-            return Flasks[0].Chek(grabedData, pauseCheker);
+            return Flasks[0].Chek(grabedData);
         }
     }
 }

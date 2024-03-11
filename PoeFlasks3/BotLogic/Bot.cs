@@ -82,7 +82,14 @@ namespace PoeFlasks3.BotLogic
 
                 state = GetState(out string? whyPause);
                 if (state != oldState)
+                {
+                    if (string.IsNullOrEmpty(whyPause))
+                        Log.Write($"Bot state change to: {state}");
+                    else
+                        Log.Write($"Bot state change to: {state}, with reason: {whyPause}");
+
                     updateStartStopButton?.Invoke(state, whyPause);
+                }
                 oldState = state;
 
 

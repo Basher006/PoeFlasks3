@@ -58,7 +58,7 @@ namespace PoeFlasks3.BotLogic.Flasks
             await Task.Run(() => BotFW.SendKey(Setup.HotKey, debug: DEBUG));
         }
 
-        public bool Chek(GrabedData? grabedData, FlaskKeyUsedRecentlyCheker pauseCheker)
+        public bool Chek(GrabedData? grabedData)
         {
             if (!grabedData.HasValue)
                 return false;
@@ -66,13 +66,12 @@ namespace PoeFlasks3.BotLogic.Flasks
             // None
             if (Setup.ActType == ActivationType.None)
                 return false;
+            // Chek minimum cooldown
             if (!ChekMinCD())
                 return false;
-
             // chek pause on not use other skill recently
-            if (pauseCheker.PauseIsEnable(Setup))
+            if (BotKeyHook.PauseIsEnable(Setup))
                 return false;
-
             // HP
             if (Setup.ActType == ActivationType.HP)
                 return ChekHP(grabedData.Value);
@@ -82,8 +81,7 @@ namespace PoeFlasks3.BotLogic.Flasks
             // ES
             if (Setup.ActType == ActivationType.ES)
                 return ChekES(grabedData.Value);
-
-            // CD
+            // Chek ingame flask CD state
             if (Setup.ActType == ActivationType.CD)
             {
                 if (Slot == null)
@@ -91,7 +89,6 @@ namespace PoeFlasks3.BotLogic.Flasks
                 else
                     return ChekCD(grabedData.Value, Slot.Value);
             }
-
             // oneTime
             if (Slot != null)
             {
@@ -109,41 +106,6 @@ namespace PoeFlasks3.BotLogic.Flasks
             s.HotKey = k;
             Setup = s;
         }
-
-        //private bool _chek(GrabedData? grabedData, FlaskKeyUsedRecentlyCheker pauseCheker, FlaskSlot slot)
-        //{
-        //    if (!grabedData.HasValue)
-        //        return false;
-
-        //    // None
-        //    if (Setup.ActType == ActivationType.None)
-        //        return false;
-        //    if (!ChekFlaskMinCD())
-        //        return false;
-
-        //    // chek pause on not use other skill recently
-        //    if (pauseCheker.PauseIsEnable(Setup))
-        //        return false;
-
-        //    // HP
-        //    if (Setup.ActType == ActivationType.HP)
-        //        return ChekHP(grabedData.Value);
-        //    // MP
-        //    if (Setup.ActType == ActivationType.MP)
-        //        return ChekMP(grabedData.Value);
-        //    // ES
-        //    if (Setup.ActType == ActivationType.ES)
-        //        return ChekES(grabedData.Value);
-        //    // CD
-        //    if (Setup.ActType == ActivationType.CD)
-        //        return ChekCD(grabedData.Value, slot);
-        //    // oneTime
-        //    if (Setup.ActType == ActivationType.OneTime)
-        //        return ChekOnetime(grabedData.Value, slot);
-
-
-        //    throw new Exception("Uncorrect Activation Type!");
-        //}
 
         private bool ChekMinCD()
         {

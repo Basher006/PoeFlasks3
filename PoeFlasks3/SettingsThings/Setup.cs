@@ -24,6 +24,9 @@ namespace PoeFlasks3.SettingsThings
             if (!HaveValidePoeLogPath)
                 Log.Write("App settings dont have valide PoE log path!", Log.LogType.Warn);
 
+            // init hook
+            BotKeyHook.Init();
+
             // select profile
             if (!ProfileManager.TrySelectProfile(AppConfig.SelectedProfile, out SelectedProfile))
             {
@@ -35,8 +38,8 @@ namespace PoeFlasks3.SettingsThings
                     throw new Exception("Very strange things happend here"); // this is newer happend
             }
 
-            BotKeyHook.Init();
-            BotKeyHook.UpdatePauseWhenSecondKeyNotUsedRecently(SelectedProfile.Profile);
+
+            //BotKeyHook.UpdatePauseWhenSecondKeyNotUsedRecently(SelectedProfile.Profile);
 
             if (AppConfig.HaveValidePoeLogPath)
                 Bot.OnPauseChange(AppConfig.PauseInHo_checkboxState, AppConfig.PoeLogPath);
@@ -53,12 +56,6 @@ namespace PoeFlasks3.SettingsThings
 
             return false;
         }
-
-        //public bool CharacterInPauseZone()
-        //{
-        //    if (HaveValidePoeLogPath)
-
-        //}
 
         public bool TryRenameSelectedFrofile(string newName)
         {

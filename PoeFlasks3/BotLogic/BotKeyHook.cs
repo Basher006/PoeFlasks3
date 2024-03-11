@@ -2,6 +2,7 @@
 using BotFW_CvSharp_01.GlobalStructs;
 using BotFW_CvSharp_01.KeyboardMouse;
 using PoeFlasks3.SettingsThings;
+using System.Linq;
 
 namespace PoeFlasks3.BotLogic
 {
@@ -9,9 +10,7 @@ namespace PoeFlasks3.BotLogic
     {
         private static readonly Keys StartStopHotKey = Keys.F4;
 
-        private static List<Keys> KeysToHook;
-        private static Dictionary<PauseWhenSecondKeyNotUsedRecently, bool> FlasksKeyIsUsedRecently;
-        private static Dictionary<PauseWhenSecondKeyNotUsedRecently, MyTimer> FlasksKeysTimers;
+        private static Dictionary<Keys, MyTimer> KeysUsedRecently;
 
         private static KeyboardHook? Hook;
 
@@ -22,14 +21,11 @@ namespace PoeFlasks3.BotLogic
             Run = true;
             Hook = new();
 
-            KeysToHook = new();
-            FlasksKeyIsUsedRecently = new();
-            FlasksKeysTimers = new();
+            KeysUsedRecently = new();
 
             Hook.AddHook(StartStopHotKey, StartStopChange, suppress: true);
 
             Hook.HookEnable();
-            ActivatePauseAcyncLoop();
         }
 
         public static void UpdatePauseWhenSecondKeyNotUsedRecently(Profile profile)
@@ -57,93 +53,54 @@ namespace PoeFlasks3.BotLogic
                     AddPauseWhenSecondKeyNotUsedRecently(addAct.PauseWhenSecondKeyNotUsedRecently);
                 }
             }
+        }
 
-            foreach (var key in KeysToHook)
+        public static bool PauseIsEnable(BaseActionSettings baseAction)
+        {
+            var globapPause = Program.Settings.SelectedProfile.Profile.Setup.GlobalPauseWhenSecondKeyNotUsedRecently;
+            if (globapPause.Enable)
             {
-                Hook?.AddHook(key, DeactivatePause);
+                var globalPauseIsEnable = _pauseIsEnable(globapPause);
+                var baseActionPauseIsEnable = _pauseIsEnable(baseAction.PauseWhenSecondKeyNotUsedRecently);
+                return globalPauseIsEnable || baseActionPauseIsEnable;
             }
+            else
+                return _pauseIsEnable(baseAction.PauseWhenSecondKeyNotUsedRecently);
+        }
+
+        private static bool _pauseIsEnable(PauseWhenSecondKeyNotUsedRecently pause)
+        {
+            if (KeysUsedRecently.ContainsKey(pause.Key))
+                return KeysUsedRecently[pause.Key].Chek((int)(pause.PauseActivationDelay * 1000f));
+
+            return false;
         }
 
         private static void UnHookOld()
         {
-            foreach (var key in KeysToHook)
+            foreach (var key in KeysUsedRecently)
             {
-                Hook?.UnHook(key);
+                Hook?.UnHook(key.Key);
             }
 
-            KeysToHook.Clear();
-            FlasksKeyIsUsedRecently.Clear();
-            FlasksKeysTimers.Clear();
-        }
-
-        private static async void ActivatePauseAcyncLoop()
-        {
-            await Task.Run(ActivatePause);
-        }
-
-        private static void ActivatePause()
-        {
-            while (Run)
-            {
-                try
-                {
-                    bool someItemChange = false;
-                    var expandedKeys = new List<Keys>();
-                    var keys = FlasksKeyIsUsedRecently.Keys.ToList();
-                    for (int i = 0; i < FlasksKeyIsUsedRecently.Count; i++)
-                    {
-                        int delay_tr_ms = (int)(keys[i].PauseActivationDelay * 1000f);
-                        if (FlasksKeyIsUsedRecently[keys[i]])
-                        {
-                            bool timerIsExpand = FlasksKeysTimers[keys[i]].Chek(delay_tr_ms);
-                            if (timerIsExpand)
-                            {
-                                FlasksKeyIsUsedRecently[keys[i]] = false;
-                                someItemChange = true;
-                                if (!expandedKeys.Contains(keys[i].Key))
-                                    expandedKeys.Add(keys[i].Key);
-                            }
-                        }
-                    }
-
-                    if (someItemChange)
-                        Log.Write($"Activate pause for keys: {string.Join(", ", expandedKeys)}");
-                }
-                catch (Exception)
-                {
-                    Log.Write("Exeption when try activate pause (if it happend once after any profile update, that ok, dont worry!)", Log.LogType.Warn);
-                    Thread.Sleep(10);
-                    continue;
-                }
-
-                Thread.Sleep(250);
-            }
-        }
-
-        private static void DeactivatePause(Keys k)
-        {
-            var itemsToUpdate = FlasksKeyIsUsedRecently.Keys.ToList().Where((x) => x.Key == k).ToList();
-            bool someItemChange = false;
-            for (int i = 0; i < itemsToUpdate.Count(); i++)
-            {
-                FlasksKeysTimers[itemsToUpdate[i]].Update();
-                if (!FlasksKeyIsUsedRecently[itemsToUpdate[i]])
-                {
-                    FlasksKeyIsUsedRecently[itemsToUpdate[i]] = true;
-                    someItemChange = true;
-                }
-            }
-
-            if (someItemChange)
-                Log.Write($"Deactivate pause for key: {k}");
+            KeysUsedRecently.Clear();
         }
 
         private static void AddPauseWhenSecondKeyNotUsedRecently(PauseWhenSecondKeyNotUsedRecently flask)
         {
-            FlasksKeyIsUsedRecently.Add(flask, false);
-            FlasksKeysTimers.Add(flask, new());
-            if (!KeysToHook.Contains(flask.Key))
-                KeysToHook.Add(flask.Key);
+            if (!KeysUsedRecently.ContainsKey(flask.Key))
+            {
+                KeysUsedRecently.Add(flask.Key, new());
+                Hook?.AddHook(flask.Key, UpdateKeyTimer);
+            }
+        }
+
+        private static void UpdateKeyTimer(Keys k)
+        {
+            if (KeysUsedRecently.ContainsKey(k))
+            {
+                KeysUsedRecently[k].Update();
+            }
         }
 
         private static void StartStopChange()

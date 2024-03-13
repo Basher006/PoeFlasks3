@@ -1,6 +1,10 @@
-﻿using Drinker;
+﻿using BotFW_CvSharp_01.GameClientThings;
+using BotFW_CvSharp_01.GlobalStructs;
+using Drinker;
 using PoeFlasks3.BotLogic;
+using PoeFlasks3.GameClinet;
 using PoeFlasks3.SettingsThings;
+using static BotFW_CvSharp_01.GameClientThings.Game;
 
 namespace DrinkerForm
 {
@@ -14,6 +18,13 @@ namespace DrinkerForm
         private Color OnRenameRenameButtomColor = Color.LightGreen;
 
         private FlaskGUIElements[] FlasksGUIElements;
+
+        private readonly Dictionary<WindowResolution, RECT> FlasksScreenAreas = new() 
+        { 
+            { PoeClinet.ACCEPT_SCREEN_RES[AcceptPoeResolutions.x_983], new RECT() },
+            { PoeClinet.ACCEPT_SCREEN_RES[AcceptPoeResolutions.x_1050], new RECT() },
+            { PoeClinet.ACCEPT_SCREEN_RES[AcceptPoeResolutions.x_1080], new RECT() },
+        };  
 
         public FlasksSettingsFrom()
         {
@@ -77,7 +88,8 @@ namespace DrinkerForm
 
         private void ScreenUpdate_button_Click(object sender, EventArgs e)
         {
-            // (!)
+            PoeFlasks3.Program.poeClinet.TryGetFlasksScreen(out var bmp);
+            pictureBox1.BackgroundImage = bmp;
         }
 
         private void Profiles_dropBox_SelectedIndexChanged(object sender, EventArgs e)

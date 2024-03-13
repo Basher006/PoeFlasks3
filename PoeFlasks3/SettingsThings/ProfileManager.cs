@@ -139,7 +139,7 @@ namespace PoeFlasks3.SettingsThings
 
     public struct PauseWhenSecondKeyNotUsedRecently
     {
-        private const float MAX_SECONDS_WAIT_FOR_USE_KEY_RECENTLY = 30f;
+        private const float MAX_SECONDS_WAIT_FOR_USE_KEY_RECENTLY = 300f;
         private static int id;
 
         private readonly int _id;

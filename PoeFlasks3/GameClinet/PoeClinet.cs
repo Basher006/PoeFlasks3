@@ -1,5 +1,7 @@
 ﻿using BotFW_CvSharp_01.GameClientThings;
+using BotFW_CvSharp_01.GlobalStructs;
 using Microsoft.Win32;
+using System.Drawing;
 using static BotFW_CvSharp_01.GameClientThings.Game;
 
 namespace PoeFlasks3.GameClinet
@@ -25,9 +27,17 @@ namespace PoeFlasks3.GameClinet
             { AcceptPoeResolutions.x_1080, new (1920, 1080) }
         };
 
+        private static readonly Dictionary<AcceptPoeResolutions, RECT> FLASKS_SCREEN_AREA = new()
+        {
+            { AcceptPoeResolutions.x_983, new() },   // (!)
+            { AcceptPoeResolutions.x_1050, new(292, 949, 217, 100) }, // (!)
+            { AcceptPoeResolutions.x_1080, new(307, 974, 228, 104) }, // (!)
+        };
+
 
         public Game Window;
         public bool ScreenResolutionIsAccept { get => ScreenResIsAccept(); }
+        public AcceptPoeResolutions? Resolution { get => GetScreenResolution(); }
 
 
         private readonly bool DEBUG;
@@ -40,14 +50,33 @@ namespace PoeFlasks3.GameClinet
             Window = new Game(POE_CLIENT_WINDOW_NAME, DEBUG);
         }
 
-        //public PoeClinet(bool debug, string poeLogFolder)
-        //{
-        //    DEBUG = debug;
+        public bool TryGetFlasksScreen(out Bitmap screen)
+        {
+            var screenRes = GetScreenResolution();
+            if (screenRes != null && Window.IsFinded && ScreenResolutionIsAccept && !Window.IsMinimized)
+            {
+                var screenRECT = FLASKS_SCREEN_AREA[screenRes.Value];
+                //screen = new Bitmap(screenRECT.w, screenRECT.h, System.Drawing.Imaging.PixelFormat.Format24bppRgb);
+                screen = new Bitmap(screenRECT.w, screenRECT.h, System.Drawing.Imaging.PixelFormat.Format24bppRgb);
+                Window.GetScreen(screen, screenRECT, mode: GetScreenMode.background);
+                //screen.Save("test1.png");
+                return true;
+            }
 
-        //    Window = new Game(POE_CLIENT_WINDOW_NAME, DEBUG);
-        //}
+            screen = new(1, 1, System.Drawing.Imaging.PixelFormat.Format24bppRgb);
+            return false;
+        }
 
+        private AcceptPoeResolutions? GetScreenResolution()
+        {
+            foreach (var res in ACCEPT_SCREEN_RES)
+            {
+                if (res.Value == Window.Resolution)
+                    return res.Key;
+            }
 
+            return null;
+        }
 
         private bool ScreenResIsAccept()
         {
@@ -62,12 +91,6 @@ namespace PoeFlasks3.GameClinet
 
             return false;
         }
-
-
-        //public void SetPoeInstallPathFromUser(string path)
-        //{
-        //    PoeLogPath = path + LOG_LOCAL_PATH;
-        //}
 
         public bool TryGetPoeLogFolderFromRegistry(out string logPath)
         {
@@ -99,7 +122,5 @@ namespace PoeFlasks3.GameClinet
 
             return false;
         }
-
-
     }
 }

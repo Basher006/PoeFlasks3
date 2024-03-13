@@ -10,8 +10,8 @@ namespace Drinker
     public partial class Form1 : Form
     {
         // set it to true for debug mode
-        private const bool DEBUG = true;
-        //private const bool DEBUG = false;
+        //private const bool DEBUG = true;
+        private const bool DEBUG = false;
 
         private bool initIsComplite = false;
 
@@ -40,14 +40,18 @@ namespace Drinker
             // full pause on settings form opening
 
             // MAIN GUI FORM:
+            // update start stop button text not always working
+            // update game window info every start
+
 
             // FLASKS SETUP GUI:
             // screen update button
+            // save / delete and update in profile flask screen image
             // additional actions
+            // profile update spaghetti code refactoring
 
 
             // OTHER:
-            // in game test
             // low resolution test
 
             // add buffer to log, and async save log
@@ -65,6 +69,7 @@ namespace Drinker
             Thread.Sleep(500);
             SubscribeEvents();
             initIsComplite = true;
+            Log.Write($"Detected game resolution: {PoeFlasks3.Program.poeClinet.Window.WindowRect}");
             Log.Write("Init cpmplite!");
         }
 
@@ -255,13 +260,13 @@ namespace Drinker
 
         private bool AskUserWherePoeLog(out string newLogPath, string initDirectory = "")
         {
-            newLogPath = AskUserWherePoeLogDialog(initDirectory);
+            newLogPath = AskUserWherePoeLog_Dialog_show(initDirectory);
             bool isValide = AppSettings.IsValidePoePath(newLogPath);
             Log.Write($"User pick path: {newLogPath}. Is valide: {isValide}");
             return isValide;
         }
 
-        private string AskUserWherePoeLogDialog(string initDirectory = "")
+        private string AskUserWherePoeLog_Dialog_show(string initDirectory = "")
         {
             Log.Write("Open file dilaog..");
             string poeLogPath = "";

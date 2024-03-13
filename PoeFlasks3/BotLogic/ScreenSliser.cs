@@ -47,6 +47,17 @@ namespace PoeFlasks3.BotLogic
 
         public static ScreensForNumbersFinder Slise(Mat screen, AcceptPoeResolutions PoeWindowResolution)
         {
+            //var hparea = new Mat(screen, Screen_HPAreas[PoeWindowResolution].ToRect());
+            //hparea.SaveImage("hparea.png");
+
+            //var mparea = new Mat(screen, Screen_MPAreas[PoeWindowResolution].ToRect());
+            //mparea.SaveImage("mparea.png");
+
+            //var flasksStateArea = new Mat(screen, Screen_flaskStateAreas[PoeWindowResolution].ToRect());
+            //flasksStateArea.SaveImage("flasksStateArea.png");
+
+            //Console.WriteLine();
+
             return new ScreensForNumbersFinder
             {
                 HPArea = new Mat(screen, Screen_HPAreas[PoeWindowResolution].ToRect()),

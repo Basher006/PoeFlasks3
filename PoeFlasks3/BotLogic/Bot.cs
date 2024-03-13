@@ -178,9 +178,12 @@ namespace PoeFlasks3.BotLogic
                 {
                     using Mat screenM = Screen.ToMat();
                     //using Mat screenM = new("imgs\\testScreens\\1080_fs.png");
-                    using var screens = ScreenSliser.Slise(screenM, AcceptPoeResolutions.x_1050);
-                    var grbedData = NumbersFinder.GrabData(screens, BotResourseLoader.Numbers, AcceptPoeResolutions.x_1050);
-                    GrabedData = grbedData;
+                    if (Client.Resolution != null)
+                    {
+                        using var screens = ScreenSliser.Slise(screenM, Client.Resolution.Value);
+                        var grbedData = NumbersFinder.GrabData(screens, BotResourseLoader.Numbers, Client.Resolution.Value);
+                        GrabedData = grbedData;
+                    }
                 }
                 ScreenIsFetched = false;
             }

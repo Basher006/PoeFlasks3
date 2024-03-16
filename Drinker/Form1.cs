@@ -45,14 +45,12 @@ namespace Drinker
 
 
             // FLASKS SETUP GUI:
-            // screen update button
-            // save / delete and update in profile flask screen image
             // additional actions
             // profile update spaghetti code refactoring
 
 
             // OTHER:
-            // low resolution test
+            // low resolution not work
 
             // add buffer to log, and async save log
             // sort profiles by creation time

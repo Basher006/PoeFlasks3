@@ -1,9 +1,11 @@
-﻿using BotFW_CvSharp_01.GameClientThings;
+﻿using BotFW_CvSharp_01;
+using BotFW_CvSharp_01.GameClientThings;
 using BotFW_CvSharp_01.GlobalStructs;
 using Drinker;
 using PoeFlasks3.BotLogic;
 using PoeFlasks3.GameClinet;
 using PoeFlasks3.SettingsThings;
+using System.Windows.Forms;
 using static BotFW_CvSharp_01.GameClientThings.Game;
 
 namespace DrinkerForm
@@ -31,9 +33,9 @@ namespace DrinkerForm
             InitializeComponent();
             Focus();
             InitGuiElements();
+            UpdateFlasksScreenPictureBox();
             //InitFlask(); // it moved to on_window_shown
         }
-
 
 
         private void InitFlask()
@@ -56,6 +58,7 @@ namespace DrinkerForm
         private void UpdProfile(Profile profile) // (!?)
         {
             FlasksGUIManager.Update(PoeFlasks3.Program.Settings.SelectedProfile.Profile, ref FlasksGUIElements);
+            UpdateFlasksScreenPictureBox();
             Bot.OnFlasksSetupChange(profile);
         }
 
@@ -88,8 +91,24 @@ namespace DrinkerForm
 
         private void ScreenUpdate_button_Click(object sender, EventArgs e)
         {
+            Log.Write("Update flasks screen button click!");
             if (Bot.Client.TryGetFlasksScreen(out var bmp))
+            {
+                Log.Write("Sucsess get flasks screen!");
+                pictureBox1.BackgroundImage?.Dispose();
                 pictureBox1.BackgroundImage = bmp;
+                PoeFlasks3.Program.Settings.UpdateSelectedProfileFlasksImage(bmp);
+            }
+        }
+
+        private void UpdateFlasksScreenPictureBox()
+        {
+            var imagePath = PoeFlasks3.Program.Settings.SelectedProfile.Profile.Setup.FlasksImagePreview;
+            if (File.Exists(imagePath))
+            {
+                var img = new Bitmap(imagePath);
+                pictureBox1.BackgroundImage = img;
+            }
         }
 
         private void Profiles_dropBox_SelectedIndexChanged(object sender, EventArgs e)

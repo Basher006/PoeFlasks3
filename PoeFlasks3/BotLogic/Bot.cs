@@ -73,8 +73,8 @@ namespace PoeFlasks3.BotLogic
                 // bot state things
                 // ===========================
                 state = GetState(out string? whyNotRun);
-                if (!Client.Window.IsFinded && state != BotState.Stop)
-                    Client.Window.TryFindWindow();
+                if (!Client.Window.IsFinded) // if (!Client.Window.IsFinded && state != BotState.Stop)
+                    await Task.Run(Client.Window.TryFindWindow);
 
                 if (state != oldState)
                 {
@@ -234,6 +234,7 @@ namespace PoeFlasks3.BotLogic
                 if (!Client.Window.IsFinded)
                 {
                     IsStart = false;
+                    Log.Write($"Start/Stop change to: {IsStart}");
                     Log.Write("Cannot Find Game window! Stoped bot.", Log.LogType.Error);
                     whyNotRun = "Cannot Find Game window! Stoped bot.";
                     return BotState.Stop;
@@ -241,6 +242,7 @@ namespace PoeFlasks3.BotLogic
                 else if (!Client.ScreenResolutionIsAccept)
                 {
                     IsStart = false;
+                    Log.Write($"Start/Stop change to: {IsStart}");
                     Log.Write($"Game Resolution not accept({Client.Window.Resolution})! Accepdet resolutions: {string.Join(", ", PoeClinet.ACCEPT_SCREEN_RES)}", Log.LogType.Error);
                     whyNotRun = "Game Resolution not accept!";
                     return BotState.Stop;

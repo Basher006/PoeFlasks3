@@ -1,11 +1,15 @@
 ﻿using BotFW_CvSharp_01;
 using PoeFlasks3.BotLogic;
 using PoeFlasks3.Settings;
+using System.Drawing;
 
 namespace PoeFlasks3.SettingsThings
 {
     public class Setup
     {
+        private const string FLASKS_IMAGE_SAVE_DIRECTORY = "imgs\\Flasks screens\\";
+        private const string FLASKS_IMAGE_FILE_EXTENTION = ".png";
+
         public SelectedProfile SelectedProfile;
         public AppSettings AppConfig;
         public bool HaveValidePoeLogPath { get; }
@@ -101,6 +105,17 @@ namespace PoeFlasks3.SettingsThings
             Log.Write($"Selected profile change to: {SelectedProfile.Name}");
 
             BotKeyHook.UpdatePauseWhenSecondKeyNotUsedRecently(SelectedProfile.Profile);
+        }
+
+        public void UpdateSelectedProfileFlasksImage(Bitmap bmp)
+        {
+            var savePath = FLASKS_IMAGE_SAVE_DIRECTORY + SelectedProfile.Name + FLASKS_IMAGE_FILE_EXTENTION;
+            if (File.Exists(savePath))
+                File.Delete(savePath);
+            bmp.Save(savePath);
+            Log.Write($"Save flasks image to: {savePath}");
+            SelectedProfile.Profile.Setup.FlasksImagePreview = savePath;
+            ProfileManager.UpdateProfile(SelectedProfile.Profile);
         }
 
         private void UpdateAndSave_SelectedProfile_inConfig()

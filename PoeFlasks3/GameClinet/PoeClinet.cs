@@ -1,4 +1,5 @@
-﻿using BotFW_CvSharp_01.GameClientThings;
+﻿using BotFW_CvSharp_01;
+using BotFW_CvSharp_01.GameClientThings;
 using BotFW_CvSharp_01.GlobalStructs;
 using Microsoft.Win32;
 using System.Drawing;
@@ -56,11 +57,27 @@ namespace PoeFlasks3.GameClinet
             if (screenRes != null && Window.IsFinded && ScreenResolutionIsAccept && !Window.IsMinimized)
             {
                 var screenRECT = FLASKS_SCREEN_AREA[screenRes.Value];
-                //screen = new Bitmap(screenRECT.w, screenRECT.h, System.Drawing.Imaging.PixelFormat.Format24bppRgb);
                 screen = new Bitmap(screenRECT.w, screenRECT.h, System.Drawing.Imaging.PixelFormat.Format24bppRgb);
                 Window.GetScreen(screen, screenRECT, mode: GetScreenMode.background);
                 //screen.Save("test1.png");
+                Log.Write("Getted Flasks screen with sucsess!", Log.LogType.Warn);
                 return true;
+            }
+            else
+            {
+                if (screenRes == null)
+                {
+                    if (Window.IsFinded)
+                        Log.Write("Cant get screen resolution when try to get Flasks screen!", Log.LogType.Error);
+                    else
+                        Log.Write("Cant get Flasks screen because poe window not finded", Log.LogType.Warn);
+                }
+                else if (!Window.IsFinded)
+                    Log.Write("Cant find game window when try to get Flasks screen!", Log.LogType.Warn);
+                else if (!ScreenResolutionIsAccept)
+                    Log.Write("Cant get Flasks screen because poe window resolution not accept!", Log.LogType.Warn);
+                else if (Window.IsMinimized)
+                    Log.Write("Cant get Flasks screen because poe window is minimized!", Log.LogType.Warn);
             }
 
             screen = new(1, 1, System.Drawing.Imaging.PixelFormat.Format24bppRgb);

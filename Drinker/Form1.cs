@@ -69,7 +69,11 @@ namespace Drinker
             Thread.Sleep(500);
             SubscribeEvents();
             initIsComplite = true;
-            Log.Write($"Detected game resolution: {PoeFlasks3.Program.poeClinet.Window.WindowRect}");
+            if (Bot.Client.Window.IsFinded)
+                Log.Write($"Detected game resolution: { Bot.Client.Window.WindowRect }");
+            else
+                Log.Write($"Dont find PoE game window!", Log.LogType.Warn);
+
             Log.Write("Init cpmplite!");
         }
 
@@ -211,7 +215,7 @@ namespace Drinker
             }
             else
             {
-                if (PoeFlasks3.Program.poeClinet.TryGetPoeLogFolderFromRegistry(out poeLogPath))
+                if (Bot.Client.TryGetPoeLogFolderFromRegistry(out poeLogPath))
                 {
                     Log.Write("finded valide PoE Log path in Registry!");
                     if (AppSettings.IsValidePoePath(poeLogPath))

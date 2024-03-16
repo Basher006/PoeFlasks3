@@ -6,7 +6,6 @@ using PoeFlasks3.GameClinet;
 using PoeFlasks3.SettingsThings;
 using System.Diagnostics;
 using System.Drawing;
-using System.Text;
 
 namespace PoeFlasks3.BotLogic
 {
@@ -20,8 +19,7 @@ namespace PoeFlasks3.BotLogic
 
 
         private static bool DEBUG;
-        private static BotState state = BotState.None;
-        private static PoeClinet Client;
+        public static PoeClinet Client;
 
         private static bool Run = true;
         private static bool IsStart = false;
@@ -36,14 +34,13 @@ namespace PoeFlasks3.BotLogic
 
         private static bool DataGrabIsDone = false;
 
-        private static Profile FlasksProfile;
         private static FlasksManager Manager;
         private static GrabedData? GrabedData;
 
-        public static void Init(PoeClinet client, SelectedProfile selectedProfile, bool debug)
+        public static void Init(SelectedProfile selectedProfile, bool debug)
         {
-            Client = client;
             DEBUG = debug;
+            Client = new PoeClinet(DEBUG);
 
             OnFlasksSetupChange(selectedProfile.Profile);
             //BotKeyHook.OnStartStopChange += OnStartStopChange;
@@ -52,9 +49,7 @@ namespace PoeFlasks3.BotLogic
 
         public static void RunLoop()
         {
-            state = BotState.Run;
             Screen = new Bitmap(1920, 1080, System.Drawing.Imaging.PixelFormat.Format24bppRgb);
-
             _runLoop();
         }
 
@@ -70,29 +65,35 @@ namespace PoeFlasks3.BotLogic
 
             BotState state = BotState.None;
             BotState oldState = BotState.None;
+            string? OldWhyPause = null;
 
             while (Run)
             {
-                if (PauseEnable)
-                    PoeLogReader.Chek();
-
-                if (!Client.Window.IsFinded)
+                // ===========================
+                // bot state things
+                // ===========================
+                state = GetState(out string? whyNotRun);
+                if (!Client.Window.IsFinded && state != BotState.Stop)
                     Client.Window.TryFindWindow();
 
-
-                state = GetState(out string? whyPause);
                 if (state != oldState)
                 {
-                    if (string.IsNullOrEmpty(whyPause))
+                    if (string.IsNullOrEmpty(whyNotRun))
                         Log.Write($"Bot state change to: {state}");
                     else
-                        Log.Write($"Bot state change to: {state}, with reason: {whyPause}");
-
-                    updateStartStopButton?.Invoke(state, whyPause);
+                        Log.Write($"Bot state change to: {state}, with reason: {whyNotRun}");
                 }
+                if (state != oldState || whyNotRun != OldWhyPause)
+                    updateStartStopButton?.Invoke(state, whyNotRun);
+
                 oldState = state;
+                OldWhyPause = whyNotRun;
 
-
+                // ===========================
+                // data grab things
+                // ===========================
+                if (PauseEnable)
+                    PoeLogReader.Chek();
 
                 if (state == BotState.Run || state == BotState.Pause)
                 {
@@ -109,12 +110,15 @@ namespace PoeFlasks3.BotLogic
                         break;
                 }
 
-
-
+                // ===========================
+                // do actions things
+                // ===========================
                 if (state == BotState.Run)
                     DoActions(); // its already async!
 
-
+                // ===========================
+                // loop managment thigs
+                // ===========================
                 timer.Stop();
                 var loopTime = timer.ElapsedMilliseconds;
                 if (loopTime > 0)
@@ -125,6 +129,7 @@ namespace PoeFlasks3.BotLogic
 
                 if (state != BotState.Run)
                     await Task.Delay(250);
+                // ===========================
             }
         }
 
@@ -154,12 +159,10 @@ namespace PoeFlasks3.BotLogic
             }
             ScreenIsReady = true;
         }
-
         private static void UpdateScreen()
         {
             Screen = (Bitmap)_screen.Clone();
         }
-
         private static void DataGrabLoop()
         {
             DataGrabIsDone = false;
@@ -189,7 +192,6 @@ namespace PoeFlasks3.BotLogic
             }
             DataGrabIsDone = true;
         }
-
         private static void DoActions()
         {
             Manager.UseFlasks(GrabedData);
@@ -200,6 +202,9 @@ namespace PoeFlasks3.BotLogic
             Log.Write($"Start/Stop change to: {IsStart}");
             var state = GetState(out string? whyPause);
             updateStartStopButton?.Invoke(state, whyPause);
+
+            if (IsStart)
+                Client = new PoeClinet(DEBUG);
         }
 
         public static void OnPauseChange(bool pause, string? poeLogPath )
@@ -209,17 +214,15 @@ namespace PoeFlasks3.BotLogic
             PoeLogReader.OnZoneWasChanged += OnZoneChange;
             PoeLogReader.Chek(poeLogPath);
         }
-
         private static void OnZoneChange()
         {
             PlayerInPauseZone = PoeLogReader.characterIsInPauseZone;
         }
-
         public static void OnFlasksSetupChange(Profile setup)
         {
             Manager = new(setup, DEBUG);
-            FlasksProfile = setup;
         }
+
 
         private static BotState GetState(out string? whyNotRun)
         {

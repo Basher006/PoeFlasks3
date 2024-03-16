@@ -2,7 +2,6 @@
 using BotFW_CvSharp_01.GlobalStructs;
 using BotFW_CvSharp_01.KeyboardMouse;
 using PoeFlasks3.SettingsThings;
-using System.Linq;
 
 namespace PoeFlasks3.BotLogic
 {
@@ -14,17 +13,11 @@ namespace PoeFlasks3.BotLogic
 
         private static KeyboardHook? Hook;
 
-        private static bool Run = false;
-
         public static void Init()
         {
-            Run = true;
             Hook = new();
-
             KeysUsedRecently = new();
-
             Hook.AddHook(StartStopHotKey, StartStopChange, suppress: true);
-
             Hook.HookEnable();
         }
 
@@ -34,24 +27,20 @@ namespace PoeFlasks3.BotLogic
 
             // Add global pause
             if (profile.Setup.GlobalPauseWhenSecondKeyNotUsedRecently.Enable)
-            {
                 AddPauseWhenSecondKeyNotUsedRecently(profile.Setup.GlobalPauseWhenSecondKeyNotUsedRecently);
-            }
+
             // add each flask
             foreach (var flask in profile.Setup.Flasks)
             {
                 if (flask.Value.BaseAction.PauseWhenSecondKeyNotUsedRecently.Enable)
-                {
                     AddPauseWhenSecondKeyNotUsedRecently(flask.Value.BaseAction.PauseWhenSecondKeyNotUsedRecently);
-                }
             }
+
             // Add additional actions
             foreach (var addAct in profile.Setup.AdditionalActions)
             {
                 if (addAct.PauseWhenSecondKeyNotUsedRecently.Enable)
-                {
                     AddPauseWhenSecondKeyNotUsedRecently(addAct.PauseWhenSecondKeyNotUsedRecently);
-                }
             }
         }
 
@@ -111,7 +100,6 @@ namespace PoeFlasks3.BotLogic
 
         public static void DispouseHook()
         {
-            Run = false;
             Hook?.Dispose();
         }
     }

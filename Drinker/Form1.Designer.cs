@@ -44,6 +44,7 @@
             // StartStop_button
             // 
             StartStop_button.BackColor = Color.IndianRed;
+            StartStop_button.FlatStyle = FlatStyle.Flat;
             StartStop_button.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 204);
             StartStop_button.Location = new Point(12, 41);
             StartStop_button.Name = "StartStop_button";

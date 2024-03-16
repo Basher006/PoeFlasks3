@@ -29,7 +29,7 @@ namespace DrinkerForm
         public FlasksSettingsFrom()
         {
             InitializeComponent();
-
+            Focus();
             InitGuiElements();
             //InitFlask(); // it moved to on_window_shown
         }
@@ -88,8 +88,8 @@ namespace DrinkerForm
 
         private void ScreenUpdate_button_Click(object sender, EventArgs e)
         {
-            PoeFlasks3.Program.poeClinet.TryGetFlasksScreen(out var bmp);
-            pictureBox1.BackgroundImage = bmp;
+            if (Bot.Client.TryGetFlasksScreen(out var bmp))
+                pictureBox1.BackgroundImage = bmp;
         }
 
         private void Profiles_dropBox_SelectedIndexChanged(object sender, EventArgs e)

@@ -40,8 +40,6 @@ namespace Drinker
             // full pause on settings form opening
 
             // MAIN GUI FORM:
-            // update start stop button text not always working
-            // update game window info every start
 
 
             // FLASKS SETUP GUI:

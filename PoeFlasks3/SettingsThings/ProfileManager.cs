@@ -59,10 +59,10 @@ namespace PoeFlasks3.SettingsThings
             // if sucsess rename profile
             //      if sucsess getted index
             //          return true
-            // else
-            //      cancel changes
+            //      else
+            //          cancel changes
             //
-            //  retrun false
+            // retrun false
 
             if (newName == Name)
                 return true;
@@ -112,8 +112,8 @@ namespace PoeFlasks3.SettingsThings
         public List<BaseActionSettings> AdditionalActions { get; set; }
         public PauseWhenSecondKeyNotUsedRecently GlobalPauseWhenSecondKeyNotUsedRecently { get; set; }
 
-        [JsonIgnore] public readonly int Group1_Size { get => Flasks.Where((x) => x.Value.Group == FlaskGroup.Group1).Count(); }
-        [JsonIgnore] public readonly int Group2_Size { get => Flasks.Where((x) => x.Value.Group == FlaskGroup.Group2).Count(); }
+        //[JsonIgnore] public readonly int Group1_Size { get => Flasks.Where((x) => x.Value.Group == FlaskGroup.Group1).Count(); }
+        //[JsonIgnore] public readonly int Group2_Size { get => Flasks.Where((x) => x.Value.Group == FlaskGroup.Group2).Count(); }
 
         public string FlasksImagePreview { get; set; }
     }
@@ -140,8 +140,9 @@ namespace PoeFlasks3.SettingsThings
     public struct PauseWhenSecondKeyNotUsedRecently
     {
         private const float MAX_SECONDS_WAIT_FOR_USE_KEY_RECENTLY = 300f;
-        private static int id;
 
+        // this id need for use this structs as uniq keys in dictionary
+        private static int id;
         private readonly int _id;
 
         public bool Enable { get; set; }
@@ -161,7 +162,6 @@ namespace PoeFlasks3.SettingsThings
         {
             return value > MAX_SECONDS_WAIT_FOR_USE_KEY_RECENTLY ? MAX_SECONDS_WAIT_FOR_USE_KEY_RECENTLY : value;
         }
-
     }
 
     public enum ActivationType

@@ -57,7 +57,6 @@ namespace PoeFlasks3.BotLogic.Flasks
         private void _useFlask(IUsable useAction)
         {
             useAction.UseAsync();
-            //await new Task(useAction.Use);
         }
     }
 }

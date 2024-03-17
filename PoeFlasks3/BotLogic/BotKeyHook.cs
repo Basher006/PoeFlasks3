@@ -9,7 +9,7 @@ namespace PoeFlasks3.BotLogic
     {
         private static readonly Keys StartStopHotKey = Keys.F4;
 
-        private static Dictionary<Keys, MyTimer> KeysUsedRecently;
+        private static Dictionary<Keys, MyTimer> KeysUsedRecently = new ();
 
         private static KeyboardHook? Hook;
 

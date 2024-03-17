@@ -9,6 +9,7 @@ namespace PoeFlasks3.SettingsThings
     {
         private const string FLASKS_IMAGE_SAVE_DIRECTORY = "imgs\\Flasks screens\\";
         private const string FLASKS_IMAGE_FILE_EXTENTION = ".png";
+        private const string FLASKS_IMAGE_DEFLAUT_IMAGE = "imgs\\Flasks screens\\DefaultFlaskSetupScreen.png";
 
         public SelectedProfile SelectedProfile;
         public AppSettings AppConfig;
@@ -42,9 +43,6 @@ namespace PoeFlasks3.SettingsThings
                     throw new Exception("Very strange things happend here"); // this is newer happend
             }
 
-
-            //BotKeyHook.UpdatePauseWhenSecondKeyNotUsedRecently(SelectedProfile.Profile);
-
             if (AppConfig.HaveValidePoeLogPath)
                 Bot.OnPauseChange(AppConfig.PauseInHo_checkboxState, AppConfig.PoeLogPath);
         }
@@ -76,8 +74,12 @@ namespace PoeFlasks3.SettingsThings
 
         public void DeleteSelectedProfile()
         {
+            if (File.Exists(SelectedProfile.Profile.Setup.FlasksImagePreview) && SelectedProfile.Profile.Setup.FlasksImagePreview != FLASKS_IMAGE_DEFLAUT_IMAGE)
+                File.Delete(SelectedProfile.Profile.Setup.FlasksImagePreview);
             ProfileManager.DeleteProfile(SelectedProfile.Name);
+
             Log.Write($"Profile: {SelectedProfile.Profile.Name} deleted!");
+
 
             if (ProfileManager.ProfileNames.Count < 1)
                 ProfileManager.Load();
@@ -86,6 +88,8 @@ namespace PoeFlasks3.SettingsThings
             Log.Write($"Selected profile change to: {SelectedProfile.Name}");
 
             BotKeyHook.UpdatePauseWhenSecondKeyNotUsedRecently(SelectedProfile.Profile);
+
+
         }
 
         public void CreateAndSelectNewProfile()

@@ -7,9 +7,7 @@ namespace PoeFlasks3.BotLogic
     public struct ScreensForNumbersFinder : IDisposable
     {
         public Mat HPArea;
-        //public RECT HPAreaRECT; 
         public Mat MPArea;
-        //public Mat MPAreaRECT;
         public Mat FlasksStateArea;
 
         public void Dispose()
@@ -47,6 +45,9 @@ namespace PoeFlasks3.BotLogic
 
         public static ScreensForNumbersFinder Slise(Mat screen, AcceptPoeResolutions PoeWindowResolution)
         {
+            // =================================
+            // uncomment this for save screens after slise for debug!
+            // =================================
             //var hparea = new Mat(screen, Screen_HPAreas[PoeWindowResolution].ToRect());
             //hparea.SaveImage("hparea.png");
 
@@ -55,8 +56,7 @@ namespace PoeFlasks3.BotLogic
 
             //var flasksStateArea = new Mat(screen, Screen_flaskStateAreas[PoeWindowResolution].ToRect());
             //flasksStateArea.SaveImage("flasksStateArea.png");
-
-            //Console.WriteLine();
+            // =================================
 
             return new ScreensForNumbersFinder
             {

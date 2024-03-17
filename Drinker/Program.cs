@@ -8,17 +8,6 @@ namespace Drinker
         public static Form1 DrinkerForm = new Form1();
         [STAThread] static void Main()
         {
-            //Dictionary<string, int> dsv = new();
-
-            //dsv.Add("123", 123);
-            //dsv.Add("32", 32);
-
-            //var fdgbdfbgb = dsv.Keys.ToList();
-
-            //Console.WriteLine();
-
-
-
             Log.Write("\n============================\nApp start\n============================");
 
             try

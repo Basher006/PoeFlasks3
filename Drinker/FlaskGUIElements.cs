@@ -14,6 +14,7 @@
             public NumericUpDown FlatValue;
 
             public CheckBox PauseEnable;
+            public Label PauseEnableText;
             public ComboBox SecondKey;
             public NumericUpDown PauseSecValue;
 

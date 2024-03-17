@@ -48,7 +48,7 @@
             Flask4_PauseSec_numericUpDown = new NumericUpDown();
             label27 = new Label();
             Flask4_SecondKey_dropBox = new ComboBox();
-            label28 = new Label();
+            Flask4_Pause_label = new Label();
             Flask4_Pause_checkBox = new CheckBox();
             Flask4_Flat_numericUpDown = new NumericUpDown();
             Flask4_Percent_numericUpDown = new NumericUpDown();
@@ -67,7 +67,7 @@
             Flask5_PauseSec_numericUpDown = new NumericUpDown();
             label22 = new Label();
             Flask5_SecondKey_dropBox = new ComboBox();
-            label23 = new Label();
+            Flask5_Pause_label = new Label();
             Flask5_Pause_checkBox = new CheckBox();
             Flask5_Flat_numericUpDown = new NumericUpDown();
             Flask5_Percent_numericUpDown = new NumericUpDown();
@@ -86,7 +86,7 @@
             Flask3_PauseSec_numericUpDown = new NumericUpDown();
             label17 = new Label();
             Flask3_SecondKey_dropBox = new ComboBox();
-            label18 = new Label();
+            Flask3_Pause_label = new Label();
             Flask3_Pause_checkBox = new CheckBox();
             Flask3_Flat_numericUpDown = new NumericUpDown();
             Flask3_Percent_numericUpDown = new NumericUpDown();
@@ -105,7 +105,7 @@
             Flask1_PauseSec_numericUpDown = new NumericUpDown();
             label12 = new Label();
             Flask1_SecondKey_dropBox = new ComboBox();
-            label13 = new Label();
+            Flask1_Pause_label = new Label();
             Flask1_Pause_checkBox = new CheckBox();
             Flask1_Flat_numericUpDown = new NumericUpDown();
             Flask1_Percent_numericUpDown = new NumericUpDown();
@@ -124,7 +124,7 @@
             Flask2_PauseSec_numericUpDown = new NumericUpDown();
             label5 = new Label();
             Flask2_SecondKey_dropBox = new ComboBox();
-            label4 = new Label();
+            Flask2_Pause_label = new Label();
             Flask2_Pause_checkBox = new CheckBox();
             Flask2_Flat_numericUpDown = new NumericUpDown();
             Flask2_Percent_numericUpDown = new NumericUpDown();
@@ -135,21 +135,21 @@
             tabPage2 = new TabPage();
             button1 = new Button();
             panel10 = new Panel();
-            numericUpDown4 = new NumericUpDown();
+            AddAct1_MinCD_numericUpDown = new NumericUpDown();
             label31 = new Label();
             label32 = new Label();
-            comboBox3 = new ComboBox();
-            numericUpDown3 = new NumericUpDown();
+            AddAct1_InGameHotkey_dropBox = new ComboBox();
+            AddAct1_PauseSec_numericUpDown = new NumericUpDown();
             label29 = new Label();
-            comboBox2 = new ComboBox();
+            AddAct1_SecondKey_dropBox = new ComboBox();
             label30 = new Label();
-            checkBox1 = new CheckBox();
+            AddAct1_Pause_checkBox = new CheckBox();
             panel12 = new Panel();
-            comboBox1 = new ComboBox();
-            numericUpDown1 = new NumericUpDown();
-            numericUpDown2 = new NumericUpDown();
-            radioButton1 = new RadioButton();
-            radioButton2 = new RadioButton();
+            AddAct1_ActType_dropBox = new ComboBox();
+            AddAct1_Flat_numericUpDown = new NumericUpDown();
+            AddAct1_Percent_numericUpDown = new NumericUpDown();
+            AddAct1_Flat_radioButton = new RadioButton();
+            AddAct1_Percent_radioButton = new RadioButton();
             button2 = new Button();
             Close_button = new Button();
             groupBox1 = new GroupBox();
@@ -201,11 +201,11 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             tabPage2.SuspendLayout();
             panel10.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)numericUpDown4).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)numericUpDown3).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)AddAct1_MinCD_numericUpDown).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)AddAct1_PauseSec_numericUpDown).BeginInit();
             panel12.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)numericUpDown1).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)numericUpDown2).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)AddAct1_Flat_numericUpDown).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)AddAct1_Percent_numericUpDown).BeginInit();
             groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)Global_PauseSec_numericUpDown).BeginInit();
             SuspendLayout();
@@ -315,7 +315,7 @@
             Flask4_panel.Controls.Add(Flask4_PauseSec_numericUpDown);
             Flask4_panel.Controls.Add(label27);
             Flask4_panel.Controls.Add(Flask4_SecondKey_dropBox);
-            Flask4_panel.Controls.Add(label28);
+            Flask4_panel.Controls.Add(Flask4_Pause_label);
             Flask4_panel.Controls.Add(Flask4_Pause_checkBox);
             Flask4_panel.Controls.Add(Flask4_Flat_numericUpDown);
             Flask4_panel.Controls.Add(Flask4_Percent_numericUpDown);
@@ -448,14 +448,14 @@
             Flask4_SecondKey_dropBox.Size = new Size(127, 23);
             Flask4_SecondKey_dropBox.TabIndex = 7;
             // 
-            // label28
+            // Flask4_Pause_label
             // 
-            label28.AutoSize = true;
-            label28.Location = new Point(3, 107);
-            label28.Name = "label28";
-            label28.Size = new Size(115, 15);
-            label28.TabIndex = 6;
-            label28.Text = "second key not used";
+            Flask4_Pause_label.AutoSize = true;
+            Flask4_Pause_label.Location = new Point(3, 107);
+            Flask4_Pause_label.Name = "Flask4_Pause_label";
+            Flask4_Pause_label.Size = new Size(115, 15);
+            Flask4_Pause_label.TabIndex = 6;
+            Flask4_Pause_label.Text = "second key not used";
             // 
             // Flask4_Pause_checkBox
             // 
@@ -519,7 +519,7 @@
             Flask5_panel.Controls.Add(Flask5_PauseSec_numericUpDown);
             Flask5_panel.Controls.Add(label22);
             Flask5_panel.Controls.Add(Flask5_SecondKey_dropBox);
-            Flask5_panel.Controls.Add(label23);
+            Flask5_panel.Controls.Add(Flask5_Pause_label);
             Flask5_panel.Controls.Add(Flask5_Pause_checkBox);
             Flask5_panel.Controls.Add(Flask5_Flat_numericUpDown);
             Flask5_panel.Controls.Add(Flask5_Percent_numericUpDown);
@@ -651,14 +651,14 @@
             Flask5_SecondKey_dropBox.Size = new Size(127, 23);
             Flask5_SecondKey_dropBox.TabIndex = 7;
             // 
-            // label23
+            // Flask5_Pause_label
             // 
-            label23.AutoSize = true;
-            label23.Location = new Point(3, 107);
-            label23.Name = "label23";
-            label23.Size = new Size(115, 15);
-            label23.TabIndex = 6;
-            label23.Text = "second key not used";
+            Flask5_Pause_label.AutoSize = true;
+            Flask5_Pause_label.Location = new Point(3, 107);
+            Flask5_Pause_label.Name = "Flask5_Pause_label";
+            Flask5_Pause_label.Size = new Size(115, 15);
+            Flask5_Pause_label.TabIndex = 6;
+            Flask5_Pause_label.Text = "second key not used";
             // 
             // Flask5_Pause_checkBox
             // 
@@ -722,7 +722,7 @@
             Flask3_panel.Controls.Add(Flask3_PauseSec_numericUpDown);
             Flask3_panel.Controls.Add(label17);
             Flask3_panel.Controls.Add(Flask3_SecondKey_dropBox);
-            Flask3_panel.Controls.Add(label18);
+            Flask3_panel.Controls.Add(Flask3_Pause_label);
             Flask3_panel.Controls.Add(Flask3_Pause_checkBox);
             Flask3_panel.Controls.Add(Flask3_Flat_numericUpDown);
             Flask3_panel.Controls.Add(Flask3_Percent_numericUpDown);
@@ -854,14 +854,14 @@
             Flask3_SecondKey_dropBox.Size = new Size(127, 23);
             Flask3_SecondKey_dropBox.TabIndex = 7;
             // 
-            // label18
+            // Flask3_Pause_label
             // 
-            label18.AutoSize = true;
-            label18.Location = new Point(3, 107);
-            label18.Name = "label18";
-            label18.Size = new Size(115, 15);
-            label18.TabIndex = 6;
-            label18.Text = "second key not used";
+            Flask3_Pause_label.AutoSize = true;
+            Flask3_Pause_label.Location = new Point(3, 107);
+            Flask3_Pause_label.Name = "Flask3_Pause_label";
+            Flask3_Pause_label.Size = new Size(115, 15);
+            Flask3_Pause_label.TabIndex = 6;
+            Flask3_Pause_label.Text = "second key not used";
             // 
             // Flask3_Pause_checkBox
             // 
@@ -925,7 +925,7 @@
             Flask1_panel.Controls.Add(Flask1_PauseSec_numericUpDown);
             Flask1_panel.Controls.Add(label12);
             Flask1_panel.Controls.Add(Flask1_SecondKey_dropBox);
-            Flask1_panel.Controls.Add(label13);
+            Flask1_panel.Controls.Add(Flask1_Pause_label);
             Flask1_panel.Controls.Add(Flask1_Pause_checkBox);
             Flask1_panel.Controls.Add(Flask1_Flat_numericUpDown);
             Flask1_panel.Controls.Add(Flask1_Percent_numericUpDown);
@@ -1059,14 +1059,14 @@
             Flask1_SecondKey_dropBox.Size = new Size(127, 23);
             Flask1_SecondKey_dropBox.TabIndex = 7;
             // 
-            // label13
+            // Flask1_Pause_label
             // 
-            label13.AutoSize = true;
-            label13.Location = new Point(3, 107);
-            label13.Name = "label13";
-            label13.Size = new Size(115, 15);
-            label13.TabIndex = 6;
-            label13.Text = "second key not used";
+            Flask1_Pause_label.AutoSize = true;
+            Flask1_Pause_label.Location = new Point(3, 107);
+            Flask1_Pause_label.Name = "Flask1_Pause_label";
+            Flask1_Pause_label.Size = new Size(115, 15);
+            Flask1_Pause_label.TabIndex = 6;
+            Flask1_Pause_label.Text = "second key not used";
             // 
             // Flask1_Pause_checkBox
             // 
@@ -1130,7 +1130,7 @@
             Flask2_panel.Controls.Add(Flask2_PauseSec_numericUpDown);
             Flask2_panel.Controls.Add(label5);
             Flask2_panel.Controls.Add(Flask2_SecondKey_dropBox);
-            Flask2_panel.Controls.Add(label4);
+            Flask2_panel.Controls.Add(Flask2_Pause_label);
             Flask2_panel.Controls.Add(Flask2_Pause_checkBox);
             Flask2_panel.Controls.Add(Flask2_Flat_numericUpDown);
             Flask2_panel.Controls.Add(Flask2_Percent_numericUpDown);
@@ -1262,14 +1262,14 @@
             Flask2_SecondKey_dropBox.Size = new Size(127, 23);
             Flask2_SecondKey_dropBox.TabIndex = 7;
             // 
-            // label4
+            // Flask2_Pause_label
             // 
-            label4.AutoSize = true;
-            label4.Location = new Point(3, 107);
-            label4.Name = "label4";
-            label4.Size = new Size(115, 15);
-            label4.TabIndex = 6;
-            label4.Text = "second key not used";
+            Flask2_Pause_label.AutoSize = true;
+            Flask2_Pause_label.Location = new Point(3, 107);
+            Flask2_Pause_label.Name = "Flask2_Pause_label";
+            Flask2_Pause_label.Size = new Size(115, 15);
+            Flask2_Pause_label.TabIndex = 6;
+            Flask2_Pause_label.Text = "second key not used";
             // 
             // Flask2_Pause_checkBox
             // 
@@ -1369,35 +1369,35 @@
             // panel10
             // 
             panel10.BackColor = Color.SkyBlue;
-            panel10.Controls.Add(numericUpDown4);
+            panel10.Controls.Add(AddAct1_MinCD_numericUpDown);
             panel10.Controls.Add(label31);
             panel10.Controls.Add(label32);
-            panel10.Controls.Add(comboBox3);
-            panel10.Controls.Add(numericUpDown3);
+            panel10.Controls.Add(AddAct1_InGameHotkey_dropBox);
+            panel10.Controls.Add(AddAct1_PauseSec_numericUpDown);
             panel10.Controls.Add(label29);
-            panel10.Controls.Add(comboBox2);
+            panel10.Controls.Add(AddAct1_SecondKey_dropBox);
             panel10.Controls.Add(label30);
-            panel10.Controls.Add(checkBox1);
+            panel10.Controls.Add(AddAct1_Pause_checkBox);
             panel10.Controls.Add(panel12);
-            panel10.Controls.Add(numericUpDown1);
-            panel10.Controls.Add(numericUpDown2);
-            panel10.Controls.Add(radioButton1);
-            panel10.Controls.Add(radioButton2);
+            panel10.Controls.Add(AddAct1_Flat_numericUpDown);
+            panel10.Controls.Add(AddAct1_Percent_numericUpDown);
+            panel10.Controls.Add(AddAct1_Flat_radioButton);
+            panel10.Controls.Add(AddAct1_Percent_radioButton);
             panel10.Controls.Add(button2);
             panel10.Location = new Point(6, 6);
             panel10.Name = "panel10";
             panel10.Size = new Size(804, 100);
             panel10.TabIndex = 0;
             // 
-            // numericUpDown4
+            // AddAct1_MinCD_numericUpDown
             // 
-            numericUpDown4.DecimalPlaces = 1;
-            numericUpDown4.Location = new Point(404, 60);
-            numericUpDown4.Maximum = new decimal(new int[] { 10, 0, 0, 0 });
-            numericUpDown4.Name = "numericUpDown4";
-            numericUpDown4.Size = new Size(43, 23);
-            numericUpDown4.TabIndex = 19;
-            numericUpDown4.Value = new decimal(new int[] { 3, 0, 0, 0 });
+            AddAct1_MinCD_numericUpDown.DecimalPlaces = 1;
+            AddAct1_MinCD_numericUpDown.Location = new Point(404, 60);
+            AddAct1_MinCD_numericUpDown.Maximum = new decimal(new int[] { 10, 0, 0, 0 });
+            AddAct1_MinCD_numericUpDown.Name = "AddAct1_MinCD_numericUpDown";
+            AddAct1_MinCD_numericUpDown.Size = new Size(43, 23);
+            AddAct1_MinCD_numericUpDown.TabIndex = 19;
+            AddAct1_MinCD_numericUpDown.Value = new decimal(new int[] { 3, 0, 0, 0 });
             // 
             // label31
             // 
@@ -1417,27 +1417,27 @@
             label32.TabIndex = 17;
             label32.Text = "In game Hotkey:";
             // 
-            // comboBox3
+            // AddAct1_InGameHotkey_dropBox
             // 
-            comboBox3.DropDownHeight = 200;
-            comboBox3.DropDownStyle = ComboBoxStyle.DropDownList;
-            comboBox3.FlatStyle = FlatStyle.Popup;
-            comboBox3.FormattingEnabled = true;
-            comboBox3.IntegralHeight = false;
-            comboBox3.Location = new Point(319, 26);
-            comboBox3.Name = "comboBox3";
-            comboBox3.Size = new Size(127, 23);
-            comboBox3.TabIndex = 16;
+            AddAct1_InGameHotkey_dropBox.DropDownHeight = 200;
+            AddAct1_InGameHotkey_dropBox.DropDownStyle = ComboBoxStyle.DropDownList;
+            AddAct1_InGameHotkey_dropBox.FlatStyle = FlatStyle.Popup;
+            AddAct1_InGameHotkey_dropBox.FormattingEnabled = true;
+            AddAct1_InGameHotkey_dropBox.IntegralHeight = false;
+            AddAct1_InGameHotkey_dropBox.Location = new Point(319, 26);
+            AddAct1_InGameHotkey_dropBox.Name = "AddAct1_InGameHotkey_dropBox";
+            AddAct1_InGameHotkey_dropBox.Size = new Size(127, 23);
+            AddAct1_InGameHotkey_dropBox.TabIndex = 16;
             // 
-            // numericUpDown3
+            // AddAct1_PauseSec_numericUpDown
             // 
-            numericUpDown3.DecimalPlaces = 1;
-            numericUpDown3.Location = new Point(247, 74);
-            numericUpDown3.Maximum = new decimal(new int[] { 30, 0, 0, 0 });
-            numericUpDown3.Name = "numericUpDown3";
-            numericUpDown3.Size = new Size(43, 23);
-            numericUpDown3.TabIndex = 15;
-            numericUpDown3.Value = new decimal(new int[] { 15, 0, 0, 0 });
+            AddAct1_PauseSec_numericUpDown.DecimalPlaces = 1;
+            AddAct1_PauseSec_numericUpDown.Location = new Point(247, 74);
+            AddAct1_PauseSec_numericUpDown.Maximum = new decimal(new int[] { 30, 0, 0, 0 });
+            AddAct1_PauseSec_numericUpDown.Name = "AddAct1_PauseSec_numericUpDown";
+            AddAct1_PauseSec_numericUpDown.Size = new Size(43, 23);
+            AddAct1_PauseSec_numericUpDown.TabIndex = 15;
+            AddAct1_PauseSec_numericUpDown.Value = new decimal(new int[] { 15, 0, 0, 0 });
             // 
             // label29
             // 
@@ -1449,17 +1449,17 @@
             label29.TabIndex = 14;
             label29.Text = "Pause after(sec):";
             // 
-            // comboBox2
+            // AddAct1_SecondKey_dropBox
             // 
-            comboBox2.DropDownHeight = 200;
-            comboBox2.DropDownStyle = ComboBoxStyle.DropDownList;
-            comboBox2.FlatStyle = FlatStyle.Popup;
-            comboBox2.FormattingEnabled = true;
-            comboBox2.IntegralHeight = false;
-            comboBox2.Location = new Point(163, 48);
-            comboBox2.Name = "comboBox2";
-            comboBox2.Size = new Size(127, 23);
-            comboBox2.TabIndex = 13;
+            AddAct1_SecondKey_dropBox.DropDownHeight = 200;
+            AddAct1_SecondKey_dropBox.DropDownStyle = ComboBoxStyle.DropDownList;
+            AddAct1_SecondKey_dropBox.FlatStyle = FlatStyle.Popup;
+            AddAct1_SecondKey_dropBox.FormattingEnabled = true;
+            AddAct1_SecondKey_dropBox.IntegralHeight = false;
+            AddAct1_SecondKey_dropBox.Location = new Point(163, 48);
+            AddAct1_SecondKey_dropBox.Name = "AddAct1_SecondKey_dropBox";
+            AddAct1_SecondKey_dropBox.Size = new Size(127, 23);
+            AddAct1_SecondKey_dropBox.TabIndex = 13;
             // 
             // label30
             // 
@@ -1470,75 +1470,75 @@
             label30.TabIndex = 12;
             label30.Text = "second key not used";
             // 
-            // checkBox1
+            // AddAct1_Pause_checkBox
             // 
-            checkBox1.AutoSize = true;
-            checkBox1.Location = new Point(163, 4);
-            checkBox1.Name = "checkBox1";
-            checkBox1.Size = new Size(127, 19);
-            checkBox1.TabIndex = 11;
-            checkBox1.Text = "enable pause when";
-            checkBox1.UseVisualStyleBackColor = true;
+            AddAct1_Pause_checkBox.AutoSize = true;
+            AddAct1_Pause_checkBox.Location = new Point(163, 4);
+            AddAct1_Pause_checkBox.Name = "AddAct1_Pause_checkBox";
+            AddAct1_Pause_checkBox.Size = new Size(127, 19);
+            AddAct1_Pause_checkBox.TabIndex = 11;
+            AddAct1_Pause_checkBox.Text = "enable pause when";
+            AddAct1_Pause_checkBox.UseVisualStyleBackColor = true;
             // 
             // panel12
             // 
             panel12.BackColor = Color.Transparent;
             panel12.BorderStyle = BorderStyle.FixedSingle;
-            panel12.Controls.Add(comboBox1);
+            panel12.Controls.Add(AddAct1_ActType_dropBox);
             panel12.Location = new Point(7, 7);
             panel12.Name = "panel12";
             panel12.Size = new Size(127, 23);
             panel12.TabIndex = 10;
             // 
-            // comboBox1
+            // AddAct1_ActType_dropBox
             // 
-            comboBox1.BackColor = Color.White;
-            comboBox1.DropDownStyle = ComboBoxStyle.DropDownList;
-            comboBox1.FlatStyle = FlatStyle.Popup;
-            comboBox1.FormattingEnabled = true;
-            comboBox1.Location = new Point(-1, -1);
-            comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(127, 23);
-            comboBox1.TabIndex = 5;
+            AddAct1_ActType_dropBox.BackColor = Color.White;
+            AddAct1_ActType_dropBox.DropDownStyle = ComboBoxStyle.DropDownList;
+            AddAct1_ActType_dropBox.FlatStyle = FlatStyle.Popup;
+            AddAct1_ActType_dropBox.FormattingEnabled = true;
+            AddAct1_ActType_dropBox.Location = new Point(-1, -1);
+            AddAct1_ActType_dropBox.Name = "AddAct1_ActType_dropBox";
+            AddAct1_ActType_dropBox.Size = new Size(127, 23);
+            AddAct1_ActType_dropBox.TabIndex = 5;
             // 
-            // numericUpDown1
+            // AddAct1_Flat_numericUpDown
             // 
-            numericUpDown1.Location = new Point(57, 61);
-            numericUpDown1.Maximum = new decimal(new int[] { 100000, 0, 0, 0 });
-            numericUpDown1.Name = "numericUpDown1";
-            numericUpDown1.Size = new Size(77, 23);
-            numericUpDown1.TabIndex = 9;
-            numericUpDown1.Value = new decimal(new int[] { 3000, 0, 0, 0 });
+            AddAct1_Flat_numericUpDown.Location = new Point(57, 61);
+            AddAct1_Flat_numericUpDown.Maximum = new decimal(new int[] { 100000, 0, 0, 0 });
+            AddAct1_Flat_numericUpDown.Name = "AddAct1_Flat_numericUpDown";
+            AddAct1_Flat_numericUpDown.Size = new Size(77, 23);
+            AddAct1_Flat_numericUpDown.TabIndex = 9;
+            AddAct1_Flat_numericUpDown.Value = new decimal(new int[] { 3000, 0, 0, 0 });
             // 
-            // numericUpDown2
+            // AddAct1_Percent_numericUpDown
             // 
-            numericUpDown2.Location = new Point(74, 36);
-            numericUpDown2.Name = "numericUpDown2";
-            numericUpDown2.Size = new Size(60, 23);
-            numericUpDown2.TabIndex = 8;
-            numericUpDown2.Value = new decimal(new int[] { 50, 0, 0, 0 });
+            AddAct1_Percent_numericUpDown.Location = new Point(74, 36);
+            AddAct1_Percent_numericUpDown.Name = "AddAct1_Percent_numericUpDown";
+            AddAct1_Percent_numericUpDown.Size = new Size(60, 23);
+            AddAct1_Percent_numericUpDown.TabIndex = 8;
+            AddAct1_Percent_numericUpDown.Value = new decimal(new int[] { 50, 0, 0, 0 });
             // 
-            // radioButton1
+            // AddAct1_Flat_radioButton
             // 
-            radioButton1.AutoSize = true;
-            radioButton1.Location = new Point(7, 61);
-            radioButton1.Name = "radioButton1";
-            radioButton1.Size = new Size(44, 19);
-            radioButton1.TabIndex = 7;
-            radioButton1.Text = "Flat";
-            radioButton1.UseVisualStyleBackColor = true;
+            AddAct1_Flat_radioButton.AutoSize = true;
+            AddAct1_Flat_radioButton.Location = new Point(7, 61);
+            AddAct1_Flat_radioButton.Name = "AddAct1_Flat_radioButton";
+            AddAct1_Flat_radioButton.Size = new Size(44, 19);
+            AddAct1_Flat_radioButton.TabIndex = 7;
+            AddAct1_Flat_radioButton.Text = "Flat";
+            AddAct1_Flat_radioButton.UseVisualStyleBackColor = true;
             // 
-            // radioButton2
+            // AddAct1_Percent_radioButton
             // 
-            radioButton2.AutoSize = true;
-            radioButton2.Checked = true;
-            radioButton2.Location = new Point(7, 36);
-            radioButton2.Name = "radioButton2";
-            radioButton2.Size = new Size(65, 19);
-            radioButton2.TabIndex = 6;
-            radioButton2.TabStop = true;
-            radioButton2.Text = "Percent";
-            radioButton2.UseVisualStyleBackColor = true;
+            AddAct1_Percent_radioButton.AutoSize = true;
+            AddAct1_Percent_radioButton.Checked = true;
+            AddAct1_Percent_radioButton.Location = new Point(7, 36);
+            AddAct1_Percent_radioButton.Name = "AddAct1_Percent_radioButton";
+            AddAct1_Percent_radioButton.Size = new Size(65, 19);
+            AddAct1_Percent_radioButton.TabIndex = 6;
+            AddAct1_Percent_radioButton.TabStop = true;
+            AddAct1_Percent_radioButton.Text = "Percent";
+            AddAct1_Percent_radioButton.UseVisualStyleBackColor = true;
             // 
             // button2
             // 
@@ -1554,9 +1554,9 @@
             // 
             Close_button.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             Close_button.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            Close_button.Location = new Point(730, 730);
+            Close_button.Location = new Point(730, 736);
             Close_button.Name = "Close_button";
-            Close_button.Size = new Size(84, 52);
+            Close_button.Size = new Size(91, 46);
             Close_button.TabIndex = 4;
             Close_button.Text = "Close";
             Close_button.UseVisualStyleBackColor = true;
@@ -1590,7 +1590,7 @@
             // Global_PauseSec_numericUpDown
             // 
             Global_PauseSec_numericUpDown.DecimalPlaces = 1;
-            Global_PauseSec_numericUpDown.Location = new Point(644, 21);
+            Global_PauseSec_numericUpDown.Location = new Point(644, 20);
             Global_PauseSec_numericUpDown.Maximum = new decimal(new int[] { 300, 0, 0, 0 });
             Global_PauseSec_numericUpDown.Name = "Global_PauseSec_numericUpDown";
             Global_PauseSec_numericUpDown.Size = new Size(58, 29);
@@ -1611,7 +1611,7 @@
             // 
             Global_SecondKey_dropBox.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 204);
             Global_SecondKey_dropBox.FormattingEnabled = true;
-            Global_SecondKey_dropBox.Location = new Point(409, 21);
+            Global_SecondKey_dropBox.Location = new Point(409, 23);
             Global_SecondKey_dropBox.Name = "Global_SecondKey_dropBox";
             Global_SecondKey_dropBox.Size = new Size(103, 25);
             Global_SecondKey_dropBox.TabIndex = 1;
@@ -1621,7 +1621,7 @@
             // 
             Global_EnablePause_chekbox.AutoSize = true;
             Global_EnablePause_chekbox.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            Global_EnablePause_chekbox.Location = new Point(6, 26);
+            Global_EnablePause_chekbox.Location = new Point(6, 27);
             Global_EnablePause_chekbox.Name = "Global_EnablePause_chekbox";
             Global_EnablePause_chekbox.Size = new Size(304, 21);
             Global_EnablePause_chekbox.TabIndex = 0;
@@ -1724,11 +1724,11 @@
             tabPage2.ResumeLayout(false);
             panel10.ResumeLayout(false);
             panel10.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)numericUpDown4).EndInit();
-            ((System.ComponentModel.ISupportInitialize)numericUpDown3).EndInit();
+            ((System.ComponentModel.ISupportInitialize)AddAct1_MinCD_numericUpDown).EndInit();
+            ((System.ComponentModel.ISupportInitialize)AddAct1_PauseSec_numericUpDown).EndInit();
             panel12.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)numericUpDown1).EndInit();
-            ((System.ComponentModel.ISupportInitialize)numericUpDown2).EndInit();
+            ((System.ComponentModel.ISupportInitialize)AddAct1_Flat_numericUpDown).EndInit();
+            ((System.ComponentModel.ISupportInitialize)AddAct1_Percent_numericUpDown).EndInit();
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)Global_PauseSec_numericUpDown).EndInit();
@@ -1761,7 +1761,7 @@
         private NumericUpDown Flask2_PauseSec_numericUpDown;
         private Label label5;
         private ComboBox Flask2_SecondKey_dropBox;
-        private Label label4;
+        private Label Flask2_Pause_label;
         private CheckBox Flask2_Pause_checkBox;
         private NumericUpDown Flask2_Flat_numericUpDown;
         private NumericUpDown Flask2_Percent_numericUpDown;
@@ -1781,7 +1781,7 @@
         private NumericUpDown Flask4_PauseSec_numericUpDown;
         private Label label27;
         private ComboBox Flask4_SecondKey_dropBox;
-        private Label label28;
+        private Label Flask4_Pause_label;
         private CheckBox Flask4_Pause_checkBox;
         private NumericUpDown Flask4_Flat_numericUpDown;
         private NumericUpDown Flask4_Percent_numericUpDown;
@@ -1798,7 +1798,7 @@
         private NumericUpDown Flask5_PauseSec_numericUpDown;
         private Label label22;
         private ComboBox Flask5_SecondKey_dropBox;
-        private Label label23;
+        private Label Flask5_Pause_label;
         private CheckBox Flask5_Pause_checkBox;
         private NumericUpDown Flask5_Flat_numericUpDown;
         private NumericUpDown Flask5_Percent_numericUpDown;
@@ -1815,7 +1815,7 @@
         private NumericUpDown Flask3_PauseSec_numericUpDown;
         private Label label17;
         private ComboBox Flask3_SecondKey_dropBox;
-        private Label label18;
+        private Label Flask3_Pause_label;
         private CheckBox Flask3_Pause_checkBox;
         private NumericUpDown Flask3_Flat_numericUpDown;
         private NumericUpDown Flask3_Percent_numericUpDown;
@@ -1832,7 +1832,7 @@
         private NumericUpDown Flask1_PauseSec_numericUpDown;
         private Label label12;
         private ComboBox Flask1_SecondKey_dropBox;
-        private Label label13;
+        private Label Flask1_Pause_label;
         private CheckBox Flask1_Pause_checkBox;
         private NumericUpDown Flask1_Flat_numericUpDown;
         private NumericUpDown Flask1_Percent_numericUpDown;
@@ -1854,21 +1854,21 @@
         private Button RenameCancel_button;
         private Button button1;
         private Panel panel10;
-        private NumericUpDown numericUpDown3;
+        private NumericUpDown AddAct1_PauseSec_numericUpDown;
         private Label label29;
-        private ComboBox comboBox2;
+        private ComboBox AddAct1_SecondKey_dropBox;
         private Label label30;
-        private CheckBox checkBox1;
+        private CheckBox AddAct1_Pause_checkBox;
         private Panel panel12;
-        private ComboBox comboBox1;
-        private NumericUpDown numericUpDown1;
-        private NumericUpDown numericUpDown2;
-        private RadioButton radioButton1;
-        private RadioButton radioButton2;
+        private ComboBox AddAct1_ActType_dropBox;
+        private NumericUpDown AddAct1_Flat_numericUpDown;
+        private NumericUpDown AddAct1_Percent_numericUpDown;
+        private RadioButton AddAct1_Flat_radioButton;
+        private RadioButton AddAct1_Percent_radioButton;
         private Button button2;
-        private NumericUpDown numericUpDown4;
+        private NumericUpDown AddAct1_MinCD_numericUpDown;
         private Label label31;
         private Label label32;
-        private ComboBox comboBox3;
+        private ComboBox AddAct1_InGameHotkey_dropBox;
     }
 }

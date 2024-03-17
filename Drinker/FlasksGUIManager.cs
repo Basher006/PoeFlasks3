@@ -74,6 +74,26 @@ namespace DrinkerForm
             Guielements = guielements;
         }
 
+        public static void InitAddtitionalActionsDropBoxes(ComboBox actType, ComboBox imgameHotkey, ComboBox SecondKey)
+        {
+            actType.Items.AddRange(ActType_dropBox_values.Keys.ToArray());
+            imgameHotkey.Items.AddRange(FlaskInGameHotkey_dropBox_values.Keys.ToArray());
+            SecondKey.Items.AddRange(SecondKey_dropBox_values.Keys.ToArray());
+        }
+
+        public static void AdditionalActionsSetDropBoxIndeces(ComboBox actType, ComboBox imgameHotkey, ComboBox SecondKey, Profile profile)
+        {
+
+            int actTypeIndex = (int)profile.Setup.AdditionalActions[0].ActType;
+            actType.SelectedIndex = actTypeIndex;
+
+            int ingameHotkeyIndex = FlaskInGameHotkey_dropBox_values.Values.ToList().IndexOf(profile.Setup.AdditionalActions[0].HotKey);
+            imgameHotkey.SelectedIndex = ingameHotkeyIndex;
+
+            int secondKeyIndex = GetSecondKeyIndex(profile.Setup.AdditionalActions[0].PauseWhenSecondKeyNotUsedRecently.Key);
+            SecondKey.SelectedIndex = secondKeyIndex;
+        }
+
         public static void Update(Profile profile, ref FlaskGUIElements[] guielements)
         {
             FlasksSetup = profile;
@@ -164,6 +184,7 @@ namespace DrinkerForm
         }
         private static void SetEnableFlags(ref FlaskGUIElements[] guielements)
         {
+            // Flasks tab
             var flasksGroups = GetFlasksGroups();
             for (int i = 0; i < guielements.Length; i++)
             {
@@ -182,7 +203,7 @@ namespace DrinkerForm
 
                 if (flaskInGroup && !flaskIsFirstInGroup)
                 {
-                    // disable all w/o groups
+                    // disable all w/o groups and ingame hotkey
                     guielements[i].ActType.Enabled = false;
 
                     guielements[i].PercentRadioButton.Enabled = false;
@@ -191,6 +212,7 @@ namespace DrinkerForm
                     guielements[i].FlatValue.Enabled = false;
 
                     guielements[i].PauseEnable.Enabled = false;
+                    guielements[i].PauseEnableText.Enabled = false;
                     guielements[i].SecondKey.Enabled = false;
                     guielements[i].PauseSecValue.Enabled = false;
 
@@ -198,7 +220,7 @@ namespace DrinkerForm
                 }
                 else if (flaskActType == ActivationType.None)
                 {
-                    // disable all w/o act type and groups
+                    // disable all w/o act type, groups and ingame hotkey
                     guielements[i].ActType.Enabled = true;
                     guielements[i].PercentRadioButton.Enabled = false;
 
@@ -207,6 +229,7 @@ namespace DrinkerForm
                     guielements[i].FlatValue.Enabled = false;
 
                     guielements[i].PauseEnable.Enabled = false;
+                    guielements[i].PauseEnableText.Enabled = false;
                     guielements[i].SecondKey.Enabled = false;
                     guielements[i].PauseSecValue.Enabled = false;
 
@@ -233,6 +256,7 @@ namespace DrinkerForm
                     }
 
                     guielements[i].PauseEnable.Enabled = true;
+                    guielements[i].PauseEnableText.Enabled = true;
                     guielements[i].SecondKey.Enabled = guielements[i].PauseEnable.Checked;
                     guielements[i].PauseSecValue.Enabled = guielements[i].PauseEnable.Checked;
 

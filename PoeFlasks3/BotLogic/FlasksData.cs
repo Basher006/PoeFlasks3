@@ -1,5 +1,4 @@
 ﻿using PoeFlasks3.SettingsThings;
-using static OpenCvSharp.FileStorage;
 
 namespace PoeFlasks3.BotLogic
 {
@@ -55,8 +54,8 @@ namespace PoeFlasks3.BotLogic
             string hpString = FindedFlags.HP_isFind ? $"hp: {HP}," : "hp: N/A,";
             string mpString = FindedFlags.MP_isFind ? $"mp: {MP}," : "mp: N/A,";
             string esString = FindedFlags.ES_isFind ? $"es: {ES}," : "es: N/A,";
-            return $"{hpString} {mpString} {esString} states: {FlasksState}";
 
+            return $"{hpString} {mpString} {esString} states: {FlasksState}";
         }
     }
 
@@ -65,7 +64,6 @@ namespace PoeFlasks3.BotLogic
         public bool HP_isFind;
         public bool MP_isFind;
         public bool ES_isFind;
-
 
         public readonly bool All_isFind { get => HP_isFind && MP_isFind && ES_isFind; }
         public readonly bool Any_isFind { get => HP_isFind || MP_isFind || ES_isFind; }

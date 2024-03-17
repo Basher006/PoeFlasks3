@@ -1,11 +1,9 @@
 ﻿using BotFW_CvSharp_01;
-using BotFW_CvSharp_01.GameClientThings;
 using BotFW_CvSharp_01.GlobalStructs;
 using Drinker;
 using PoeFlasks3.BotLogic;
 using PoeFlasks3.GameClinet;
 using PoeFlasks3.SettingsThings;
-using System.Windows.Forms;
 using static BotFW_CvSharp_01.GameClientThings.Game;
 
 namespace DrinkerForm
@@ -33,10 +31,43 @@ namespace DrinkerForm
             InitializeComponent();
             Focus();
             InitGuiElements();
+            InitAdditionalActions();
             UpdateFlasksScreenPictureBox();
             //InitFlask(); // it moved to on_window_shown
         }
 
+
+        // ================================================================
+        // Additional actions. Hardcoded atm
+        //=================================================================
+        public void InitAdditionalActions()
+        {
+            // init dropboxes values
+            FlasksGUIManager.InitAddtitionalActionsDropBoxes(AddAct1_ActType_dropBox, AddAct1_InGameHotkey_dropBox, AddAct1_SecondKey_dropBox);
+            // select index
+            if (PoeFlasks3.Program.Settings.SelectedProfile.Profile.Setup.AdditionalActions.Count == 0)
+            {
+                PoeFlasks3.Program.Settings.SelectedProfile.Profile.Setup.AdditionalActions.Add(new BaseActionSettings()
+                {
+                    ActType = ActivationType.None,
+                    UseActPercent = true,
+                    ActPercent = 50,
+                    ActFlat = 3000,
+                    MinCD = 3f,
+                    HotKey = BotFW_CvSharp_01.GlobalStructs.Keys.NUM_1,
+                    PauseWhenSecondKeyNotUsedRecently = new PauseWhenSecondKeyNotUsedRecently()
+                    {
+                        Enable = false,
+                        Key = BotFW_CvSharp_01.GlobalStructs.Keys.MouseLeft,
+                        PauseActivationDelay = 15f
+                    }
+                });
+            }
+
+            FlasksGUIManager.AdditionalActionsSetDropBoxIndeces(
+                AddAct1_ActType_dropBox, AddAct1_InGameHotkey_dropBox, AddAct1_SecondKey_dropBox, PoeFlasks3.Program.Settings.SelectedProfile.Profile);
+        }
+        //=================================================================
 
         private void InitFlask()
         {
@@ -83,6 +114,7 @@ namespace DrinkerForm
 
         private void DeleteProfile_button_Click(object sender, EventArgs e)
         {
+            pictureBox1.BackgroundImage?.Dispose();
             PoeFlasks3.Program.Settings.DeleteSelectedProfile();
             InitProfilesDropBox();
             FlasksGUIManager.onProfileChange?.Invoke(PoeFlasks3.Program.Settings.SelectedProfile.Profile);
@@ -240,6 +272,7 @@ namespace DrinkerForm
                     FlatValue = Flask1_Flat_numericUpDown,
 
                     PauseEnable = Flask1_Pause_checkBox,
+                    PauseEnableText = Flask1_Pause_label,
                     SecondKey = Flask1_SecondKey_dropBox,
                     PauseSecValue = Flask1_PauseSec_numericUpDown,
 
@@ -261,6 +294,7 @@ namespace DrinkerForm
                     FlatValue = Flask2_Flat_numericUpDown,
 
                     PauseEnable = Flask2_Pause_checkBox,
+                    PauseEnableText = Flask2_Pause_label,
                     SecondKey = Flask2_SecondKey_dropBox,
                     PauseSecValue = Flask2_PauseSec_numericUpDown,
 
@@ -282,6 +316,7 @@ namespace DrinkerForm
                     FlatValue = Flask3_Flat_numericUpDown,
 
                     PauseEnable = Flask3_Pause_checkBox,
+                    PauseEnableText = Flask3_Pause_label,
                     SecondKey = Flask3_SecondKey_dropBox,
                     PauseSecValue = Flask3_PauseSec_numericUpDown,
 
@@ -303,6 +338,7 @@ namespace DrinkerForm
                     FlatValue = Flask4_Flat_numericUpDown,
 
                     PauseEnable = Flask4_Pause_checkBox,
+                    PauseEnableText = Flask4_Pause_label,
                     SecondKey = Flask4_SecondKey_dropBox,
                     PauseSecValue = Flask4_PauseSec_numericUpDown,
 
@@ -324,6 +360,7 @@ namespace DrinkerForm
                     FlatValue = Flask5_Flat_numericUpDown,
 
                     PauseEnable = Flask5_Pause_checkBox,
+                    PauseEnableText = Flask5_Pause_label,
                     SecondKey = Flask5_SecondKey_dropBox,
                     PauseSecValue = Flask5_PauseSec_numericUpDown,
 

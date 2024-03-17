@@ -43,8 +43,6 @@ namespace PoeFlasks3.BotLogic
             Client = new PoeClinet(DEBUG);
 
             OnFlasksSetupChange(selectedProfile.Profile);
-            //BotKeyHook.OnStartStopChange += OnStartStopChange;
-
         }
 
         public static void RunLoop()
@@ -73,7 +71,7 @@ namespace PoeFlasks3.BotLogic
                 // bot state things
                 // ===========================
                 state = GetState(out string? whyNotRun);
-                if (!Client.Window.IsFinded) // if (!Client.Window.IsFinded && state != BotState.Stop)
+                if (!Client.Window.IsFinded)
                     await Task.Run(Client.Window.TryFindWindow);
 
                 if (state != oldState)

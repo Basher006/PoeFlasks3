@@ -1,5 +1,4 @@
 ﻿using PoeFlasks3.BotLogic;
-using PoeFlasks3.GameClinet;
 using PoeFlasks3.SettingsThings;
 
 namespace PoeFlasks3

@@ -31,7 +31,7 @@ namespace PoeFlasks3.GameClinet
             else if (initDone)
                 Update();
             else
-                Log.Write("Try to chek poe log without init PoeLogReader!", Log.LogType.Error);
+                Log.Write("Try to chek poe log before init PoeLogReader!", Log.LogType.Error);
         }
 
         private static void InintChek(string logFilePath)
@@ -69,8 +69,6 @@ namespace PoeFlasks3.GameClinet
             initlogFileSize = nowLogSize;
         }
 
-
-
         private static string[] GetLogTextLines()
         {
             using (var fs = new FileStream(_logFilePath, FileMode.Open, FileAccess.Read, FileShare.ReadWrite))
@@ -87,11 +85,10 @@ namespace PoeFlasks3.GameClinet
         {
             lastZonechangedLine = "";
 
-            //bool finded_eng = TryGetLastZonechangedLine_ENG(logLines, out string lastZonechangedLine_eng, out int foundPos_eng);
-            //bool finded_rus = TryGetLastZonechangedLine_RUS(logLines, out string lastZonechangedLine_rus, out int foundPos_rus);
-
-            bool finded_eng = TryGetLastZoneChangedLine(logLines, out string lastZonechangedLine_eng, out int foundPos_eng, GameClinetLanguage.Eng);
-            bool finded_rus = TryGetLastZoneChangedLine(logLines, out string lastZonechangedLine_rus, out int foundPos_rus, GameClinetLanguage.Rus);
+            bool finded_eng = TryGetLastZoneChangedLine(
+                logLines, out string lastZonechangedLine_eng, out int foundPos_eng, GameClinetLanguage.Eng);
+            bool finded_rus = TryGetLastZoneChangedLine(
+                logLines, out string lastZonechangedLine_rus, out int foundPos_rus, GameClinetLanguage.Rus);
 
             if (lastZonechangedLine_eng != lastZoneChangedText && lastZonechangedLine_rus != lastZoneChangedText)
             {
@@ -115,7 +112,8 @@ namespace PoeFlasks3.GameClinet
             return false;
         }
 
-        private static bool TryGetLastZoneChangedLine(string[] logLines, out string lastZonechangedLine, out int foundPos, GameClinetLanguage lang)
+        private static bool TryGetLastZoneChangedLine(
+            string[] logLines, out string lastZonechangedLine, out int foundPos, GameClinetLanguage lang)
         {
             lastZonechangedLine = "non";
             foundPos = -1;
@@ -162,13 +160,11 @@ namespace PoeFlasks3.GameClinet
 
         private static byte[] ReadFileBytes(long offset, long count)
         {
-            using (FileStream fs = new FileStream(_logFilePath, FileMode.Open, FileAccess.Read, FileShare.ReadWrite))
-            {
-                byte[] buffer = new byte[count];
-                fs.Seek(offset, SeekOrigin.Begin);
-                fs.Read(buffer, 0, (int)count);
-                return buffer;
-            }
+            using FileStream fs = new(_logFilePath, FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
+            byte[] buffer = new byte[count];
+            fs.Seek(offset, SeekOrigin.Begin);
+            fs.Read(buffer, 0, (int)count);
+            return buffer;
         }
 
         private static string BytesArrayToString(byte[] bytes)

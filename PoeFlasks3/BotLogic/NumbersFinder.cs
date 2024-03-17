@@ -123,7 +123,7 @@ namespace PoeFlasks3.BotLogic
             var numbersRECT_current = GetRECTForNumbersLication(slashArea, false);
             var numbersRECT_max = GetRECTForNumbersLication(slashArea, true);
 
-                       using Mat screenArea_current = new(screen, numbersRECT_current.ToRect());
+            using Mat screenArea_current = new(screen, numbersRECT_current.ToRect());
             using Mat screenArea_max = new(screen, numbersRECT_max.ToRect());
 
             var numbersLocations_current = FindAllNumbersLocations(screenArea_current, poeClinetResolution);
@@ -167,8 +167,7 @@ namespace PoeFlasks3.BotLogic
                 if (numberImage.Key == NumbersTamplates.slash)
                     continue;
                 var r = BotFW.MatchTemplate(screen, numberImage.Value);
-                //if (numberImage.Key == NumbersTamplates.six)
-                //    Console.WriteLine();
+
                 if (r.IsFind)
                 {
                     foreach (var thing in r.Res_loc)

@@ -71,8 +71,6 @@ namespace PoeFlasks3.BotLogic
                 // bot state things
                 // ===========================
                 state = GetState(out string? whyNotRun);
-                if (!Client.Window.IsFinded)
-                    await Task.Run(Client.Window.TryFindWindow);
 
                 if (state != oldState)
                 {
@@ -83,6 +81,15 @@ namespace PoeFlasks3.BotLogic
                 }
                 if (state != oldState || whyNotRun != OldWhyPause)
                     updateStartStopButton?.Invoke(state, whyNotRun);
+
+                if (!Client.Window.IsFinded)
+                {
+                    await Task.Run(Client.Window.TryFindWindow);
+                    await Task.Delay(250);
+                    continue;
+                }
+
+
 
                 oldState = state;
                 OldWhyPause = whyNotRun;
@@ -135,7 +142,7 @@ namespace PoeFlasks3.BotLogic
         {
             ScreenIsReady = false;
             {
-                _screen = new Bitmap(Client.Window.WindowRect.w, Client.Window.WindowRect.h, System.Drawing.Imaging.PixelFormat.Format24bppRgb);
+                //_screen = new Bitmap(Client.Window.WindowRect.w, Client.Window.WindowRect.h, System.Drawing.Imaging.PixelFormat.Format24bppRgb);
                 BotFW.GetScreen(_screen, Client.Window.WindowRect, Client.Window.WinState);
 
                 // if old creen fetched, wait
@@ -197,12 +204,22 @@ namespace PoeFlasks3.BotLogic
         public static void OnStartStopChange()
         {
             IsStart = !IsStart;
+            if (IsStart)
+            {
+                Client = new PoeClinet(DEBUG);
+                if (Client.Window.IsFinded)
+                {
+                    Log.Write($"Poe clinet resolution: {Client.Window.Resolution}");
+                    _screen = new Bitmap(Client.Window.WindowRect.w, Client.Window.WindowRect.h, System.Drawing.Imaging.PixelFormat.Format24bppRgb);
+                    UpdateScreen();
+                }
+            }
+
             Log.Write($"Start/Stop change to: {IsStart}");
             var state = GetState(out string? whyPause);
             updateStartStopButton?.Invoke(state, whyPause);
 
-            if (IsStart)
-                Client = new PoeClinet(DEBUG);
+
         }
 
         public static void OnPauseChange(bool pause, string? poeLogPath )

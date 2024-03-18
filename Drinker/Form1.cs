@@ -38,6 +38,7 @@ namespace Drinker
 
             // BOT LOGIC:
             // full pause on settings form opening
+            // not correct poe resolution whe start before game
 
             // MAIN GUI FORM:
 

@@ -10,6 +10,14 @@ namespace PoeFlasks3.Settings
 
         public bool HaveValidePoeLogPath { get => IsValidePoePath(); }
 
+        private ConfigLine _languege;
+        public string Languege
+        {
+            get => (string)_languege.Value;
+            set => _languege = new ConfigLine("Languege", value);
+        }
+
+
         private ConfigLine _appPos_x;
         public int AppPos_x 
         { 
@@ -57,6 +65,9 @@ namespace PoeFlasks3.Settings
                 string valueName = loadedArray[i].Name;
                 switch (valueName)
                 {
+                    case "Languege":
+                        _languege = loadedArray[i];
+                        break;
                     case "AppPos_x":
                         _appPos_x = loadedArray[i];
                         break;
@@ -82,7 +93,7 @@ namespace PoeFlasks3.Settings
         }
         public readonly ConfigLine[] ToArray()
         {
-            return new ConfigLine[] { _appPos_x, _appPos_y, _pauseInHo_checkboxState, _selectedProfile, _poeLogPath };
+            return new ConfigLine[] { _languege, _appPos_x, _appPos_y, _pauseInHo_checkboxState, _selectedProfile, _poeLogPath };
         }
 
         public readonly void Save()
@@ -107,6 +118,7 @@ namespace PoeFlasks3.Settings
         {
             return new AppSettings()
             {
+                _languege = new ConfigLine("Languege", "RU"),
                 _appPos_x = new ConfigLine("AppPos_x", 500),
                 _appPos_y = new ConfigLine("AppPos_y", 300),
                 _pauseInHo_checkboxState = new ConfigLine("PauseInHo_checkboxState", false),

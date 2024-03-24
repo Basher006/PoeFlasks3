@@ -20,6 +20,7 @@ namespace PoeFlasks3.BotLogic
 
         private static bool DEBUG;
         public static PoeClinet Client;
+        private static Langueges AppLanguge;
 
         private static bool Run = true;
         private static bool IsStart = false;
@@ -43,6 +44,8 @@ namespace PoeFlasks3.BotLogic
             Client = new PoeClinet(DEBUG);
 
             OnFlasksSetupChange(selectedProfile.Profile);
+
+            AppLanguge = Program.Settings.AppLanguege;
         }
 
         public static void RunLoop()
@@ -82,17 +85,15 @@ namespace PoeFlasks3.BotLogic
                 if (state != oldState || whyNotRun != OldWhyPause)
                     updateStartStopButton?.Invoke(state, whyNotRun);
 
+                oldState = state;
+                OldWhyPause = whyNotRun;
+
                 if (!Client.Window.IsFinded)
                 {
                     await Task.Run(Client.Window.TryFindWindow);
                     await Task.Delay(250);
                     continue;
                 }
-
-
-
-                oldState = state;
-                OldWhyPause = whyNotRun;
 
                 // ===========================
                 // data grab things
@@ -251,7 +252,8 @@ namespace PoeFlasks3.BotLogic
                     IsStart = false;
                     Log.Write($"Start/Stop change to: {IsStart}");
                     Log.Write("Cannot Find Game window! Stoped bot.", Log.LogType.Error);
-                    whyNotRun = "Cannot Find Game window! Stoped bot.";
+                    whyNotRun = BotResourseLoader.LanguegesText[AppLanguge][9];
+                    //whyNotRun = "Cannot Find Game window! Stoped bot.";
                     return BotState.Stop;
                 }
                 else if (!Client.ScreenResolutionIsAccept)
@@ -259,25 +261,29 @@ namespace PoeFlasks3.BotLogic
                     IsStart = false;
                     Log.Write($"Start/Stop change to: {IsStart}");
                     Log.Write($"Game Resolution not accept({Client.Window.Resolution})! Accepdet resolutions: {string.Join(", ", PoeClinet.ACCEPT_SCREEN_RES)}", Log.LogType.Error);
-                    whyNotRun = "Game Resolution not accept!";
+                    whyNotRun = BotResourseLoader.LanguegesText[AppLanguge][10];
+                    //whyNotRun = "Game Resolution not accept!";
                     return BotState.Stop;
                 }
                 else if (!Client.Window.IsActive)
                 {
-                    whyNotRun = "Game window not active, Pause.. ";
+                    whyNotRun = BotResourseLoader.LanguegesText[AppLanguge][11];
+                    //whyNotRun = "Game window not active, Pause.. ";
                     return BotState.Pause;
                 }
 
                 // Data
                 if (GrabedData == null || !GrabedData.Value.FindedFlags.Any_isFind)
                 {
-                    whyNotRun = "Pause.. Cannot find any data ";
+                    whyNotRun = BotResourseLoader.LanguegesText[AppLanguge][12];
+                    //whyNotRun = "Pause.. Cannot find any data ";
                     return BotState.Pause;
                 }
 
                 if (PauseEnable && PlayerInPauseZone)
                 {
-                    whyNotRun = "Pause in HO ";
+                    whyNotRun = BotResourseLoader.LanguegesText[AppLanguge][13];
+                    //whyNotRun = "Pause in HO ";
                     return BotState.Pause;
                 }
                 else

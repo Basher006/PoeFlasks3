@@ -57,7 +57,7 @@
             // FlasksSettings_button
             // 
             FlasksSettings_button.BackColor = Color.DeepSkyBlue;
-            FlasksSettings_button.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            FlasksSettings_button.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 204);
             FlasksSettings_button.Location = new Point(157, 41);
             FlasksSettings_button.Name = "FlasksSettings_button";
             FlasksSettings_button.Size = new Size(82, 75);

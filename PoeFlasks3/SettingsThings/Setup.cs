@@ -13,6 +13,7 @@ namespace PoeFlasks3.SettingsThings
 
         public SelectedProfile SelectedProfile;
         public AppSettings AppConfig;
+        public Langueges AppLanguege;
         public bool HaveValidePoeLogPath { get; }
 
 
@@ -28,6 +29,17 @@ namespace PoeFlasks3.SettingsThings
             HaveValidePoeLogPath = IsValidePoePath(AppConfig);
             if (!HaveValidePoeLogPath)
                 Log.Write("App settings dont have valide PoE log path!", Log.LogType.Warn);
+
+            // load and set languge
+            var languegeInConfig = AppConfig.Languege;
+            if (BotResourseLoader.StrToLanguege.ContainsKey(languegeInConfig))
+                AppLanguege = BotResourseLoader.StrToLanguege[languegeInConfig];
+            else
+            {
+                AppLanguege = Langueges.EN;
+                AppConfig.Languege = AppLanguege.ToString();
+                Log.Write($"Cant load languge: {languegeInConfig}! Load default (EN)!", Log.LogType.Error);
+            }
 
             // init hook
             BotKeyHook.Init();

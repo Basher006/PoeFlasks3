@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            label1 = new Label();
+            Profiles_label = new Label();
             Profiles_dropBox = new ComboBox();
             CreateNewProfile_button = new Button();
             DeleteProfile_button = new Button();
@@ -40,13 +40,13 @@
             Flask4_ActType_dropBox = new ComboBox();
             panel2 = new Panel();
             Flask4_group_dropBox = new ComboBox();
-            label24 = new Label();
+            Flask4_Group_label = new Label();
             Flask4_MinCD_numericUpDown = new NumericUpDown();
-            label25 = new Label();
-            label26 = new Label();
+            Flask4_minCD_label = new Label();
+            Flask4_InGameHotkey_label = new Label();
             Flask4_InGameHotkey_dropBox = new ComboBox();
             Flask4_PauseSec_numericUpDown = new NumericUpDown();
-            label27 = new Label();
+            Flask4_PauseAfter_label = new Label();
             Flask4_SecondKey_dropBox = new ComboBox();
             Flask4_Pause_label = new Label();
             Flask4_Pause_checkBox = new CheckBox();
@@ -59,13 +59,13 @@
             Flask5_group_dropBox = new ComboBox();
             panel1 = new Panel();
             Flask5_ActType_dropBox = new ComboBox();
-            label19 = new Label();
+            Flask5_Group_label = new Label();
             Flask5_MinCD_numericUpDown = new NumericUpDown();
-            label20 = new Label();
-            label21 = new Label();
+            Flask5_minCD_label = new Label();
+            Flask5_InGameHotkey_label = new Label();
             Flask5_InGameHotkey_dropBox = new ComboBox();
             Flask5_PauseSec_numericUpDown = new NumericUpDown();
-            label22 = new Label();
+            Flask5_PauseAfter_label = new Label();
             Flask5_SecondKey_dropBox = new ComboBox();
             Flask5_Pause_label = new Label();
             Flask5_Pause_checkBox = new CheckBox();
@@ -78,13 +78,13 @@
             Flask3_group_dropBox = new ComboBox();
             panel4 = new Panel();
             Flask3_ActType_dropBox = new ComboBox();
-            label14 = new Label();
+            Flask3_Group_label = new Label();
             Flask3_MinCD_numericUpDown = new NumericUpDown();
-            label15 = new Label();
-            label16 = new Label();
+            Flask3_minCD_label = new Label();
+            Flask3_InGameHotkey_label = new Label();
             Flask3_InGameHotkey_dropBox = new ComboBox();
             Flask3_PauseSec_numericUpDown = new NumericUpDown();
-            label17 = new Label();
+            Flask3_PauseAfter_label = new Label();
             Flask3_SecondKey_dropBox = new ComboBox();
             Flask3_Pause_label = new Label();
             Flask3_Pause_checkBox = new CheckBox();
@@ -97,13 +97,13 @@
             Flask1_group_dropBox = new ComboBox();
             panel6 = new Panel();
             Flask1_ActType_dropBox = new ComboBox();
-            label9 = new Label();
+            Flask1_Group_label = new Label();
             Flask1_MinCD_numericUpDown = new NumericUpDown();
-            label10 = new Label();
-            label11 = new Label();
+            Flask1_minCD_label = new Label();
+            Flask1_InGameHotkey_label = new Label();
             Flask1_InGameHotkey_dropBox = new ComboBox();
             Flask1_PauseSec_numericUpDown = new NumericUpDown();
-            label12 = new Label();
+            Flask1_PauseAfter_label = new Label();
             Flask1_SecondKey_dropBox = new ComboBox();
             Flask1_Pause_label = new Label();
             Flask1_Pause_checkBox = new CheckBox();
@@ -116,13 +116,13 @@
             Flask2_group_dropBox = new ComboBox();
             panel3 = new Panel();
             Flask2_ActType_dropBox = new ComboBox();
-            label8 = new Label();
+            Flask2_Group_label = new Label();
             Flask2_MinCD_numericUpDown = new NumericUpDown();
-            label7 = new Label();
-            label6 = new Label();
+            Flask2_minCD_label = new Label();
+            Flask2_InGameHotkey_label = new Label();
             Flask2_InGameHotkey_dropBox = new ComboBox();
             Flask2_PauseSec_numericUpDown = new NumericUpDown();
-            label5 = new Label();
+            Flask2_PauseAfter_label = new Label();
             Flask2_SecondKey_dropBox = new ComboBox();
             Flask2_Pause_label = new Label();
             Flask2_Pause_checkBox = new CheckBox();
@@ -133,16 +133,16 @@
             ScreenUpdate_button = new Button();
             pictureBox1 = new PictureBox();
             tabPage2 = new TabPage();
-            button1 = new Button();
+            AddAct_AddNewAct_button = new Button();
             panel10 = new Panel();
             AddAct1_MinCD_numericUpDown = new NumericUpDown();
-            label31 = new Label();
-            label32 = new Label();
+            AddAct1_MinCD_label = new Label();
+            AddAct1_InGameHotkey_label = new Label();
             AddAct1_InGameHotkey_dropBox = new ComboBox();
             AddAct1_PauseSec_numericUpDown = new NumericUpDown();
-            label29 = new Label();
+            AddAct1_PauseAfter_label = new Label();
             AddAct1_SecondKey_dropBox = new ComboBox();
-            label30 = new Label();
+            AddAct1_Pause_label = new Label();
             AddAct1_Pause_checkBox = new CheckBox();
             panel12 = new Panel();
             AddAct1_ActType_dropBox = new ComboBox();
@@ -150,12 +150,12 @@
             AddAct1_Percent_numericUpDown = new NumericUpDown();
             AddAct1_Flat_radioButton = new RadioButton();
             AddAct1_Percent_radioButton = new RadioButton();
-            button2 = new Button();
+            AddAct1_DeleteAction_button = new Button();
             Close_button = new Button();
-            groupBox1 = new GroupBox();
-            label3 = new Label();
+            GlobalSettings_groupBox = new GroupBox();
+            Flask1_globalPauseAfter_label = new Label();
             Global_PauseSec_numericUpDown = new NumericUpDown();
-            label2 = new Label();
+            Flask1_GlobalSecondKey_label = new Label();
             Global_SecondKey_dropBox = new ComboBox();
             Global_EnablePause_chekbox = new CheckBox();
             RenameProfile_button = new Button();
@@ -206,19 +206,19 @@
             panel12.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)AddAct1_Flat_numericUpDown).BeginInit();
             ((System.ComponentModel.ISupportInitialize)AddAct1_Percent_numericUpDown).BeginInit();
-            groupBox1.SuspendLayout();
+            GlobalSettings_groupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)Global_PauseSec_numericUpDown).BeginInit();
             SuspendLayout();
             // 
-            // label1
+            // Profiles_label
             // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            label1.Location = new Point(12, 11);
-            label1.Name = "label1";
-            label1.Size = new Size(76, 25);
-            label1.TabIndex = 0;
-            label1.Text = "Profile: ";
+            Profiles_label.AutoSize = true;
+            Profiles_label.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            Profiles_label.Location = new Point(-1, 11);
+            Profiles_label.Name = "Profiles_label";
+            Profiles_label.Size = new Size(76, 25);
+            Profiles_label.TabIndex = 0;
+            Profiles_label.Text = "Profile: ";
             // 
             // Profiles_dropBox
             // 
@@ -237,9 +237,9 @@
             // 
             CreateNewProfile_button.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             CreateNewProfile_button.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            CreateNewProfile_button.Location = new Point(574, 9);
+            CreateNewProfile_button.Location = new Point(593, 9);
             CreateNewProfile_button.Name = "CreateNewProfile_button";
-            CreateNewProfile_button.Size = new Size(136, 29);
+            CreateNewProfile_button.Size = new Size(117, 29);
             CreateNewProfile_button.TabIndex = 2;
             CreateNewProfile_button.Text = "Create new";
             CreateNewProfile_button.UseVisualStyleBackColor = true;
@@ -307,13 +307,13 @@
             Flask4_panel.BackColor = Color.FromArgb(255, 192, 128);
             Flask4_panel.Controls.Add(panel5);
             Flask4_panel.Controls.Add(panel2);
-            Flask4_panel.Controls.Add(label24);
+            Flask4_panel.Controls.Add(Flask4_Group_label);
             Flask4_panel.Controls.Add(Flask4_MinCD_numericUpDown);
-            Flask4_panel.Controls.Add(label25);
-            Flask4_panel.Controls.Add(label26);
+            Flask4_panel.Controls.Add(Flask4_minCD_label);
+            Flask4_panel.Controls.Add(Flask4_InGameHotkey_label);
             Flask4_panel.Controls.Add(Flask4_InGameHotkey_dropBox);
             Flask4_panel.Controls.Add(Flask4_PauseSec_numericUpDown);
-            Flask4_panel.Controls.Add(label27);
+            Flask4_panel.Controls.Add(Flask4_PauseAfter_label);
             Flask4_panel.Controls.Add(Flask4_SecondKey_dropBox);
             Flask4_panel.Controls.Add(Flask4_Pause_label);
             Flask4_panel.Controls.Add(Flask4_Pause_checkBox);
@@ -366,15 +366,15 @@
             Flask4_group_dropBox.Size = new Size(127, 23);
             Flask4_group_dropBox.TabIndex = 14;
             // 
-            // label24
+            // Flask4_Group_label
             // 
-            label24.AutoSize = true;
-            label24.Font = new Font("Segoe UI", 11.25F);
-            label24.Location = new Point(3, 256);
-            label24.Name = "label24";
-            label24.Size = new Size(88, 20);
-            label24.TabIndex = 15;
-            label24.Text = "Flask group:";
+            Flask4_Group_label.AutoSize = true;
+            Flask4_Group_label.Font = new Font("Segoe UI", 11.25F);
+            Flask4_Group_label.Location = new Point(1, 254);
+            Flask4_Group_label.Name = "Flask4_Group_label";
+            Flask4_Group_label.Size = new Size(88, 20);
+            Flask4_Group_label.TabIndex = 15;
+            Flask4_Group_label.Text = "Flask group:";
             // 
             // Flask4_MinCD_numericUpDown
             // 
@@ -386,23 +386,23 @@
             Flask4_MinCD_numericUpDown.TabIndex = 13;
             Flask4_MinCD_numericUpDown.Value = new decimal(new int[] { 3, 0, 0, 0 });
             // 
-            // label25
+            // Flask4_minCD_label
             // 
-            label25.AutoSize = true;
-            label25.Location = new Point(2, 232);
-            label25.Name = "label25";
-            label25.Size = new Size(82, 15);
-            label25.TabIndex = 12;
-            label25.Text = "Minimum CD:";
+            Flask4_minCD_label.AutoSize = true;
+            Flask4_minCD_label.Location = new Point(2, 232);
+            Flask4_minCD_label.Name = "Flask4_minCD_label";
+            Flask4_minCD_label.Size = new Size(82, 15);
+            Flask4_minCD_label.TabIndex = 12;
+            Flask4_minCD_label.Text = "Minimum CD:";
             // 
-            // label26
+            // Flask4_InGameHotkey_label
             // 
-            label26.AutoSize = true;
-            label26.Location = new Point(3, 183);
-            label26.Name = "label26";
-            label26.Size = new Size(121, 15);
-            label26.TabIndex = 11;
-            label26.Text = "In game flask Hotkey:";
+            Flask4_InGameHotkey_label.AutoSize = true;
+            Flask4_InGameHotkey_label.Location = new Point(3, 183);
+            Flask4_InGameHotkey_label.Name = "Flask4_InGameHotkey_label";
+            Flask4_InGameHotkey_label.Size = new Size(121, 15);
+            Flask4_InGameHotkey_label.TabIndex = 11;
+            Flask4_InGameHotkey_label.Text = "In game flask Hotkey:";
             // 
             // Flask4_InGameHotkey_dropBox
             // 
@@ -419,22 +419,22 @@
             // Flask4_PauseSec_numericUpDown
             // 
             Flask4_PauseSec_numericUpDown.DecimalPlaces = 1;
-            Flask4_PauseSec_numericUpDown.Location = new Point(87, 156);
+            Flask4_PauseSec_numericUpDown.Location = new Point(89, 152);
             Flask4_PauseSec_numericUpDown.Maximum = new decimal(new int[] { 300, 0, 0, 0 });
             Flask4_PauseSec_numericUpDown.Name = "Flask4_PauseSec_numericUpDown";
             Flask4_PauseSec_numericUpDown.Size = new Size(43, 23);
             Flask4_PauseSec_numericUpDown.TabIndex = 9;
             Flask4_PauseSec_numericUpDown.Value = new decimal(new int[] { 15, 0, 0, 0 });
             // 
-            // label27
+            // Flask4_PauseAfter_label
             // 
-            label27.AutoSize = true;
-            label27.Font = new Font("Segoe UI", 8.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            label27.Location = new Point(1, 160);
-            label27.Name = "label27";
-            label27.Size = new Size(89, 13);
-            label27.TabIndex = 8;
-            label27.Text = "Pause after(sec):";
+            Flask4_PauseAfter_label.AutoSize = true;
+            Flask4_PauseAfter_label.Font = new Font("Segoe UI", 8.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            Flask4_PauseAfter_label.Location = new Point(1, 155);
+            Flask4_PauseAfter_label.Name = "Flask4_PauseAfter_label";
+            Flask4_PauseAfter_label.Size = new Size(89, 13);
+            Flask4_PauseAfter_label.TabIndex = 8;
+            Flask4_PauseAfter_label.Text = "Pause after(sec):";
             // 
             // Flask4_SecondKey_dropBox
             // 
@@ -443,7 +443,7 @@
             Flask4_SecondKey_dropBox.FlatStyle = FlatStyle.Popup;
             Flask4_SecondKey_dropBox.FormattingEnabled = true;
             Flask4_SecondKey_dropBox.IntegralHeight = false;
-            Flask4_SecondKey_dropBox.Location = new Point(3, 130);
+            Flask4_SecondKey_dropBox.Location = new Point(3, 126);
             Flask4_SecondKey_dropBox.Name = "Flask4_SecondKey_dropBox";
             Flask4_SecondKey_dropBox.Size = new Size(127, 23);
             Flask4_SecondKey_dropBox.TabIndex = 7;
@@ -451,7 +451,7 @@
             // Flask4_Pause_label
             // 
             Flask4_Pause_label.AutoSize = true;
-            Flask4_Pause_label.Location = new Point(3, 107);
+            Flask4_Pause_label.Location = new Point(1, 109);
             Flask4_Pause_label.Name = "Flask4_Pause_label";
             Flask4_Pause_label.Size = new Size(115, 15);
             Flask4_Pause_label.TabIndex = 6;
@@ -460,7 +460,7 @@
             // Flask4_Pause_checkBox
             // 
             Flask4_Pause_checkBox.AutoSize = true;
-            Flask4_Pause_checkBox.Location = new Point(3, 86);
+            Flask4_Pause_checkBox.Location = new Point(3, 92);
             Flask4_Pause_checkBox.Name = "Flask4_Pause_checkBox";
             Flask4_Pause_checkBox.Size = new Size(127, 19);
             Flask4_Pause_checkBox.TabIndex = 5;
@@ -469,18 +469,18 @@
             // 
             // Flask4_Flat_numericUpDown
             // 
-            Flask4_Flat_numericUpDown.Location = new Point(53, 57);
+            Flask4_Flat_numericUpDown.Location = new Point(70, 57);
             Flask4_Flat_numericUpDown.Maximum = new decimal(new int[] { 100000, 0, 0, 0 });
             Flask4_Flat_numericUpDown.Name = "Flask4_Flat_numericUpDown";
-            Flask4_Flat_numericUpDown.Size = new Size(77, 23);
+            Flask4_Flat_numericUpDown.Size = new Size(60, 23);
             Flask4_Flat_numericUpDown.TabIndex = 4;
             Flask4_Flat_numericUpDown.Value = new decimal(new int[] { 3000, 0, 0, 0 });
             // 
             // Flask4_Percent_numericUpDown
             // 
-            Flask4_Percent_numericUpDown.Location = new Point(70, 32);
+            Flask4_Percent_numericUpDown.Location = new Point(87, 32);
             Flask4_Percent_numericUpDown.Name = "Flask4_Percent_numericUpDown";
-            Flask4_Percent_numericUpDown.Size = new Size(60, 23);
+            Flask4_Percent_numericUpDown.Size = new Size(43, 23);
             Flask4_Percent_numericUpDown.TabIndex = 3;
             Flask4_Percent_numericUpDown.Value = new decimal(new int[] { 50, 0, 0, 0 });
             // 
@@ -511,13 +511,13 @@
             Flask5_panel.BackColor = Color.FromArgb(255, 192, 128);
             Flask5_panel.Controls.Add(panel11);
             Flask5_panel.Controls.Add(panel1);
-            Flask5_panel.Controls.Add(label19);
+            Flask5_panel.Controls.Add(Flask5_Group_label);
             Flask5_panel.Controls.Add(Flask5_MinCD_numericUpDown);
-            Flask5_panel.Controls.Add(label20);
-            Flask5_panel.Controls.Add(label21);
+            Flask5_panel.Controls.Add(Flask5_minCD_label);
+            Flask5_panel.Controls.Add(Flask5_InGameHotkey_label);
             Flask5_panel.Controls.Add(Flask5_InGameHotkey_dropBox);
             Flask5_panel.Controls.Add(Flask5_PauseSec_numericUpDown);
-            Flask5_panel.Controls.Add(label22);
+            Flask5_panel.Controls.Add(Flask5_PauseAfter_label);
             Flask5_panel.Controls.Add(Flask5_SecondKey_dropBox);
             Flask5_panel.Controls.Add(Flask5_Pause_label);
             Flask5_panel.Controls.Add(Flask5_Pause_checkBox);
@@ -569,15 +569,15 @@
             Flask5_ActType_dropBox.Size = new Size(127, 23);
             Flask5_ActType_dropBox.TabIndex = 0;
             // 
-            // label19
+            // Flask5_Group_label
             // 
-            label19.AutoSize = true;
-            label19.Font = new Font("Segoe UI", 11.25F);
-            label19.Location = new Point(3, 256);
-            label19.Name = "label19";
-            label19.Size = new Size(88, 20);
-            label19.TabIndex = 15;
-            label19.Text = "Flask group:";
+            Flask5_Group_label.AutoSize = true;
+            Flask5_Group_label.Font = new Font("Segoe UI", 11.25F);
+            Flask5_Group_label.Location = new Point(1, 254);
+            Flask5_Group_label.Name = "Flask5_Group_label";
+            Flask5_Group_label.Size = new Size(88, 20);
+            Flask5_Group_label.TabIndex = 15;
+            Flask5_Group_label.Text = "Flask group:";
             // 
             // Flask5_MinCD_numericUpDown
             // 
@@ -589,23 +589,23 @@
             Flask5_MinCD_numericUpDown.TabIndex = 13;
             Flask5_MinCD_numericUpDown.Value = new decimal(new int[] { 3, 0, 0, 0 });
             // 
-            // label20
+            // Flask5_minCD_label
             // 
-            label20.AutoSize = true;
-            label20.Location = new Point(2, 232);
-            label20.Name = "label20";
-            label20.Size = new Size(82, 15);
-            label20.TabIndex = 12;
-            label20.Text = "Minimum CD:";
+            Flask5_minCD_label.AutoSize = true;
+            Flask5_minCD_label.Location = new Point(2, 232);
+            Flask5_minCD_label.Name = "Flask5_minCD_label";
+            Flask5_minCD_label.Size = new Size(82, 15);
+            Flask5_minCD_label.TabIndex = 12;
+            Flask5_minCD_label.Text = "Minimum CD:";
             // 
-            // label21
+            // Flask5_InGameHotkey_label
             // 
-            label21.AutoSize = true;
-            label21.Location = new Point(3, 183);
-            label21.Name = "label21";
-            label21.Size = new Size(121, 15);
-            label21.TabIndex = 11;
-            label21.Text = "In game flask Hotkey:";
+            Flask5_InGameHotkey_label.AutoSize = true;
+            Flask5_InGameHotkey_label.Location = new Point(3, 183);
+            Flask5_InGameHotkey_label.Name = "Flask5_InGameHotkey_label";
+            Flask5_InGameHotkey_label.Size = new Size(121, 15);
+            Flask5_InGameHotkey_label.TabIndex = 11;
+            Flask5_InGameHotkey_label.Text = "In game flask Hotkey:";
             // 
             // Flask5_InGameHotkey_dropBox
             // 
@@ -622,22 +622,22 @@
             // Flask5_PauseSec_numericUpDown
             // 
             Flask5_PauseSec_numericUpDown.DecimalPlaces = 1;
-            Flask5_PauseSec_numericUpDown.Location = new Point(87, 156);
+            Flask5_PauseSec_numericUpDown.Location = new Point(89, 152);
             Flask5_PauseSec_numericUpDown.Maximum = new decimal(new int[] { 300, 0, 0, 0 });
             Flask5_PauseSec_numericUpDown.Name = "Flask5_PauseSec_numericUpDown";
             Flask5_PauseSec_numericUpDown.Size = new Size(43, 23);
             Flask5_PauseSec_numericUpDown.TabIndex = 9;
             Flask5_PauseSec_numericUpDown.Value = new decimal(new int[] { 15, 0, 0, 0 });
             // 
-            // label22
+            // Flask5_PauseAfter_label
             // 
-            label22.AutoSize = true;
-            label22.Font = new Font("Segoe UI", 8.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            label22.Location = new Point(1, 160);
-            label22.Name = "label22";
-            label22.Size = new Size(89, 13);
-            label22.TabIndex = 8;
-            label22.Text = "Pause after(sec):";
+            Flask5_PauseAfter_label.AutoSize = true;
+            Flask5_PauseAfter_label.Font = new Font("Segoe UI", 8.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            Flask5_PauseAfter_label.Location = new Point(1, 155);
+            Flask5_PauseAfter_label.Name = "Flask5_PauseAfter_label";
+            Flask5_PauseAfter_label.Size = new Size(89, 13);
+            Flask5_PauseAfter_label.TabIndex = 8;
+            Flask5_PauseAfter_label.Text = "Pause after(sec):";
             // 
             // Flask5_SecondKey_dropBox
             // 
@@ -646,7 +646,7 @@
             Flask5_SecondKey_dropBox.FlatStyle = FlatStyle.Popup;
             Flask5_SecondKey_dropBox.FormattingEnabled = true;
             Flask5_SecondKey_dropBox.IntegralHeight = false;
-            Flask5_SecondKey_dropBox.Location = new Point(3, 130);
+            Flask5_SecondKey_dropBox.Location = new Point(3, 126);
             Flask5_SecondKey_dropBox.Name = "Flask5_SecondKey_dropBox";
             Flask5_SecondKey_dropBox.Size = new Size(127, 23);
             Flask5_SecondKey_dropBox.TabIndex = 7;
@@ -654,7 +654,7 @@
             // Flask5_Pause_label
             // 
             Flask5_Pause_label.AutoSize = true;
-            Flask5_Pause_label.Location = new Point(3, 107);
+            Flask5_Pause_label.Location = new Point(1, 109);
             Flask5_Pause_label.Name = "Flask5_Pause_label";
             Flask5_Pause_label.Size = new Size(115, 15);
             Flask5_Pause_label.TabIndex = 6;
@@ -663,7 +663,7 @@
             // Flask5_Pause_checkBox
             // 
             Flask5_Pause_checkBox.AutoSize = true;
-            Flask5_Pause_checkBox.Location = new Point(3, 86);
+            Flask5_Pause_checkBox.Location = new Point(3, 92);
             Flask5_Pause_checkBox.Name = "Flask5_Pause_checkBox";
             Flask5_Pause_checkBox.Size = new Size(127, 19);
             Flask5_Pause_checkBox.TabIndex = 5;
@@ -672,18 +672,18 @@
             // 
             // Flask5_Flat_numericUpDown
             // 
-            Flask5_Flat_numericUpDown.Location = new Point(53, 57);
+            Flask5_Flat_numericUpDown.Location = new Point(70, 57);
             Flask5_Flat_numericUpDown.Maximum = new decimal(new int[] { 100000, 0, 0, 0 });
             Flask5_Flat_numericUpDown.Name = "Flask5_Flat_numericUpDown";
-            Flask5_Flat_numericUpDown.Size = new Size(77, 23);
+            Flask5_Flat_numericUpDown.Size = new Size(60, 23);
             Flask5_Flat_numericUpDown.TabIndex = 4;
             Flask5_Flat_numericUpDown.Value = new decimal(new int[] { 3000, 0, 0, 0 });
             // 
             // Flask5_Percent_numericUpDown
             // 
-            Flask5_Percent_numericUpDown.Location = new Point(70, 32);
+            Flask5_Percent_numericUpDown.Location = new Point(87, 32);
             Flask5_Percent_numericUpDown.Name = "Flask5_Percent_numericUpDown";
-            Flask5_Percent_numericUpDown.Size = new Size(60, 23);
+            Flask5_Percent_numericUpDown.Size = new Size(43, 23);
             Flask5_Percent_numericUpDown.TabIndex = 3;
             Flask5_Percent_numericUpDown.Value = new decimal(new int[] { 50, 0, 0, 0 });
             // 
@@ -714,13 +714,13 @@
             Flask3_panel.BackColor = Color.LightSkyBlue;
             Flask3_panel.Controls.Add(panel9);
             Flask3_panel.Controls.Add(panel4);
-            Flask3_panel.Controls.Add(label14);
+            Flask3_panel.Controls.Add(Flask3_Group_label);
             Flask3_panel.Controls.Add(Flask3_MinCD_numericUpDown);
-            Flask3_panel.Controls.Add(label15);
-            Flask3_panel.Controls.Add(label16);
+            Flask3_panel.Controls.Add(Flask3_minCD_label);
+            Flask3_panel.Controls.Add(Flask3_InGameHotkey_label);
             Flask3_panel.Controls.Add(Flask3_InGameHotkey_dropBox);
             Flask3_panel.Controls.Add(Flask3_PauseSec_numericUpDown);
-            Flask3_panel.Controls.Add(label17);
+            Flask3_panel.Controls.Add(Flask3_PauseAfter_label);
             Flask3_panel.Controls.Add(Flask3_SecondKey_dropBox);
             Flask3_panel.Controls.Add(Flask3_Pause_label);
             Flask3_panel.Controls.Add(Flask3_Pause_checkBox);
@@ -772,15 +772,15 @@
             Flask3_ActType_dropBox.Size = new Size(127, 23);
             Flask3_ActType_dropBox.TabIndex = 0;
             // 
-            // label14
+            // Flask3_Group_label
             // 
-            label14.AutoSize = true;
-            label14.Font = new Font("Segoe UI", 11.25F);
-            label14.Location = new Point(3, 256);
-            label14.Name = "label14";
-            label14.Size = new Size(88, 20);
-            label14.TabIndex = 15;
-            label14.Text = "Flask group:";
+            Flask3_Group_label.AutoSize = true;
+            Flask3_Group_label.Font = new Font("Segoe UI", 11.25F);
+            Flask3_Group_label.Location = new Point(1, 254);
+            Flask3_Group_label.Name = "Flask3_Group_label";
+            Flask3_Group_label.Size = new Size(88, 20);
+            Flask3_Group_label.TabIndex = 15;
+            Flask3_Group_label.Text = "Flask group:";
             // 
             // Flask3_MinCD_numericUpDown
             // 
@@ -792,23 +792,23 @@
             Flask3_MinCD_numericUpDown.TabIndex = 13;
             Flask3_MinCD_numericUpDown.Value = new decimal(new int[] { 3, 0, 0, 0 });
             // 
-            // label15
+            // Flask3_minCD_label
             // 
-            label15.AutoSize = true;
-            label15.Location = new Point(2, 232);
-            label15.Name = "label15";
-            label15.Size = new Size(82, 15);
-            label15.TabIndex = 12;
-            label15.Text = "Minimum CD:";
+            Flask3_minCD_label.AutoSize = true;
+            Flask3_minCD_label.Location = new Point(2, 232);
+            Flask3_minCD_label.Name = "Flask3_minCD_label";
+            Flask3_minCD_label.Size = new Size(82, 15);
+            Flask3_minCD_label.TabIndex = 12;
+            Flask3_minCD_label.Text = "Minimum CD:";
             // 
-            // label16
+            // Flask3_InGameHotkey_label
             // 
-            label16.AutoSize = true;
-            label16.Location = new Point(3, 183);
-            label16.Name = "label16";
-            label16.Size = new Size(121, 15);
-            label16.TabIndex = 11;
-            label16.Text = "In game flask Hotkey:";
+            Flask3_InGameHotkey_label.AutoSize = true;
+            Flask3_InGameHotkey_label.Location = new Point(3, 183);
+            Flask3_InGameHotkey_label.Name = "Flask3_InGameHotkey_label";
+            Flask3_InGameHotkey_label.Size = new Size(121, 15);
+            Flask3_InGameHotkey_label.TabIndex = 11;
+            Flask3_InGameHotkey_label.Text = "In game flask Hotkey:";
             // 
             // Flask3_InGameHotkey_dropBox
             // 
@@ -825,22 +825,22 @@
             // Flask3_PauseSec_numericUpDown
             // 
             Flask3_PauseSec_numericUpDown.DecimalPlaces = 1;
-            Flask3_PauseSec_numericUpDown.Location = new Point(87, 156);
+            Flask3_PauseSec_numericUpDown.Location = new Point(89, 152);
             Flask3_PauseSec_numericUpDown.Maximum = new decimal(new int[] { 300, 0, 0, 0 });
             Flask3_PauseSec_numericUpDown.Name = "Flask3_PauseSec_numericUpDown";
             Flask3_PauseSec_numericUpDown.Size = new Size(43, 23);
             Flask3_PauseSec_numericUpDown.TabIndex = 9;
             Flask3_PauseSec_numericUpDown.Value = new decimal(new int[] { 15, 0, 0, 0 });
             // 
-            // label17
+            // Flask3_PauseAfter_label
             // 
-            label17.AutoSize = true;
-            label17.Font = new Font("Segoe UI", 8.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            label17.Location = new Point(1, 160);
-            label17.Name = "label17";
-            label17.Size = new Size(89, 13);
-            label17.TabIndex = 8;
-            label17.Text = "Pause after(sec):";
+            Flask3_PauseAfter_label.AutoSize = true;
+            Flask3_PauseAfter_label.Font = new Font("Segoe UI", 8.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            Flask3_PauseAfter_label.Location = new Point(1, 155);
+            Flask3_PauseAfter_label.Name = "Flask3_PauseAfter_label";
+            Flask3_PauseAfter_label.Size = new Size(89, 13);
+            Flask3_PauseAfter_label.TabIndex = 8;
+            Flask3_PauseAfter_label.Text = "Pause after(sec):";
             // 
             // Flask3_SecondKey_dropBox
             // 
@@ -849,7 +849,7 @@
             Flask3_SecondKey_dropBox.FlatStyle = FlatStyle.Popup;
             Flask3_SecondKey_dropBox.FormattingEnabled = true;
             Flask3_SecondKey_dropBox.IntegralHeight = false;
-            Flask3_SecondKey_dropBox.Location = new Point(3, 130);
+            Flask3_SecondKey_dropBox.Location = new Point(3, 126);
             Flask3_SecondKey_dropBox.Name = "Flask3_SecondKey_dropBox";
             Flask3_SecondKey_dropBox.Size = new Size(127, 23);
             Flask3_SecondKey_dropBox.TabIndex = 7;
@@ -857,7 +857,7 @@
             // Flask3_Pause_label
             // 
             Flask3_Pause_label.AutoSize = true;
-            Flask3_Pause_label.Location = new Point(3, 107);
+            Flask3_Pause_label.Location = new Point(1, 109);
             Flask3_Pause_label.Name = "Flask3_Pause_label";
             Flask3_Pause_label.Size = new Size(115, 15);
             Flask3_Pause_label.TabIndex = 6;
@@ -866,7 +866,7 @@
             // Flask3_Pause_checkBox
             // 
             Flask3_Pause_checkBox.AutoSize = true;
-            Flask3_Pause_checkBox.Location = new Point(3, 86);
+            Flask3_Pause_checkBox.Location = new Point(3, 92);
             Flask3_Pause_checkBox.Name = "Flask3_Pause_checkBox";
             Flask3_Pause_checkBox.Size = new Size(127, 19);
             Flask3_Pause_checkBox.TabIndex = 5;
@@ -875,18 +875,18 @@
             // 
             // Flask3_Flat_numericUpDown
             // 
-            Flask3_Flat_numericUpDown.Location = new Point(53, 57);
+            Flask3_Flat_numericUpDown.Location = new Point(70, 57);
             Flask3_Flat_numericUpDown.Maximum = new decimal(new int[] { 100000, 0, 0, 0 });
             Flask3_Flat_numericUpDown.Name = "Flask3_Flat_numericUpDown";
-            Flask3_Flat_numericUpDown.Size = new Size(77, 23);
+            Flask3_Flat_numericUpDown.Size = new Size(60, 23);
             Flask3_Flat_numericUpDown.TabIndex = 4;
             Flask3_Flat_numericUpDown.Value = new decimal(new int[] { 3000, 0, 0, 0 });
             // 
             // Flask3_Percent_numericUpDown
             // 
-            Flask3_Percent_numericUpDown.Location = new Point(70, 32);
+            Flask3_Percent_numericUpDown.Location = new Point(87, 32);
             Flask3_Percent_numericUpDown.Name = "Flask3_Percent_numericUpDown";
-            Flask3_Percent_numericUpDown.Size = new Size(60, 23);
+            Flask3_Percent_numericUpDown.Size = new Size(43, 23);
             Flask3_Percent_numericUpDown.TabIndex = 3;
             Flask3_Percent_numericUpDown.Value = new decimal(new int[] { 50, 0, 0, 0 });
             // 
@@ -917,13 +917,13 @@
             Flask1_panel.BackColor = Color.FromArgb(224, 224, 224);
             Flask1_panel.Controls.Add(panel7);
             Flask1_panel.Controls.Add(panel6);
-            Flask1_panel.Controls.Add(label9);
+            Flask1_panel.Controls.Add(Flask1_Group_label);
             Flask1_panel.Controls.Add(Flask1_MinCD_numericUpDown);
-            Flask1_panel.Controls.Add(label10);
-            Flask1_panel.Controls.Add(label11);
+            Flask1_panel.Controls.Add(Flask1_minCD_label);
+            Flask1_panel.Controls.Add(Flask1_InGameHotkey_label);
             Flask1_panel.Controls.Add(Flask1_InGameHotkey_dropBox);
             Flask1_panel.Controls.Add(Flask1_PauseSec_numericUpDown);
-            Flask1_panel.Controls.Add(label12);
+            Flask1_panel.Controls.Add(Flask1_PauseAfter_label);
             Flask1_panel.Controls.Add(Flask1_SecondKey_dropBox);
             Flask1_panel.Controls.Add(Flask1_Pause_label);
             Flask1_panel.Controls.Add(Flask1_Pause_checkBox);
@@ -977,15 +977,15 @@
             Flask1_ActType_dropBox.Size = new Size(127, 23);
             Flask1_ActType_dropBox.TabIndex = 0;
             // 
-            // label9
+            // Flask1_Group_label
             // 
-            label9.AutoSize = true;
-            label9.Font = new Font("Segoe UI", 11.25F);
-            label9.Location = new Point(3, 256);
-            label9.Name = "label9";
-            label9.Size = new Size(88, 20);
-            label9.TabIndex = 15;
-            label9.Text = "Flask group:";
+            Flask1_Group_label.AutoSize = true;
+            Flask1_Group_label.Font = new Font("Segoe UI", 11.25F);
+            Flask1_Group_label.Location = new Point(1, 254);
+            Flask1_Group_label.Name = "Flask1_Group_label";
+            Flask1_Group_label.Size = new Size(88, 20);
+            Flask1_Group_label.TabIndex = 15;
+            Flask1_Group_label.Text = "Flask group:";
             // 
             // Flask1_MinCD_numericUpDown
             // 
@@ -997,23 +997,23 @@
             Flask1_MinCD_numericUpDown.TabIndex = 13;
             Flask1_MinCD_numericUpDown.Value = new decimal(new int[] { 3, 0, 0, 0 });
             // 
-            // label10
+            // Flask1_minCD_label
             // 
-            label10.AutoSize = true;
-            label10.Location = new Point(2, 232);
-            label10.Name = "label10";
-            label10.Size = new Size(82, 15);
-            label10.TabIndex = 12;
-            label10.Text = "Minimum CD:";
+            Flask1_minCD_label.AutoSize = true;
+            Flask1_minCD_label.Location = new Point(2, 232);
+            Flask1_minCD_label.Name = "Flask1_minCD_label";
+            Flask1_minCD_label.Size = new Size(82, 15);
+            Flask1_minCD_label.TabIndex = 12;
+            Flask1_minCD_label.Text = "Minimum CD:";
             // 
-            // label11
+            // Flask1_InGameHotkey_label
             // 
-            label11.AutoSize = true;
-            label11.Location = new Point(3, 183);
-            label11.Name = "label11";
-            label11.Size = new Size(121, 15);
-            label11.TabIndex = 11;
-            label11.Text = "In game flask Hotkey:";
+            Flask1_InGameHotkey_label.AutoSize = true;
+            Flask1_InGameHotkey_label.Location = new Point(3, 183);
+            Flask1_InGameHotkey_label.Name = "Flask1_InGameHotkey_label";
+            Flask1_InGameHotkey_label.Size = new Size(121, 15);
+            Flask1_InGameHotkey_label.TabIndex = 11;
+            Flask1_InGameHotkey_label.Text = "In game flask Hotkey:";
             // 
             // Flask1_InGameHotkey_dropBox
             // 
@@ -1030,22 +1030,22 @@
             // Flask1_PauseSec_numericUpDown
             // 
             Flask1_PauseSec_numericUpDown.DecimalPlaces = 1;
-            Flask1_PauseSec_numericUpDown.Location = new Point(87, 156);
+            Flask1_PauseSec_numericUpDown.Location = new Point(89, 152);
             Flask1_PauseSec_numericUpDown.Maximum = new decimal(new int[] { 300, 0, 0, 0 });
             Flask1_PauseSec_numericUpDown.Name = "Flask1_PauseSec_numericUpDown";
             Flask1_PauseSec_numericUpDown.Size = new Size(43, 23);
             Flask1_PauseSec_numericUpDown.TabIndex = 9;
             Flask1_PauseSec_numericUpDown.Value = new decimal(new int[] { 15, 0, 0, 0 });
             // 
-            // label12
+            // Flask1_PauseAfter_label
             // 
-            label12.AutoSize = true;
-            label12.Font = new Font("Segoe UI", 8.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            label12.Location = new Point(1, 160);
-            label12.Name = "label12";
-            label12.Size = new Size(89, 13);
-            label12.TabIndex = 8;
-            label12.Text = "Pause after(sec):";
+            Flask1_PauseAfter_label.AutoSize = true;
+            Flask1_PauseAfter_label.Font = new Font("Segoe UI", 8.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            Flask1_PauseAfter_label.Location = new Point(1, 155);
+            Flask1_PauseAfter_label.Name = "Flask1_PauseAfter_label";
+            Flask1_PauseAfter_label.Size = new Size(89, 13);
+            Flask1_PauseAfter_label.TabIndex = 8;
+            Flask1_PauseAfter_label.Text = "Pause after(sec):";
             // 
             // Flask1_SecondKey_dropBox
             // 
@@ -1054,7 +1054,7 @@
             Flask1_SecondKey_dropBox.FlatStyle = FlatStyle.Popup;
             Flask1_SecondKey_dropBox.FormattingEnabled = true;
             Flask1_SecondKey_dropBox.IntegralHeight = false;
-            Flask1_SecondKey_dropBox.Location = new Point(3, 130);
+            Flask1_SecondKey_dropBox.Location = new Point(3, 126);
             Flask1_SecondKey_dropBox.Name = "Flask1_SecondKey_dropBox";
             Flask1_SecondKey_dropBox.Size = new Size(127, 23);
             Flask1_SecondKey_dropBox.TabIndex = 7;
@@ -1062,7 +1062,7 @@
             // Flask1_Pause_label
             // 
             Flask1_Pause_label.AutoSize = true;
-            Flask1_Pause_label.Location = new Point(3, 107);
+            Flask1_Pause_label.Location = new Point(1, 109);
             Flask1_Pause_label.Name = "Flask1_Pause_label";
             Flask1_Pause_label.Size = new Size(115, 15);
             Flask1_Pause_label.TabIndex = 6;
@@ -1071,7 +1071,7 @@
             // Flask1_Pause_checkBox
             // 
             Flask1_Pause_checkBox.AutoSize = true;
-            Flask1_Pause_checkBox.Location = new Point(3, 86);
+            Flask1_Pause_checkBox.Location = new Point(3, 92);
             Flask1_Pause_checkBox.Name = "Flask1_Pause_checkBox";
             Flask1_Pause_checkBox.Size = new Size(127, 19);
             Flask1_Pause_checkBox.TabIndex = 5;
@@ -1080,18 +1080,18 @@
             // 
             // Flask1_Flat_numericUpDown
             // 
-            Flask1_Flat_numericUpDown.Location = new Point(53, 57);
+            Flask1_Flat_numericUpDown.Location = new Point(70, 57);
             Flask1_Flat_numericUpDown.Maximum = new decimal(new int[] { 100000, 0, 0, 0 });
             Flask1_Flat_numericUpDown.Name = "Flask1_Flat_numericUpDown";
-            Flask1_Flat_numericUpDown.Size = new Size(77, 23);
+            Flask1_Flat_numericUpDown.Size = new Size(60, 23);
             Flask1_Flat_numericUpDown.TabIndex = 4;
             Flask1_Flat_numericUpDown.Value = new decimal(new int[] { 3000, 0, 0, 0 });
             // 
             // Flask1_Percent_numericUpDown
             // 
-            Flask1_Percent_numericUpDown.Location = new Point(70, 32);
+            Flask1_Percent_numericUpDown.Location = new Point(87, 32);
             Flask1_Percent_numericUpDown.Name = "Flask1_Percent_numericUpDown";
-            Flask1_Percent_numericUpDown.Size = new Size(60, 23);
+            Flask1_Percent_numericUpDown.Size = new Size(43, 23);
             Flask1_Percent_numericUpDown.TabIndex = 3;
             Flask1_Percent_numericUpDown.Value = new decimal(new int[] { 50, 0, 0, 0 });
             // 
@@ -1122,13 +1122,13 @@
             Flask2_panel.BackColor = Color.FromArgb(255, 192, 128);
             Flask2_panel.Controls.Add(panel8);
             Flask2_panel.Controls.Add(panel3);
-            Flask2_panel.Controls.Add(label8);
+            Flask2_panel.Controls.Add(Flask2_Group_label);
             Flask2_panel.Controls.Add(Flask2_MinCD_numericUpDown);
-            Flask2_panel.Controls.Add(label7);
-            Flask2_panel.Controls.Add(label6);
+            Flask2_panel.Controls.Add(Flask2_minCD_label);
+            Flask2_panel.Controls.Add(Flask2_InGameHotkey_label);
             Flask2_panel.Controls.Add(Flask2_InGameHotkey_dropBox);
             Flask2_panel.Controls.Add(Flask2_PauseSec_numericUpDown);
-            Flask2_panel.Controls.Add(label5);
+            Flask2_panel.Controls.Add(Flask2_PauseAfter_label);
             Flask2_panel.Controls.Add(Flask2_SecondKey_dropBox);
             Flask2_panel.Controls.Add(Flask2_Pause_label);
             Flask2_panel.Controls.Add(Flask2_Pause_checkBox);
@@ -1180,15 +1180,15 @@
             Flask2_ActType_dropBox.Size = new Size(127, 23);
             Flask2_ActType_dropBox.TabIndex = 0;
             // 
-            // label8
+            // Flask2_Group_label
             // 
-            label8.AutoSize = true;
-            label8.Font = new Font("Segoe UI", 11.25F);
-            label8.Location = new Point(3, 256);
-            label8.Name = "label8";
-            label8.Size = new Size(88, 20);
-            label8.TabIndex = 15;
-            label8.Text = "Flask group:";
+            Flask2_Group_label.AutoSize = true;
+            Flask2_Group_label.Font = new Font("Segoe UI", 11.25F);
+            Flask2_Group_label.Location = new Point(1, 254);
+            Flask2_Group_label.Name = "Flask2_Group_label";
+            Flask2_Group_label.Size = new Size(88, 20);
+            Flask2_Group_label.TabIndex = 15;
+            Flask2_Group_label.Text = "Flask group:";
             // 
             // Flask2_MinCD_numericUpDown
             // 
@@ -1200,23 +1200,23 @@
             Flask2_MinCD_numericUpDown.TabIndex = 13;
             Flask2_MinCD_numericUpDown.Value = new decimal(new int[] { 3, 0, 0, 0 });
             // 
-            // label7
+            // Flask2_minCD_label
             // 
-            label7.AutoSize = true;
-            label7.Location = new Point(2, 232);
-            label7.Name = "label7";
-            label7.Size = new Size(82, 15);
-            label7.TabIndex = 12;
-            label7.Text = "Minimum CD:";
+            Flask2_minCD_label.AutoSize = true;
+            Flask2_minCD_label.Location = new Point(2, 232);
+            Flask2_minCD_label.Name = "Flask2_minCD_label";
+            Flask2_minCD_label.Size = new Size(82, 15);
+            Flask2_minCD_label.TabIndex = 12;
+            Flask2_minCD_label.Text = "Minimum CD:";
             // 
-            // label6
+            // Flask2_InGameHotkey_label
             // 
-            label6.AutoSize = true;
-            label6.Location = new Point(3, 183);
-            label6.Name = "label6";
-            label6.Size = new Size(121, 15);
-            label6.TabIndex = 11;
-            label6.Text = "In game flask Hotkey:";
+            Flask2_InGameHotkey_label.AutoSize = true;
+            Flask2_InGameHotkey_label.Location = new Point(3, 183);
+            Flask2_InGameHotkey_label.Name = "Flask2_InGameHotkey_label";
+            Flask2_InGameHotkey_label.Size = new Size(121, 15);
+            Flask2_InGameHotkey_label.TabIndex = 11;
+            Flask2_InGameHotkey_label.Text = "In game flask Hotkey:";
             // 
             // Flask2_InGameHotkey_dropBox
             // 
@@ -1233,22 +1233,22 @@
             // Flask2_PauseSec_numericUpDown
             // 
             Flask2_PauseSec_numericUpDown.DecimalPlaces = 1;
-            Flask2_PauseSec_numericUpDown.Location = new Point(87, 156);
+            Flask2_PauseSec_numericUpDown.Location = new Point(89, 152);
             Flask2_PauseSec_numericUpDown.Maximum = new decimal(new int[] { 300, 0, 0, 0 });
             Flask2_PauseSec_numericUpDown.Name = "Flask2_PauseSec_numericUpDown";
             Flask2_PauseSec_numericUpDown.Size = new Size(43, 23);
             Flask2_PauseSec_numericUpDown.TabIndex = 9;
             Flask2_PauseSec_numericUpDown.Value = new decimal(new int[] { 15, 0, 0, 0 });
             // 
-            // label5
+            // Flask2_PauseAfter_label
             // 
-            label5.AutoSize = true;
-            label5.Font = new Font("Segoe UI", 8.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            label5.Location = new Point(1, 160);
-            label5.Name = "label5";
-            label5.Size = new Size(89, 13);
-            label5.TabIndex = 8;
-            label5.Text = "Pause after(sec):";
+            Flask2_PauseAfter_label.AutoSize = true;
+            Flask2_PauseAfter_label.Font = new Font("Segoe UI", 8.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            Flask2_PauseAfter_label.Location = new Point(1, 155);
+            Flask2_PauseAfter_label.Name = "Flask2_PauseAfter_label";
+            Flask2_PauseAfter_label.Size = new Size(89, 13);
+            Flask2_PauseAfter_label.TabIndex = 8;
+            Flask2_PauseAfter_label.Text = "Pause after(sec):";
             // 
             // Flask2_SecondKey_dropBox
             // 
@@ -1257,7 +1257,7 @@
             Flask2_SecondKey_dropBox.FlatStyle = FlatStyle.Popup;
             Flask2_SecondKey_dropBox.FormattingEnabled = true;
             Flask2_SecondKey_dropBox.IntegralHeight = false;
-            Flask2_SecondKey_dropBox.Location = new Point(3, 130);
+            Flask2_SecondKey_dropBox.Location = new Point(3, 126);
             Flask2_SecondKey_dropBox.Name = "Flask2_SecondKey_dropBox";
             Flask2_SecondKey_dropBox.Size = new Size(127, 23);
             Flask2_SecondKey_dropBox.TabIndex = 7;
@@ -1265,7 +1265,7 @@
             // Flask2_Pause_label
             // 
             Flask2_Pause_label.AutoSize = true;
-            Flask2_Pause_label.Location = new Point(3, 107);
+            Flask2_Pause_label.Location = new Point(1, 109);
             Flask2_Pause_label.Name = "Flask2_Pause_label";
             Flask2_Pause_label.Size = new Size(115, 15);
             Flask2_Pause_label.TabIndex = 6;
@@ -1274,7 +1274,7 @@
             // Flask2_Pause_checkBox
             // 
             Flask2_Pause_checkBox.AutoSize = true;
-            Flask2_Pause_checkBox.Location = new Point(3, 86);
+            Flask2_Pause_checkBox.Location = new Point(3, 92);
             Flask2_Pause_checkBox.Name = "Flask2_Pause_checkBox";
             Flask2_Pause_checkBox.Size = new Size(127, 19);
             Flask2_Pause_checkBox.TabIndex = 5;
@@ -1283,18 +1283,18 @@
             // 
             // Flask2_Flat_numericUpDown
             // 
-            Flask2_Flat_numericUpDown.Location = new Point(53, 57);
+            Flask2_Flat_numericUpDown.Location = new Point(70, 57);
             Flask2_Flat_numericUpDown.Maximum = new decimal(new int[] { 100000, 0, 0, 0 });
             Flask2_Flat_numericUpDown.Name = "Flask2_Flat_numericUpDown";
-            Flask2_Flat_numericUpDown.Size = new Size(77, 23);
+            Flask2_Flat_numericUpDown.Size = new Size(60, 23);
             Flask2_Flat_numericUpDown.TabIndex = 4;
             Flask2_Flat_numericUpDown.Value = new decimal(new int[] { 3000, 0, 0, 0 });
             // 
             // Flask2_Percent_numericUpDown
             // 
-            Flask2_Percent_numericUpDown.Location = new Point(70, 32);
+            Flask2_Percent_numericUpDown.Location = new Point(87, 32);
             Flask2_Percent_numericUpDown.Name = "Flask2_Percent_numericUpDown";
-            Flask2_Percent_numericUpDown.Size = new Size(60, 23);
+            Flask2_Percent_numericUpDown.Size = new Size(43, 23);
             Flask2_Percent_numericUpDown.TabIndex = 3;
             Flask2_Percent_numericUpDown.Value = new decimal(new int[] { 50, 0, 0, 0 });
             // 
@@ -1323,7 +1323,7 @@
             // ScreenUpdate_button
             // 
             ScreenUpdate_button.BackColor = SystemColors.ActiveCaption;
-            ScreenUpdate_button.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            ScreenUpdate_button.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 204);
             ScreenUpdate_button.Location = new Point(6, 6);
             ScreenUpdate_button.Name = "ScreenUpdate_button";
             ScreenUpdate_button.Size = new Size(99, 321);
@@ -1347,7 +1347,7 @@
             // tabPage2
             // 
             tabPage2.BackColor = SystemColors.Control;
-            tabPage2.Controls.Add(button1);
+            tabPage2.Controls.Add(AddAct_AddNewAct_button);
             tabPage2.Controls.Add(panel10);
             tabPage2.Location = new Point(4, 24);
             tabPage2.Name = "tabPage2";
@@ -1356,34 +1356,34 @@
             tabPage2.TabIndex = 1;
             tabPage2.Text = "Addtitional actions";
             // 
-            // button1
+            // AddAct_AddNewAct_button
             // 
-            button1.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            button1.Location = new Point(6, 112);
-            button1.Name = "button1";
-            button1.Size = new Size(804, 34);
-            button1.TabIndex = 1;
-            button1.Text = "Add new action";
-            button1.UseVisualStyleBackColor = true;
+            AddAct_AddNewAct_button.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            AddAct_AddNewAct_button.Location = new Point(6, 112);
+            AddAct_AddNewAct_button.Name = "AddAct_AddNewAct_button";
+            AddAct_AddNewAct_button.Size = new Size(804, 34);
+            AddAct_AddNewAct_button.TabIndex = 1;
+            AddAct_AddNewAct_button.Text = "Add new action";
+            AddAct_AddNewAct_button.UseVisualStyleBackColor = true;
             // 
             // panel10
             // 
             panel10.BackColor = Color.SkyBlue;
             panel10.Controls.Add(AddAct1_MinCD_numericUpDown);
-            panel10.Controls.Add(label31);
-            panel10.Controls.Add(label32);
+            panel10.Controls.Add(AddAct1_MinCD_label);
+            panel10.Controls.Add(AddAct1_InGameHotkey_label);
             panel10.Controls.Add(AddAct1_InGameHotkey_dropBox);
             panel10.Controls.Add(AddAct1_PauseSec_numericUpDown);
-            panel10.Controls.Add(label29);
+            panel10.Controls.Add(AddAct1_PauseAfter_label);
             panel10.Controls.Add(AddAct1_SecondKey_dropBox);
-            panel10.Controls.Add(label30);
+            panel10.Controls.Add(AddAct1_Pause_label);
             panel10.Controls.Add(AddAct1_Pause_checkBox);
             panel10.Controls.Add(panel12);
             panel10.Controls.Add(AddAct1_Flat_numericUpDown);
             panel10.Controls.Add(AddAct1_Percent_numericUpDown);
             panel10.Controls.Add(AddAct1_Flat_radioButton);
             panel10.Controls.Add(AddAct1_Percent_radioButton);
-            panel10.Controls.Add(button2);
+            panel10.Controls.Add(AddAct1_DeleteAction_button);
             panel10.Location = new Point(6, 6);
             panel10.Name = "panel10";
             panel10.Size = new Size(804, 100);
@@ -1399,23 +1399,23 @@
             AddAct1_MinCD_numericUpDown.TabIndex = 19;
             AddAct1_MinCD_numericUpDown.Value = new decimal(new int[] { 3, 0, 0, 0 });
             // 
-            // label31
+            // AddAct1_MinCD_label
             // 
-            label31.AutoSize = true;
-            label31.Location = new Point(319, 63);
-            label31.Name = "label31";
-            label31.Size = new Size(82, 15);
-            label31.TabIndex = 18;
-            label31.Text = "Minimum CD:";
+            AddAct1_MinCD_label.AutoSize = true;
+            AddAct1_MinCD_label.Location = new Point(319, 63);
+            AddAct1_MinCD_label.Name = "AddAct1_MinCD_label";
+            AddAct1_MinCD_label.Size = new Size(82, 15);
+            AddAct1_MinCD_label.TabIndex = 18;
+            AddAct1_MinCD_label.Text = "Minimum CD:";
             // 
-            // label32
+            // AddAct1_InGameHotkey_label
             // 
-            label32.AutoSize = true;
-            label32.Location = new Point(319, 8);
-            label32.Name = "label32";
-            label32.Size = new Size(94, 15);
-            label32.TabIndex = 17;
-            label32.Text = "In game Hotkey:";
+            AddAct1_InGameHotkey_label.AutoSize = true;
+            AddAct1_InGameHotkey_label.Location = new Point(319, 8);
+            AddAct1_InGameHotkey_label.Name = "AddAct1_InGameHotkey_label";
+            AddAct1_InGameHotkey_label.Size = new Size(94, 15);
+            AddAct1_InGameHotkey_label.TabIndex = 17;
+            AddAct1_InGameHotkey_label.Text = "In game Hotkey:";
             // 
             // AddAct1_InGameHotkey_dropBox
             // 
@@ -1439,15 +1439,15 @@
             AddAct1_PauseSec_numericUpDown.TabIndex = 15;
             AddAct1_PauseSec_numericUpDown.Value = new decimal(new int[] { 15, 0, 0, 0 });
             // 
-            // label29
+            // AddAct1_PauseAfter_label
             // 
-            label29.AutoSize = true;
-            label29.Font = new Font("Segoe UI", 8.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            label29.Location = new Point(161, 78);
-            label29.Name = "label29";
-            label29.Size = new Size(89, 13);
-            label29.TabIndex = 14;
-            label29.Text = "Pause after(sec):";
+            AddAct1_PauseAfter_label.AutoSize = true;
+            AddAct1_PauseAfter_label.Font = new Font("Segoe UI", 8.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            AddAct1_PauseAfter_label.Location = new Point(161, 78);
+            AddAct1_PauseAfter_label.Name = "AddAct1_PauseAfter_label";
+            AddAct1_PauseAfter_label.Size = new Size(89, 13);
+            AddAct1_PauseAfter_label.TabIndex = 14;
+            AddAct1_PauseAfter_label.Text = "Pause after(sec):";
             // 
             // AddAct1_SecondKey_dropBox
             // 
@@ -1461,14 +1461,14 @@
             AddAct1_SecondKey_dropBox.Size = new Size(127, 23);
             AddAct1_SecondKey_dropBox.TabIndex = 13;
             // 
-            // label30
+            // AddAct1_Pause_label
             // 
-            label30.AutoSize = true;
-            label30.Location = new Point(163, 25);
-            label30.Name = "label30";
-            label30.Size = new Size(115, 15);
-            label30.TabIndex = 12;
-            label30.Text = "second key not used";
+            AddAct1_Pause_label.AutoSize = true;
+            AddAct1_Pause_label.Location = new Point(163, 25);
+            AddAct1_Pause_label.Name = "AddAct1_Pause_label";
+            AddAct1_Pause_label.Size = new Size(115, 15);
+            AddAct1_Pause_label.TabIndex = 12;
+            AddAct1_Pause_label.Text = "second key not used";
             // 
             // AddAct1_Pause_checkBox
             // 
@@ -1540,20 +1540,20 @@
             AddAct1_Percent_radioButton.Text = "Percent";
             AddAct1_Percent_radioButton.UseVisualStyleBackColor = true;
             // 
-            // button2
+            // AddAct1_DeleteAction_button
             // 
-            button2.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-            button2.Location = new Point(703, 63);
-            button2.Name = "button2";
-            button2.Size = new Size(98, 34);
-            button2.TabIndex = 0;
-            button2.Text = "delete action";
-            button2.UseVisualStyleBackColor = true;
+            AddAct1_DeleteAction_button.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            AddAct1_DeleteAction_button.Location = new Point(703, 63);
+            AddAct1_DeleteAction_button.Name = "AddAct1_DeleteAction_button";
+            AddAct1_DeleteAction_button.Size = new Size(98, 34);
+            AddAct1_DeleteAction_button.TabIndex = 0;
+            AddAct1_DeleteAction_button.Text = "delete action";
+            AddAct1_DeleteAction_button.UseVisualStyleBackColor = true;
             // 
             // Close_button
             // 
             Close_button.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-            Close_button.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            Close_button.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
             Close_button.Location = new Point(730, 736);
             Close_button.Name = "Close_button";
             Close_button.Size = new Size(91, 46);
@@ -1562,30 +1562,31 @@
             Close_button.UseVisualStyleBackColor = true;
             Close_button.Click += Close_button_Click;
             // 
-            // groupBox1
+            // GlobalSettings_groupBox
             // 
-            groupBox1.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            groupBox1.Controls.Add(label3);
-            groupBox1.Controls.Add(Global_PauseSec_numericUpDown);
-            groupBox1.Controls.Add(label2);
-            groupBox1.Controls.Add(Global_SecondKey_dropBox);
-            groupBox1.Controls.Add(Global_EnablePause_chekbox);
-            groupBox1.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            groupBox1.Location = new Point(4, 726);
-            groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(720, 56);
-            groupBox1.TabIndex = 3;
-            groupBox1.TabStop = false;
-            groupBox1.Text = "Global settings:";
+            GlobalSettings_groupBox.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            GlobalSettings_groupBox.Controls.Add(Flask1_globalPauseAfter_label);
+            GlobalSettings_groupBox.Controls.Add(Global_PauseSec_numericUpDown);
+            GlobalSettings_groupBox.Controls.Add(Flask1_GlobalSecondKey_label);
+            GlobalSettings_groupBox.Controls.Add(Global_SecondKey_dropBox);
+            GlobalSettings_groupBox.Controls.Add(Global_EnablePause_chekbox);
+            GlobalSettings_groupBox.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            GlobalSettings_groupBox.Location = new Point(4, 726);
+            GlobalSettings_groupBox.Name = "GlobalSettings_groupBox";
+            GlobalSettings_groupBox.Size = new Size(720, 56);
+            GlobalSettings_groupBox.TabIndex = 3;
+            GlobalSettings_groupBox.TabStop = false;
+            GlobalSettings_groupBox.Text = "Global settings:";
             // 
-            // label3
+            // Flask1_globalPauseAfter_label
             // 
-            label3.AutoSize = true;
-            label3.Location = new Point(517, 25);
-            label3.Name = "label3";
-            label3.Size = new Size(121, 21);
-            label3.TabIndex = 4;
-            label3.Text = "Pause after(sec):";
+            Flask1_globalPauseAfter_label.AutoSize = true;
+            Flask1_globalPauseAfter_label.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            Flask1_globalPauseAfter_label.Location = new Point(517, 24);
+            Flask1_globalPauseAfter_label.Name = "Flask1_globalPauseAfter_label";
+            Flask1_globalPauseAfter_label.Size = new Size(115, 20);
+            Flask1_globalPauseAfter_label.TabIndex = 4;
+            Flask1_globalPauseAfter_label.Text = "Pause after(sec):";
             // 
             // Global_PauseSec_numericUpDown
             // 
@@ -1598,14 +1599,14 @@
             Global_PauseSec_numericUpDown.Value = new decimal(new int[] { 15, 0, 0, 0 });
             Global_PauseSec_numericUpDown.ValueChanged += Global_PauseSec_numericUpDown_ValueChanged;
             // 
-            // label2
+            // Flask1_GlobalSecondKey_label
             // 
-            label2.AutoSize = true;
-            label2.Location = new Point(311, 25);
-            label2.Name = "label2";
-            label2.Size = new Size(92, 21);
-            label2.TabIndex = 2;
-            label2.Text = "Second key:";
+            Flask1_GlobalSecondKey_label.AutoSize = true;
+            Flask1_GlobalSecondKey_label.Location = new Point(311, 25);
+            Flask1_GlobalSecondKey_label.Name = "Flask1_GlobalSecondKey_label";
+            Flask1_GlobalSecondKey_label.Size = new Size(92, 21);
+            Flask1_GlobalSecondKey_label.TabIndex = 2;
+            Flask1_GlobalSecondKey_label.Text = "Second key:";
             // 
             // Global_SecondKey_dropBox
             // 
@@ -1633,10 +1634,10 @@
             // 
             RenameProfile_button.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             RenameProfile_button.BackColor = Color.Gainsboro;
-            RenameProfile_button.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            RenameProfile_button.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 204);
             RenameProfile_button.Location = new Point(471, 9);
             RenameProfile_button.Name = "RenameProfile_button";
-            RenameProfile_button.Size = new Size(101, 29);
+            RenameProfile_button.Size = new Size(116, 29);
             RenameProfile_button.TabIndex = 5;
             RenameProfile_button.Text = "Rename";
             RenameProfile_button.UseVisualStyleBackColor = false;
@@ -1663,13 +1664,13 @@
             ClientSize = new Size(826, 787);
             Controls.Add(Close_button);
             Controls.Add(RenameCancel_button);
-            Controls.Add(groupBox1);
+            Controls.Add(GlobalSettings_groupBox);
             Controls.Add(RenameProfile_button);
             Controls.Add(tabControl1);
             Controls.Add(DeleteProfile_button);
             Controls.Add(CreateNewProfile_button);
             Controls.Add(Profiles_dropBox);
-            Controls.Add(label1);
+            Controls.Add(Profiles_label);
             MaximizeBox = false;
             MaximumSize = new Size(842, 826);
             MinimumSize = new Size(842, 826);
@@ -1729,8 +1730,8 @@
             panel12.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)AddAct1_Flat_numericUpDown).EndInit();
             ((System.ComponentModel.ISupportInitialize)AddAct1_Percent_numericUpDown).EndInit();
-            groupBox1.ResumeLayout(false);
-            groupBox1.PerformLayout();
+            GlobalSettings_groupBox.ResumeLayout(false);
+            GlobalSettings_groupBox.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)Global_PauseSec_numericUpDown).EndInit();
             ResumeLayout(false);
             PerformLayout();
@@ -1738,7 +1739,7 @@
 
         #endregion
 
-        private Label label1;
+        private Label Profiles_label;
         private ComboBox Profiles_dropBox;
         private Button CreateNewProfile_button;
         private Button DeleteProfile_button;
@@ -1747,19 +1748,19 @@
         private Button ScreenUpdate_button;
         private PictureBox pictureBox1;
         private TabPage tabPage2;
-        private GroupBox groupBox1;
-        private Label label3;
+        private GroupBox GlobalSettings_groupBox;
+        private Label Flask1_globalPauseAfter_label;
         private NumericUpDown Global_PauseSec_numericUpDown;
-        private Label label2;
+        private Label Flask1_GlobalSecondKey_label;
         private ComboBox Global_SecondKey_dropBox;
         private CheckBox Global_EnablePause_chekbox;
         private TableLayoutPanel tableLayoutPanel1;
         private Panel Flask2_panel;
-        private Label label7;
-        private Label label6;
+        private Label Flask2_minCD_label;
+        private Label Flask2_InGameHotkey_label;
         private ComboBox Flask2_InGameHotkey_dropBox;
         private NumericUpDown Flask2_PauseSec_numericUpDown;
-        private Label label5;
+        private Label Flask2_PauseAfter_label;
         private ComboBox Flask2_SecondKey_dropBox;
         private Label Flask2_Pause_label;
         private CheckBox Flask2_Pause_checkBox;
@@ -1768,18 +1769,18 @@
         private RadioButton Flask2_Flat_radioButton;
         private RadioButton Flask2_Percent_radioButton;
         private ComboBox Flask2_ActType_dropBox;
-        private Label label8;
+        private Label Flask2_Group_label;
         private ComboBox Flask2_group_dropBox;
         private NumericUpDown Flask2_MinCD_numericUpDown;
         private Panel Flask4_panel;
-        private Label label24;
+        private Label Flask4_Group_label;
         private ComboBox Flask4_group_dropBox;
         private NumericUpDown Flask4_MinCD_numericUpDown;
-        private Label label25;
-        private Label label26;
+        private Label Flask4_minCD_label;
+        private Label Flask4_InGameHotkey_label;
         private ComboBox Flask4_InGameHotkey_dropBox;
         private NumericUpDown Flask4_PauseSec_numericUpDown;
-        private Label label27;
+        private Label Flask4_PauseAfter_label;
         private ComboBox Flask4_SecondKey_dropBox;
         private Label Flask4_Pause_label;
         private CheckBox Flask4_Pause_checkBox;
@@ -1789,14 +1790,14 @@
         private RadioButton Flask4_Percent_radioButton;
         private ComboBox Flask4_ActType_dropBox;
         private Panel Flask5_panel;
-        private Label label19;
+        private Label Flask5_Group_label;
         private ComboBox Flask5_group_dropBox;
         private NumericUpDown Flask5_MinCD_numericUpDown;
-        private Label label20;
-        private Label label21;
+        private Label Flask5_minCD_label;
+        private Label Flask5_InGameHotkey_label;
         private ComboBox Flask5_InGameHotkey_dropBox;
         private NumericUpDown Flask5_PauseSec_numericUpDown;
-        private Label label22;
+        private Label Flask5_PauseAfter_label;
         private ComboBox Flask5_SecondKey_dropBox;
         private Label Flask5_Pause_label;
         private CheckBox Flask5_Pause_checkBox;
@@ -1806,14 +1807,14 @@
         private RadioButton Flask5_Percent_radioButton;
         private ComboBox Flask5_ActType_dropBox;
         private Panel Flask3_panel;
-        private Label label14;
+        private Label Flask3_Group_label;
         private ComboBox Flask3_group_dropBox;
         private NumericUpDown Flask3_MinCD_numericUpDown;
-        private Label label15;
-        private Label label16;
+        private Label Flask3_minCD_label;
+        private Label Flask3_InGameHotkey_label;
         private ComboBox Flask3_InGameHotkey_dropBox;
         private NumericUpDown Flask3_PauseSec_numericUpDown;
-        private Label label17;
+        private Label Flask3_PauseAfter_label;
         private ComboBox Flask3_SecondKey_dropBox;
         private Label Flask3_Pause_label;
         private CheckBox Flask3_Pause_checkBox;
@@ -1823,14 +1824,14 @@
         private RadioButton Flask3_Percent_radioButton;
         private ComboBox Flask3_ActType_dropBox;
         private Panel Flask1_panel;
-        private Label label9;
+        private Label Flask1_Group_label;
         private ComboBox Flask1_group_dropBox;
         private NumericUpDown Flask1_MinCD_numericUpDown;
-        private Label label10;
-        private Label label11;
+        private Label Flask1_minCD_label;
+        private Label Flask1_InGameHotkey_label;
         private ComboBox Flask1_InGameHotkey_dropBox;
         private NumericUpDown Flask1_PauseSec_numericUpDown;
-        private Label label12;
+        private Label Flask1_PauseAfter_label;
         private ComboBox Flask1_SecondKey_dropBox;
         private Label Flask1_Pause_label;
         private CheckBox Flask1_Pause_checkBox;
@@ -1852,12 +1853,12 @@
         private Button Close_button;
         private Button RenameProfile_button;
         private Button RenameCancel_button;
-        private Button button1;
+        private Button AddAct_AddNewAct_button;
         private Panel panel10;
         private NumericUpDown AddAct1_PauseSec_numericUpDown;
-        private Label label29;
+        private Label AddAct1_PauseAfter_label;
         private ComboBox AddAct1_SecondKey_dropBox;
-        private Label label30;
+        private Label AddAct1_Pause_label;
         private CheckBox AddAct1_Pause_checkBox;
         private Panel panel12;
         private ComboBox AddAct1_ActType_dropBox;
@@ -1865,10 +1866,10 @@
         private NumericUpDown AddAct1_Percent_numericUpDown;
         private RadioButton AddAct1_Flat_radioButton;
         private RadioButton AddAct1_Percent_radioButton;
-        private Button button2;
+        private Button AddAct1_DeleteAction_button;
         private NumericUpDown AddAct1_MinCD_numericUpDown;
-        private Label label31;
-        private Label label32;
+        private Label AddAct1_MinCD_label;
+        private Label AddAct1_InGameHotkey_label;
         private ComboBox AddAct1_InGameHotkey_dropBox;
     }
 }

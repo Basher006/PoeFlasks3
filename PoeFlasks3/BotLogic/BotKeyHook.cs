@@ -18,7 +18,7 @@ namespace PoeFlasks3.BotLogic
             Hook = new();
             KeysUsedRecently = new();
             Hook.AddHook(StartStopHotKey, StartStopChange, suppress: true);
-            Hook.HookEnable();
+            //Hook.HookEnable();
         }
 
         public static void UpdatePauseWhenSecondKeyNotUsedRecently(Profile profile)

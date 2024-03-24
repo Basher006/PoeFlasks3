@@ -1,37 +1,39 @@
 ﻿using BotFW_CvSharp_01;
-using BotFW_CvSharp_01.GlobalStructs;
 using Drinker;
 using PoeFlasks3.BotLogic;
-using PoeFlasks3.GameClinet;
 using PoeFlasks3.SettingsThings;
-using static BotFW_CvSharp_01.GameClientThings.Game;
 
 namespace DrinkerForm
 {
     public partial class FlasksSettingsFrom : Form
     {
+        private Langueges AppLanguge;
         private bool ProfileIsRenaimedRightNow = false;
         private string OldProfileName = "";
-        private string DefaultRenameButtonText = "Rename";
-        private string OnRenameRenameButtomText = "Save changes";
+        private string DefaultRenameButtonText;
+        private string OnRenameRenameButtomText;
         private Color DefailtReanameButtonColor = Color.Gainsboro;
         private Color OnRenameRenameButtomColor = Color.LightGreen;
 
         private FlaskGUIElements[] FlasksGUIElements;
 
-        private readonly Dictionary<WindowResolution, RECT> FlasksScreenAreas = new() 
-        { 
-            { PoeClinet.ACCEPT_SCREEN_RES[AcceptPoeResolutions.x_983], new RECT() },
-            { PoeClinet.ACCEPT_SCREEN_RES[AcceptPoeResolutions.x_1050], new RECT() },
-            { PoeClinet.ACCEPT_SCREEN_RES[AcceptPoeResolutions.x_1080], new RECT() },
-        };  
+        //private readonly Dictionary<WindowResolution, RECT> FlasksScreenAreas = new();
+        //{ 
+        //    { PoeClinet.ACCEPT_SCREEN_RES[AcceptPoeResolutions.x_983], new RECT() },
+        //    { PoeClinet.ACCEPT_SCREEN_RES[AcceptPoeResolutions.x_1050], new RECT() },
+        //    { PoeClinet.ACCEPT_SCREEN_RES[AcceptPoeResolutions.x_1080], new RECT() },
+        //};  
 
         public FlasksSettingsFrom()
         {
             InitializeComponent();
+
+            AppLanguge = PoeFlasks3.Program.Settings.AppLanguege;
+            SetLanguegeText();
+
             Focus();
             InitGuiElements();
-            InitAdditionalActions();
+            //InitAdditionalActions();
             UpdateFlasksScreenPictureBox();
             //InitFlask(); // it moved to on_window_shown
         }
@@ -40,33 +42,33 @@ namespace DrinkerForm
         // ================================================================
         // Additional actions. Hardcoded atm
         //=================================================================
-        public void InitAdditionalActions()
-        {
-            // init dropboxes values
-            FlasksGUIManager.InitAddtitionalActionsDropBoxes(AddAct1_ActType_dropBox, AddAct1_InGameHotkey_dropBox, AddAct1_SecondKey_dropBox);
-            // select index
-            if (PoeFlasks3.Program.Settings.SelectedProfile.Profile.Setup.AdditionalActions.Count == 0)
-            {
-                PoeFlasks3.Program.Settings.SelectedProfile.Profile.Setup.AdditionalActions.Add(new BaseActionSettings()
-                {
-                    ActType = ActivationType.None,
-                    UseActPercent = true,
-                    ActPercent = 50,
-                    ActFlat = 3000,
-                    MinCD = 3f,
-                    HotKey = BotFW_CvSharp_01.GlobalStructs.Keys.NUM_1,
-                    PauseWhenSecondKeyNotUsedRecently = new PauseWhenSecondKeyNotUsedRecently()
-                    {
-                        Enable = false,
-                        Key = BotFW_CvSharp_01.GlobalStructs.Keys.MouseLeft,
-                        PauseActivationDelay = 15f
-                    }
-                });
-            }
+        //public void InitAdditionalActions()
+        //{
+        //    // init dropboxes values
+        //    FlasksGUIManager.InitAddtitionalActionsDropBoxes(AddAct1_ActType_dropBox, AddAct1_InGameHotkey_dropBox, AddAct1_SecondKey_dropBox);
+        //    // select index
+        //    if (PoeFlasks3.Program.Settings.SelectedProfile.Profile.Setup.AdditionalActions.Count == 0)
+        //    {
+        //        PoeFlasks3.Program.Settings.SelectedProfile.Profile.Setup.AdditionalActions.Add(new BaseActionSettings()
+        //        {
+        //            ActType = ActivationType.None,
+        //            UseActPercent = true,
+        //            ActPercent = 50,
+        //            ActFlat = 3000,
+        //            MinCD = 3f,
+        //            HotKey = BotFW_CvSharp_01.GlobalStructs.Keys.NUM_1,
+        //            PauseWhenSecondKeyNotUsedRecently = new PauseWhenSecondKeyNotUsedRecently()
+        //            {
+        //                Enable = false,
+        //                Key = BotFW_CvSharp_01.GlobalStructs.Keys.MouseLeft,
+        //                PauseActivationDelay = 15f
+        //            }
+        //        });
+        //    }
 
-            FlasksGUIManager.AdditionalActionsSetDropBoxIndeces(
-                AddAct1_ActType_dropBox, AddAct1_InGameHotkey_dropBox, AddAct1_SecondKey_dropBox, PoeFlasks3.Program.Settings.SelectedProfile.Profile);
-        }
+        //    FlasksGUIManager.AdditionalActionsSetDropBoxIndeces(
+        //        AddAct1_ActType_dropBox, AddAct1_InGameHotkey_dropBox, AddAct1_SecondKey_dropBox, PoeFlasks3.Program.Settings.SelectedProfile.Profile);
+        //}
         //=================================================================
 
         private void InitFlask()
@@ -82,6 +84,26 @@ namespace DrinkerForm
 
             Profiles_dropBox.Items.AddRange(ProfileManager.ProfileNames.ToArray());
             Profiles_dropBox.SelectedIndex = PoeFlasks3.Program.Settings.SelectedProfile.Index;
+        }
+
+        private void SetLanguegeText()
+        {
+            Profiles_label.Text = BotResourseLoader.LanguegesText[AppLanguge][14];
+            DefaultRenameButtonText = BotResourseLoader.LanguegesText[AppLanguge][15];
+            OnRenameRenameButtomText = BotResourseLoader.LanguegesText[AppLanguge][16];
+            RenameProfile_button.Text = DefaultRenameButtonText;
+            CreateNewProfile_button.Text = BotResourseLoader.LanguegesText[AppLanguge][17];
+            DeleteProfile_button.Text = BotResourseLoader.LanguegesText[AppLanguge][18];
+            RenameCancel_button.Text = BotResourseLoader.LanguegesText[AppLanguge][19];
+            tabPage1.Text = BotResourseLoader.LanguegesText[AppLanguge][20];
+            tabPage2.Text = BotResourseLoader.LanguegesText[AppLanguge][21];
+            ScreenUpdate_button.Text = BotResourseLoader.LanguegesText[AppLanguge][22];
+
+            GlobalSettings_groupBox.Text = BotResourseLoader.LanguegesText[AppLanguge][40];
+            Global_EnablePause_chekbox.Text = BotResourseLoader.LanguegesText[AppLanguge][41];
+            Flask1_GlobalSecondKey_label.Text = BotResourseLoader.LanguegesText[AppLanguge][42];
+            Flask1_globalPauseAfter_label.Text = BotResourseLoader.LanguegesText[AppLanguge][33];
+            Close_button.Text = BotResourseLoader.LanguegesText[AppLanguge][43];
         }
 
 
@@ -274,12 +296,16 @@ namespace DrinkerForm
                     PauseEnable = Flask1_Pause_checkBox,
                     PauseEnableText = Flask1_Pause_label,
                     SecondKey = Flask1_SecondKey_dropBox,
+                    PauseSecText = Flask1_PauseAfter_label,
                     PauseSecValue = Flask1_PauseSec_numericUpDown,
 
+                    FlaskInGameHotkeyText = Flask1_InGameHotkey_label,
                     FlaskInGameHotkey = Flask1_InGameHotkey_dropBox,
 
-                    FlaskMinimumKD = Flask1_MinCD_numericUpDown,
+                    FlaskMinimumCDText = Flask1_minCD_label,
+                    FlaskMinimumCD = Flask1_MinCD_numericUpDown,
 
+                    FlaskGroupText = Flask1_Group_label,
                     FlaskGroupBox = Flask1_group_dropBox,
                 },
                 new()
@@ -296,12 +322,16 @@ namespace DrinkerForm
                     PauseEnable = Flask2_Pause_checkBox,
                     PauseEnableText = Flask2_Pause_label,
                     SecondKey = Flask2_SecondKey_dropBox,
+                    PauseSecText = Flask2_PauseAfter_label,
                     PauseSecValue = Flask2_PauseSec_numericUpDown,
 
+                    FlaskInGameHotkeyText = Flask2_InGameHotkey_label,
                     FlaskInGameHotkey = Flask2_InGameHotkey_dropBox,
 
-                    FlaskMinimumKD = Flask2_MinCD_numericUpDown,
+                    FlaskMinimumCDText = Flask2_minCD_label,
+                    FlaskMinimumCD = Flask2_MinCD_numericUpDown,
 
+                    FlaskGroupText = Flask2_Group_label,
                     FlaskGroupBox = Flask2_group_dropBox
                 },
                 new()
@@ -318,12 +348,16 @@ namespace DrinkerForm
                     PauseEnable = Flask3_Pause_checkBox,
                     PauseEnableText = Flask3_Pause_label,
                     SecondKey = Flask3_SecondKey_dropBox,
+                    PauseSecText = Flask3_PauseAfter_label,
                     PauseSecValue = Flask3_PauseSec_numericUpDown,
 
+                    FlaskInGameHotkeyText = Flask3_InGameHotkey_label,
                     FlaskInGameHotkey = Flask3_InGameHotkey_dropBox,
 
-                    FlaskMinimumKD = Flask3_MinCD_numericUpDown,
+                    FlaskMinimumCDText = Flask3_minCD_label,
+                    FlaskMinimumCD = Flask3_MinCD_numericUpDown,
 
+                    FlaskGroupText = Flask3_Group_label,
                     FlaskGroupBox = Flask3_group_dropBox
                 },
                 new()
@@ -340,12 +374,16 @@ namespace DrinkerForm
                     PauseEnable = Flask4_Pause_checkBox,
                     PauseEnableText = Flask4_Pause_label,
                     SecondKey = Flask4_SecondKey_dropBox,
+                    PauseSecText = Flask4_PauseAfter_label,
                     PauseSecValue = Flask4_PauseSec_numericUpDown,
 
+                    FlaskInGameHotkeyText = Flask4_InGameHotkey_label,
                     FlaskInGameHotkey = Flask4_InGameHotkey_dropBox,
 
-                    FlaskMinimumKD = Flask4_MinCD_numericUpDown,
+                    FlaskMinimumCDText = Flask4_minCD_label,
+                    FlaskMinimumCD = Flask4_MinCD_numericUpDown,
 
+                    FlaskGroupText = Flask4_Group_label,
                     FlaskGroupBox = Flask4_group_dropBox
                 },
                 new()
@@ -362,12 +400,16 @@ namespace DrinkerForm
                     PauseEnable = Flask5_Pause_checkBox,
                     PauseEnableText = Flask5_Pause_label,
                     SecondKey = Flask5_SecondKey_dropBox,
+                    PauseSecText = Flask5_PauseAfter_label,
                     PauseSecValue = Flask5_PauseSec_numericUpDown,
 
+                    FlaskInGameHotkeyText = Flask5_InGameHotkey_label,
                     FlaskInGameHotkey = Flask5_InGameHotkey_dropBox,
 
-                    FlaskMinimumKD = Flask5_MinCD_numericUpDown,
+                    FlaskMinimumCDText = Flask5_minCD_label,
+                    FlaskMinimumCD = Flask5_MinCD_numericUpDown,
 
+                    FlaskGroupText = Flask5_Group_label,
                     FlaskGroupBox = Flask5_group_dropBox
                 },
             };

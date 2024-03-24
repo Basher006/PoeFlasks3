@@ -1,4 +1,5 @@
-﻿using PoeFlasks3.SettingsThings;
+﻿using PoeFlasks3.BotLogic;
+using PoeFlasks3.SettingsThings;
 using static DrinkerForm.FlasksSettingsFrom;
 using Keys = BotFW_CvSharp_01.GlobalStructs.Keys;
 
@@ -11,6 +12,7 @@ namespace DrinkerForm
 
 
         private static Profile FlasksSetup;
+        private static Langueges AppLanguge;
 
 
         private static readonly Dictionary<string, Keys> FlaskInGameHotkey_dropBox_values = new Dictionary<string, Keys>()
@@ -33,17 +35,14 @@ namespace DrinkerForm
             { "Shift", Keys.Shift }, { "Left Alt", Keys.Alt_left }, { "Ctrl", Keys.Ctrl }, { "Space", Keys.Space }, { "Tab", Keys.Tab },
         };
 
-        private static readonly Dictionary<string, ActivationType> ActType_dropBox_values = new Dictionary<string, ActivationType>()
-        {
-            { "None", ActivationType.None }, { "HP", ActivationType.HP },
-            { "Mana", ActivationType.MP }, { "ES", ActivationType.ES },
-            { "CD", ActivationType.CD }, { "One time", ActivationType.OneTime }
-        };
+        private static Dictionary<string, ActivationType> ActType_dropBox_values;
 
-        private static readonly Dictionary<string, FlaskGroup> FlaskGroups_dropBox_values = new Dictionary<string, FlaskGroup>()
-        {
-            { "None", FlaskGroup.None }, { "Group1", FlaskGroup.Group1 }, { "Group2", FlaskGroup.Group2 }
-        };
+        private static Dictionary<string, FlaskGroup> FlaskGroups_dropBox_values;
+
+        //private static readonly Dictionary<string, FlaskGroup> FlaskGroups_dropBox_values = new Dictionary<string, FlaskGroup>()
+        //{
+        //    { "None", FlaskGroup.None }, { "Group1", FlaskGroup.Group1 }, { "Group2", FlaskGroup.Group2 }
+        //};
 
         private static readonly Dictionary<PanelColors, Color> PanelColorsDict = new Dictionary<PanelColors, Color>()
         { 
@@ -62,6 +61,8 @@ namespace DrinkerForm
         public static void Init(Profile profile, ref FlaskGUIElements[] guielements, ref ComboBox globalSecondKey)
         {
             FlasksSetup = profile;
+            AppLanguge = PoeFlasks3.Program.Settings.AppLanguege;
+            SetText(ref guielements);
 
             SetDropBoxesValuesRange(ref guielements, ref globalSecondKey);
 
@@ -103,6 +104,36 @@ namespace DrinkerForm
             SetEnableFlags(ref guielements);
         }
 
+
+        private static void SetText(ref FlaskGUIElements[] guielements)
+        {
+            ActType_dropBox_values = new Dictionary<string, ActivationType>()
+            {
+                { BotResourseLoader.LanguegesText[AppLanguge][23], ActivationType.None }, { BotResourseLoader.LanguegesText[AppLanguge][24], ActivationType.HP },
+                { BotResourseLoader.LanguegesText[AppLanguge][25], ActivationType.MP }, { BotResourseLoader.LanguegesText[AppLanguge][26], ActivationType.ES },
+                { BotResourseLoader.LanguegesText[AppLanguge][27], ActivationType.CD }, { BotResourseLoader.LanguegesText[AppLanguge][28], ActivationType.OneTime }
+            };
+
+            FlaskGroups_dropBox_values = new Dictionary<string, FlaskGroup>()
+            {
+                { BotResourseLoader.LanguegesText[AppLanguge][37], FlaskGroup.None }, 
+                { BotResourseLoader.LanguegesText[AppLanguge][38], FlaskGroup.Group1 }, 
+                { BotResourseLoader.LanguegesText[AppLanguge][39], FlaskGroup.Group2 }
+            };
+
+
+            for (int i = 0; i < guielements.Length; i++)
+            {
+                guielements[i].PercentRadioButton.Text = BotResourseLoader.LanguegesText[AppLanguge][29];
+                guielements[i].FlatRadioButton.Text = BotResourseLoader.LanguegesText[AppLanguge][30];
+                guielements[i].PauseEnable.Text = BotResourseLoader.LanguegesText[AppLanguge][31];
+                guielements[i].PauseEnableText.Text = BotResourseLoader.LanguegesText[AppLanguge][32];
+                guielements[i].PauseSecText.Text = BotResourseLoader.LanguegesText[AppLanguge][33];
+                guielements[i].FlaskInGameHotkeyText.Text = BotResourseLoader.LanguegesText[AppLanguge][34];
+                guielements[i].FlaskMinimumCDText.Text = BotResourseLoader.LanguegesText[AppLanguge][35];
+                guielements[i].FlaskGroupText.Text = BotResourseLoader.LanguegesText[AppLanguge][36];
+            }
+        }
 
         private static void SetDropBoxesValuesRange(ref FlaskGUIElements[] guielements, ref ComboBox globalSecondKey)
         {
@@ -149,7 +180,7 @@ namespace DrinkerForm
                 guielements[i].PauseSecValue.Value = (decimal)basAction.PauseWhenSecondKeyNotUsedRecently.PauseActivationDelay;
 
                 // min CD
-                guielements[i].FlaskMinimumKD.Value = (decimal)basAction.MinCD;
+                guielements[i].FlaskMinimumCD.Value = (decimal)basAction.MinCD;
             }
         }
         private static void SetPanelColor(ref FlaskGUIElements[] guielements)
@@ -216,7 +247,7 @@ namespace DrinkerForm
                     guielements[i].SecondKey.Enabled = false;
                     guielements[i].PauseSecValue.Enabled = false;
 
-                    guielements[i].FlaskMinimumKD.Enabled = false;
+                    guielements[i].FlaskMinimumCD.Enabled = false;
                 }
                 else if (flaskActType == ActivationType.None)
                 {
@@ -233,7 +264,7 @@ namespace DrinkerForm
                     guielements[i].SecondKey.Enabled = false;
                     guielements[i].PauseSecValue.Enabled = false;
 
-                    guielements[i].FlaskMinimumKD.Enabled = false;
+                    guielements[i].FlaskMinimumCD.Enabled = false;
                 }
                 else
                 {
@@ -260,7 +291,7 @@ namespace DrinkerForm
                     guielements[i].SecondKey.Enabled = guielements[i].PauseEnable.Checked;
                     guielements[i].PauseSecValue.Enabled = guielements[i].PauseEnable.Checked;
 
-                    guielements[i].FlaskMinimumKD.Enabled = true;
+                    guielements[i].FlaskMinimumCD.Enabled = true;
 
                 }
             }
@@ -281,7 +312,7 @@ namespace DrinkerForm
                 guielements[i].SecondKey.SelectedIndexChanged += OnSecondKeyChanged;
                 guielements[i].PauseSecValue.ValueChanged += OnPauseDelayChanged;
 
-                guielements[i].FlaskMinimumKD.ValueChanged += OnMinCDChanged;
+                guielements[i].FlaskMinimumCD.ValueChanged += OnMinCDChanged;
             }
         }
         private static void OnActTypeChange(object? sender, EventArgs e)

@@ -16,12 +16,16 @@
             public CheckBox PauseEnable;
             public Label PauseEnableText;
             public ComboBox SecondKey;
+            public Label PauseSecText;
             public NumericUpDown PauseSecValue;
 
+            public Label FlaskInGameHotkeyText;
             public ComboBox FlaskInGameHotkey;
 
-            public NumericUpDown FlaskMinimumKD;
+            public Label FlaskMinimumCDText;
+            public NumericUpDown FlaskMinimumCD;
 
+            public Label FlaskGroupText;
             public ComboBox FlaskGroupBox;
         }
     }

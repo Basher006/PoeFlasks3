@@ -20,24 +20,23 @@ namespace PoeFlasks3.BotLogic
         slash
     }
 
+    public enum Langueges
+    {
+        RU,
+        EN
+    }
+
     public static class BotResourseLoader
     {
-        private static readonly ImreadModes ImgReadMode = ImreadModes.Grayscale;
 
-        private static readonly Dictionary<NumbersTamplates, string> numbersFileNames = new()
-        {
-            { NumbersTamplates.one,     "1.png" },
-            { NumbersTamplates.two,     "2.png" },
-            { NumbersTamplates.three,   "3.png" },
-            { NumbersTamplates.four,    "4.png" },
-            { NumbersTamplates.five,    "5.png" },
-            { NumbersTamplates.six,     "6.png" },
-            { NumbersTamplates.seven,   "7.png" },
-            { NumbersTamplates.eight,   "8.png" },
-            { NumbersTamplates.nine,    "9.png" },
-            { NumbersTamplates.zero,    "0.png" },
-            { NumbersTamplates.slash,   "s.png" },
-        };
+        public static Dictionary<AcceptPoeResolutions, Dictionary<NumbersTamplates, LoadedTemplate<NumbersTamplates>>>? Numbers { get; private set; }
+        public static Dictionary<Langueges, string[]> LanguegesText { get; private set; }
+        public static readonly Dictionary<string, Langueges> StrToLanguege = new()
+        { { "RU", Langueges.RU }, { "EN", Langueges.EN } };
+
+
+
+        private static readonly ImreadModes ImgReadMode = ImreadModes.Grayscale;
 
         private static readonly Dictionary<AcceptPoeResolutions, string> poeNumbersPathes = new() 
         { { AcceptPoeResolutions.x_983, "imgs\\Numbers\\983\\" }, { AcceptPoeResolutions.x_1050, "imgs\\Numbers\\1050\\" }, { AcceptPoeResolutions.x_1080, "imgs\\Numbers\\1080\\" } };
@@ -59,12 +58,28 @@ namespace PoeFlasks3.BotLogic
             new() { ImgReadMod = ImgReadMode, Name = "slash", Path = "s.png", Setup = LoadSetup, Template = NumbersTamplates.slash },
         };
 
-
-        public static Dictionary<AcceptPoeResolutions, Dictionary<NumbersTamplates, LoadedTemplate<NumbersTamplates>>>? Numbers;
+        private static Dictionary<Langueges, string> LanguegesPathes = new()
+        { { Langueges.RU, "Lang\\RU.txt" }, { Langueges.EN, "Lang\\EN.txt" } };
 
         public static void Load()
         {
             _LoadNumbers();
+            _LoadLangueges();
+        }
+
+        private static void _LoadLangueges()
+        {
+            LanguegesText = new();
+            foreach (Langueges lang in Enum.GetValues(typeof(Langueges)))
+            {
+                if (File.Exists(LanguegesPathes[lang]))
+                    LanguegesText.Add(lang, File.ReadAllLines(LanguegesPathes[lang], System.Text.Encoding.UTF8));
+                else
+                {
+                    LanguegesText.Add(lang, LoadDefaultLanguegeText());
+                    Log.Write($"Cant load languege file: {LanguegesPathes[lang]}", Log.LogType.Error);
+                }
+            }
         }
 
         private static void _LoadNumbers()
@@ -83,24 +98,9 @@ namespace PoeFlasks3.BotLogic
             }
         }
 
-        //private static Dictionary<NumbersTamplates, Mat> _loadNumbersFromDirectory(string directory)
-        //{
-        //    Dictionary<NumbersTamplates, Mat> result = new();
-        //    if (Directory.Exists(directory))
-        //    {
-        //        foreach (var fileName in numbersFileNames)
-        //        {
-        //            string filePath = directory + fileName.Value;
-        //            if (File.Exists(filePath))
-        //                result.Add(fileName.Key, new Mat(filePath, ImgReadMode));
-        //            else
-        //                throw new Exception("Cant load numbers file!");
-        //        }
-        //    }
-        //    else
-        //        throw new Exception("Cant find numbers directory!");
-
-        //    return result;
-        //}
+        private static string[] LoadDefaultLanguegeText()
+        {
+            return Array.Empty<string>(); // (!!!)
+        }
     }
 }

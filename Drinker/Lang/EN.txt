@@ -1,0 +1,46 @@
+Auto pause in HO
+Flasks setup
+Set path to game..
+Flasks states: 
+Stopped.. Press (F4) for start
+Working.. Press (F4) for stop
+Pause.. Press (F4) for stop
+Press (F4) for stop
+Set path to Client.txt in PoE directory
+Cannot Find Game window! Stoped bot.
+Game Resolution not accept!
+Game window not active, Pause.. 
+Pause.. Cannot find any data 
+Pause in HO 
+Profile: 
+Rename
+Save changes
+Create new
+Delete
+Cancel
+Flasks Setup
+Addtitional actions
+Update Flask screen ===>
+None
+HP
+Mana
+ES
+CD
+One time
+Percent
+Flat
+Enable pause when
+second key not used
+Pause after(sec)
+in game flask Hotkey
+Minimum CD:
+Flask group
+None
+Group1
+Group2
+Global settings: 
+Enable pause when second key not used recently
+Second key:
+Close
+Delete action
+Add new Action

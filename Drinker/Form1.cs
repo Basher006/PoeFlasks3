@@ -13,7 +13,9 @@ namespace Drinker
         //private const bool DEBUG = true;
         private const bool DEBUG = false;
 
-        private bool initIsComplite = false;
+        //private bool initIsComplite = false;
+
+        private Langueges AppLanguege; 
 
         FlasksSettingsFrom? SettingsForm;
 
@@ -21,12 +23,15 @@ namespace Drinker
         private Color GamePathColor_NotSet = Color.RoyalBlue;
         private string GamePathText_NotSet = "Set path to game..";
         private int GamePath_textMaxLenght = 25;
+        private string FlaskStateText;
 
         private readonly Dictionary<BotState, Color> StartStopButtonCollors = new() 
         { { BotState.Stop, Color.IndianRed }, { BotState.Run, Color.YellowGreen }, { BotState.Pause, Color.RosyBrown } };
-        private readonly Dictionary<BotState, string> StartStopButtonText = new() 
-        { { BotState.Stop, "Stopped.. Press (F4) for start" }, { BotState.Run, "Working.. Press (F4) for stop" }, { BotState.Pause, "Pause.. Press (F4) for stop" } };
-        private readonly string PauseWithText_text = "Press (F4) for stop";
+        private Dictionary<BotState, string> StartStopButtonText;
+        private string PauseWithText_text;
+        //private readonly Dictionary<BotState, string> StartStopButtonText = new() 
+        //{ { BotState.Stop, "Stopped.. Press (F4) for start" }, { BotState.Run, "Working.. Press (F4) for stop" }, { BotState.Pause, "Pause.. Press (F4) for stop" } };
+        //private readonly string PauseWithText_text = "Press (F4) for stop";
 
         public Form1()
         {
@@ -58,6 +63,7 @@ namespace Drinker
             PoeFlasks3.Program.Init(DEBUG);
             InitProfilesDropBox();
             ApplyAppSettings();
+            SetLanguege();
 
             Bot.updateGUI += UpdateUPS;
             Bot.updateStartStopButton += ChangeStartStopButton;
@@ -65,7 +71,7 @@ namespace Drinker
 
             Thread.Sleep(500);
             SubscribeEvents();
-            initIsComplite = true;
+            //initIsComplite = true;
             if (Bot.Client.Window.IsFinded)
                 Log.Write($"Detected game resolution: { Bot.Client.Window.WindowRect }");
             else
@@ -100,14 +106,14 @@ namespace Drinker
                     $"{(int)(data.Value.FlasksState.States[FlaskSlot.Slot3] * 100)}   " +
                     $"{(int)(data.Value.FlasksState.States[FlaskSlot.Slot4] * 100)}   " +
                     $"{(int)(data.Value.FlasksState.States[FlaskSlot.Slot5] * 100)}";
-                FLasksState_lable.Text = $"Flasks state: {flasksState}";
+                FLasksState_lable.Text = $"{FlaskStateText}{flasksState}";
             }
             else
             {
                 HP_lable.Text = "HP: N/A";
                 MP_lable.Text = "MP: N/A";
                 ES_lable.Text = "ES: N/A";
-                FLasksState_lable.Text = $"Flasks state: N/A";
+                FLasksState_lable.Text = $"{FlaskStateText}N/A";
             }
 
         }
@@ -174,6 +180,26 @@ namespace Drinker
                     GamePath_label.ForeColor = GamePathColor_set;
                 }
             }
+        }
+
+        private void SetLanguege()
+        {
+            AppLanguege = PoeFlasks3.Program.Settings.AppLanguege;
+
+            // apply text
+            PauseEnable_chekbox.Text = BotResourseLoader.LanguegesText[AppLanguege][0];
+            FlasksSettings_button.Text = BotResourseLoader.LanguegesText[AppLanguege][1];
+            GamePath_label.Text = BotResourseLoader.LanguegesText[AppLanguege][2];
+            GamePathText_NotSet = BotResourseLoader.LanguegesText[AppLanguege][2];
+            FlaskStateText = BotResourseLoader.LanguegesText[AppLanguege][3];
+            FLasksState_lable.Text = $"{FlaskStateText} N/A";
+            StartStopButtonText = new()
+            {
+                { BotState.Stop, BotResourseLoader.LanguegesText[AppLanguege][4] },
+                { BotState.Run, BotResourseLoader.LanguegesText[AppLanguege][5] },
+                { BotState.Pause, BotResourseLoader.LanguegesText[AppLanguege][6] }
+            };
+            PauseWithText_text = BotResourseLoader.LanguegesText[AppLanguege][7];
         }
 
         private void SubscribeEvents()
@@ -276,7 +302,7 @@ namespace Drinker
                 if (!string.IsNullOrEmpty(initDirectory) && Directory.Exists(initDirectory))
                     openFileDialog.InitialDirectory = initDirectory;
 
-                openFileDialog.Title = "”кажите путь к Client.txt в папке установки PoE";
+                openFileDialog.Title = BotResourseLoader.LanguegesText[AppLanguege][8];
                 openFileDialog.Filter = "Client.txt (*.txt)|*.txt|All files (*.*)|*.*";
                 openFileDialog.FilterIndex = 1;
                 openFileDialog.RestoreDirectory = true;

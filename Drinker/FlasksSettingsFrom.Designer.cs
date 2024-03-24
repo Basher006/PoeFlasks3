@@ -1602,7 +1602,7 @@
             // Flask1_GlobalSecondKey_label
             // 
             Flask1_GlobalSecondKey_label.AutoSize = true;
-            Flask1_GlobalSecondKey_label.Location = new Point(311, 25);
+            Flask1_GlobalSecondKey_label.Location = new Point(324, 25);
             Flask1_GlobalSecondKey_label.Name = "Flask1_GlobalSecondKey_label";
             Flask1_GlobalSecondKey_label.Size = new Size(92, 21);
             Flask1_GlobalSecondKey_label.TabIndex = 2;
@@ -1612,9 +1612,9 @@
             // 
             Global_SecondKey_dropBox.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 204);
             Global_SecondKey_dropBox.FormattingEnabled = true;
-            Global_SecondKey_dropBox.Location = new Point(409, 23);
+            Global_SecondKey_dropBox.Location = new Point(416, 23);
             Global_SecondKey_dropBox.Name = "Global_SecondKey_dropBox";
-            Global_SecondKey_dropBox.Size = new Size(103, 25);
+            Global_SecondKey_dropBox.Size = new Size(96, 25);
             Global_SecondKey_dropBox.TabIndex = 1;
             Global_SecondKey_dropBox.SelectedIndexChanged += Global_SecondKey_dropBox_SelectedIndexChanged;
             // 

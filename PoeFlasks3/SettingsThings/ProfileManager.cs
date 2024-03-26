@@ -419,7 +419,19 @@ namespace PoeFlasks3.SettingsThings
                     } } },
                 },
 
-                AdditionalActions = new(),
+                AdditionalActions = new()
+                {
+                    new() { ActType = ActivationType.None, UseActPercent = true, ActPercent = 50, ActFlat = 0, HotKey = Keys.Q, MinCD = 3f,
+                        PauseWhenSecondKeyNotUsedRecently = new() { Enable = false, Key = Keys.MouseRight, PauseActivationDelay = 15f }},
+                    new() { ActType = ActivationType.None, UseActPercent = true, ActPercent = 50, ActFlat = 0, HotKey = Keys.W, MinCD = 3f,
+                        PauseWhenSecondKeyNotUsedRecently = new() { Enable = false, Key = Keys.MouseRight, PauseActivationDelay = 15f }},
+                    new() { ActType = ActivationType.None, UseActPercent = true, ActPercent = 50, ActFlat = 0, HotKey = Keys.E, MinCD = 3f,
+                        PauseWhenSecondKeyNotUsedRecently = new() { Enable = false, Key = Keys.MouseRight, PauseActivationDelay = 15f }},
+                    new() { ActType = ActivationType.None, UseActPercent = true, ActPercent = 50, ActFlat = 0, HotKey = Keys.R, MinCD = 3f,
+                        PauseWhenSecondKeyNotUsedRecently = new() { Enable = false, Key = Keys.MouseRight, PauseActivationDelay = 15f }},
+                    new() { ActType = ActivationType.None, UseActPercent = true, ActPercent = 50, ActFlat = 0, HotKey = Keys.T, MinCD = 3f,
+                        PauseWhenSecondKeyNotUsedRecently = new() { Enable = false, Key = Keys.MouseRight, PauseActivationDelay = 15f }}
+                },
 
                 GlobalPauseWhenSecondKeyNotUsedRecently = new() { Enable = false, Key = Keys.MouseRight, PauseActivationDelay = 15f },
 

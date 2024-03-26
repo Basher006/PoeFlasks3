@@ -133,7 +133,7 @@
             ScreenUpdate_button = new Button();
             pictureBox1 = new PictureBox();
             tabPage2 = new TabPage();
-            AddAct5_ActType_dropBox = new Panel();
+            AddAct5_panel = new Panel();
             AddAct5_DeleteAction_button = new Button();
             AddAct5_MinCD_numericUpDown = new NumericUpDown();
             AddAct5_MinCD_label = new Label();
@@ -145,7 +145,7 @@
             AddAct5_Pause_label = new Label();
             AddAct5_Pause_checkBox = new CheckBox();
             panel20 = new Panel();
-            comboBox12 = new ComboBox();
+            AddAct5_ActType_dropBox = new ComboBox();
             AddAct5_Flat_numericUpDown = new NumericUpDown();
             AddAct5_Percent_numericUpDown = new NumericUpDown();
             AddAct5_Flat_radioButton = new RadioButton();
@@ -272,7 +272,7 @@
             ((System.ComponentModel.ISupportInitialize)Flask2_Percent_numericUpDown).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             tabPage2.SuspendLayout();
-            AddAct5_ActType_dropBox.SuspendLayout();
+            AddAct5_panel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)AddAct5_MinCD_numericUpDown).BeginInit();
             ((System.ComponentModel.ISupportInitialize)AddAct5_PauseSec_numericUpDown).BeginInit();
             panel20.SuspendLayout();
@@ -1443,7 +1443,7 @@
             // tabPage2
             // 
             tabPage2.BackColor = SystemColors.Control;
-            tabPage2.Controls.Add(AddAct5_ActType_dropBox);
+            tabPage2.Controls.Add(AddAct5_panel);
             tabPage2.Controls.Add(AddAct4_panel);
             tabPage2.Controls.Add(AddAct3_panel);
             tabPage2.Controls.Add(AddAct2_panel);
@@ -1456,30 +1456,30 @@
             tabPage2.TabIndex = 1;
             tabPage2.Text = "Addtitional actions";
             // 
-            // AddAct5_ActType_dropBox
+            // AddAct5_panel
             // 
-            AddAct5_ActType_dropBox.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            AddAct5_ActType_dropBox.BackColor = Color.SkyBlue;
-            AddAct5_ActType_dropBox.Controls.Add(AddAct5_DeleteAction_button);
-            AddAct5_ActType_dropBox.Controls.Add(AddAct5_MinCD_numericUpDown);
-            AddAct5_ActType_dropBox.Controls.Add(AddAct5_MinCD_label);
-            AddAct5_ActType_dropBox.Controls.Add(AddAct5_InGameHotkey_label);
-            AddAct5_ActType_dropBox.Controls.Add(AddAct5_InGameHotkey_dropBox);
-            AddAct5_ActType_dropBox.Controls.Add(AddAct5_PauseSec_numericUpDown);
-            AddAct5_ActType_dropBox.Controls.Add(AddAct5_PauseAfter_label);
-            AddAct5_ActType_dropBox.Controls.Add(AddAct5_SecondKey_dropBox);
-            AddAct5_ActType_dropBox.Controls.Add(AddAct5_Pause_label);
-            AddAct5_ActType_dropBox.Controls.Add(AddAct5_Pause_checkBox);
-            AddAct5_ActType_dropBox.Controls.Add(panel20);
-            AddAct5_ActType_dropBox.Controls.Add(AddAct5_Flat_numericUpDown);
-            AddAct5_ActType_dropBox.Controls.Add(AddAct5_Percent_numericUpDown);
-            AddAct5_ActType_dropBox.Controls.Add(AddAct5_Flat_radioButton);
-            AddAct5_ActType_dropBox.Controls.Add(AddAct5_Percent_radioButton);
-            AddAct5_ActType_dropBox.Controls.Add(button4);
-            AddAct5_ActType_dropBox.Location = new Point(6, 430);
-            AddAct5_ActType_dropBox.Name = "AddAct5_ActType_dropBox";
-            AddAct5_ActType_dropBox.Size = new Size(804, 100);
-            AddAct5_ActType_dropBox.TabIndex = 21;
+            AddAct5_panel.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            AddAct5_panel.BackColor = Color.SkyBlue;
+            AddAct5_panel.Controls.Add(AddAct5_DeleteAction_button);
+            AddAct5_panel.Controls.Add(AddAct5_MinCD_numericUpDown);
+            AddAct5_panel.Controls.Add(AddAct5_MinCD_label);
+            AddAct5_panel.Controls.Add(AddAct5_InGameHotkey_label);
+            AddAct5_panel.Controls.Add(AddAct5_InGameHotkey_dropBox);
+            AddAct5_panel.Controls.Add(AddAct5_PauseSec_numericUpDown);
+            AddAct5_panel.Controls.Add(AddAct5_PauseAfter_label);
+            AddAct5_panel.Controls.Add(AddAct5_SecondKey_dropBox);
+            AddAct5_panel.Controls.Add(AddAct5_Pause_label);
+            AddAct5_panel.Controls.Add(AddAct5_Pause_checkBox);
+            AddAct5_panel.Controls.Add(panel20);
+            AddAct5_panel.Controls.Add(AddAct5_Flat_numericUpDown);
+            AddAct5_panel.Controls.Add(AddAct5_Percent_numericUpDown);
+            AddAct5_panel.Controls.Add(AddAct5_Flat_radioButton);
+            AddAct5_panel.Controls.Add(AddAct5_Percent_radioButton);
+            AddAct5_panel.Controls.Add(button4);
+            AddAct5_panel.Location = new Point(6, 430);
+            AddAct5_panel.Name = "AddAct5_panel";
+            AddAct5_panel.Size = new Size(804, 100);
+            AddAct5_panel.TabIndex = 21;
             // 
             // AddAct5_DeleteAction_button
             // 
@@ -1535,7 +1535,7 @@
             // AddAct5_PauseSec_numericUpDown
             // 
             AddAct5_PauseSec_numericUpDown.DecimalPlaces = 1;
-            AddAct5_PauseSec_numericUpDown.Location = new Point(247, 74);
+            AddAct5_PauseSec_numericUpDown.Location = new Point(249, 74);
             AddAct5_PauseSec_numericUpDown.Maximum = new decimal(new int[] { 30, 0, 0, 0 });
             AddAct5_PauseSec_numericUpDown.Name = "AddAct5_PauseSec_numericUpDown";
             AddAct5_PauseSec_numericUpDown.Size = new Size(43, 23);
@@ -1546,7 +1546,7 @@
             // 
             AddAct5_PauseAfter_label.AutoSize = true;
             AddAct5_PauseAfter_label.Font = new Font("Segoe UI", 8.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            AddAct5_PauseAfter_label.Location = new Point(161, 78);
+            AddAct5_PauseAfter_label.Location = new Point(159, 78);
             AddAct5_PauseAfter_label.Name = "AddAct5_PauseAfter_label";
             AddAct5_PauseAfter_label.Size = new Size(89, 13);
             AddAct5_PauseAfter_label.TabIndex = 14;
@@ -1587,22 +1587,22 @@
             // 
             panel20.BackColor = Color.Transparent;
             panel20.BorderStyle = BorderStyle.FixedSingle;
-            panel20.Controls.Add(comboBox12);
+            panel20.Controls.Add(AddAct5_ActType_dropBox);
             panel20.Location = new Point(7, 7);
             panel20.Name = "panel20";
             panel20.Size = new Size(127, 23);
             panel20.TabIndex = 10;
             // 
-            // comboBox12
+            // AddAct5_ActType_dropBox
             // 
-            comboBox12.BackColor = Color.White;
-            comboBox12.DropDownStyle = ComboBoxStyle.DropDownList;
-            comboBox12.FlatStyle = FlatStyle.Popup;
-            comboBox12.FormattingEnabled = true;
-            comboBox12.Location = new Point(-1, -1);
-            comboBox12.Name = "comboBox12";
-            comboBox12.Size = new Size(127, 23);
-            comboBox12.TabIndex = 5;
+            AddAct5_ActType_dropBox.BackColor = Color.White;
+            AddAct5_ActType_dropBox.DropDownStyle = ComboBoxStyle.DropDownList;
+            AddAct5_ActType_dropBox.FlatStyle = FlatStyle.Popup;
+            AddAct5_ActType_dropBox.FormattingEnabled = true;
+            AddAct5_ActType_dropBox.Location = new Point(-1, -1);
+            AddAct5_ActType_dropBox.Name = "AddAct5_ActType_dropBox";
+            AddAct5_ActType_dropBox.Size = new Size(127, 23);
+            AddAct5_ActType_dropBox.TabIndex = 5;
             // 
             // AddAct5_Flat_numericUpDown
             // 
@@ -1732,7 +1732,7 @@
             // AddAct4_PauseSec_numericUpDown
             // 
             AddAct4_PauseSec_numericUpDown.DecimalPlaces = 1;
-            AddAct4_PauseSec_numericUpDown.Location = new Point(247, 74);
+            AddAct4_PauseSec_numericUpDown.Location = new Point(249, 74);
             AddAct4_PauseSec_numericUpDown.Maximum = new decimal(new int[] { 30, 0, 0, 0 });
             AddAct4_PauseSec_numericUpDown.Name = "AddAct4_PauseSec_numericUpDown";
             AddAct4_PauseSec_numericUpDown.Size = new Size(43, 23);
@@ -1743,7 +1743,7 @@
             // 
             AddAct4_PauseAfter_label.AutoSize = true;
             AddAct4_PauseAfter_label.Font = new Font("Segoe UI", 8.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            AddAct4_PauseAfter_label.Location = new Point(161, 78);
+            AddAct4_PauseAfter_label.Location = new Point(159, 78);
             AddAct4_PauseAfter_label.Name = "AddAct4_PauseAfter_label";
             AddAct4_PauseAfter_label.Size = new Size(89, 13);
             AddAct4_PauseAfter_label.TabIndex = 14;
@@ -1929,7 +1929,7 @@
             // AddAct3_PauseSec_numericUpDown
             // 
             AddAct3_PauseSec_numericUpDown.DecimalPlaces = 1;
-            AddAct3_PauseSec_numericUpDown.Location = new Point(247, 74);
+            AddAct3_PauseSec_numericUpDown.Location = new Point(249, 74);
             AddAct3_PauseSec_numericUpDown.Maximum = new decimal(new int[] { 30, 0, 0, 0 });
             AddAct3_PauseSec_numericUpDown.Name = "AddAct3_PauseSec_numericUpDown";
             AddAct3_PauseSec_numericUpDown.Size = new Size(43, 23);
@@ -1940,7 +1940,7 @@
             // 
             AddAct3_PauseAfter_label.AutoSize = true;
             AddAct3_PauseAfter_label.Font = new Font("Segoe UI", 8.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            AddAct3_PauseAfter_label.Location = new Point(161, 78);
+            AddAct3_PauseAfter_label.Location = new Point(159, 78);
             AddAct3_PauseAfter_label.Name = "AddAct3_PauseAfter_label";
             AddAct3_PauseAfter_label.Size = new Size(89, 13);
             AddAct3_PauseAfter_label.TabIndex = 14;
@@ -2126,7 +2126,7 @@
             // AddAct2_PauseSec_numericUpDown
             // 
             AddAct2_PauseSec_numericUpDown.DecimalPlaces = 1;
-            AddAct2_PauseSec_numericUpDown.Location = new Point(247, 74);
+            AddAct2_PauseSec_numericUpDown.Location = new Point(249, 74);
             AddAct2_PauseSec_numericUpDown.Maximum = new decimal(new int[] { 30, 0, 0, 0 });
             AddAct2_PauseSec_numericUpDown.Name = "AddAct2_PauseSec_numericUpDown";
             AddAct2_PauseSec_numericUpDown.Size = new Size(43, 23);
@@ -2137,7 +2137,7 @@
             // 
             AddAct2_PauseAfter_label.AutoSize = true;
             AddAct2_PauseAfter_label.Font = new Font("Segoe UI", 8.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            AddAct2_PauseAfter_label.Location = new Point(161, 78);
+            AddAct2_PauseAfter_label.Location = new Point(159, 78);
             AddAct2_PauseAfter_label.Name = "AddAct2_PauseAfter_label";
             AddAct2_PauseAfter_label.Size = new Size(89, 13);
             AddAct2_PauseAfter_label.TabIndex = 14;
@@ -2322,7 +2322,7 @@
             // AddAct1_PauseSec_numericUpDown
             // 
             AddAct1_PauseSec_numericUpDown.DecimalPlaces = 1;
-            AddAct1_PauseSec_numericUpDown.Location = new Point(247, 74);
+            AddAct1_PauseSec_numericUpDown.Location = new Point(249, 74);
             AddAct1_PauseSec_numericUpDown.Maximum = new decimal(new int[] { 30, 0, 0, 0 });
             AddAct1_PauseSec_numericUpDown.Name = "AddAct1_PauseSec_numericUpDown";
             AddAct1_PauseSec_numericUpDown.Size = new Size(43, 23);
@@ -2333,7 +2333,7 @@
             // 
             AddAct1_PauseAfter_label.AutoSize = true;
             AddAct1_PauseAfter_label.Font = new Font("Segoe UI", 8.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            AddAct1_PauseAfter_label.Location = new Point(161, 78);
+            AddAct1_PauseAfter_label.Location = new Point(159, 78);
             AddAct1_PauseAfter_label.Name = "AddAct1_PauseAfter_label";
             AddAct1_PauseAfter_label.Size = new Size(89, 13);
             AddAct1_PauseAfter_label.TabIndex = 14;
@@ -2614,8 +2614,8 @@
             ((System.ComponentModel.ISupportInitialize)Flask2_Percent_numericUpDown).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             tabPage2.ResumeLayout(false);
-            AddAct5_ActType_dropBox.ResumeLayout(false);
-            AddAct5_ActType_dropBox.PerformLayout();
+            AddAct5_panel.ResumeLayout(false);
+            AddAct5_panel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)AddAct5_MinCD_numericUpDown).EndInit();
             ((System.ComponentModel.ISupportInitialize)AddAct5_PauseSec_numericUpDown).EndInit();
             panel20.ResumeLayout(false);
@@ -2790,7 +2790,7 @@
         private Label AddAct1_MinCD_label;
         private Label AddAct1_InGameHotkey_label;
         private ComboBox AddAct1_InGameHotkey_dropBox;
-        private Panel AddAct5_ActType_dropBox;
+        private Panel AddAct5_panel;
         private Button AddAct5_DeleteAction_button;
         private NumericUpDown AddAct5_MinCD_numericUpDown;
         private Label AddAct5_MinCD_label;
@@ -2802,7 +2802,7 @@
         private Label AddAct5_Pause_label;
         private CheckBox AddAct5_Pause_checkBox;
         private Panel panel20;
-        private ComboBox comboBox12;
+        private ComboBox AddAct5_ActType_dropBox;
         private NumericUpDown AddAct5_Flat_numericUpDown;
         private NumericUpDown AddAct5_Percent_numericUpDown;
         private RadioButton AddAct5_Flat_radioButton;

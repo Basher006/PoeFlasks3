@@ -423,9 +423,9 @@ namespace DrinkerForm
             {
                 new()
                 {
-                    AddActPanel = AddAct1_panel,
+                    AddActPanel =               AddAct1_panel,
 
-                    ActType = AddAct1_ActType_dropBox,
+                    ActType =                   AddAct1_ActType_dropBox,
 
                     PercentRadioButton =        AddAct1_Percent_radioButton,
                     FlatRadioButton =           AddAct1_Flat_radioButton,
@@ -446,9 +446,9 @@ namespace DrinkerForm
                 },
                 new()
                 {
-                    AddActPanel = AddAct1_panel,
+                    AddActPanel =               AddAct2_panel,
 
-                    ActType = AddAct1_ActType_dropBox,
+                    ActType =                   AddAct2_ActType_dropBox,
 
                     PercentRadioButton =        AddAct2_Percent_radioButton,
                     FlatRadioButton =           AddAct2_Flat_radioButton,
@@ -469,9 +469,9 @@ namespace DrinkerForm
                 },
                 new()
                 {
-                    AddActPanel = AddAct1_panel,
+                    AddActPanel =               AddAct3_panel,
 
-                    ActType = AddAct1_ActType_dropBox,
+                    ActType =                   AddAct3_ActType_dropBox,
 
                     PercentRadioButton =        AddAct3_Percent_radioButton,
                     FlatRadioButton =           AddAct3_Flat_radioButton,
@@ -492,9 +492,9 @@ namespace DrinkerForm
                 },                
                 new()
                 {
-                    AddActPanel = AddAct1_panel,
+                    AddActPanel =               AddAct4_panel,
 
-                    ActType = AddAct1_ActType_dropBox,
+                    ActType =                   AddAct4_ActType_dropBox,
 
                     PercentRadioButton =        AddAct4_Percent_radioButton,
                     FlatRadioButton =           AddAct4_Flat_radioButton,
@@ -515,9 +515,9 @@ namespace DrinkerForm
                 },                
                 new()
                 {
-                    AddActPanel = AddAct1_panel,
+                    AddActPanel =               AddAct5_panel,
 
-                    ActType = AddAct1_ActType_dropBox,
+                    ActType =                   AddAct5_ActType_dropBox,
 
                     PercentRadioButton =        AddAct5_Percent_radioButton,
                     FlatRadioButton =           AddAct5_Flat_radioButton,

@@ -44,3 +44,4 @@ Second key:
 Close
 Delete action
 Add new Action
+In game Hotkey

@@ -23,6 +23,13 @@ namespace DrinkerForm
             { "Numpad 7", Keys.NUMPAD_7 }, { "Numpad 8", Keys.NUMPAD_8 }, { "Numpad 9", Keys.NUMPAD_9 },
             { "Numpad 0", Keys.NUMPAD_0 },
         };
+        private static readonly Dictionary<string, Keys> AddActInGameHotkey_dropBox_values = new Dictionary<string, Keys>()
+        {
+            { "Q", Keys.Q }, { "W", Keys.W }, { "E", Keys.E }, { "R", Keys.R }, { "T", Keys.T }, { "A", Keys.A }, { "S", Keys.S }, { "D", Keys.D }, { "F", Keys.F },
+            { "Z", Keys.Z }, { "X", Keys.X }, { "C", Keys.C }, { "V", Keys.V }, { "Space", Keys.Space }, { "Mouse middle", Keys.MouseMiddle }, { "Mouse left", Keys.MouseLeft }, { "Mouse right", Keys.MouseRight },
+            { "1", Keys.NUM_1 }, { "2", Keys.NUM_2 }, { "3", Keys.NUM_3 }, { "4", Keys.NUM_4 }, { "5", Keys.NUM_5 },
+            { "6", Keys.NUM_6 }, { "7", Keys.NUM_7 }, { "8", Keys.NUM_8 }, { "9", Keys.NUM_9 }, { "0", Keys.NUM_0 },
+        };
         private static readonly Dictionary<string, Keys> SecondKey_dropBox_values = new Dictionary<string, Keys>()
         {
             { "Mouse Left", Keys.MouseLeft }, { "Mouse Right", Keys.MouseRight }, { "Mouse Middle", Keys.MouseMiddle },
@@ -54,14 +61,17 @@ namespace DrinkerForm
             FlasksSetup = profile;
             FlasksGuielements = guielements;
             AdditionalActionGUIElemets = addActElements;
+
             AppLanguge = PoeFlasks3.Program.Settings.AppLanguege;
             SetText();
 
             SetDropBoxesValuesRange(ref globalSecondKey);
 
-            SetFlasksGuiValues();
-            SetPanelColor();
-            SetEnableFlags();
+            SetGuiValues();
+            SetPanelColor_flask();
+            SetPanelColor_addAct();
+            SetEnableFlags_flask();
+            SetEnableFlags_addAct();
 
             SubscribeEvents();
         }
@@ -72,9 +82,11 @@ namespace DrinkerForm
             FlasksGuielements = guielements;
             AdditionalActionGUIElemets = addActElements;
 
-            SetFlasksGuiValues();
-            SetPanelColor();
-            SetEnableFlags();
+            SetGuiValues();
+            SetPanelColor_flask();
+            SetPanelColor_addAct();
+            SetEnableFlags_flask();
+            SetEnableFlags_addAct();
         }
 
 
@@ -106,6 +118,17 @@ namespace DrinkerForm
                 FlasksGuielements[i].FlaskMinimumCDText.Text = BotResourseLoader.LanguegesText[AppLanguge][35];
                 FlasksGuielements[i].FlaskGroupText.Text = BotResourseLoader.LanguegesText[AppLanguge][36];
             }
+
+            for (int i = 0; i < AdditionalActionGUIElemets.Length; i++)
+            {
+                AdditionalActionGUIElemets[i].PercentRadioButton.Text = BotResourseLoader.LanguegesText[AppLanguge][29];
+                AdditionalActionGUIElemets[i].FlatRadioButton.Text = BotResourseLoader.LanguegesText[AppLanguge][30];
+                AdditionalActionGUIElemets[i].PauseEnable.Text = BotResourseLoader.LanguegesText[AppLanguge][31];
+                AdditionalActionGUIElemets[i].PauseEnableText.Text = BotResourseLoader.LanguegesText[AppLanguge][32];
+                AdditionalActionGUIElemets[i].PauseSecText.Text = BotResourseLoader.LanguegesText[AppLanguge][33];
+                AdditionalActionGUIElemets[i].AddActInGameHotkeyText.Text = BotResourseLoader.LanguegesText[AppLanguge][46];
+                AdditionalActionGUIElemets[i].AddActMinimumCDText.Text = BotResourseLoader.LanguegesText[AppLanguge][35];
+            }
         }
 
         private static void SetDropBoxesValuesRange(ref ComboBox globalSecondKey)
@@ -121,42 +144,73 @@ namespace DrinkerForm
                 FlasksGuielements[i].FlaskGroupBox.DrawMode = DrawMode.OwnerDrawFixed;
             }
 
+            for (int i = 0; i < AdditionalActionGUIElemets.Length; i++)
+            {
+                AdditionalActionGUIElemets[i].ActType.Items.AddRange(ActType_dropBox_values.Keys.ToArray());
+                AdditionalActionGUIElemets[i].AddActInGameHotkey.Items.AddRange(AddActInGameHotkey_dropBox_values.Keys.ToArray());
+                AdditionalActionGUIElemets[i].SecondKey.Items.AddRange(SecondKey_dropBox_values.Keys.ToArray());
+            }
+
             globalSecondKey.Items.AddRange(SecondKey_dropBox_values.Keys.ToArray());
         }
-        private static void SetFlasksGuiValues()
+        private static void SetGuiValues()
         {
             for (int i = 0; i < FlasksGuielements.Length; i++)
             {
                 var basAction = FlasksSetup.Setup.FlasksList[i].BaseAction;
-                // dropboxes
-                int actTypeIndex = (int)FlasksSetup.Setup.FlasksList[i].BaseAction.ActType;
-                FlasksGuielements[i].ActType.SelectedIndex = actTypeIndex;
+                // act type
+                FlasksGuielements[i].ActType.SelectedIndex = (int)basAction.ActType;
 
-                int inGameHotkeyIndex = FlaskInGameHotkey_dropBox_values.Values.ToList().IndexOf(FlasksSetup.Setup.FlasksList[i].BaseAction.HotKey);
-                FlasksGuielements[i].FlaskInGameHotkey.SelectedIndex = inGameHotkeyIndex;
-
-                //int secondKeyIndex = SecondKey_dropBox_values.Values.ToList().IndexOf(FlasksSetup.Setup.FlasksList[i].BaseAction.PauseWhenSecondKeyNotUsedRecently.Key);
-                FlasksGuielements[i].SecondKey.SelectedIndex = GetSecondKeyIndex(FlasksSetup.Setup.FlasksList[i].BaseAction.PauseWhenSecondKeyNotUsedRecently.Key);
-
-                int flaskGroupIndex = FlaskGroups_dropBox_values.Values.ToList().IndexOf(FlasksSetup.Setup.FlasksList[i].Group);
-                FlasksGuielements[i].FlaskGroupBox.SelectedIndex = flaskGroupIndex;
-
-                // percent/flat values
+                // percent/flat 
                 FlasksGuielements[i].PercentRadioButton.Checked = basAction.UseActPercent;
                 FlasksGuielements[i].FlatRadioButton.Checked = !basAction.UseActPercent;
-
                 FlasksGuielements[i].PercentValue.Value = basAction.ActPercent;
                 FlasksGuielements[i].FlatValue.Value = basAction.ActFlat;
 
                 // pause when second key not send recently
                 FlasksGuielements[i].PauseEnable.Checked = basAction.PauseWhenSecondKeyNotUsedRecently.Enable;
+                FlasksGuielements[i].SecondKey.SelectedIndex = GetSecondKeyIndex(basAction.PauseWhenSecondKeyNotUsedRecently.Key);
                 FlasksGuielements[i].PauseSecValue.Value = (decimal)basAction.PauseWhenSecondKeyNotUsedRecently.PauseActivationDelay;
+
+                // in game hotkey
+                int inGameHotkeyIndex = FlaskInGameHotkey_dropBox_values.Values.ToList().IndexOf(basAction.HotKey);
+                FlasksGuielements[i].FlaskInGameHotkey.SelectedIndex = inGameHotkeyIndex;
 
                 // min CD
                 FlasksGuielements[i].FlaskMinimumCD.Value = (decimal)basAction.MinCD;
+
+                // flask group
+                int flaskGroupIndex = FlaskGroups_dropBox_values.Values.ToList().IndexOf(FlasksSetup.Setup.FlasksList[i].Group);
+                FlasksGuielements[i].FlaskGroupBox.SelectedIndex = flaskGroupIndex;
+            }
+
+            for (int i = 0; i < AdditionalActionGUIElemets.Length; i++)
+            {
+                var basAction = FlasksSetup.Setup.AdditionalActions[i];
+
+                // act type
+                AdditionalActionGUIElemets[i].ActType.SelectedIndex = (int)basAction.ActType;
+
+                // percent/flat 
+                AdditionalActionGUIElemets[i].PercentRadioButton.Checked = basAction.UseActPercent;
+                AdditionalActionGUIElemets[i].FlatRadioButton.Checked = !basAction.UseActPercent;
+                AdditionalActionGUIElemets[i].PercentValue.Value = basAction.ActPercent;
+                AdditionalActionGUIElemets[i].FlatValue.Value = basAction.ActFlat;
+
+                // pause when second key not send recently
+                AdditionalActionGUIElemets[i].PauseEnable.Checked = basAction.PauseWhenSecondKeyNotUsedRecently.Enable;
+                AdditionalActionGUIElemets[i].SecondKey.SelectedIndex = GetSecondKeyIndex(basAction.PauseWhenSecondKeyNotUsedRecently.Key);
+                AdditionalActionGUIElemets[i].PauseSecValue.Value = (decimal)basAction.PauseWhenSecondKeyNotUsedRecently.PauseActivationDelay;
+
+                // in game hotkey
+                int inGameHotkeyIndex = AddActInGameHotkey_dropBox_values.Values.ToList().IndexOf(basAction.HotKey);
+                AdditionalActionGUIElemets[i].AddActInGameHotkey.SelectedIndex = inGameHotkeyIndex;
+
+                // min CD
+                AdditionalActionGUIElemets[i].AddActMinimumCD.Value = (decimal)basAction.MinCD;
             }
         }
-        private static void SetPanelColor()
+        private static void SetPanelColor_flask()
         {
             var flasksGroups = GetFlasksGroups();
             for (int i = 0; i < FlasksGuielements.Length; i++)
@@ -186,7 +240,17 @@ namespace DrinkerForm
                 }
             }
         }
-        private static void SetEnableFlags()
+        private static void SetPanelColor_addAct()
+        {
+            for (int i = 0; i < AdditionalActionGUIElemets.Length; i++)
+            {
+                if (AdditionalActionGUIElemets[i].ActType.SelectedIndex == 0)
+                    AdditionalActionGUIElemets[i].AddActPanel.BackColor = PanelColorsDict[PanelColors.Disable];
+                else
+                    AdditionalActionGUIElemets[i].AddActPanel.BackColor = PanelColorsDict[PanelColors.Group1_active];
+            }
+        }
+        private static void SetEnableFlags_flask()
         {
             // Flasks tab
             var flasksGroups = GetFlasksGroups();
@@ -196,7 +260,7 @@ namespace DrinkerForm
                 var flaskSlot = (FlaskSlot)i;
                 var baseAction = FlasksSetup.Setup.Flasks[flaskSlot].BaseAction;
                 var flaskGroup = FlasksSetup.Setup.Flasks[flaskSlot].Group;
-                var flaskActType = baseAction.ActType;
+                var ActType = baseAction.ActType;
                 bool flaskInGroup = flaskGroup != FlaskGroup.None;
                 bool flaskIsFirstInGroup = true;
                 if (flaskInGroup && flasksGroups[flaskGroup].Count > 1)
@@ -222,7 +286,7 @@ namespace DrinkerForm
 
                     FlasksGuielements[i].FlaskMinimumCD.Enabled = false;
                 }
-                else if (flaskActType == ActivationType.None)
+                else if (ActType == ActivationType.None)
                 {
                     // disable all w/o act type, groups and ingame hotkey
                     FlasksGuielements[i].ActType.Enabled = true;
@@ -244,7 +308,7 @@ namespace DrinkerForm
                     // standart enable thing
                     FlasksGuielements[i].ActType.Enabled = true;
 
-                    if (flaskActType == ActivationType.HP || flaskActType == ActivationType.MP || flaskActType == ActivationType.ES)
+                    if (ActType == ActivationType.HP || ActType == ActivationType.MP || ActType == ActivationType.ES)
                     {
                         FlasksGuielements[i].PercentRadioButton.Enabled = true;
                         FlasksGuielements[i].FlatRadioButton.Enabled = true;
@@ -265,30 +329,102 @@ namespace DrinkerForm
                     FlasksGuielements[i].PauseSecValue.Enabled = FlasksGuielements[i].PauseEnable.Checked;
 
                     FlasksGuielements[i].FlaskMinimumCD.Enabled = true;
-
                 }
             }
         }
+        private static void SetEnableFlags_addAct()
+        {
+            for (int i = 0; i < AdditionalActionGUIElemets.Length; i++)
+            {
+                var baseAction = FlasksSetup.Setup.AdditionalActions[i];
+                var ActType = baseAction.ActType;
 
+                if (ActType == ActivationType.None)
+                {
+                    // disable all w/o act type, groups and ingame hotkey
+                    AdditionalActionGUIElemets[i].ActType.Enabled = true;
+                    AdditionalActionGUIElemets[i].PercentRadioButton.Enabled = false;
+
+                    AdditionalActionGUIElemets[i].FlatRadioButton.Enabled = false;
+                    AdditionalActionGUIElemets[i].PercentValue.Enabled = false;
+                    AdditionalActionGUIElemets[i].FlatValue.Enabled = false;
+
+                    AdditionalActionGUIElemets[i].PauseEnable.Enabled = false;
+                    AdditionalActionGUIElemets[i].PauseEnableText.Enabled = false;
+                    AdditionalActionGUIElemets[i].SecondKey.Enabled = false;
+                    AdditionalActionGUIElemets[i].PauseSecValue.Enabled = false;
+
+                    AdditionalActionGUIElemets[i].AddActMinimumCD.Enabled = false;
+                }
+                else
+                {
+                    // standart enable thing
+                    AdditionalActionGUIElemets[i].ActType.Enabled = true;
+
+                    if (ActType == ActivationType.HP || ActType == ActivationType.MP || ActType == ActivationType.ES)
+                    {
+                        AdditionalActionGUIElemets[i].PercentRadioButton.Enabled = true;
+                        AdditionalActionGUIElemets[i].FlatRadioButton.Enabled = true;
+                        AdditionalActionGUIElemets[i].PercentValue.Enabled = baseAction.UseActPercent;
+                        AdditionalActionGUIElemets[i].FlatValue.Enabled = !baseAction.UseActPercent;
+                    }
+                    else
+                    {
+                        AdditionalActionGUIElemets[i].PercentRadioButton.Enabled = false;
+                        AdditionalActionGUIElemets[i].FlatRadioButton.Enabled = false;
+                        AdditionalActionGUIElemets[i].PercentValue.Enabled = false;
+                        AdditionalActionGUIElemets[i].FlatValue.Enabled = false;
+                    }
+
+                    AdditionalActionGUIElemets[i].PauseEnable.Enabled = true;
+                    AdditionalActionGUIElemets[i].PauseEnableText.Enabled = true;
+                    AdditionalActionGUIElemets[i].SecondKey.Enabled = FlasksGuielements[i].PauseEnable.Checked;
+                    AdditionalActionGUIElemets[i].PauseSecValue.Enabled = FlasksGuielements[i].PauseEnable.Checked;
+
+                    AdditionalActionGUIElemets[i].AddActMinimumCD.Enabled = true;
+                }
+            }
+        }
         private static void SubscribeEvents()
         {
             for (int i = 0; i < FlasksGuielements.Length; i++)
             {
-                FlasksGuielements[i].ActType.SelectedValueChanged += OnActTypeChange;
+                FlasksGuielements[i].ActType.SelectedValueChanged += OnActTypeChange_flask;
+                FlasksGuielements[i].PercentRadioButton.CheckedChanged += OnActPercentOrFlatChange_flask;
+                FlasksGuielements[i].PauseEnable.CheckedChanged += OnPauseEnableChanged_flask;
+
+                FlasksGuielements[i].PercentValue.ValueChanged += OnPercentValueChange_flask;
+                FlasksGuielements[i].FlatValue.ValueChanged += OnFlatValueChange_flask;
+
+                FlasksGuielements[i].SecondKey.SelectedIndexChanged += OnSecondKeyChanged_flask;
+                FlasksGuielements[i].PauseSecValue.ValueChanged += OnPauseDelayChanged_flask;
+
+                FlasksGuielements[i].FlaskInGameHotkey.SelectedIndexChanged += OnInGameHotkeyChanged_flask;
+
+                FlasksGuielements[i].FlaskMinimumCD.ValueChanged += OnMinCDChanged_flask;
+
                 FlasksGuielements[i].FlaskGroupBox.SelectedIndexChanged += OnGroupChange;
-                FlasksGuielements[i].PercentRadioButton.CheckedChanged += OnActPercentOrFlatChange;
-                FlasksGuielements[i].PauseEnable.CheckedChanged += OnPauseEnableChanged;
+            }
 
-                FlasksGuielements[i].PercentValue.ValueChanged += OnPercentValueChange;
-                FlasksGuielements[i].FlatValue.ValueChanged += OnFlatValueChange;
+            for (int i = 0; i < AdditionalActionGUIElemets.Length; i++)
+            {
+                AdditionalActionGUIElemets[i].ActType.SelectedValueChanged += OnActTypeChange_addAct;
+                AdditionalActionGUIElemets[i].PercentRadioButton.CheckedChanged += OnActPercentOrFlatChange_addAct;
+                AdditionalActionGUIElemets[i].PauseEnable.CheckedChanged += OnPauseEnableChanged_addAct;
 
-                FlasksGuielements[i].SecondKey.SelectedIndexChanged += OnSecondKeyChanged;
-                FlasksGuielements[i].PauseSecValue.ValueChanged += OnPauseDelayChanged;
+                AdditionalActionGUIElemets[i].PercentValue.ValueChanged += OnPercentValueChange_addAct;
+                AdditionalActionGUIElemets[i].FlatValue.ValueChanged += OnFlatValueChange_addAct;
 
-                FlasksGuielements[i].FlaskMinimumCD.ValueChanged += OnMinCDChanged;
+                AdditionalActionGUIElemets[i].SecondKey.SelectedIndexChanged += OnSecondKeyChanged_addAct;
+                AdditionalActionGUIElemets[i].PauseSecValue.ValueChanged += OnPauseDelayChanged_addAct;
+
+                AdditionalActionGUIElemets[i].AddActInGameHotkey.SelectedIndexChanged += OnInGameHotkeyChanged_addAct;
+
+                AdditionalActionGUIElemets[i].AddActMinimumCD.ValueChanged += OnMinCDChanged_addAct;
             }
         }
-        private static void OnActTypeChange(object? sender, EventArgs e)
+
+        private static void OnActTypeChange_flask(object? sender, EventArgs e)
         {
             if (sender == null)
                 return;
@@ -309,47 +445,41 @@ namespace DrinkerForm
                     flaskSlot.BaseAction = basAction;
                     FlasksSetup.Setup.Flasks[slot] = flaskSlot;
 
-                    break;
+                    SetPanelColor_flask();
+                    SetEnableFlags_flask();
+                    onProfileChange?.Invoke(FlasksSetup);
+                    return;
                 }
             }
-
-            SetPanelColor();
-            SetEnableFlags();
-            onProfileChange?.Invoke(FlasksSetup);
         }
-        private static void OnGroupChange(object? sender, EventArgs e)
+        private static void OnActTypeChange_addAct(object? sender, EventArgs e)
         {
             if (sender == null)
                 return;
             var s = (ComboBox)sender;
 
 
-            var group = (FlaskGroup)s.SelectedIndex;
-            FlaskSlot slot;
-            for (int i = 1; i < 6; i++)
+            var actType = (ActivationType)s.SelectedIndex;
+            for (int i = 0; i < AdditionalActionGUIElemets.Length; i++)
             {
-                if (s.Name.Contains($"Flask{i}"))
+                if (s.Name.Contains($"AddAct{i + 1}"))
                 {
-                    slot = (FlaskSlot)i - 1;
+                    var basAction = FlasksSetup.Setup.AdditionalActions[i];
+                    basAction.ActType = actType;
+                    FlasksSetup.Setup.AdditionalActions[i] = basAction;
 
-                    var flaskSlot = FlasksSetup.Setup.Flasks[slot];
-                    flaskSlot.Group = group;
-                    FlasksSetup.Setup.Flasks[slot] = flaskSlot;
-
-                    break;
+                    SetPanelColor_addAct();
+                    SetEnableFlags_addAct();
+                    onProfileChange?.Invoke(FlasksSetup);
+                    return;
                 }
             }
-
-            SetPanelColor();
-            SetEnableFlags();
-            onProfileChange?.Invoke(FlasksSetup);
         }
-        private static void OnActPercentOrFlatChange(object? sender, EventArgs e)
+        private static void OnActPercentOrFlatChange_flask(object? sender, EventArgs e)
         {
             if (sender == null)
                 return;
             var s = (RadioButton)sender;
-
 
             FlaskSlot slot;
             for (int i = 1; i < 6; i++)
@@ -366,14 +496,34 @@ namespace DrinkerForm
                     flaskSlot.BaseAction = basAction;
                     FlasksSetup.Setup.Flasks[slot] = flaskSlot;
 
-                    break;
+                    SetEnableFlags_flask();
+                    onProfileChange?.Invoke(FlasksSetup);
+                    return;
                 }
             }
-
-            SetEnableFlags();
-            onProfileChange?.Invoke(FlasksSetup);
         }
-        private static void OnPauseEnableChanged(object? sender, EventArgs e)
+        private static void OnActPercentOrFlatChange_addAct(object? sender, EventArgs e)
+        {
+            if (sender == null)
+                return;
+            var s = (RadioButton)sender;
+
+            for (int i = 0; i < AdditionalActionGUIElemets.Length; i++)
+            {
+                if (s.Name.Contains($"AddAct{i + 1}"))
+                {
+                    bool useActPercent = s.Checked;
+                    var basAction = FlasksSetup.Setup.AdditionalActions[i];
+                    basAction.UseActPercent = useActPercent;
+                    FlasksSetup.Setup.AdditionalActions[i] = basAction;
+
+                    SetEnableFlags_flask();
+                    onProfileChange?.Invoke(FlasksSetup);
+                    return;
+                }
+            }
+        }
+        private static void OnPauseEnableChanged_flask(object? sender, EventArgs e)
         {
             if (sender == null)
                 return;
@@ -397,14 +547,38 @@ namespace DrinkerForm
                     flaskSlot.BaseAction = basAction;
                     FlasksSetup.Setup.Flasks[slot] = flaskSlot;
 
-                    break;
+                    SetEnableFlags_flask();
+                    onProfileChange?.Invoke(FlasksSetup);
+                    return;
                 }
             }
-
-            SetEnableFlags();
-            onProfileChange?.Invoke(FlasksSetup);
         }
-        private static void OnPercentValueChange(object? sender, EventArgs e)
+        private static void OnPauseEnableChanged_addAct(object? sender, EventArgs e)
+        {
+            if (sender == null)
+                return;
+            var s = (CheckBox)sender;
+
+
+            for (int i = 0; i < AdditionalActionGUIElemets.Length; i++)
+            {
+                if (s.Name.Contains($"AddAct{i + 1}"))
+                {
+                    bool usePausa = s.Checked;
+
+                    var basAction = FlasksSetup.Setup.AdditionalActions[i];
+                    var pause = basAction.PauseWhenSecondKeyNotUsedRecently;
+                    pause.Enable = usePausa;
+                    basAction.PauseWhenSecondKeyNotUsedRecently = pause;
+                    FlasksSetup.Setup.AdditionalActions[i] = basAction;
+
+                    SetEnableFlags_flask();
+                    onProfileChange?.Invoke(FlasksSetup);
+                    return;
+                }
+            }
+        }
+        private static void OnPercentValueChange_flask(object? sender, EventArgs e)
         {
             if (sender == null)
                 return;
@@ -426,12 +600,33 @@ namespace DrinkerForm
                     flaskSlot.BaseAction = basAction;
                     FlasksSetup.Setup.Flasks[slot] = flaskSlot;
 
-                    break;
+                    onProfileChange?.Invoke(FlasksSetup);
+                    return;
                 }
             }
-            onProfileChange?.Invoke(FlasksSetup);
         }
-        private static void OnFlatValueChange(object? sender, EventArgs e)
+        private static void OnPercentValueChange_addAct(object? sender, EventArgs e)
+        {
+            if (sender == null)
+                return;
+            var s = (NumericUpDown)sender;
+
+            for (int i = 0; i < AdditionalActionGUIElemets.Length; i++)
+            {
+                if (s.Name.Contains($"AddAct{i + 1}"))
+                {
+                    int value = (int)s.Value;
+
+                    var basAction = FlasksSetup.Setup.AdditionalActions[i];
+                    basAction.ActPercent = value;
+                    FlasksSetup.Setup.AdditionalActions[i] = basAction;
+
+                    onProfileChange?.Invoke(FlasksSetup);
+                    return;
+                }
+            }
+        }
+        private static void OnFlatValueChange_flask(object? sender, EventArgs e)
         {
             if (sender == null)
                 return;
@@ -453,12 +648,33 @@ namespace DrinkerForm
                     flaskSlot.BaseAction = basAction;
                     FlasksSetup.Setup.Flasks[slot] = flaskSlot;
 
-                    break;
+                    onProfileChange?.Invoke(FlasksSetup);
+                    return;
                 }
             }
-            onProfileChange?.Invoke(FlasksSetup);
         }
-        private static void OnSecondKeyChanged(object? sender, EventArgs e)
+        private static void OnFlatValueChange_addAct(object? sender, EventArgs e)
+        {
+            if (sender == null)
+                return;
+            var s = (NumericUpDown)sender;
+
+            for (int i = 0; i < AdditionalActionGUIElemets.Length; i++)
+            {
+                if (s.Name.Contains($"AddAct{i + 1}"))
+                {
+                    int value = (int)s.Value;
+
+                    var basAction = FlasksSetup.Setup.AdditionalActions[i];
+                    basAction.ActFlat = value;
+                    FlasksSetup.Setup.AdditionalActions[i] = basAction;
+
+                    onProfileChange?.Invoke(FlasksSetup);
+                    return;
+                }
+            }
+        }
+        private static void OnSecondKeyChanged_flask(object? sender, EventArgs e)
         {
             if (sender == null)
                 return;
@@ -484,12 +700,37 @@ namespace DrinkerForm
                     flaskSlot.BaseAction = basAction;
                     FlasksSetup.Setup.Flasks[slot] = flaskSlot;
 
-                    break;
+                    onProfileChange?.Invoke(FlasksSetup);
+                    return;
                 }
             }
-            onProfileChange?.Invoke(FlasksSetup);
         }
-        private static void OnPauseDelayChanged(object? sender, EventArgs e)
+        private static void OnSecondKeyChanged_addAct(object? sender, EventArgs e)
+        {
+            if (sender == null)
+                return;
+            var s = (ComboBox)sender;
+
+
+            for (int i = 0; i < AdditionalActionGUIElemets.Length; i++)
+            {
+                if (s.Name.Contains($"AddAct{i + 1}"))
+                {
+                    int index = s.SelectedIndex;
+                    var newKey = GetSecondKey(index);
+
+                    var basAction = FlasksSetup.Setup.AdditionalActions[i];
+                    var pause = basAction.PauseWhenSecondKeyNotUsedRecently;
+                    pause.Key = newKey;
+                    basAction.PauseWhenSecondKeyNotUsedRecently = pause;
+                    FlasksSetup.Setup.AdditionalActions[i] = basAction;
+
+                    onProfileChange?.Invoke(FlasksSetup);
+                    return;
+                }
+            }
+        }
+        private static void OnPauseDelayChanged_flask(object? sender, EventArgs e)
         {
             if (sender == null)
                 return;
@@ -513,12 +754,85 @@ namespace DrinkerForm
                     flaskSlot.BaseAction = basAction;
                     FlasksSetup.Setup.Flasks[slot] = flaskSlot;
 
-                    break;
+                    onProfileChange?.Invoke(FlasksSetup);
+                    return;
                 }
             }
-            onProfileChange?.Invoke(FlasksSetup);
         }
-        private static void OnMinCDChanged(object? sender, EventArgs e)
+        private static void OnPauseDelayChanged_addAct(object? sender, EventArgs e)
+        {
+            if (sender == null)
+                return;
+            var s = (NumericUpDown)sender;
+
+            for (int i = 0; i < AdditionalActionGUIElemets.Length; i++)
+            {
+                if (s.Name.Contains($"AddAct{i + 1}"))
+                {
+                    float value = (float)s.Value;
+
+                    var basAction = FlasksSetup.Setup.AdditionalActions[i];
+                    var pause = basAction.PauseWhenSecondKeyNotUsedRecently;
+                    pause.PauseActivationDelay = value;
+                    basAction.PauseWhenSecondKeyNotUsedRecently = pause;
+                    FlasksSetup.Setup.AdditionalActions[i] = basAction;
+
+                    onProfileChange?.Invoke(FlasksSetup);
+                    return;
+                }
+            }
+        }
+        private static void OnInGameHotkeyChanged_flask(object? sender, EventArgs e)
+        {
+            if (sender == null)
+                return;
+
+            var s = (ComboBox)sender;
+
+            FlaskSlot slot;
+            for (int i = 1; i < 6; i++)
+            {
+                if (s.Name.Contains($"Flask{i}"))
+                {
+                    slot = (FlaskSlot)i - 1;
+                    int index = s.SelectedIndex;
+                    var hotkey = FlaskInGameHotkey_dropBox_values.Values.ToList()[index];
+
+                    var flaskSlot = FlasksSetup.Setup.Flasks[slot];
+                    var basAction = flaskSlot.BaseAction;
+                    basAction.HotKey = hotkey;
+                    flaskSlot.BaseAction = basAction;
+                    FlasksSetup.Setup.Flasks[slot] = flaskSlot;
+
+                    onProfileChange?.Invoke(FlasksSetup);
+                    return;
+                }
+            }
+        }
+        private static void OnInGameHotkeyChanged_addAct(object? sender, EventArgs e)
+        {
+            if (sender == null)
+                return;
+
+            var s = (ComboBox)sender;
+
+            for (int i = 0; i < AdditionalActionGUIElemets.Length; i++)
+            {
+                if (s.Name.Contains($"AddAct{i + 1}"))
+                {
+                    int index = s.SelectedIndex;
+                    var hotkey = AddActInGameHotkey_dropBox_values.Values.ToList()[index];
+
+                    var basAction = FlasksSetup.Setup.AdditionalActions[i];
+                    basAction.HotKey = hotkey;
+                    FlasksSetup.Setup.AdditionalActions[i] = basAction;
+
+                    onProfileChange?.Invoke(FlasksSetup);
+                    return;
+                }
+            }
+        }
+        private static void OnMinCDChanged_flask(object? sender, EventArgs e)
         {
             if (sender == null)
                 return;
@@ -540,12 +854,58 @@ namespace DrinkerForm
                     flaskSlot.BaseAction = basAction;
                     FlasksSetup.Setup.Flasks[slot] = flaskSlot;
 
-                    break;
+                    onProfileChange?.Invoke(FlasksSetup);
+                    return;
                 }
             }
-            onProfileChange?.Invoke(FlasksSetup);
         }
+        private static void OnMinCDChanged_addAct(object? sender, EventArgs e)
+        {
+            if (sender == null)
+                return;
+            var s = (NumericUpDown)sender;
 
+            for (int i = 0; i < AdditionalActionGUIElemets.Length; i++)
+            {
+                if (s.Name.Contains($"AddAct{i + 1}"))
+                {
+                    float value = (float)s.Value;
+
+                    var basAction = FlasksSetup.Setup.AdditionalActions[i];
+                    basAction.MinCD = value;
+                    FlasksSetup.Setup.AdditionalActions[i] = basAction;
+
+                    onProfileChange?.Invoke(FlasksSetup);
+                    return;
+                }
+            }
+        }
+        private static void OnGroupChange(object? sender, EventArgs e)
+        {
+            if (sender == null)
+                return;
+            var s = (ComboBox)sender;
+
+
+            var group = (FlaskGroup)s.SelectedIndex;
+            FlaskSlot slot;
+            for (int i = 1; i < 6; i++)
+            {
+                if (s.Name.Contains($"Flask{i}"))
+                {
+                    slot = (FlaskSlot)i - 1;
+
+                    var flaskSlot = FlasksSetup.Setup.Flasks[slot];
+                    flaskSlot.Group = group;
+                    FlasksSetup.Setup.Flasks[slot] = flaskSlot;
+
+                    SetPanelColor_flask();
+                    SetEnableFlags_flask();
+                    onProfileChange?.Invoke(FlasksSetup);
+                    return;
+                }
+            }
+        }
 
         private static Dictionary<FlaskGroup, List<FlaskSlot>> GetFlasksGroups()
         {

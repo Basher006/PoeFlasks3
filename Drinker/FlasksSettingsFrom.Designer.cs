@@ -1650,7 +1650,7 @@
             RenameCancel_button.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 204);
             RenameCancel_button.Location = new Point(471, 38);
             RenameCancel_button.Name = "RenameCancel_button";
-            RenameCancel_button.Size = new Size(101, 29);
+            RenameCancel_button.Size = new Size(116, 29);
             RenameCancel_button.TabIndex = 6;
             RenameCancel_button.Text = "Cancel";
             RenameCancel_button.UseVisualStyleBackColor = false;

@@ -16,6 +16,7 @@ namespace DrinkerForm
         private Color OnRenameRenameButtomColor = Color.LightGreen;
 
         private FlaskGUIElements[] FlasksGUIElements;
+        private AdditionalActionGUIElemets[] AdditionalActionGUIElemets;
 
         //private readonly Dictionary<WindowResolution, RECT> FlasksScreenAreas = new();
         //{ 
@@ -32,7 +33,8 @@ namespace DrinkerForm
             SetLanguegeText();
 
             Focus();
-            InitGuiElements();
+            InitFlasksGuiElements();
+            InitAdditionalActionGUIElemets();
             //InitAdditionalActions();
             UpdateFlasksScreenPictureBox();
             //InitFlask(); // it moved to on_window_shown
@@ -74,7 +76,7 @@ namespace DrinkerForm
         private void InitFlask()
         {
             InitProfilesDropBox();
-            FlasksGUIManager.Init(PoeFlasks3.Program.Settings.SelectedProfile.Profile, ref FlasksGUIElements, ref Global_SecondKey_dropBox);
+            FlasksGUIManager.Init(PoeFlasks3.Program.Settings.SelectedProfile.Profile, ref FlasksGUIElements, ref AdditionalActionGUIElemets, ref Global_SecondKey_dropBox);
             FlasksGUIManager.onProfileChange += UpdProfile;
         }
 
@@ -110,7 +112,7 @@ namespace DrinkerForm
 
         private void UpdProfile(Profile profile) // (!?)
         {
-            FlasksGUIManager.Update(PoeFlasks3.Program.Settings.SelectedProfile.Profile, ref FlasksGUIElements);
+            FlasksGUIManager.Update(PoeFlasks3.Program.Settings.SelectedProfile.Profile, ref FlasksGUIElements, ref AdditionalActionGUIElemets);
             UpdateFlasksScreenPictureBox();
             Bot.OnFlasksSetupChange(profile);
         }
@@ -278,7 +280,7 @@ namespace DrinkerForm
             Global_PauseSec_numericUpDown.Value = (decimal)pauseSec;
         }
 
-        private void InitGuiElements()
+        private void InitFlasksGuiElements()
         {
             FlasksGUIElements = new FlaskGUIElements[]
             {
@@ -412,6 +414,128 @@ namespace DrinkerForm
                     FlaskGroupText = Flask5_Group_label,
                     FlaskGroupBox = Flask5_group_dropBox
                 },
+            };
+        }
+
+        private void InitAdditionalActionGUIElemets()
+        {
+            AdditionalActionGUIElemets = new AdditionalActionGUIElemets[]
+            {
+                new()
+                {
+                    AddActPanel = AddAct1_panel,
+
+                    ActType = AddAct1_ActType_dropBox,
+
+                    PercentRadioButton =        AddAct1_Percent_radioButton,
+                    FlatRadioButton =           AddAct1_Flat_radioButton,
+                    PercentValue =              AddAct1_Percent_numericUpDown,
+                    FlatValue =                 AddAct1_Flat_numericUpDown,
+
+                    PauseEnable =               AddAct1_Pause_checkBox,
+                    PauseEnableText =           AddAct1_Pause_label,
+                    SecondKey =                 AddAct1_SecondKey_dropBox,
+                    PauseSecText =              AddAct1_PauseAfter_label,
+                    PauseSecValue =             AddAct1_PauseSec_numericUpDown,
+
+                    AddActInGameHotkeyText =    AddAct1_InGameHotkey_label,
+                    AddActInGameHotkey =        AddAct1_InGameHotkey_dropBox,
+
+                    AddActMinimumCDText =       AddAct1_MinCD_label,
+                    AddActMinimumCD =           AddAct1_MinCD_numericUpDown,
+                },
+                new()
+                {
+                    AddActPanel = AddAct1_panel,
+
+                    ActType = AddAct1_ActType_dropBox,
+
+                    PercentRadioButton =        AddAct2_Percent_radioButton,
+                    FlatRadioButton =           AddAct2_Flat_radioButton,
+                    PercentValue =              AddAct2_Percent_numericUpDown,
+                    FlatValue =                 AddAct2_Flat_numericUpDown,
+
+                    PauseEnable =               AddAct2_Pause_checkBox,
+                    PauseEnableText =           AddAct2_Pause_label,
+                    SecondKey =                 AddAct2_SecondKey_dropBox,
+                    PauseSecText =              AddAct2_PauseAfter_label,
+                    PauseSecValue =             AddAct2_PauseSec_numericUpDown,
+
+                    AddActInGameHotkeyText =    AddAct2_InGameHotkey_label,
+                    AddActInGameHotkey =        AddAct2_InGameHotkey_dropBox,
+
+                    AddActMinimumCDText =       AddAct2_MinCD_label,
+                    AddActMinimumCD =           AddAct2_MinCD_numericUpDown,
+                },
+                new()
+                {
+                    AddActPanel = AddAct1_panel,
+
+                    ActType = AddAct1_ActType_dropBox,
+
+                    PercentRadioButton =        AddAct3_Percent_radioButton,
+                    FlatRadioButton =           AddAct3_Flat_radioButton,
+                    PercentValue =              AddAct3_Percent_numericUpDown,
+                    FlatValue =                 AddAct3_Flat_numericUpDown,
+
+                    PauseEnable =               AddAct3_Pause_checkBox,
+                    PauseEnableText =           AddAct3_Pause_label,
+                    SecondKey =                 AddAct3_SecondKey_dropBox,
+                    PauseSecText =              AddAct3_PauseAfter_label,
+                    PauseSecValue =             AddAct3_PauseSec_numericUpDown,
+
+                    AddActInGameHotkeyText =    AddAct3_InGameHotkey_label,
+                    AddActInGameHotkey =        AddAct3_InGameHotkey_dropBox,
+
+                    AddActMinimumCDText =       AddAct3_MinCD_label,
+                    AddActMinimumCD =           AddAct3_MinCD_numericUpDown,
+                },                
+                new()
+                {
+                    AddActPanel = AddAct1_panel,
+
+                    ActType = AddAct1_ActType_dropBox,
+
+                    PercentRadioButton =        AddAct4_Percent_radioButton,
+                    FlatRadioButton =           AddAct4_Flat_radioButton,
+                    PercentValue =              AddAct4_Percent_numericUpDown,
+                    FlatValue =                 AddAct4_Flat_numericUpDown,
+
+                    PauseEnable =               AddAct4_Pause_checkBox,
+                    PauseEnableText =           AddAct4_Pause_label,
+                    SecondKey =                 AddAct4_SecondKey_dropBox,
+                    PauseSecText =              AddAct4_PauseAfter_label,
+                    PauseSecValue =             AddAct4_PauseSec_numericUpDown,
+
+                    AddActInGameHotkeyText =    AddAct4_InGameHotkey_label,
+                    AddActInGameHotkey =        AddAct4_InGameHotkey_dropBox,
+
+                    AddActMinimumCDText =       AddAct4_MinCD_label,
+                    AddActMinimumCD =           AddAct4_MinCD_numericUpDown,
+                },                
+                new()
+                {
+                    AddActPanel = AddAct1_panel,
+
+                    ActType = AddAct1_ActType_dropBox,
+
+                    PercentRadioButton =        AddAct5_Percent_radioButton,
+                    FlatRadioButton =           AddAct5_Flat_radioButton,
+                    PercentValue =              AddAct5_Percent_numericUpDown,
+                    FlatValue =                 AddAct5_Flat_numericUpDown,
+
+                    PauseEnable =               AddAct5_Pause_checkBox,
+                    PauseEnableText =           AddAct5_Pause_label,
+                    SecondKey =                 AddAct5_SecondKey_dropBox,
+                    PauseSecText =              AddAct5_PauseAfter_label,
+                    PauseSecValue =             AddAct5_PauseSec_numericUpDown,
+
+                    AddActInGameHotkeyText =    AddAct5_InGameHotkey_label,
+                    AddActInGameHotkey =        AddAct5_InGameHotkey_dropBox,
+
+                    AddActMinimumCDText =       AddAct5_MinCD_label,
+                    AddActMinimumCD =           AddAct5_MinCD_numericUpDown,
+                }
             };
         }
     }

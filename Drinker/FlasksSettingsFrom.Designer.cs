@@ -133,8 +133,80 @@
             ScreenUpdate_button = new Button();
             pictureBox1 = new PictureBox();
             tabPage2 = new TabPage();
+            AddAct5_ActType_dropBox = new Panel();
+            AddAct5_DeleteAction_button = new Button();
+            AddAct5_MinCD_numericUpDown = new NumericUpDown();
+            AddAct5_MinCD_label = new Label();
+            AddAct5_InGameHotkey_label = new Label();
+            AddAct5_InGameHotkey_dropBox = new ComboBox();
+            AddAct5_PauseSec_numericUpDown = new NumericUpDown();
+            AddAct5_PauseAfter_label = new Label();
+            AddAct5_SecondKey_dropBox = new ComboBox();
+            AddAct5_Pause_label = new Label();
+            AddAct5_Pause_checkBox = new CheckBox();
+            panel20 = new Panel();
+            comboBox12 = new ComboBox();
+            AddAct5_Flat_numericUpDown = new NumericUpDown();
+            AddAct5_Percent_numericUpDown = new NumericUpDown();
+            AddAct5_Flat_radioButton = new RadioButton();
+            AddAct5_Percent_radioButton = new RadioButton();
+            button4 = new Button();
+            AddAct4_panel = new Panel();
+            AddAct4_DeleteAction_button = new Button();
+            AddAct4_MinCD_numericUpDown = new NumericUpDown();
+            AddAct4_MinCD_label = new Label();
+            AddAct4_InGameHotkey_label = new Label();
+            AddAct4_InGameHotkey_dropBox = new ComboBox();
+            AddAct4_PauseSec_numericUpDown = new NumericUpDown();
+            AddAct4_PauseAfter_label = new Label();
+            AddAct4_SecondKey_dropBox = new ComboBox();
+            AddAct4_Pause_label = new Label();
+            AddAct4_Pause_checkBox = new CheckBox();
+            panel18 = new Panel();
+            AddAct4_ActType_dropBox = new ComboBox();
+            AddAct4_Flat_numericUpDown = new NumericUpDown();
+            AddAct4_Percent_numericUpDown = new NumericUpDown();
+            AddAct4_Flat_radioButton = new RadioButton();
+            AddAct4_Percent_radioButton = new RadioButton();
+            button3 = new Button();
+            AddAct3_panel = new Panel();
+            AddAct3_DeleteAction_button = new Button();
+            AddAct3_MinCD_numericUpDown = new NumericUpDown();
+            AddAct3_MinCD_label = new Label();
+            AddAct3_InGameHotkey_label = new Label();
+            AddAct3_InGameHotkey_dropBox = new ComboBox();
+            AddAct3_PauseSec_numericUpDown = new NumericUpDown();
+            AddAct3_PauseAfter_label = new Label();
+            AddAct3_SecondKey_dropBox = new ComboBox();
+            AddAct3_Pause_label = new Label();
+            AddAct3_Pause_checkBox = new CheckBox();
+            panel16 = new Panel();
+            AddAct3_ActType_dropBox = new ComboBox();
+            AddAct3_Flat_numericUpDown = new NumericUpDown();
+            AddAct3_Percent_numericUpDown = new NumericUpDown();
+            AddAct3_Flat_radioButton = new RadioButton();
+            AddAct3_Percent_radioButton = new RadioButton();
+            button2 = new Button();
+            AddAct2_panel = new Panel();
+            AddAct2_DeleteAction_button = new Button();
+            AddAct2_MinCD_numericUpDown = new NumericUpDown();
+            AddAct2_MinCD_label = new Label();
+            AddAct2_InGameHotkey_label = new Label();
+            AddAct2_InGameHotkey_dropBox = new ComboBox();
+            AddAct2_PauseSec_numericUpDown = new NumericUpDown();
+            AddAct2_PauseAfter_label = new Label();
+            AddAct2_SecondKey_dropBox = new ComboBox();
+            AddAct2_Pause_label = new Label();
+            AddAct2_Pause_checkBox = new CheckBox();
+            panel14 = new Panel();
+            AddAct2_ActType_dropBox = new ComboBox();
+            AddAct2_Flat_numericUpDown = new NumericUpDown();
+            AddAct2_Percent_numericUpDown = new NumericUpDown();
+            AddAct2_Flat_radioButton = new RadioButton();
+            AddAct2_Percent_radioButton = new RadioButton();
+            button1 = new Button();
             AddAct_AddNewAct_button = new Button();
-            panel10 = new Panel();
+            AddAct1_panel = new Panel();
             AddAct1_MinCD_numericUpDown = new NumericUpDown();
             AddAct1_MinCD_label = new Label();
             AddAct1_InGameHotkey_label = new Label();
@@ -200,7 +272,31 @@
             ((System.ComponentModel.ISupportInitialize)Flask2_Percent_numericUpDown).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             tabPage2.SuspendLayout();
-            panel10.SuspendLayout();
+            AddAct5_ActType_dropBox.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)AddAct5_MinCD_numericUpDown).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)AddAct5_PauseSec_numericUpDown).BeginInit();
+            panel20.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)AddAct5_Flat_numericUpDown).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)AddAct5_Percent_numericUpDown).BeginInit();
+            AddAct4_panel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)AddAct4_MinCD_numericUpDown).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)AddAct4_PauseSec_numericUpDown).BeginInit();
+            panel18.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)AddAct4_Flat_numericUpDown).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)AddAct4_Percent_numericUpDown).BeginInit();
+            AddAct3_panel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)AddAct3_MinCD_numericUpDown).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)AddAct3_PauseSec_numericUpDown).BeginInit();
+            panel16.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)AddAct3_Flat_numericUpDown).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)AddAct3_Percent_numericUpDown).BeginInit();
+            AddAct2_panel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)AddAct2_MinCD_numericUpDown).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)AddAct2_PauseSec_numericUpDown).BeginInit();
+            panel14.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)AddAct2_Flat_numericUpDown).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)AddAct2_Percent_numericUpDown).BeginInit();
+            AddAct1_panel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)AddAct1_MinCD_numericUpDown).BeginInit();
             ((System.ComponentModel.ISupportInitialize)AddAct1_PauseSec_numericUpDown).BeginInit();
             panel12.SuspendLayout();
@@ -1347,8 +1443,12 @@
             // tabPage2
             // 
             tabPage2.BackColor = SystemColors.Control;
+            tabPage2.Controls.Add(AddAct5_ActType_dropBox);
+            tabPage2.Controls.Add(AddAct4_panel);
+            tabPage2.Controls.Add(AddAct3_panel);
+            tabPage2.Controls.Add(AddAct2_panel);
             tabPage2.Controls.Add(AddAct_AddNewAct_button);
-            tabPage2.Controls.Add(panel10);
+            tabPage2.Controls.Add(AddAct1_panel);
             tabPage2.Location = new Point(4, 24);
             tabPage2.Name = "tabPage2";
             tabPage2.Padding = new Padding(3);
@@ -1356,38 +1456,828 @@
             tabPage2.TabIndex = 1;
             tabPage2.Text = "Addtitional actions";
             // 
+            // AddAct5_ActType_dropBox
+            // 
+            AddAct5_ActType_dropBox.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            AddAct5_ActType_dropBox.BackColor = Color.SkyBlue;
+            AddAct5_ActType_dropBox.Controls.Add(AddAct5_DeleteAction_button);
+            AddAct5_ActType_dropBox.Controls.Add(AddAct5_MinCD_numericUpDown);
+            AddAct5_ActType_dropBox.Controls.Add(AddAct5_MinCD_label);
+            AddAct5_ActType_dropBox.Controls.Add(AddAct5_InGameHotkey_label);
+            AddAct5_ActType_dropBox.Controls.Add(AddAct5_InGameHotkey_dropBox);
+            AddAct5_ActType_dropBox.Controls.Add(AddAct5_PauseSec_numericUpDown);
+            AddAct5_ActType_dropBox.Controls.Add(AddAct5_PauseAfter_label);
+            AddAct5_ActType_dropBox.Controls.Add(AddAct5_SecondKey_dropBox);
+            AddAct5_ActType_dropBox.Controls.Add(AddAct5_Pause_label);
+            AddAct5_ActType_dropBox.Controls.Add(AddAct5_Pause_checkBox);
+            AddAct5_ActType_dropBox.Controls.Add(panel20);
+            AddAct5_ActType_dropBox.Controls.Add(AddAct5_Flat_numericUpDown);
+            AddAct5_ActType_dropBox.Controls.Add(AddAct5_Percent_numericUpDown);
+            AddAct5_ActType_dropBox.Controls.Add(AddAct5_Flat_radioButton);
+            AddAct5_ActType_dropBox.Controls.Add(AddAct5_Percent_radioButton);
+            AddAct5_ActType_dropBox.Controls.Add(button4);
+            AddAct5_ActType_dropBox.Location = new Point(6, 430);
+            AddAct5_ActType_dropBox.Name = "AddAct5_ActType_dropBox";
+            AddAct5_ActType_dropBox.Size = new Size(804, 100);
+            AddAct5_ActType_dropBox.TabIndex = 21;
+            // 
+            // AddAct5_DeleteAction_button
+            // 
+            AddAct5_DeleteAction_button.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            AddAct5_DeleteAction_button.Enabled = false;
+            AddAct5_DeleteAction_button.Location = new Point(703, 63);
+            AddAct5_DeleteAction_button.Name = "AddAct5_DeleteAction_button";
+            AddAct5_DeleteAction_button.Size = new Size(98, 34);
+            AddAct5_DeleteAction_button.TabIndex = 23;
+            AddAct5_DeleteAction_button.Text = "delete action";
+            AddAct5_DeleteAction_button.UseVisualStyleBackColor = true;
+            // 
+            // AddAct5_MinCD_numericUpDown
+            // 
+            AddAct5_MinCD_numericUpDown.DecimalPlaces = 1;
+            AddAct5_MinCD_numericUpDown.Location = new Point(404, 60);
+            AddAct5_MinCD_numericUpDown.Maximum = new decimal(new int[] { 10, 0, 0, 0 });
+            AddAct5_MinCD_numericUpDown.Name = "AddAct5_MinCD_numericUpDown";
+            AddAct5_MinCD_numericUpDown.Size = new Size(43, 23);
+            AddAct5_MinCD_numericUpDown.TabIndex = 19;
+            AddAct5_MinCD_numericUpDown.Value = new decimal(new int[] { 3, 0, 0, 0 });
+            // 
+            // AddAct5_MinCD_label
+            // 
+            AddAct5_MinCD_label.AutoSize = true;
+            AddAct5_MinCD_label.Location = new Point(319, 63);
+            AddAct5_MinCD_label.Name = "AddAct5_MinCD_label";
+            AddAct5_MinCD_label.Size = new Size(82, 15);
+            AddAct5_MinCD_label.TabIndex = 18;
+            AddAct5_MinCD_label.Text = "Minimum CD:";
+            // 
+            // AddAct5_InGameHotkey_label
+            // 
+            AddAct5_InGameHotkey_label.AutoSize = true;
+            AddAct5_InGameHotkey_label.Location = new Point(319, 8);
+            AddAct5_InGameHotkey_label.Name = "AddAct5_InGameHotkey_label";
+            AddAct5_InGameHotkey_label.Size = new Size(94, 15);
+            AddAct5_InGameHotkey_label.TabIndex = 17;
+            AddAct5_InGameHotkey_label.Text = "In game Hotkey:";
+            // 
+            // AddAct5_InGameHotkey_dropBox
+            // 
+            AddAct5_InGameHotkey_dropBox.DropDownHeight = 200;
+            AddAct5_InGameHotkey_dropBox.DropDownStyle = ComboBoxStyle.DropDownList;
+            AddAct5_InGameHotkey_dropBox.FlatStyle = FlatStyle.Popup;
+            AddAct5_InGameHotkey_dropBox.FormattingEnabled = true;
+            AddAct5_InGameHotkey_dropBox.IntegralHeight = false;
+            AddAct5_InGameHotkey_dropBox.Location = new Point(319, 26);
+            AddAct5_InGameHotkey_dropBox.Name = "AddAct5_InGameHotkey_dropBox";
+            AddAct5_InGameHotkey_dropBox.Size = new Size(127, 23);
+            AddAct5_InGameHotkey_dropBox.TabIndex = 16;
+            // 
+            // AddAct5_PauseSec_numericUpDown
+            // 
+            AddAct5_PauseSec_numericUpDown.DecimalPlaces = 1;
+            AddAct5_PauseSec_numericUpDown.Location = new Point(247, 74);
+            AddAct5_PauseSec_numericUpDown.Maximum = new decimal(new int[] { 30, 0, 0, 0 });
+            AddAct5_PauseSec_numericUpDown.Name = "AddAct5_PauseSec_numericUpDown";
+            AddAct5_PauseSec_numericUpDown.Size = new Size(43, 23);
+            AddAct5_PauseSec_numericUpDown.TabIndex = 15;
+            AddAct5_PauseSec_numericUpDown.Value = new decimal(new int[] { 15, 0, 0, 0 });
+            // 
+            // AddAct5_PauseAfter_label
+            // 
+            AddAct5_PauseAfter_label.AutoSize = true;
+            AddAct5_PauseAfter_label.Font = new Font("Segoe UI", 8.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            AddAct5_PauseAfter_label.Location = new Point(161, 78);
+            AddAct5_PauseAfter_label.Name = "AddAct5_PauseAfter_label";
+            AddAct5_PauseAfter_label.Size = new Size(89, 13);
+            AddAct5_PauseAfter_label.TabIndex = 14;
+            AddAct5_PauseAfter_label.Text = "Pause after(sec):";
+            // 
+            // AddAct5_SecondKey_dropBox
+            // 
+            AddAct5_SecondKey_dropBox.DropDownHeight = 200;
+            AddAct5_SecondKey_dropBox.DropDownStyle = ComboBoxStyle.DropDownList;
+            AddAct5_SecondKey_dropBox.FlatStyle = FlatStyle.Popup;
+            AddAct5_SecondKey_dropBox.FormattingEnabled = true;
+            AddAct5_SecondKey_dropBox.IntegralHeight = false;
+            AddAct5_SecondKey_dropBox.Location = new Point(163, 48);
+            AddAct5_SecondKey_dropBox.Name = "AddAct5_SecondKey_dropBox";
+            AddAct5_SecondKey_dropBox.Size = new Size(127, 23);
+            AddAct5_SecondKey_dropBox.TabIndex = 13;
+            // 
+            // AddAct5_Pause_label
+            // 
+            AddAct5_Pause_label.AutoSize = true;
+            AddAct5_Pause_label.Location = new Point(163, 25);
+            AddAct5_Pause_label.Name = "AddAct5_Pause_label";
+            AddAct5_Pause_label.Size = new Size(115, 15);
+            AddAct5_Pause_label.TabIndex = 12;
+            AddAct5_Pause_label.Text = "second key not used";
+            // 
+            // AddAct5_Pause_checkBox
+            // 
+            AddAct5_Pause_checkBox.AutoSize = true;
+            AddAct5_Pause_checkBox.Location = new Point(163, 4);
+            AddAct5_Pause_checkBox.Name = "AddAct5_Pause_checkBox";
+            AddAct5_Pause_checkBox.Size = new Size(127, 19);
+            AddAct5_Pause_checkBox.TabIndex = 11;
+            AddAct5_Pause_checkBox.Text = "enable pause when";
+            AddAct5_Pause_checkBox.UseVisualStyleBackColor = true;
+            // 
+            // panel20
+            // 
+            panel20.BackColor = Color.Transparent;
+            panel20.BorderStyle = BorderStyle.FixedSingle;
+            panel20.Controls.Add(comboBox12);
+            panel20.Location = new Point(7, 7);
+            panel20.Name = "panel20";
+            panel20.Size = new Size(127, 23);
+            panel20.TabIndex = 10;
+            // 
+            // comboBox12
+            // 
+            comboBox12.BackColor = Color.White;
+            comboBox12.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBox12.FlatStyle = FlatStyle.Popup;
+            comboBox12.FormattingEnabled = true;
+            comboBox12.Location = new Point(-1, -1);
+            comboBox12.Name = "comboBox12";
+            comboBox12.Size = new Size(127, 23);
+            comboBox12.TabIndex = 5;
+            // 
+            // AddAct5_Flat_numericUpDown
+            // 
+            AddAct5_Flat_numericUpDown.Location = new Point(74, 61);
+            AddAct5_Flat_numericUpDown.Maximum = new decimal(new int[] { 100000, 0, 0, 0 });
+            AddAct5_Flat_numericUpDown.Name = "AddAct5_Flat_numericUpDown";
+            AddAct5_Flat_numericUpDown.Size = new Size(60, 23);
+            AddAct5_Flat_numericUpDown.TabIndex = 9;
+            AddAct5_Flat_numericUpDown.Value = new decimal(new int[] { 3000, 0, 0, 0 });
+            // 
+            // AddAct5_Percent_numericUpDown
+            // 
+            AddAct5_Percent_numericUpDown.Location = new Point(74, 36);
+            AddAct5_Percent_numericUpDown.Name = "AddAct5_Percent_numericUpDown";
+            AddAct5_Percent_numericUpDown.Size = new Size(60, 23);
+            AddAct5_Percent_numericUpDown.TabIndex = 8;
+            AddAct5_Percent_numericUpDown.Value = new decimal(new int[] { 50, 0, 0, 0 });
+            // 
+            // AddAct5_Flat_radioButton
+            // 
+            AddAct5_Flat_radioButton.AutoSize = true;
+            AddAct5_Flat_radioButton.Location = new Point(7, 61);
+            AddAct5_Flat_radioButton.Name = "AddAct5_Flat_radioButton";
+            AddAct5_Flat_radioButton.Size = new Size(44, 19);
+            AddAct5_Flat_radioButton.TabIndex = 7;
+            AddAct5_Flat_radioButton.Text = "Flat";
+            AddAct5_Flat_radioButton.UseVisualStyleBackColor = true;
+            // 
+            // AddAct5_Percent_radioButton
+            // 
+            AddAct5_Percent_radioButton.AutoSize = true;
+            AddAct5_Percent_radioButton.Checked = true;
+            AddAct5_Percent_radioButton.Location = new Point(7, 36);
+            AddAct5_Percent_radioButton.Name = "AddAct5_Percent_radioButton";
+            AddAct5_Percent_radioButton.Size = new Size(65, 19);
+            AddAct5_Percent_radioButton.TabIndex = 6;
+            AddAct5_Percent_radioButton.TabStop = true;
+            AddAct5_Percent_radioButton.Text = "Percent";
+            AddAct5_Percent_radioButton.UseVisualStyleBackColor = true;
+            // 
+            // button4
+            // 
+            button4.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            button4.Location = new Point(1307, 63);
+            button4.Name = "button4";
+            button4.Size = new Size(98, 34);
+            button4.TabIndex = 0;
+            button4.Text = "delete action";
+            button4.UseVisualStyleBackColor = true;
+            // 
+            // AddAct4_panel
+            // 
+            AddAct4_panel.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            AddAct4_panel.BackColor = Color.SkyBlue;
+            AddAct4_panel.Controls.Add(AddAct4_DeleteAction_button);
+            AddAct4_panel.Controls.Add(AddAct4_MinCD_numericUpDown);
+            AddAct4_panel.Controls.Add(AddAct4_MinCD_label);
+            AddAct4_panel.Controls.Add(AddAct4_InGameHotkey_label);
+            AddAct4_panel.Controls.Add(AddAct4_InGameHotkey_dropBox);
+            AddAct4_panel.Controls.Add(AddAct4_PauseSec_numericUpDown);
+            AddAct4_panel.Controls.Add(AddAct4_PauseAfter_label);
+            AddAct4_panel.Controls.Add(AddAct4_SecondKey_dropBox);
+            AddAct4_panel.Controls.Add(AddAct4_Pause_label);
+            AddAct4_panel.Controls.Add(AddAct4_Pause_checkBox);
+            AddAct4_panel.Controls.Add(panel18);
+            AddAct4_panel.Controls.Add(AddAct4_Flat_numericUpDown);
+            AddAct4_panel.Controls.Add(AddAct4_Percent_numericUpDown);
+            AddAct4_panel.Controls.Add(AddAct4_Flat_radioButton);
+            AddAct4_panel.Controls.Add(AddAct4_Percent_radioButton);
+            AddAct4_panel.Controls.Add(button3);
+            AddAct4_panel.Location = new Point(6, 324);
+            AddAct4_panel.Name = "AddAct4_panel";
+            AddAct4_panel.Size = new Size(804, 100);
+            AddAct4_panel.TabIndex = 20;
+            // 
+            // AddAct4_DeleteAction_button
+            // 
+            AddAct4_DeleteAction_button.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            AddAct4_DeleteAction_button.Enabled = false;
+            AddAct4_DeleteAction_button.Location = new Point(703, 63);
+            AddAct4_DeleteAction_button.Name = "AddAct4_DeleteAction_button";
+            AddAct4_DeleteAction_button.Size = new Size(98, 34);
+            AddAct4_DeleteAction_button.TabIndex = 22;
+            AddAct4_DeleteAction_button.Text = "delete action";
+            AddAct4_DeleteAction_button.UseVisualStyleBackColor = true;
+            // 
+            // AddAct4_MinCD_numericUpDown
+            // 
+            AddAct4_MinCD_numericUpDown.DecimalPlaces = 1;
+            AddAct4_MinCD_numericUpDown.Location = new Point(404, 60);
+            AddAct4_MinCD_numericUpDown.Maximum = new decimal(new int[] { 10, 0, 0, 0 });
+            AddAct4_MinCD_numericUpDown.Name = "AddAct4_MinCD_numericUpDown";
+            AddAct4_MinCD_numericUpDown.Size = new Size(43, 23);
+            AddAct4_MinCD_numericUpDown.TabIndex = 19;
+            AddAct4_MinCD_numericUpDown.Value = new decimal(new int[] { 3, 0, 0, 0 });
+            // 
+            // AddAct4_MinCD_label
+            // 
+            AddAct4_MinCD_label.AutoSize = true;
+            AddAct4_MinCD_label.Location = new Point(319, 63);
+            AddAct4_MinCD_label.Name = "AddAct4_MinCD_label";
+            AddAct4_MinCD_label.Size = new Size(82, 15);
+            AddAct4_MinCD_label.TabIndex = 18;
+            AddAct4_MinCD_label.Text = "Minimum CD:";
+            // 
+            // AddAct4_InGameHotkey_label
+            // 
+            AddAct4_InGameHotkey_label.AutoSize = true;
+            AddAct4_InGameHotkey_label.Location = new Point(319, 8);
+            AddAct4_InGameHotkey_label.Name = "AddAct4_InGameHotkey_label";
+            AddAct4_InGameHotkey_label.Size = new Size(94, 15);
+            AddAct4_InGameHotkey_label.TabIndex = 17;
+            AddAct4_InGameHotkey_label.Text = "In game Hotkey:";
+            // 
+            // AddAct4_InGameHotkey_dropBox
+            // 
+            AddAct4_InGameHotkey_dropBox.DropDownHeight = 200;
+            AddAct4_InGameHotkey_dropBox.DropDownStyle = ComboBoxStyle.DropDownList;
+            AddAct4_InGameHotkey_dropBox.FlatStyle = FlatStyle.Popup;
+            AddAct4_InGameHotkey_dropBox.FormattingEnabled = true;
+            AddAct4_InGameHotkey_dropBox.IntegralHeight = false;
+            AddAct4_InGameHotkey_dropBox.Location = new Point(319, 26);
+            AddAct4_InGameHotkey_dropBox.Name = "AddAct4_InGameHotkey_dropBox";
+            AddAct4_InGameHotkey_dropBox.Size = new Size(127, 23);
+            AddAct4_InGameHotkey_dropBox.TabIndex = 16;
+            // 
+            // AddAct4_PauseSec_numericUpDown
+            // 
+            AddAct4_PauseSec_numericUpDown.DecimalPlaces = 1;
+            AddAct4_PauseSec_numericUpDown.Location = new Point(247, 74);
+            AddAct4_PauseSec_numericUpDown.Maximum = new decimal(new int[] { 30, 0, 0, 0 });
+            AddAct4_PauseSec_numericUpDown.Name = "AddAct4_PauseSec_numericUpDown";
+            AddAct4_PauseSec_numericUpDown.Size = new Size(43, 23);
+            AddAct4_PauseSec_numericUpDown.TabIndex = 15;
+            AddAct4_PauseSec_numericUpDown.Value = new decimal(new int[] { 15, 0, 0, 0 });
+            // 
+            // AddAct4_PauseAfter_label
+            // 
+            AddAct4_PauseAfter_label.AutoSize = true;
+            AddAct4_PauseAfter_label.Font = new Font("Segoe UI", 8.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            AddAct4_PauseAfter_label.Location = new Point(161, 78);
+            AddAct4_PauseAfter_label.Name = "AddAct4_PauseAfter_label";
+            AddAct4_PauseAfter_label.Size = new Size(89, 13);
+            AddAct4_PauseAfter_label.TabIndex = 14;
+            AddAct4_PauseAfter_label.Text = "Pause after(sec):";
+            // 
+            // AddAct4_SecondKey_dropBox
+            // 
+            AddAct4_SecondKey_dropBox.DropDownHeight = 200;
+            AddAct4_SecondKey_dropBox.DropDownStyle = ComboBoxStyle.DropDownList;
+            AddAct4_SecondKey_dropBox.FlatStyle = FlatStyle.Popup;
+            AddAct4_SecondKey_dropBox.FormattingEnabled = true;
+            AddAct4_SecondKey_dropBox.IntegralHeight = false;
+            AddAct4_SecondKey_dropBox.Location = new Point(163, 48);
+            AddAct4_SecondKey_dropBox.Name = "AddAct4_SecondKey_dropBox";
+            AddAct4_SecondKey_dropBox.Size = new Size(127, 23);
+            AddAct4_SecondKey_dropBox.TabIndex = 13;
+            // 
+            // AddAct4_Pause_label
+            // 
+            AddAct4_Pause_label.AutoSize = true;
+            AddAct4_Pause_label.Location = new Point(163, 25);
+            AddAct4_Pause_label.Name = "AddAct4_Pause_label";
+            AddAct4_Pause_label.Size = new Size(115, 15);
+            AddAct4_Pause_label.TabIndex = 12;
+            AddAct4_Pause_label.Text = "second key not used";
+            // 
+            // AddAct4_Pause_checkBox
+            // 
+            AddAct4_Pause_checkBox.AutoSize = true;
+            AddAct4_Pause_checkBox.Location = new Point(163, 4);
+            AddAct4_Pause_checkBox.Name = "AddAct4_Pause_checkBox";
+            AddAct4_Pause_checkBox.Size = new Size(127, 19);
+            AddAct4_Pause_checkBox.TabIndex = 11;
+            AddAct4_Pause_checkBox.Text = "enable pause when";
+            AddAct4_Pause_checkBox.UseVisualStyleBackColor = true;
+            // 
+            // panel18
+            // 
+            panel18.BackColor = Color.Transparent;
+            panel18.BorderStyle = BorderStyle.FixedSingle;
+            panel18.Controls.Add(AddAct4_ActType_dropBox);
+            panel18.Location = new Point(7, 7);
+            panel18.Name = "panel18";
+            panel18.Size = new Size(127, 23);
+            panel18.TabIndex = 10;
+            // 
+            // AddAct4_ActType_dropBox
+            // 
+            AddAct4_ActType_dropBox.BackColor = Color.White;
+            AddAct4_ActType_dropBox.DropDownStyle = ComboBoxStyle.DropDownList;
+            AddAct4_ActType_dropBox.FlatStyle = FlatStyle.Popup;
+            AddAct4_ActType_dropBox.FormattingEnabled = true;
+            AddAct4_ActType_dropBox.Location = new Point(-1, -1);
+            AddAct4_ActType_dropBox.Name = "AddAct4_ActType_dropBox";
+            AddAct4_ActType_dropBox.Size = new Size(127, 23);
+            AddAct4_ActType_dropBox.TabIndex = 5;
+            // 
+            // AddAct4_Flat_numericUpDown
+            // 
+            AddAct4_Flat_numericUpDown.Location = new Point(74, 61);
+            AddAct4_Flat_numericUpDown.Maximum = new decimal(new int[] { 100000, 0, 0, 0 });
+            AddAct4_Flat_numericUpDown.Name = "AddAct4_Flat_numericUpDown";
+            AddAct4_Flat_numericUpDown.Size = new Size(60, 23);
+            AddAct4_Flat_numericUpDown.TabIndex = 9;
+            AddAct4_Flat_numericUpDown.Value = new decimal(new int[] { 3000, 0, 0, 0 });
+            // 
+            // AddAct4_Percent_numericUpDown
+            // 
+            AddAct4_Percent_numericUpDown.Location = new Point(74, 36);
+            AddAct4_Percent_numericUpDown.Name = "AddAct4_Percent_numericUpDown";
+            AddAct4_Percent_numericUpDown.Size = new Size(60, 23);
+            AddAct4_Percent_numericUpDown.TabIndex = 8;
+            AddAct4_Percent_numericUpDown.Value = new decimal(new int[] { 50, 0, 0, 0 });
+            // 
+            // AddAct4_Flat_radioButton
+            // 
+            AddAct4_Flat_radioButton.AutoSize = true;
+            AddAct4_Flat_radioButton.Location = new Point(7, 61);
+            AddAct4_Flat_radioButton.Name = "AddAct4_Flat_radioButton";
+            AddAct4_Flat_radioButton.Size = new Size(44, 19);
+            AddAct4_Flat_radioButton.TabIndex = 7;
+            AddAct4_Flat_radioButton.Text = "Flat";
+            AddAct4_Flat_radioButton.UseVisualStyleBackColor = true;
+            // 
+            // AddAct4_Percent_radioButton
+            // 
+            AddAct4_Percent_radioButton.AutoSize = true;
+            AddAct4_Percent_radioButton.Checked = true;
+            AddAct4_Percent_radioButton.Location = new Point(7, 36);
+            AddAct4_Percent_radioButton.Name = "AddAct4_Percent_radioButton";
+            AddAct4_Percent_radioButton.Size = new Size(65, 19);
+            AddAct4_Percent_radioButton.TabIndex = 6;
+            AddAct4_Percent_radioButton.TabStop = true;
+            AddAct4_Percent_radioButton.Text = "Percent";
+            AddAct4_Percent_radioButton.UseVisualStyleBackColor = true;
+            // 
+            // button3
+            // 
+            button3.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            button3.Location = new Point(1307, 63);
+            button3.Name = "button3";
+            button3.Size = new Size(98, 34);
+            button3.TabIndex = 0;
+            button3.Text = "delete action";
+            button3.UseVisualStyleBackColor = true;
+            // 
+            // AddAct3_panel
+            // 
+            AddAct3_panel.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            AddAct3_panel.BackColor = Color.SkyBlue;
+            AddAct3_panel.Controls.Add(AddAct3_DeleteAction_button);
+            AddAct3_panel.Controls.Add(AddAct3_MinCD_numericUpDown);
+            AddAct3_panel.Controls.Add(AddAct3_MinCD_label);
+            AddAct3_panel.Controls.Add(AddAct3_InGameHotkey_label);
+            AddAct3_panel.Controls.Add(AddAct3_InGameHotkey_dropBox);
+            AddAct3_panel.Controls.Add(AddAct3_PauseSec_numericUpDown);
+            AddAct3_panel.Controls.Add(AddAct3_PauseAfter_label);
+            AddAct3_panel.Controls.Add(AddAct3_SecondKey_dropBox);
+            AddAct3_panel.Controls.Add(AddAct3_Pause_label);
+            AddAct3_panel.Controls.Add(AddAct3_Pause_checkBox);
+            AddAct3_panel.Controls.Add(panel16);
+            AddAct3_panel.Controls.Add(AddAct3_Flat_numericUpDown);
+            AddAct3_panel.Controls.Add(AddAct3_Percent_numericUpDown);
+            AddAct3_panel.Controls.Add(AddAct3_Flat_radioButton);
+            AddAct3_panel.Controls.Add(AddAct3_Percent_radioButton);
+            AddAct3_panel.Controls.Add(button2);
+            AddAct3_panel.Location = new Point(6, 218);
+            AddAct3_panel.Name = "AddAct3_panel";
+            AddAct3_panel.Size = new Size(804, 100);
+            AddAct3_panel.TabIndex = 20;
+            // 
+            // AddAct3_DeleteAction_button
+            // 
+            AddAct3_DeleteAction_button.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            AddAct3_DeleteAction_button.Enabled = false;
+            AddAct3_DeleteAction_button.Location = new Point(703, 63);
+            AddAct3_DeleteAction_button.Name = "AddAct3_DeleteAction_button";
+            AddAct3_DeleteAction_button.Size = new Size(98, 34);
+            AddAct3_DeleteAction_button.TabIndex = 21;
+            AddAct3_DeleteAction_button.Text = "delete action";
+            AddAct3_DeleteAction_button.UseVisualStyleBackColor = true;
+            // 
+            // AddAct3_MinCD_numericUpDown
+            // 
+            AddAct3_MinCD_numericUpDown.DecimalPlaces = 1;
+            AddAct3_MinCD_numericUpDown.Location = new Point(404, 60);
+            AddAct3_MinCD_numericUpDown.Maximum = new decimal(new int[] { 10, 0, 0, 0 });
+            AddAct3_MinCD_numericUpDown.Name = "AddAct3_MinCD_numericUpDown";
+            AddAct3_MinCD_numericUpDown.Size = new Size(43, 23);
+            AddAct3_MinCD_numericUpDown.TabIndex = 19;
+            AddAct3_MinCD_numericUpDown.Value = new decimal(new int[] { 3, 0, 0, 0 });
+            // 
+            // AddAct3_MinCD_label
+            // 
+            AddAct3_MinCD_label.AutoSize = true;
+            AddAct3_MinCD_label.Location = new Point(319, 63);
+            AddAct3_MinCD_label.Name = "AddAct3_MinCD_label";
+            AddAct3_MinCD_label.Size = new Size(82, 15);
+            AddAct3_MinCD_label.TabIndex = 18;
+            AddAct3_MinCD_label.Text = "Minimum CD:";
+            // 
+            // AddAct3_InGameHotkey_label
+            // 
+            AddAct3_InGameHotkey_label.AutoSize = true;
+            AddAct3_InGameHotkey_label.Location = new Point(319, 8);
+            AddAct3_InGameHotkey_label.Name = "AddAct3_InGameHotkey_label";
+            AddAct3_InGameHotkey_label.Size = new Size(94, 15);
+            AddAct3_InGameHotkey_label.TabIndex = 17;
+            AddAct3_InGameHotkey_label.Text = "In game Hotkey:";
+            // 
+            // AddAct3_InGameHotkey_dropBox
+            // 
+            AddAct3_InGameHotkey_dropBox.DropDownHeight = 200;
+            AddAct3_InGameHotkey_dropBox.DropDownStyle = ComboBoxStyle.DropDownList;
+            AddAct3_InGameHotkey_dropBox.FlatStyle = FlatStyle.Popup;
+            AddAct3_InGameHotkey_dropBox.FormattingEnabled = true;
+            AddAct3_InGameHotkey_dropBox.IntegralHeight = false;
+            AddAct3_InGameHotkey_dropBox.Location = new Point(319, 26);
+            AddAct3_InGameHotkey_dropBox.Name = "AddAct3_InGameHotkey_dropBox";
+            AddAct3_InGameHotkey_dropBox.Size = new Size(127, 23);
+            AddAct3_InGameHotkey_dropBox.TabIndex = 16;
+            // 
+            // AddAct3_PauseSec_numericUpDown
+            // 
+            AddAct3_PauseSec_numericUpDown.DecimalPlaces = 1;
+            AddAct3_PauseSec_numericUpDown.Location = new Point(247, 74);
+            AddAct3_PauseSec_numericUpDown.Maximum = new decimal(new int[] { 30, 0, 0, 0 });
+            AddAct3_PauseSec_numericUpDown.Name = "AddAct3_PauseSec_numericUpDown";
+            AddAct3_PauseSec_numericUpDown.Size = new Size(43, 23);
+            AddAct3_PauseSec_numericUpDown.TabIndex = 15;
+            AddAct3_PauseSec_numericUpDown.Value = new decimal(new int[] { 15, 0, 0, 0 });
+            // 
+            // AddAct3_PauseAfter_label
+            // 
+            AddAct3_PauseAfter_label.AutoSize = true;
+            AddAct3_PauseAfter_label.Font = new Font("Segoe UI", 8.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            AddAct3_PauseAfter_label.Location = new Point(161, 78);
+            AddAct3_PauseAfter_label.Name = "AddAct3_PauseAfter_label";
+            AddAct3_PauseAfter_label.Size = new Size(89, 13);
+            AddAct3_PauseAfter_label.TabIndex = 14;
+            AddAct3_PauseAfter_label.Text = "Pause after(sec):";
+            // 
+            // AddAct3_SecondKey_dropBox
+            // 
+            AddAct3_SecondKey_dropBox.DropDownHeight = 200;
+            AddAct3_SecondKey_dropBox.DropDownStyle = ComboBoxStyle.DropDownList;
+            AddAct3_SecondKey_dropBox.FlatStyle = FlatStyle.Popup;
+            AddAct3_SecondKey_dropBox.FormattingEnabled = true;
+            AddAct3_SecondKey_dropBox.IntegralHeight = false;
+            AddAct3_SecondKey_dropBox.Location = new Point(163, 48);
+            AddAct3_SecondKey_dropBox.Name = "AddAct3_SecondKey_dropBox";
+            AddAct3_SecondKey_dropBox.Size = new Size(127, 23);
+            AddAct3_SecondKey_dropBox.TabIndex = 13;
+            // 
+            // AddAct3_Pause_label
+            // 
+            AddAct3_Pause_label.AutoSize = true;
+            AddAct3_Pause_label.Location = new Point(163, 25);
+            AddAct3_Pause_label.Name = "AddAct3_Pause_label";
+            AddAct3_Pause_label.Size = new Size(115, 15);
+            AddAct3_Pause_label.TabIndex = 12;
+            AddAct3_Pause_label.Text = "second key not used";
+            // 
+            // AddAct3_Pause_checkBox
+            // 
+            AddAct3_Pause_checkBox.AutoSize = true;
+            AddAct3_Pause_checkBox.Location = new Point(163, 4);
+            AddAct3_Pause_checkBox.Name = "AddAct3_Pause_checkBox";
+            AddAct3_Pause_checkBox.Size = new Size(127, 19);
+            AddAct3_Pause_checkBox.TabIndex = 11;
+            AddAct3_Pause_checkBox.Text = "enable pause when";
+            AddAct3_Pause_checkBox.UseVisualStyleBackColor = true;
+            // 
+            // panel16
+            // 
+            panel16.BackColor = Color.Transparent;
+            panel16.BorderStyle = BorderStyle.FixedSingle;
+            panel16.Controls.Add(AddAct3_ActType_dropBox);
+            panel16.Location = new Point(7, 7);
+            panel16.Name = "panel16";
+            panel16.Size = new Size(127, 23);
+            panel16.TabIndex = 10;
+            // 
+            // AddAct3_ActType_dropBox
+            // 
+            AddAct3_ActType_dropBox.BackColor = Color.White;
+            AddAct3_ActType_dropBox.DropDownStyle = ComboBoxStyle.DropDownList;
+            AddAct3_ActType_dropBox.FlatStyle = FlatStyle.Popup;
+            AddAct3_ActType_dropBox.FormattingEnabled = true;
+            AddAct3_ActType_dropBox.Location = new Point(-1, -1);
+            AddAct3_ActType_dropBox.Name = "AddAct3_ActType_dropBox";
+            AddAct3_ActType_dropBox.Size = new Size(127, 23);
+            AddAct3_ActType_dropBox.TabIndex = 5;
+            // 
+            // AddAct3_Flat_numericUpDown
+            // 
+            AddAct3_Flat_numericUpDown.Location = new Point(74, 61);
+            AddAct3_Flat_numericUpDown.Maximum = new decimal(new int[] { 100000, 0, 0, 0 });
+            AddAct3_Flat_numericUpDown.Name = "AddAct3_Flat_numericUpDown";
+            AddAct3_Flat_numericUpDown.Size = new Size(60, 23);
+            AddAct3_Flat_numericUpDown.TabIndex = 9;
+            AddAct3_Flat_numericUpDown.Value = new decimal(new int[] { 3000, 0, 0, 0 });
+            // 
+            // AddAct3_Percent_numericUpDown
+            // 
+            AddAct3_Percent_numericUpDown.Location = new Point(74, 36);
+            AddAct3_Percent_numericUpDown.Name = "AddAct3_Percent_numericUpDown";
+            AddAct3_Percent_numericUpDown.Size = new Size(60, 23);
+            AddAct3_Percent_numericUpDown.TabIndex = 8;
+            AddAct3_Percent_numericUpDown.Value = new decimal(new int[] { 50, 0, 0, 0 });
+            // 
+            // AddAct3_Flat_radioButton
+            // 
+            AddAct3_Flat_radioButton.AutoSize = true;
+            AddAct3_Flat_radioButton.Location = new Point(7, 61);
+            AddAct3_Flat_radioButton.Name = "AddAct3_Flat_radioButton";
+            AddAct3_Flat_radioButton.Size = new Size(44, 19);
+            AddAct3_Flat_radioButton.TabIndex = 7;
+            AddAct3_Flat_radioButton.Text = "Flat";
+            AddAct3_Flat_radioButton.UseVisualStyleBackColor = true;
+            // 
+            // AddAct3_Percent_radioButton
+            // 
+            AddAct3_Percent_radioButton.AutoSize = true;
+            AddAct3_Percent_radioButton.Checked = true;
+            AddAct3_Percent_radioButton.Location = new Point(7, 36);
+            AddAct3_Percent_radioButton.Name = "AddAct3_Percent_radioButton";
+            AddAct3_Percent_radioButton.Size = new Size(65, 19);
+            AddAct3_Percent_radioButton.TabIndex = 6;
+            AddAct3_Percent_radioButton.TabStop = true;
+            AddAct3_Percent_radioButton.Text = "Percent";
+            AddAct3_Percent_radioButton.UseVisualStyleBackColor = true;
+            // 
+            // button2
+            // 
+            button2.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            button2.Location = new Point(1307, 63);
+            button2.Name = "button2";
+            button2.Size = new Size(98, 34);
+            button2.TabIndex = 0;
+            button2.Text = "delete action";
+            button2.UseVisualStyleBackColor = true;
+            // 
+            // AddAct2_panel
+            // 
+            AddAct2_panel.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            AddAct2_panel.BackColor = Color.SkyBlue;
+            AddAct2_panel.Controls.Add(AddAct2_DeleteAction_button);
+            AddAct2_panel.Controls.Add(AddAct2_MinCD_numericUpDown);
+            AddAct2_panel.Controls.Add(AddAct2_MinCD_label);
+            AddAct2_panel.Controls.Add(AddAct2_InGameHotkey_label);
+            AddAct2_panel.Controls.Add(AddAct2_InGameHotkey_dropBox);
+            AddAct2_panel.Controls.Add(AddAct2_PauseSec_numericUpDown);
+            AddAct2_panel.Controls.Add(AddAct2_PauseAfter_label);
+            AddAct2_panel.Controls.Add(AddAct2_SecondKey_dropBox);
+            AddAct2_panel.Controls.Add(AddAct2_Pause_label);
+            AddAct2_panel.Controls.Add(AddAct2_Pause_checkBox);
+            AddAct2_panel.Controls.Add(panel14);
+            AddAct2_panel.Controls.Add(AddAct2_Flat_numericUpDown);
+            AddAct2_panel.Controls.Add(AddAct2_Percent_numericUpDown);
+            AddAct2_panel.Controls.Add(AddAct2_Flat_radioButton);
+            AddAct2_panel.Controls.Add(AddAct2_Percent_radioButton);
+            AddAct2_panel.Controls.Add(button1);
+            AddAct2_panel.Location = new Point(6, 112);
+            AddAct2_panel.Name = "AddAct2_panel";
+            AddAct2_panel.Size = new Size(804, 100);
+            AddAct2_panel.TabIndex = 20;
+            // 
+            // AddAct2_DeleteAction_button
+            // 
+            AddAct2_DeleteAction_button.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            AddAct2_DeleteAction_button.Enabled = false;
+            AddAct2_DeleteAction_button.Location = new Point(703, 63);
+            AddAct2_DeleteAction_button.Name = "AddAct2_DeleteAction_button";
+            AddAct2_DeleteAction_button.Size = new Size(98, 34);
+            AddAct2_DeleteAction_button.TabIndex = 20;
+            AddAct2_DeleteAction_button.Text = "delete action";
+            AddAct2_DeleteAction_button.UseVisualStyleBackColor = true;
+            // 
+            // AddAct2_MinCD_numericUpDown
+            // 
+            AddAct2_MinCD_numericUpDown.DecimalPlaces = 1;
+            AddAct2_MinCD_numericUpDown.Location = new Point(404, 60);
+            AddAct2_MinCD_numericUpDown.Maximum = new decimal(new int[] { 10, 0, 0, 0 });
+            AddAct2_MinCD_numericUpDown.Name = "AddAct2_MinCD_numericUpDown";
+            AddAct2_MinCD_numericUpDown.Size = new Size(43, 23);
+            AddAct2_MinCD_numericUpDown.TabIndex = 19;
+            AddAct2_MinCD_numericUpDown.Value = new decimal(new int[] { 3, 0, 0, 0 });
+            // 
+            // AddAct2_MinCD_label
+            // 
+            AddAct2_MinCD_label.AutoSize = true;
+            AddAct2_MinCD_label.Location = new Point(319, 63);
+            AddAct2_MinCD_label.Name = "AddAct2_MinCD_label";
+            AddAct2_MinCD_label.Size = new Size(82, 15);
+            AddAct2_MinCD_label.TabIndex = 18;
+            AddAct2_MinCD_label.Text = "Minimum CD:";
+            // 
+            // AddAct2_InGameHotkey_label
+            // 
+            AddAct2_InGameHotkey_label.AutoSize = true;
+            AddAct2_InGameHotkey_label.Location = new Point(319, 8);
+            AddAct2_InGameHotkey_label.Name = "AddAct2_InGameHotkey_label";
+            AddAct2_InGameHotkey_label.Size = new Size(94, 15);
+            AddAct2_InGameHotkey_label.TabIndex = 17;
+            AddAct2_InGameHotkey_label.Text = "In game Hotkey:";
+            // 
+            // AddAct2_InGameHotkey_dropBox
+            // 
+            AddAct2_InGameHotkey_dropBox.DropDownHeight = 200;
+            AddAct2_InGameHotkey_dropBox.DropDownStyle = ComboBoxStyle.DropDownList;
+            AddAct2_InGameHotkey_dropBox.FlatStyle = FlatStyle.Popup;
+            AddAct2_InGameHotkey_dropBox.FormattingEnabled = true;
+            AddAct2_InGameHotkey_dropBox.IntegralHeight = false;
+            AddAct2_InGameHotkey_dropBox.Location = new Point(319, 26);
+            AddAct2_InGameHotkey_dropBox.Name = "AddAct2_InGameHotkey_dropBox";
+            AddAct2_InGameHotkey_dropBox.Size = new Size(127, 23);
+            AddAct2_InGameHotkey_dropBox.TabIndex = 16;
+            // 
+            // AddAct2_PauseSec_numericUpDown
+            // 
+            AddAct2_PauseSec_numericUpDown.DecimalPlaces = 1;
+            AddAct2_PauseSec_numericUpDown.Location = new Point(247, 74);
+            AddAct2_PauseSec_numericUpDown.Maximum = new decimal(new int[] { 30, 0, 0, 0 });
+            AddAct2_PauseSec_numericUpDown.Name = "AddAct2_PauseSec_numericUpDown";
+            AddAct2_PauseSec_numericUpDown.Size = new Size(43, 23);
+            AddAct2_PauseSec_numericUpDown.TabIndex = 15;
+            AddAct2_PauseSec_numericUpDown.Value = new decimal(new int[] { 15, 0, 0, 0 });
+            // 
+            // AddAct2_PauseAfter_label
+            // 
+            AddAct2_PauseAfter_label.AutoSize = true;
+            AddAct2_PauseAfter_label.Font = new Font("Segoe UI", 8.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            AddAct2_PauseAfter_label.Location = new Point(161, 78);
+            AddAct2_PauseAfter_label.Name = "AddAct2_PauseAfter_label";
+            AddAct2_PauseAfter_label.Size = new Size(89, 13);
+            AddAct2_PauseAfter_label.TabIndex = 14;
+            AddAct2_PauseAfter_label.Text = "Pause after(sec):";
+            // 
+            // AddAct2_SecondKey_dropBox
+            // 
+            AddAct2_SecondKey_dropBox.DropDownHeight = 200;
+            AddAct2_SecondKey_dropBox.DropDownStyle = ComboBoxStyle.DropDownList;
+            AddAct2_SecondKey_dropBox.FlatStyle = FlatStyle.Popup;
+            AddAct2_SecondKey_dropBox.FormattingEnabled = true;
+            AddAct2_SecondKey_dropBox.IntegralHeight = false;
+            AddAct2_SecondKey_dropBox.Location = new Point(163, 48);
+            AddAct2_SecondKey_dropBox.Name = "AddAct2_SecondKey_dropBox";
+            AddAct2_SecondKey_dropBox.Size = new Size(127, 23);
+            AddAct2_SecondKey_dropBox.TabIndex = 13;
+            // 
+            // AddAct2_Pause_label
+            // 
+            AddAct2_Pause_label.AutoSize = true;
+            AddAct2_Pause_label.Location = new Point(163, 25);
+            AddAct2_Pause_label.Name = "AddAct2_Pause_label";
+            AddAct2_Pause_label.Size = new Size(115, 15);
+            AddAct2_Pause_label.TabIndex = 12;
+            AddAct2_Pause_label.Text = "second key not used";
+            // 
+            // AddAct2_Pause_checkBox
+            // 
+            AddAct2_Pause_checkBox.AutoSize = true;
+            AddAct2_Pause_checkBox.Location = new Point(163, 4);
+            AddAct2_Pause_checkBox.Name = "AddAct2_Pause_checkBox";
+            AddAct2_Pause_checkBox.Size = new Size(127, 19);
+            AddAct2_Pause_checkBox.TabIndex = 11;
+            AddAct2_Pause_checkBox.Text = "enable pause when";
+            AddAct2_Pause_checkBox.UseVisualStyleBackColor = true;
+            // 
+            // panel14
+            // 
+            panel14.BackColor = Color.Transparent;
+            panel14.BorderStyle = BorderStyle.FixedSingle;
+            panel14.Controls.Add(AddAct2_ActType_dropBox);
+            panel14.Location = new Point(7, 7);
+            panel14.Name = "panel14";
+            panel14.Size = new Size(127, 23);
+            panel14.TabIndex = 10;
+            // 
+            // AddAct2_ActType_dropBox
+            // 
+            AddAct2_ActType_dropBox.BackColor = Color.White;
+            AddAct2_ActType_dropBox.DropDownStyle = ComboBoxStyle.DropDownList;
+            AddAct2_ActType_dropBox.FlatStyle = FlatStyle.Popup;
+            AddAct2_ActType_dropBox.FormattingEnabled = true;
+            AddAct2_ActType_dropBox.Location = new Point(-1, -1);
+            AddAct2_ActType_dropBox.Name = "AddAct2_ActType_dropBox";
+            AddAct2_ActType_dropBox.Size = new Size(127, 23);
+            AddAct2_ActType_dropBox.TabIndex = 5;
+            // 
+            // AddAct2_Flat_numericUpDown
+            // 
+            AddAct2_Flat_numericUpDown.Location = new Point(74, 61);
+            AddAct2_Flat_numericUpDown.Maximum = new decimal(new int[] { 100000, 0, 0, 0 });
+            AddAct2_Flat_numericUpDown.Name = "AddAct2_Flat_numericUpDown";
+            AddAct2_Flat_numericUpDown.Size = new Size(60, 23);
+            AddAct2_Flat_numericUpDown.TabIndex = 9;
+            AddAct2_Flat_numericUpDown.Value = new decimal(new int[] { 3000, 0, 0, 0 });
+            // 
+            // AddAct2_Percent_numericUpDown
+            // 
+            AddAct2_Percent_numericUpDown.Location = new Point(74, 36);
+            AddAct2_Percent_numericUpDown.Name = "AddAct2_Percent_numericUpDown";
+            AddAct2_Percent_numericUpDown.Size = new Size(60, 23);
+            AddAct2_Percent_numericUpDown.TabIndex = 8;
+            AddAct2_Percent_numericUpDown.Value = new decimal(new int[] { 50, 0, 0, 0 });
+            // 
+            // AddAct2_Flat_radioButton
+            // 
+            AddAct2_Flat_radioButton.AutoSize = true;
+            AddAct2_Flat_radioButton.Location = new Point(7, 61);
+            AddAct2_Flat_radioButton.Name = "AddAct2_Flat_radioButton";
+            AddAct2_Flat_radioButton.Size = new Size(44, 19);
+            AddAct2_Flat_radioButton.TabIndex = 7;
+            AddAct2_Flat_radioButton.Text = "Flat";
+            AddAct2_Flat_radioButton.UseVisualStyleBackColor = true;
+            // 
+            // AddAct2_Percent_radioButton
+            // 
+            AddAct2_Percent_radioButton.AutoSize = true;
+            AddAct2_Percent_radioButton.Checked = true;
+            AddAct2_Percent_radioButton.Location = new Point(7, 36);
+            AddAct2_Percent_radioButton.Name = "AddAct2_Percent_radioButton";
+            AddAct2_Percent_radioButton.Size = new Size(65, 19);
+            AddAct2_Percent_radioButton.TabIndex = 6;
+            AddAct2_Percent_radioButton.TabStop = true;
+            AddAct2_Percent_radioButton.Text = "Percent";
+            AddAct2_Percent_radioButton.UseVisualStyleBackColor = true;
+            // 
+            // button1
+            // 
+            button1.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            button1.Location = new Point(1307, 63);
+            button1.Name = "button1";
+            button1.Size = new Size(98, 34);
+            button1.TabIndex = 0;
+            button1.Text = "delete action";
+            button1.UseVisualStyleBackColor = true;
+            // 
             // AddAct_AddNewAct_button
             // 
             AddAct_AddNewAct_button.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            AddAct_AddNewAct_button.Location = new Point(6, 112);
+            AddAct_AddNewAct_button.Enabled = false;
+            AddAct_AddNewAct_button.Location = new Point(6, 536);
             AddAct_AddNewAct_button.Name = "AddAct_AddNewAct_button";
             AddAct_AddNewAct_button.Size = new Size(804, 34);
             AddAct_AddNewAct_button.TabIndex = 1;
             AddAct_AddNewAct_button.Text = "Add new action";
             AddAct_AddNewAct_button.UseVisualStyleBackColor = true;
             // 
-            // panel10
+            // AddAct1_panel
             // 
-            panel10.BackColor = Color.SkyBlue;
-            panel10.Controls.Add(AddAct1_MinCD_numericUpDown);
-            panel10.Controls.Add(AddAct1_MinCD_label);
-            panel10.Controls.Add(AddAct1_InGameHotkey_label);
-            panel10.Controls.Add(AddAct1_InGameHotkey_dropBox);
-            panel10.Controls.Add(AddAct1_PauseSec_numericUpDown);
-            panel10.Controls.Add(AddAct1_PauseAfter_label);
-            panel10.Controls.Add(AddAct1_SecondKey_dropBox);
-            panel10.Controls.Add(AddAct1_Pause_label);
-            panel10.Controls.Add(AddAct1_Pause_checkBox);
-            panel10.Controls.Add(panel12);
-            panel10.Controls.Add(AddAct1_Flat_numericUpDown);
-            panel10.Controls.Add(AddAct1_Percent_numericUpDown);
-            panel10.Controls.Add(AddAct1_Flat_radioButton);
-            panel10.Controls.Add(AddAct1_Percent_radioButton);
-            panel10.Controls.Add(AddAct1_DeleteAction_button);
-            panel10.Location = new Point(6, 6);
-            panel10.Name = "panel10";
-            panel10.Size = new Size(804, 100);
-            panel10.TabIndex = 0;
+            AddAct1_panel.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            AddAct1_panel.BackColor = Color.SkyBlue;
+            AddAct1_panel.Controls.Add(AddAct1_MinCD_numericUpDown);
+            AddAct1_panel.Controls.Add(AddAct1_MinCD_label);
+            AddAct1_panel.Controls.Add(AddAct1_InGameHotkey_label);
+            AddAct1_panel.Controls.Add(AddAct1_InGameHotkey_dropBox);
+            AddAct1_panel.Controls.Add(AddAct1_PauseSec_numericUpDown);
+            AddAct1_panel.Controls.Add(AddAct1_PauseAfter_label);
+            AddAct1_panel.Controls.Add(AddAct1_SecondKey_dropBox);
+            AddAct1_panel.Controls.Add(AddAct1_Pause_label);
+            AddAct1_panel.Controls.Add(AddAct1_Pause_checkBox);
+            AddAct1_panel.Controls.Add(panel12);
+            AddAct1_panel.Controls.Add(AddAct1_Flat_numericUpDown);
+            AddAct1_panel.Controls.Add(AddAct1_Percent_numericUpDown);
+            AddAct1_panel.Controls.Add(AddAct1_Flat_radioButton);
+            AddAct1_panel.Controls.Add(AddAct1_Percent_radioButton);
+            AddAct1_panel.Controls.Add(AddAct1_DeleteAction_button);
+            AddAct1_panel.Location = new Point(6, 6);
+            AddAct1_panel.Name = "AddAct1_panel";
+            AddAct1_panel.Size = new Size(804, 100);
+            AddAct1_panel.TabIndex = 0;
             // 
             // AddAct1_MinCD_numericUpDown
             // 
@@ -1503,10 +2393,10 @@
             // 
             // AddAct1_Flat_numericUpDown
             // 
-            AddAct1_Flat_numericUpDown.Location = new Point(57, 61);
+            AddAct1_Flat_numericUpDown.Location = new Point(74, 61);
             AddAct1_Flat_numericUpDown.Maximum = new decimal(new int[] { 100000, 0, 0, 0 });
             AddAct1_Flat_numericUpDown.Name = "AddAct1_Flat_numericUpDown";
-            AddAct1_Flat_numericUpDown.Size = new Size(77, 23);
+            AddAct1_Flat_numericUpDown.Size = new Size(60, 23);
             AddAct1_Flat_numericUpDown.TabIndex = 9;
             AddAct1_Flat_numericUpDown.Value = new decimal(new int[] { 3000, 0, 0, 0 });
             // 
@@ -1543,6 +2433,7 @@
             // AddAct1_DeleteAction_button
             // 
             AddAct1_DeleteAction_button.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            AddAct1_DeleteAction_button.Enabled = false;
             AddAct1_DeleteAction_button.Location = new Point(703, 63);
             AddAct1_DeleteAction_button.Name = "AddAct1_DeleteAction_button";
             AddAct1_DeleteAction_button.Size = new Size(98, 34);
@@ -1723,8 +2614,36 @@
             ((System.ComponentModel.ISupportInitialize)Flask2_Percent_numericUpDown).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             tabPage2.ResumeLayout(false);
-            panel10.ResumeLayout(false);
-            panel10.PerformLayout();
+            AddAct5_ActType_dropBox.ResumeLayout(false);
+            AddAct5_ActType_dropBox.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)AddAct5_MinCD_numericUpDown).EndInit();
+            ((System.ComponentModel.ISupportInitialize)AddAct5_PauseSec_numericUpDown).EndInit();
+            panel20.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)AddAct5_Flat_numericUpDown).EndInit();
+            ((System.ComponentModel.ISupportInitialize)AddAct5_Percent_numericUpDown).EndInit();
+            AddAct4_panel.ResumeLayout(false);
+            AddAct4_panel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)AddAct4_MinCD_numericUpDown).EndInit();
+            ((System.ComponentModel.ISupportInitialize)AddAct4_PauseSec_numericUpDown).EndInit();
+            panel18.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)AddAct4_Flat_numericUpDown).EndInit();
+            ((System.ComponentModel.ISupportInitialize)AddAct4_Percent_numericUpDown).EndInit();
+            AddAct3_panel.ResumeLayout(false);
+            AddAct3_panel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)AddAct3_MinCD_numericUpDown).EndInit();
+            ((System.ComponentModel.ISupportInitialize)AddAct3_PauseSec_numericUpDown).EndInit();
+            panel16.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)AddAct3_Flat_numericUpDown).EndInit();
+            ((System.ComponentModel.ISupportInitialize)AddAct3_Percent_numericUpDown).EndInit();
+            AddAct2_panel.ResumeLayout(false);
+            AddAct2_panel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)AddAct2_MinCD_numericUpDown).EndInit();
+            ((System.ComponentModel.ISupportInitialize)AddAct2_PauseSec_numericUpDown).EndInit();
+            panel14.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)AddAct2_Flat_numericUpDown).EndInit();
+            ((System.ComponentModel.ISupportInitialize)AddAct2_Percent_numericUpDown).EndInit();
+            AddAct1_panel.ResumeLayout(false);
+            AddAct1_panel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)AddAct1_MinCD_numericUpDown).EndInit();
             ((System.ComponentModel.ISupportInitialize)AddAct1_PauseSec_numericUpDown).EndInit();
             panel12.ResumeLayout(false);
@@ -1854,7 +2773,7 @@
         private Button RenameProfile_button;
         private Button RenameCancel_button;
         private Button AddAct_AddNewAct_button;
-        private Panel panel10;
+        private Panel AddAct1_panel;
         private NumericUpDown AddAct1_PauseSec_numericUpDown;
         private Label AddAct1_PauseAfter_label;
         private ComboBox AddAct1_SecondKey_dropBox;
@@ -1871,5 +2790,77 @@
         private Label AddAct1_MinCD_label;
         private Label AddAct1_InGameHotkey_label;
         private ComboBox AddAct1_InGameHotkey_dropBox;
+        private Panel AddAct5_ActType_dropBox;
+        private Button AddAct5_DeleteAction_button;
+        private NumericUpDown AddAct5_MinCD_numericUpDown;
+        private Label AddAct5_MinCD_label;
+        private Label AddAct5_InGameHotkey_label;
+        private ComboBox AddAct5_InGameHotkey_dropBox;
+        private NumericUpDown AddAct5_PauseSec_numericUpDown;
+        private Label AddAct5_PauseAfter_label;
+        private ComboBox AddAct5_SecondKey_dropBox;
+        private Label AddAct5_Pause_label;
+        private CheckBox AddAct5_Pause_checkBox;
+        private Panel panel20;
+        private ComboBox comboBox12;
+        private NumericUpDown AddAct5_Flat_numericUpDown;
+        private NumericUpDown AddAct5_Percent_numericUpDown;
+        private RadioButton AddAct5_Flat_radioButton;
+        private RadioButton AddAct5_Percent_radioButton;
+        private Button button4;
+        private Panel AddAct4_panel;
+        private Button AddAct4_DeleteAction_button;
+        private NumericUpDown AddAct4_MinCD_numericUpDown;
+        private Label AddAct4_MinCD_label;
+        private Label AddAct4_InGameHotkey_label;
+        private ComboBox AddAct4_InGameHotkey_dropBox;
+        private NumericUpDown AddAct4_PauseSec_numericUpDown;
+        private Label AddAct4_PauseAfter_label;
+        private ComboBox AddAct4_SecondKey_dropBox;
+        private Label AddAct4_Pause_label;
+        private CheckBox AddAct4_Pause_checkBox;
+        private Panel panel18;
+        private ComboBox AddAct4_ActType_dropBox;
+        private NumericUpDown AddAct4_Flat_numericUpDown;
+        private NumericUpDown AddAct4_Percent_numericUpDown;
+        private RadioButton AddAct4_Flat_radioButton;
+        private RadioButton AddAct4_Percent_radioButton;
+        private Button button3;
+        private Panel AddAct3_panel;
+        private Button AddAct3_DeleteAction_button;
+        private NumericUpDown AddAct3_MinCD_numericUpDown;
+        private Label AddAct3_MinCD_label;
+        private Label AddAct3_InGameHotkey_label;
+        private ComboBox AddAct3_InGameHotkey_dropBox;
+        private NumericUpDown AddAct3_PauseSec_numericUpDown;
+        private Label AddAct3_PauseAfter_label;
+        private ComboBox AddAct3_SecondKey_dropBox;
+        private Label AddAct3_Pause_label;
+        private CheckBox AddAct3_Pause_checkBox;
+        private Panel panel16;
+        private ComboBox AddAct3_ActType_dropBox;
+        private NumericUpDown AddAct3_Flat_numericUpDown;
+        private NumericUpDown AddAct3_Percent_numericUpDown;
+        private RadioButton AddAct3_Flat_radioButton;
+        private RadioButton AddAct3_Percent_radioButton;
+        private Button button2;
+        private Panel AddAct2_panel;
+        private Button AddAct2_DeleteAction_button;
+        private NumericUpDown AddAct2_MinCD_numericUpDown;
+        private Label AddAct2_MinCD_label;
+        private Label AddAct2_InGameHotkey_label;
+        private ComboBox AddAct2_InGameHotkey_dropBox;
+        private NumericUpDown AddAct2_PauseSec_numericUpDown;
+        private Label AddAct2_PauseAfter_label;
+        private ComboBox AddAct2_SecondKey_dropBox;
+        private Label AddAct2_Pause_label;
+        private CheckBox AddAct2_Pause_checkBox;
+        private Panel panel14;
+        private ComboBox AddAct2_ActType_dropBox;
+        private NumericUpDown AddAct2_Flat_numericUpDown;
+        private NumericUpDown AddAct2_Percent_numericUpDown;
+        private RadioButton AddAct2_Flat_radioButton;
+        private RadioButton AddAct2_Percent_radioButton;
+        private Button button1;
     }
 }

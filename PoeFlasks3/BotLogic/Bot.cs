@@ -92,6 +92,7 @@ namespace PoeFlasks3.BotLogic
                 {
                     await Task.Run(Client.Window.TryFindWindow);
                     await Task.Delay(250);
+                    UpdGUI(timer);
                     continue;
                 }
 
@@ -125,13 +126,7 @@ namespace PoeFlasks3.BotLogic
                 // ===========================
                 // loop managment thigs
                 // ===========================
-                timer.Stop();
-                var loopTime = timer.ElapsedMilliseconds;
-                if (loopTime > 0)
-                    loopTime = 1000 / loopTime;
-                updateGUI?.Invoke(GrabedData, loopTime);
-                GC.Collect();
-                timer.Restart();
+                UpdGUI(timer);
 
                 if (state != BotState.Run)
                     await Task.Delay(250);
@@ -139,11 +134,21 @@ namespace PoeFlasks3.BotLogic
             }
         }
 
+        private static void UpdGUI(Stopwatch timer)
+        {
+            timer.Stop();
+            var loopTime = timer.ElapsedMilliseconds;
+            if (loopTime > 0)
+                loopTime = 1000 / loopTime;
+            updateGUI?.Invoke(GrabedData, loopTime);
+            GC.Collect();
+            timer.Restart();
+        }
+
         private static void ScreenLoop()
         {
             ScreenIsReady = false;
             {
-                //_screen = new Bitmap(Client.Window.WindowRect.w, Client.Window.WindowRect.h, System.Drawing.Imaging.PixelFormat.Format24bppRgb);
                 BotFW.GetScreen(_screen, Client.Window.WindowRect, Client.Window.WinState);
 
                 // if old creen fetched, wait
@@ -186,7 +191,6 @@ namespace PoeFlasks3.BotLogic
                 ScreenIsFetched = true;
                 {
                     using Mat screenM = Screen.ToMat();
-                    //using Mat screenM = new("imgs\\testScreens\\1080_fs.png");
                     if (Client.Resolution != null)
                     {
                         using var screens = ScreenSliser.Slise(screenM, Client.Resolution.Value);
@@ -239,7 +243,6 @@ namespace PoeFlasks3.BotLogic
             Manager = new(setup, DEBUG);
         }
 
-
         private static BotState GetState(out string? whyNotRun)
         {
             whyNotRun = null;
@@ -253,7 +256,6 @@ namespace PoeFlasks3.BotLogic
                     Log.Write($"Start/Stop change to: {IsStart}");
                     Log.Write("Cannot Find Game window! Stoped bot.", Log.LogType.Error);
                     whyNotRun = BotResourseLoader.LanguegesText[AppLanguge][9];
-                    //whyNotRun = "Cannot Find Game window! Stoped bot.";
                     return BotState.Stop;
                 }
                 else if (!Client.ScreenResolutionIsAccept)
@@ -262,13 +264,11 @@ namespace PoeFlasks3.BotLogic
                     Log.Write($"Start/Stop change to: {IsStart}");
                     Log.Write($"Game Resolution not accept({Client.Window.Resolution})! Accepdet resolutions: {string.Join(", ", PoeClinet.ACCEPT_SCREEN_RES)}", Log.LogType.Error);
                     whyNotRun = BotResourseLoader.LanguegesText[AppLanguge][10];
-                    //whyNotRun = "Game Resolution not accept!";
                     return BotState.Stop;
                 }
                 else if (!Client.Window.IsActive)
                 {
                     whyNotRun = BotResourseLoader.LanguegesText[AppLanguge][11];
-                    //whyNotRun = "Game window not active, Pause.. ";
                     return BotState.Pause;
                 }
 
@@ -276,14 +276,12 @@ namespace PoeFlasks3.BotLogic
                 if (GrabedData == null || !GrabedData.Value.FindedFlags.Any_isFind)
                 {
                     whyNotRun = BotResourseLoader.LanguegesText[AppLanguge][12];
-                    //whyNotRun = "Pause.. Cannot find any data ";
                     return BotState.Pause;
                 }
 
                 if (PauseEnable && PlayerInPauseZone)
                 {
                     whyNotRun = BotResourseLoader.LanguegesText[AppLanguge][13];
-                    //whyNotRun = "Pause in HO ";
                     return BotState.Pause;
                 }
                 else

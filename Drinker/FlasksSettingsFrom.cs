@@ -18,13 +18,6 @@ namespace DrinkerForm
         private FlaskGUIElements[] FlasksGUIElements;
         private AdditionalActionGUIElemets[] AdditionalActionGUIElemets;
 
-        //private readonly Dictionary<WindowResolution, RECT> FlasksScreenAreas = new();
-        //{ 
-        //    { PoeClinet.ACCEPT_SCREEN_RES[AcceptPoeResolutions.x_983], new RECT() },
-        //    { PoeClinet.ACCEPT_SCREEN_RES[AcceptPoeResolutions.x_1050], new RECT() },
-        //    { PoeClinet.ACCEPT_SCREEN_RES[AcceptPoeResolutions.x_1080], new RECT() },
-        //};  
-
         public FlasksSettingsFrom()
         {
             InitializeComponent();
@@ -35,43 +28,11 @@ namespace DrinkerForm
             Focus();
             InitFlasksGuiElements();
             InitAdditionalActionGUIElemets();
-            //InitAdditionalActions();
+
             UpdateFlasksScreenPictureBox();
             //InitFlask(); // it moved to on_window_shown
         }
 
-
-        // ================================================================
-        // Additional actions. Hardcoded atm
-        //=================================================================
-        //public void InitAdditionalActions()
-        //{
-        //    // init dropboxes values
-        //    FlasksGUIManager.InitAddtitionalActionsDropBoxes(AddAct1_ActType_dropBox, AddAct1_InGameHotkey_dropBox, AddAct1_SecondKey_dropBox);
-        //    // select index
-        //    if (PoeFlasks3.Program.Settings.SelectedProfile.Profile.Setup.AdditionalActions.Count == 0)
-        //    {
-        //        PoeFlasks3.Program.Settings.SelectedProfile.Profile.Setup.AdditionalActions.Add(new BaseActionSettings()
-        //        {
-        //            ActType = ActivationType.None,
-        //            UseActPercent = true,
-        //            ActPercent = 50,
-        //            ActFlat = 3000,
-        //            MinCD = 3f,
-        //            HotKey = BotFW_CvSharp_01.GlobalStructs.Keys.NUM_1,
-        //            PauseWhenSecondKeyNotUsedRecently = new PauseWhenSecondKeyNotUsedRecently()
-        //            {
-        //                Enable = false,
-        //                Key = BotFW_CvSharp_01.GlobalStructs.Keys.MouseLeft,
-        //                PauseActivationDelay = 15f
-        //            }
-        //        });
-        //    }
-
-        //    FlasksGUIManager.AdditionalActionsSetDropBoxIndeces(
-        //        AddAct1_ActType_dropBox, AddAct1_InGameHotkey_dropBox, AddAct1_SecondKey_dropBox, PoeFlasks3.Program.Settings.SelectedProfile.Profile);
-        //}
-        //=================================================================
 
         private void InitFlask()
         {
@@ -107,8 +68,6 @@ namespace DrinkerForm
             Flask1_globalPauseAfter_label.Text = BotResourseLoader.LanguegesText[AppLanguge][33];
             Close_button.Text = BotResourseLoader.LanguegesText[AppLanguge][43];
         }
-
-
 
         private void UpdProfile(Profile profile) // (!?)
         {
@@ -286,133 +245,133 @@ namespace DrinkerForm
             {
                 new()
                 {
-                    FlaskPanel = Flask1_panel,
+                    FlaskPanel =                Flask1_panel,
 
-                    ActType = Flask1_ActType_dropBox,
+                    ActType =                   Flask1_ActType_dropBox,
 
-                    PercentRadioButton = Flask1_Percent_radioButton,
-                    FlatRadioButton = Flask1_Flat_radioButton,
-                    PercentValue = Flask1_Percent_numericUpDown,
-                    FlatValue = Flask1_Flat_numericUpDown,
+                    PercentRadioButton =        Flask1_Percent_radioButton,
+                    FlatRadioButton =           Flask1_Flat_radioButton,
+                    PercentValue =              Flask1_Percent_numericUpDown,
+                    FlatValue =                 Flask1_Flat_numericUpDown,
 
-                    PauseEnable = Flask1_Pause_checkBox,
-                    PauseEnableText = Flask1_Pause_label,
-                    SecondKey = Flask1_SecondKey_dropBox,
-                    PauseSecText = Flask1_PauseAfter_label,
-                    PauseSecValue = Flask1_PauseSec_numericUpDown,
+                    PauseEnable =               Flask1_Pause_checkBox,
+                    PauseEnableText =           Flask1_Pause_label,
+                    SecondKey =                 Flask1_SecondKey_dropBox,
+                    PauseSecText =              Flask1_PauseAfter_label,
+                    PauseSecValue =             Flask1_PauseSec_numericUpDown,
 
-                    FlaskInGameHotkeyText = Flask1_InGameHotkey_label,
-                    FlaskInGameHotkey = Flask1_InGameHotkey_dropBox,
+                    FlaskInGameHotkeyText =     Flask1_InGameHotkey_label,
+                    FlaskInGameHotkey =         Flask1_InGameHotkey_dropBox,
 
-                    FlaskMinimumCDText = Flask1_minCD_label,
-                    FlaskMinimumCD = Flask1_MinCD_numericUpDown,
+                    FlaskMinimumCDText =        Flask1_minCD_label,
+                    FlaskMinimumCD =            Flask1_MinCD_numericUpDown,
 
-                    FlaskGroupText = Flask1_Group_label,
-                    FlaskGroupBox = Flask1_group_dropBox,
+                    FlaskGroupText =            Flask1_Group_label,
+                    FlaskGroupBox =             Flask1_group_dropBox,
                 },
                 new()
                 {
-                    FlaskPanel = Flask2_panel,
+                    FlaskPanel =                Flask2_panel,
 
-                    ActType = Flask2_ActType_dropBox,
+                    ActType =                   Flask2_ActType_dropBox,
 
-                    PercentRadioButton = Flask2_Percent_radioButton,
-                    FlatRadioButton = Flask2_Flat_radioButton,
-                    PercentValue = Flask2_Percent_numericUpDown,
-                    FlatValue = Flask2_Flat_numericUpDown,
+                    PercentRadioButton =        Flask2_Percent_radioButton,
+                    FlatRadioButton =           Flask2_Flat_radioButton,
+                    PercentValue =              Flask2_Percent_numericUpDown,
+                    FlatValue =                 Flask2_Flat_numericUpDown,
 
-                    PauseEnable = Flask2_Pause_checkBox,
-                    PauseEnableText = Flask2_Pause_label,
-                    SecondKey = Flask2_SecondKey_dropBox,
-                    PauseSecText = Flask2_PauseAfter_label,
-                    PauseSecValue = Flask2_PauseSec_numericUpDown,
+                    PauseEnable =               Flask2_Pause_checkBox,
+                    PauseEnableText =           Flask2_Pause_label,
+                    SecondKey =                 Flask2_SecondKey_dropBox,
+                    PauseSecText =              Flask2_PauseAfter_label,
+                    PauseSecValue =             Flask2_PauseSec_numericUpDown,
 
-                    FlaskInGameHotkeyText = Flask2_InGameHotkey_label,
-                    FlaskInGameHotkey = Flask2_InGameHotkey_dropBox,
+                    FlaskInGameHotkeyText =     Flask2_InGameHotkey_label,
+                    FlaskInGameHotkey =         Flask2_InGameHotkey_dropBox,
 
-                    FlaskMinimumCDText = Flask2_minCD_label,
-                    FlaskMinimumCD = Flask2_MinCD_numericUpDown,
+                    FlaskMinimumCDText =        Flask2_minCD_label,
+                    FlaskMinimumCD =            Flask2_MinCD_numericUpDown,
 
-                    FlaskGroupText = Flask2_Group_label,
-                    FlaskGroupBox = Flask2_group_dropBox
+                    FlaskGroupText =            Flask2_Group_label,
+                    FlaskGroupBox =             Flask2_group_dropBox
                 },
                 new()
                 {
-                    FlaskPanel = Flask3_panel,
+                    FlaskPanel =                Flask3_panel,
 
-                    ActType = Flask3_ActType_dropBox,
+                    ActType =                   Flask3_ActType_dropBox,
 
-                    PercentRadioButton = Flask3_Percent_radioButton,
-                    FlatRadioButton = Flask3_Flat_radioButton,
-                    PercentValue = Flask3_Percent_numericUpDown,
-                    FlatValue = Flask3_Flat_numericUpDown,
+                    PercentRadioButton =        Flask3_Percent_radioButton,
+                    FlatRadioButton =           Flask3_Flat_radioButton,
+                    PercentValue =              Flask3_Percent_numericUpDown,
+                    FlatValue =                 Flask3_Flat_numericUpDown,
 
-                    PauseEnable = Flask3_Pause_checkBox,
-                    PauseEnableText = Flask3_Pause_label,
-                    SecondKey = Flask3_SecondKey_dropBox,
-                    PauseSecText = Flask3_PauseAfter_label,
-                    PauseSecValue = Flask3_PauseSec_numericUpDown,
+                    PauseEnable =               Flask3_Pause_checkBox,
+                    PauseEnableText =           Flask3_Pause_label,
+                    SecondKey =                 Flask3_SecondKey_dropBox,
+                    PauseSecText =              Flask3_PauseAfter_label,
+                    PauseSecValue =             Flask3_PauseSec_numericUpDown,
 
-                    FlaskInGameHotkeyText = Flask3_InGameHotkey_label,
-                    FlaskInGameHotkey = Flask3_InGameHotkey_dropBox,
+                    FlaskInGameHotkeyText =     Flask3_InGameHotkey_label,
+                    FlaskInGameHotkey =         Flask3_InGameHotkey_dropBox,
 
-                    FlaskMinimumCDText = Flask3_minCD_label,
-                    FlaskMinimumCD = Flask3_MinCD_numericUpDown,
+                    FlaskMinimumCDText =        Flask3_minCD_label,
+                    FlaskMinimumCD =            Flask3_MinCD_numericUpDown,
 
-                    FlaskGroupText = Flask3_Group_label,
-                    FlaskGroupBox = Flask3_group_dropBox
+                    FlaskGroupText =            Flask3_Group_label,
+                    FlaskGroupBox =             Flask3_group_dropBox
                 },
                 new()
                 {
-                    FlaskPanel = Flask4_panel,
+                    FlaskPanel =                Flask4_panel,
 
-                    ActType = Flask4_ActType_dropBox,
+                    ActType =                   Flask4_ActType_dropBox,
 
-                    PercentRadioButton = Flask4_Percent_radioButton,
-                    FlatRadioButton = Flask4_Flat_radioButton,
-                    PercentValue = Flask4_Percent_numericUpDown,
-                    FlatValue = Flask4_Flat_numericUpDown,
+                    PercentRadioButton =        Flask4_Percent_radioButton,
+                    FlatRadioButton =           Flask4_Flat_radioButton,
+                    PercentValue =              Flask4_Percent_numericUpDown,
+                    FlatValue =                 Flask4_Flat_numericUpDown,
 
-                    PauseEnable = Flask4_Pause_checkBox,
-                    PauseEnableText = Flask4_Pause_label,
-                    SecondKey = Flask4_SecondKey_dropBox,
-                    PauseSecText = Flask4_PauseAfter_label,
-                    PauseSecValue = Flask4_PauseSec_numericUpDown,
+                    PauseEnable =               Flask4_Pause_checkBox,
+                    PauseEnableText =           Flask4_Pause_label,
+                    SecondKey =                 Flask4_SecondKey_dropBox,
+                    PauseSecText =              Flask4_PauseAfter_label,
+                    PauseSecValue =             Flask4_PauseSec_numericUpDown,
 
-                    FlaskInGameHotkeyText = Flask4_InGameHotkey_label,
-                    FlaskInGameHotkey = Flask4_InGameHotkey_dropBox,
+                    FlaskInGameHotkeyText =     Flask4_InGameHotkey_label,
+                    FlaskInGameHotkey =         Flask4_InGameHotkey_dropBox,
 
-                    FlaskMinimumCDText = Flask4_minCD_label,
-                    FlaskMinimumCD = Flask4_MinCD_numericUpDown,
+                    FlaskMinimumCDText =        Flask4_minCD_label,
+                    FlaskMinimumCD =            Flask4_MinCD_numericUpDown,
 
-                    FlaskGroupText = Flask4_Group_label,
-                    FlaskGroupBox = Flask4_group_dropBox
+                    FlaskGroupText =            Flask4_Group_label,
+                    FlaskGroupBox =             Flask4_group_dropBox
                 },
                 new()
                 {
-                    FlaskPanel = Flask5_panel,
+                    FlaskPanel =                Flask5_panel,
 
-                    ActType = Flask5_ActType_dropBox,
+                    ActType =                   Flask5_ActType_dropBox,
 
-                    PercentRadioButton = Flask5_Percent_radioButton,
-                    FlatRadioButton = Flask5_Flat_radioButton,
-                    PercentValue = Flask5_Percent_numericUpDown,
-                    FlatValue = Flask5_Flat_numericUpDown,
+                    PercentRadioButton =        Flask5_Percent_radioButton,
+                    FlatRadioButton =           Flask5_Flat_radioButton,
+                    PercentValue =              Flask5_Percent_numericUpDown,
+                    FlatValue =                 Flask5_Flat_numericUpDown,
 
-                    PauseEnable = Flask5_Pause_checkBox,
-                    PauseEnableText = Flask5_Pause_label,
-                    SecondKey = Flask5_SecondKey_dropBox,
-                    PauseSecText = Flask5_PauseAfter_label,
-                    PauseSecValue = Flask5_PauseSec_numericUpDown,
+                    PauseEnable =               Flask5_Pause_checkBox,
+                    PauseEnableText =           Flask5_Pause_label,
+                    SecondKey =                 Flask5_SecondKey_dropBox,
+                    PauseSecText =              Flask5_PauseAfter_label,
+                    PauseSecValue =             Flask5_PauseSec_numericUpDown,
 
-                    FlaskInGameHotkeyText = Flask5_InGameHotkey_label,
-                    FlaskInGameHotkey = Flask5_InGameHotkey_dropBox,
+                    FlaskInGameHotkeyText =     Flask5_InGameHotkey_label,
+                    FlaskInGameHotkey =         Flask5_InGameHotkey_dropBox,
 
-                    FlaskMinimumCDText = Flask5_minCD_label,
-                    FlaskMinimumCD = Flask5_MinCD_numericUpDown,
+                    FlaskMinimumCDText =        Flask5_minCD_label,
+                    FlaskMinimumCD =            Flask5_MinCD_numericUpDown,
 
-                    FlaskGroupText = Flask5_Group_label,
-                    FlaskGroupBox = Flask5_group_dropBox
+                    FlaskGroupText =            Flask5_Group_label,
+                    FlaskGroupBox =             Flask5_group_dropBox
                 },
             };
         }

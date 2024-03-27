@@ -218,6 +218,7 @@ namespace DrinkerForm
                 AdditionalActionGUIElemets[i].AddActMinimumCD.Value = (decimal)basAction.MinCD;
             }
         }
+
         private static void SetPanelColor_flask()
         {
             var flasksGroups = GetFlasksGroups();
@@ -233,8 +234,6 @@ namespace DrinkerForm
                     flaskIsFirstInGroup = flasksGroups[flaskGroup].IndexOf(flaskSlot) == 0;
                 }
 
-
-
                 if (flaskInGroup == false)
                 {
                     FlasksGuielements[i].FlaskPanel.BackColor = flaskActType == ActivationType.None ? PanelColorsDict[PanelColors.Disable] : PanelColorsDict[PanelColors.GroupNone];
@@ -248,6 +247,7 @@ namespace DrinkerForm
                 }
             }
         }
+
         private static void SetPanelColor_addAct()
         {
             for (int i = 0; i < AdditionalActionGUIElemets.Length; i++)
@@ -258,6 +258,7 @@ namespace DrinkerForm
                     AdditionalActionGUIElemets[i].AddActPanel.BackColor = PanelColorsDict[PanelColors.Group1_active];
             }
         }
+
         private static void SetEnableFlags_flask()
         {
             // Flasks tab
@@ -340,8 +341,10 @@ namespace DrinkerForm
                 }
             }
         }
+
         private static void SetEnableFlags_addAct()
         {
+            // add act tab
             for (int i = 0; i < AdditionalActionGUIElemets.Length; i++)
             {
                 var baseAction = FlasksSetup.Setup.AdditionalActions[i];
@@ -393,6 +396,7 @@ namespace DrinkerForm
                 }
             }
         }
+
         private static void SubscribeEvents()
         {
             for (int i = 0; i < FlasksGuielements.Length; i++)
@@ -432,6 +436,8 @@ namespace DrinkerForm
             }
         }
 
+
+        #region GUI Callbacks
         private static void OnActTypeChange_flask(object? sender, EventArgs e)
         {
             if (sender == null)
@@ -914,6 +920,8 @@ namespace DrinkerForm
                 }
             }
         }
+        #endregion
+
 
         private static Dictionary<FlaskGroup, List<FlaskSlot>> GetFlasksGroups()
         {

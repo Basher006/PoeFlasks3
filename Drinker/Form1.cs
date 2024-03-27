@@ -10,6 +10,7 @@ namespace Drinker
     public partial class Form1 : Form
     {
         // set it to true for debug mode
+        // (in debug mode: not need game client window, not send keys )
         //private const bool DEBUG = true;
         private const bool DEBUG = false;
 
@@ -32,6 +33,7 @@ namespace Drinker
         {
             if (DEBUG)
                 Log.Write("Run in debug mode!");
+
             InitializeComponent();
 
             // TODO:
@@ -44,7 +46,6 @@ namespace Drinker
 
 
             // FLASKS SETUP GUI:
-            // remove one time act type from additional actions!
             // profile update spaghetti code refactoring
 
 

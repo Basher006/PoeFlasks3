@@ -111,10 +111,6 @@ namespace PoeFlasks3.SettingsThings
         [JsonIgnore] public readonly List<FlaskSlotSettings> FlasksList { get => Flasks.Values.ToList(); }
         public List<BaseActionSettings> AdditionalActions { get; set; }
         public PauseWhenSecondKeyNotUsedRecently GlobalPauseWhenSecondKeyNotUsedRecently { get; set; }
-
-        //[JsonIgnore] public readonly int Group1_Size { get => Flasks.Where((x) => x.Value.Group == FlaskGroup.Group1).Count(); }
-        //[JsonIgnore] public readonly int Group2_Size { get => Flasks.Where((x) => x.Value.Group == FlaskGroup.Group2).Count(); }
-
         public string FlasksImagePreview { get; set; }
     }
 

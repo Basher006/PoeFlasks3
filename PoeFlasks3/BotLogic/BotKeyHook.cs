@@ -59,7 +59,7 @@ namespace PoeFlasks3.BotLogic
 
         private static bool _pauseIsEnable(PauseWhenSecondKeyNotUsedRecently pause)
         {
-            if (KeysUsedRecently.ContainsKey(pause.Key))
+            if (pause.Enable && KeysUsedRecently.ContainsKey(pause.Key))
                 return KeysUsedRecently[pause.Key].Chek((int)(pause.PauseActivationDelay * 1000f));
 
             return false;

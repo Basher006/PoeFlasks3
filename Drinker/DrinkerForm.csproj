@@ -8,7 +8,7 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <PlatformTarget>x64</PlatformTarget>
     <Platforms>AnyCPU;x64</Platforms>
-    <AssemblyName>Dinker</AssemblyName>
+    <AssemblyName>Drinker</AssemblyName>
     <ApplicationIcon>icon48.ico</ApplicationIcon>
   </PropertyGroup>
 

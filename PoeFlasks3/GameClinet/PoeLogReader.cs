@@ -9,7 +9,11 @@ namespace PoeFlasks3.GameClinet
         public static ZoneWasChanged? OnZoneWasChanged;
 
         private static readonly string[] zonesChangedText = { "Вы вошли в область", "You have entered"  };
-        private static readonly string[] needPauseZones = { "убежище", "Hideout" };
+        private static readonly string[] needPauseZones = 
+            { 
+                "убежище", "Застава Львиного глаза", "Лесной лагерь", "Лагерь Сарна", "Македы", "Башня надзирателя", "Лагерь на мосту", "Доки Ориата", "Берега Каруи",
+                 "Hideout", "Lioneye\'s Watch", "Forest Encampment", "The Sarn Encampment", "Highgate", "Overseer\'s Tower", "The Bridge Encampment", "Oriath Docks", "Karui Shores"
+            };
 
 
 

@@ -39,7 +39,8 @@ namespace DrinkerForm
             { "1", Keys.NUM_1 }, { "2", Keys.NUM_2 }, { "3", Keys.NUM_3 }, { "4", Keys.NUM_4 }, { "5", Keys.NUM_5 }, { "6", Keys.NUM_6 }, { "7", Keys.NUM_7 }, { "8", Keys.NUM_8 }, { "9", Keys.NUM_9 }, { "0", Keys.NUM_0 },
             { "Shift", Keys.Shift }, { "Left Alt", Keys.Alt_left }, { "Ctrl", Keys.Ctrl }, { "Space", Keys.Space }, { "Tab", Keys.Tab },
         };
-        private static Dictionary<string, ActivationType> ActType_dropBox_values;
+        private static Dictionary<string, ActivationType> ActType_dropBox_values_flask;
+        private static Dictionary<string, ActivationType> ActType_dropBox_values_addAct;
         private static Dictionary<string, FlaskGroup> FlaskGroups_dropBox_values;
         private static readonly Dictionary<PanelColors, Color> PanelColorsDict = new Dictionary<PanelColors, Color>()
         { 
@@ -92,11 +93,18 @@ namespace DrinkerForm
 
         private static void SetText()
         {
-            ActType_dropBox_values = new Dictionary<string, ActivationType>()
+            ActType_dropBox_values_flask = new Dictionary<string, ActivationType>()
             {
                 { BotResourseLoader.LanguegesText[AppLanguge][23], ActivationType.None }, { BotResourseLoader.LanguegesText[AppLanguge][24], ActivationType.HP },
                 { BotResourseLoader.LanguegesText[AppLanguge][25], ActivationType.MP }, { BotResourseLoader.LanguegesText[AppLanguge][26], ActivationType.ES },
                 { BotResourseLoader.LanguegesText[AppLanguge][27], ActivationType.CD }, { BotResourseLoader.LanguegesText[AppLanguge][28], ActivationType.OneTime }
+            };
+
+            ActType_dropBox_values_addAct = new Dictionary<string, ActivationType>()
+            {
+                { BotResourseLoader.LanguegesText[AppLanguge][23], ActivationType.None }, { BotResourseLoader.LanguegesText[AppLanguge][24], ActivationType.HP },
+                { BotResourseLoader.LanguegesText[AppLanguge][25], ActivationType.MP }, { BotResourseLoader.LanguegesText[AppLanguge][26], ActivationType.ES },
+                { BotResourseLoader.LanguegesText[AppLanguge][27], ActivationType.CD }
             };
 
             FlaskGroups_dropBox_values = new Dictionary<string, FlaskGroup>()
@@ -135,7 +143,7 @@ namespace DrinkerForm
         {
             for (int i = 0; i < FlasksGuielements.Length; i++)
             {
-                FlasksGuielements[i].ActType.Items.AddRange(ActType_dropBox_values.Keys.ToArray());
+                FlasksGuielements[i].ActType.Items.AddRange(ActType_dropBox_values_flask.Keys.ToArray());
                 FlasksGuielements[i].FlaskInGameHotkey.Items.AddRange(FlaskInGameHotkey_dropBox_values.Keys.ToArray());
                 FlasksGuielements[i].SecondKey.Items.AddRange(SecondKey_dropBox_values.Keys.ToArray());
 
@@ -146,7 +154,7 @@ namespace DrinkerForm
 
             for (int i = 0; i < AdditionalActionGUIElemets.Length; i++)
             {
-                AdditionalActionGUIElemets[i].ActType.Items.AddRange(ActType_dropBox_values.Keys.ToArray());
+                AdditionalActionGUIElemets[i].ActType.Items.AddRange(ActType_dropBox_values_addAct.Keys.ToArray());
                 AdditionalActionGUIElemets[i].AddActInGameHotkey.Items.AddRange(AddActInGameHotkey_dropBox_values.Keys.ToArray());
                 AdditionalActionGUIElemets[i].SecondKey.Items.AddRange(SecondKey_dropBox_values.Keys.ToArray());
             }

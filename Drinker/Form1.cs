@@ -13,15 +13,13 @@ namespace Drinker
         //private const bool DEBUG = true;
         private const bool DEBUG = false;
 
-        //private bool initIsComplite = false;
-
         private Langueges AppLanguege; 
 
         FlasksSettingsFrom? SettingsForm;
 
         private Color GamePathColor_set = Color.Black;
         private Color GamePathColor_NotSet = Color.RoyalBlue;
-        private string GamePathText_NotSet = "Set path to game..";
+        private string GamePathText_NotSet;
         private int GamePath_textMaxLenght = 25;
         private string FlaskStateText;
 
@@ -29,9 +27,6 @@ namespace Drinker
         { { BotState.Stop, Color.IndianRed }, { BotState.Run, Color.YellowGreen }, { BotState.Pause, Color.RosyBrown } };
         private Dictionary<BotState, string> StartStopButtonText;
         private string PauseWithText_text;
-        //private readonly Dictionary<BotState, string> StartStopButtonText = new() 
-        //{ { BotState.Stop, "Stopped.. Press (F4) for start" }, { BotState.Run, "Working.. Press (F4) for stop" }, { BotState.Pause, "Pause.. Press (F4) for stop" } };
-        //private readonly string PauseWithText_text = "Press (F4) for stop";
 
         public Form1()
         {
@@ -43,13 +38,13 @@ namespace Drinker
 
             // BOT LOGIC:
             // full pause on settings form opening
-            // not correct poe resolution whe start before game
+            // not correct poe resolution when start before game
 
             // MAIN GUI FORM:
 
 
             // FLASKS SETUP GUI:
-            // additional actions
+            // remove one time act type from additional actions!
             // profile update spaghetti code refactoring
 
 

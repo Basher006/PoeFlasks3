@@ -27,7 +27,7 @@ namespace PoeFlasks3.BotLogic
         private static bool PauseEnable = false;
         private static bool PlayerInPauseZone = false;
 
-        private static Bitmap _screen;
+        private static Bitmap? _screen;
         public static Bitmap Screen;
         private static bool ScreenIsBusy = false;
         private static bool ScreenIsFetched = false;
@@ -149,7 +149,8 @@ namespace PoeFlasks3.BotLogic
         {
             ScreenIsReady = false;
             {
-                BotFW.GetScreen(_screen, Client.Window.WindowRect, Client.Window.WinState);
+                if (_screen != null)
+                    BotFW.GetScreen(_screen, Client.Window.WindowRect, Client.Window.WinState);
 
                 // if old creen fetched, wait
                 while (ScreenIsFetched)
@@ -172,7 +173,8 @@ namespace PoeFlasks3.BotLogic
         }
         private static void UpdateScreen()
         {
-            Screen = (Bitmap)_screen.Clone();
+            if (_screen != null)
+                Screen = (Bitmap)_screen.Clone();
         }
         private static void DataGrabLoop()
         {
@@ -223,8 +225,6 @@ namespace PoeFlasks3.BotLogic
             Log.Write($"Start/Stop change to: {IsStart}");
             var state = GetState(out string? whyPause);
             updateStartStopButton?.Invoke(state, whyPause);
-
-
         }
 
         public static void OnPauseChange(bool pause, string? poeLogPath )

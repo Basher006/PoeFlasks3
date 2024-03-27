@@ -66,7 +66,7 @@ namespace PoeFlasks3.BotLogic
 
             BotState state = BotState.None;
             BotState oldState = BotState.None;
-            string? OldWhyPause = null;
+            string? OldWhyNotRun = null;
 
             while (Run)
             {
@@ -75,18 +75,18 @@ namespace PoeFlasks3.BotLogic
                 // ===========================
                 state = GetState(out string? whyNotRun);
 
-                if (state != oldState)
+                if (state != oldState || whyNotRun != OldWhyNotRun)
                 {
+                    updateStartStopButton?.Invoke(state, whyNotRun);
+
                     if (string.IsNullOrEmpty(whyNotRun))
                         Log.Write($"Bot state change to: {state}");
                     else
                         Log.Write($"Bot state change to: {state}, with reason: {whyNotRun}");
                 }
-                if (state != oldState || whyNotRun != OldWhyPause)
-                    updateStartStopButton?.Invoke(state, whyNotRun);
 
                 oldState = state;
-                OldWhyPause = whyNotRun;
+                OldWhyNotRun = whyNotRun;
 
                 if (!Client.Window.IsFinded)
                 {

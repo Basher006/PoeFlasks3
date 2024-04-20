@@ -390,17 +390,17 @@ namespace PoeFlasks3.SettingsThings
                 Flasks = new()
                 {
                     { FlaskSlot.Slot1, new FlaskSlotSettings() { Slot = FlaskSlot.Slot1, Group = FlaskGroup.None, BaseAction = new()
-                    { ActType = ActivationType.None, UseActPercent = true, ActPercent = 50, ActFlat = 0, HotKey = Keys.NUM_1, MinCD = 3f,
+                    { ActType = ActivationType.HP, UseActPercent = true, ActPercent = 65, ActFlat = 0, HotKey = Keys.NUM_1, MinCD = 3f,
                         PauseWhenSecondKeyNotUsedRecently = new() { Enable = false, Key = Keys.MouseRight, PauseActivationDelay = 15f }
                     } } },
 
                     { FlaskSlot.Slot2, new FlaskSlotSettings() { Slot = FlaskSlot.Slot2, Group = FlaskGroup.None, BaseAction = new()
-                    { ActType = ActivationType.None, UseActPercent = true, ActPercent = 50, ActFlat = 0, HotKey = Keys.NUM_2, MinCD = 3f,
+                    { ActType = ActivationType.HP, UseActPercent = true, ActPercent = 40, ActFlat = 0, HotKey = Keys.NUM_2, MinCD = 3f,
                         PauseWhenSecondKeyNotUsedRecently = new() { Enable = false, Key = Keys.MouseRight, PauseActivationDelay = 15f }
                     } } },
 
                     { FlaskSlot.Slot3, new FlaskSlotSettings() { Slot = FlaskSlot.Slot3, Group = FlaskGroup.None, BaseAction = new()
-                    { ActType = ActivationType.None, UseActPercent = true, ActPercent = 50, ActFlat = 0, HotKey = Keys.NUM_3, MinCD = 3f,
+                    { ActType = ActivationType.MP, UseActPercent = false, ActPercent = 50, ActFlat = 20, HotKey = Keys.NUM_3, MinCD = 3f,
                         PauseWhenSecondKeyNotUsedRecently = new() { Enable = false, Key = Keys.MouseRight, PauseActivationDelay = 15f }
                     } } },
 

@@ -193,7 +193,7 @@ namespace PoeFlasks3.BotLogic
                 ScreenIsFetched = true;
                 {
                     using Mat screenM = Screen.ToMat();
-                    if (Client.Resolution != null)
+                    if (Client.Resolution != null && screenM.Width > 1 && screenM.Height > 1)
                     {
                         using var screens = ScreenSliser.Slise(screenM, Client.Resolution.Value);
                         var grbedData = NumbersFinder.GrabData(screens, BotResourseLoader.Numbers, Client.Resolution.Value);

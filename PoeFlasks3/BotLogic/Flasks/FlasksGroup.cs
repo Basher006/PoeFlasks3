@@ -6,6 +6,8 @@ namespace PoeFlasks3.BotLogic.Flasks
     {
         public readonly FlaskGroup Group;
         public readonly Flask[] Flasks;
+        
+        private List<FlaskSlot> GroupSlots { get => Flasks.Select(x => x.Slot).ToList(); }
 
         private int FlaskPointer;
         private readonly int GroupSize;
@@ -44,7 +46,18 @@ namespace PoeFlasks3.BotLogic.Flasks
         {
             if (Flasks.Length < 1)
                 return false;
-            return Flasks[0].Chek(grabedData);
+
+            bool firstFlaskChek = Flasks[0].ChekGroup(grabedData, GroupSlots);
+
+            return firstFlaskChek;
+        }
+
+        private int GetPreviosFlaskPointer(int pointer)
+        {
+            pointer--;
+            if (pointer < 0)
+                pointer = 0;
+            return pointer;
         }
     }
 }

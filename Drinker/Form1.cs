@@ -41,12 +41,15 @@ namespace Drinker
             // BOT LOGIC:
             // full pause on settings form opening
             // not correct poe resolution when start before game
+            // remove base action, replace it with IUsable
+            // when flask in group empty bot wait min kd instead of use next flask (bug? or..?)
 
             // MAIN GUI FORM:
 
 
             // FLASKS SETUP GUI:
             // profile update spaghetti code refactoring
+            // fix lags
 
 
             // OTHER:

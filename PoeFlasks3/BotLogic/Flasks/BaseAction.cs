@@ -60,6 +60,11 @@ namespace PoeFlasks3.BotLogic.Flasks
 
         public bool Chek(GrabedData? grabedData)
         {
+            bool condition = false;
+            bool flaskIsActive = false;
+            if (Slot != null)
+                flaskIsActive = FlaskIsActive(grabedData.Value, Slot.Value);
+
             if (!grabedData.HasValue)
                 return false;
 
@@ -72,32 +77,88 @@ namespace PoeFlasks3.BotLogic.Flasks
             // chek pause on not use other skill recently
             if (BotKeyHook.PauseIsEnable(Setup))
                 return false;
+
             // HP
             if (Setup.ActType == ActivationType.HP)
-                return ChekHP(grabedData.Value);
+                condition = ChekHP(grabedData.Value);
             // MP
             if (Setup.ActType == ActivationType.MP)
-                return ChekMP(grabedData.Value);
+                condition = ChekMP(grabedData.Value);
             // ES
             if (Setup.ActType == ActivationType.ES)
-                return ChekES(grabedData.Value);
+                condition = ChekES(grabedData.Value);
             // Chek ingame flask CD state
             if (Setup.ActType == ActivationType.CD)
             {
                 if (Slot == null)
-                    return ChekMinCD();
+                    condition = ChekMinCD();
                 else
-                    return ChekCD(grabedData.Value, Slot.Value);
+                    return !flaskIsActive;
             }
             // oneTime
             if (Slot != null)
             {
-                
                 if (Setup.ActType == ActivationType.OneTime)
-                    return ChekOnetime(grabedData.Value, Slot.Value);
+                    condition =  ChekOnetime(grabedData.Value, Slot.Value);
             }
 
-            throw new Exception("Uncorrect Activation Type!");
+            return !flaskIsActive && condition;
+        }
+
+        public bool ChekGroup(GrabedData? grabedData, List<FlaskSlot> slots)
+        {
+            bool condition = false;
+            bool anyFlaskIsActive = false;
+            if (slots?.Any() == true)
+            {
+                foreach (var slot in slots)
+                {
+                    if (FlaskIsActive(grabedData.Value, slot))
+                    {
+                        anyFlaskIsActive = true;
+                        break;
+                    }
+                }
+            }
+
+            if (!grabedData.HasValue)
+                return false;
+
+            // None
+            if (Setup.ActType == ActivationType.None)
+                return false;
+            // Chek minimum cooldown
+            if (!ChekMinCD())
+                return false;
+            // chek pause on not use other skill recently
+            if (BotKeyHook.PauseIsEnable(Setup))
+                return false;
+
+            // HP
+            if (Setup.ActType == ActivationType.HP)
+                condition = ChekHP(grabedData.Value);
+            // MP
+            if (Setup.ActType == ActivationType.MP)
+                condition = ChekMP(grabedData.Value);
+            // ES
+            if (Setup.ActType == ActivationType.ES)
+                condition = ChekES(grabedData.Value);
+            // Chek ingame flask CD state
+            if (Setup.ActType == ActivationType.CD)
+            {
+                condition = ChekMinCD();
+            }
+            // oneTime
+            if (Setup.ActType == ActivationType.OneTime)
+            {
+                foreach (var slot in slots)
+                {
+                    if (ChekOnetime(grabedData.Value, slot))
+                        return true;
+                }
+            }
+
+            return !anyFlaskIsActive && condition;
         }
 
         public void UpdateKey(Keys k)
@@ -147,18 +208,17 @@ namespace PoeFlasks3.BotLogic.Flasks
                 return data.ES.Current < Setup.ActFlat;
         }
 
-        private bool ChekCD(GrabedData data, FlaskSlot slot)
+        private bool FlaskIsActive(GrabedData data, FlaskSlot slot)
         {
             if (!data.FindedFlags.Any_isFind)
                 return false;
 
-
-            return data.FlasksState.States[slot] < MINIMUM_STATE_FOR_USE_FLASK;
+            return !(data.FlasksState.States[slot] < MINIMUM_STATE_FOR_USE_FLASK);
         }
 
         private bool ChekOnetime(GrabedData data, FlaskSlot slot)
         {
-            if (!ChekCD(data, slot))
+            if (!FlaskIsActive(data, slot))
             {
                 OneUseTimer.Update();
                 return false;

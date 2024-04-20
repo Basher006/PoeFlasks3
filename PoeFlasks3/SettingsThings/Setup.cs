@@ -117,6 +117,7 @@ namespace PoeFlasks3.SettingsThings
         public void ChangeSelectedProfile(int index)
         {
             SelectedProfile = ProfileManager.SelectProfile(index);
+            Bot.OnFlasksSetupChange(SelectedProfile.Profile);
             UpdateAndSave_SelectedProfile_inConfig();
             Log.Write($"Selected profile change to: {SelectedProfile.Name}");
 

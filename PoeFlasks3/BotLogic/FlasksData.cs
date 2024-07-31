@@ -107,6 +107,10 @@ namespace PoeFlasks3.BotLogic
         public CurMax MP;
         public CurMax ES;
 
+        public static int Slash_YLoc_HP;
+        public static int Slash_YLoc_MP;
+        public static int Slash_YLoc_ES;
+
         public FlasksStates FlasksState;
 
         public FindFlags FindedFlags;
@@ -117,6 +121,9 @@ namespace PoeFlasks3.BotLogic
         public static void ResetMaxNumbers()
         {
             MaxNumbersBuffer.Reset();
+            Slash_YLoc_HP = 0;
+            Slash_YLoc_MP = 0;
+            Slash_YLoc_ES = 0;
         }
 
         public void UpdateMaxNumbers()

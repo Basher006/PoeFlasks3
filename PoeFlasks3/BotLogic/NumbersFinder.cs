@@ -17,6 +17,8 @@ namespace PoeFlasks3.BotLogic
 
 
         private const int FLASKS_COUNT = 5;
+        private const int CURRENT_DIFF_TR = 12;
+        private const int MAX_DIFF_TR = 5;
 
 
         private static readonly Dictionary<AcceptPoeResolutions, int> EachFlaskWidth = new()
@@ -69,6 +71,34 @@ namespace PoeFlasks3.BotLogic
 
 
             result.FlasksState = flasksStates;
+
+            // HP
+            if (findFlags.HP_isFind)
+            {
+                if (GrabedData.Slash_YLoc_HP == 0)
+                    GrabedData.Slash_YLoc_HP = hpSlash.Loc.Y;
+                if (GrabedData.Slash_YLoc_HP != hpSlash.Loc.Y)
+                    findFlags.HP_isFind = false;
+            }
+
+            //MP
+            if (findFlags.MP_isFind)
+            {
+                if (GrabedData.Slash_YLoc_MP == 0)
+                    GrabedData.Slash_YLoc_MP = mpSlash.Loc.Y;
+                if (GrabedData.Slash_YLoc_MP != mpSlash.Loc.Y)
+                    findFlags.MP_isFind = false;
+            }
+
+            //ES
+            if (findFlags.ES_isFind)
+            {
+                if (GrabedData.Slash_YLoc_ES == 0)
+                    GrabedData.Slash_YLoc_ES = esSlash.Loc.Y;
+                if (GrabedData.Slash_YLoc_ES != esSlash.Loc.Y)
+                    findFlags.ES_isFind = false;
+            }
+
             result.FindedFlags = findFlags;
             return result;
         }
@@ -129,34 +159,51 @@ namespace PoeFlasks3.BotLogic
             var numbersLocations_current = FindAllNumbersLocations(screenArea_current, poeClinetResolution);
             var numbersLocations_max = FindAllNumbersLocations(screenArea_max, poeClinetResolution);
 
-            number_current = GetNumber(numbersLocations_current);
-            number_max = GetNumber(numbersLocations_max);
+            number_current = GetNumber(numbersLocations_current, screenArea_current.Width, true);
+            number_max = GetNumber(numbersLocations_max, screenArea_max.Width, false);
 
             return true;
         }
 
-        private static int GetNumber(List<FindedNumber> findedNumbersLocations, string tempRes = "")
+        private static int GetNumber(List<FindedNumber> findedNumbersLocations, int screenMaxX, bool isCurrent, string tempRes = "", 
+            int maxX_findedBuffer = 0, int minX_findedBuffer = int.MaxValue)
         {
             int minX = int.MaxValue;
             FindedNumber minNumber = new();
+
 
             foreach (var item in findedNumbersLocations)
             {
                 if (item.X_loc < minX)
                 {
                     minX = item.X_loc;
+                    if (minX_findedBuffer > minX)
+                        minX_findedBuffer = minX;
                     minNumber = item;
                 }
+                if (item.X_loc > maxX_findedBuffer)
+                    maxX_findedBuffer = item.X_loc;
             }
 
             if (findedNumbersLocations.Count > 0)
             {
                 tempRes += minNumber.Name;
                 findedNumbersLocations.Remove(minNumber);
-                return GetNumber(findedNumbersLocations, tempRes);
+                return GetNumber(findedNumbersLocations, screenMaxX, isCurrent, tempRes, maxX_findedBuffer, minX_findedBuffer);
             }
             else
-                return string.IsNullOrEmpty(tempRes) ? -1 : int.Parse(tempRes);
+            {
+                int diff = isCurrent ? screenMaxX - maxX_findedBuffer : minX_findedBuffer;
+                bool diffIsOk = isCurrent ? diff < CURRENT_DIFF_TR : diff < MAX_DIFF_TR;
+
+                if (!string.IsNullOrEmpty(tempRes) && diffIsOk)
+                    return int.Parse(tempRes);
+                else
+                    return -1;
+
+
+                //return string.IsNullOrEmpty(tempRes) ? -1 : int.Parse(tempRes);
+            }
         }
 
         private static List<FindedNumber> FindAllNumbersLocations(Mat screen, AcceptPoeResolutions poeClinetResolution)

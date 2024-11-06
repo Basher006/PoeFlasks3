@@ -36,7 +36,7 @@ namespace PoeFlasks3.BotLogic
         private static bool DataGrabIsDone = false;
 
         private static FlasksManager Manager;
-        private static GrabedData? GrabedData;
+        private static GrabedData? GrabedDataHolder;
 
         public static void Init(SelectedProfile selectedProfile, bool debug)
         {
@@ -77,6 +77,8 @@ namespace PoeFlasks3.BotLogic
 
                 if (state != oldState || whyNotRun != OldWhyNotRun)
                 {
+                    GrabedData.ResetMaxNumbers();
+
                     updateStartStopButton?.Invoke(state, whyNotRun);
 
                     if (string.IsNullOrEmpty(whyNotRun))
@@ -124,7 +126,7 @@ namespace PoeFlasks3.BotLogic
                     DoActions(); // its already async!
 
                 // ===========================
-                // loop management things
+                // loop managment thigs
                 // ===========================
                 UpdGUI(timer);
 
@@ -136,20 +138,13 @@ namespace PoeFlasks3.BotLogic
 
         private static void UpdGUI(Stopwatch timer)
         {
-            if (timer == null || GrabedDataHolder == null || GrabedDataHolder.HasValue == false)
-            {
-                return;
-            }
-            else
-            {
-                timer.Stop();
-                var loopTime = timer.ElapsedMilliseconds;
-                if (loopTime > 0)
-                    loopTime = 1000 / loopTime;
-                updateGUI?.Invoke(GrabedDataHolder, loopTime);
-                GC.Collect();
-                timer.Restart();
-            }    
+            timer.Stop();
+            var loopTime = timer.ElapsedMilliseconds;
+            if (loopTime > 0)
+                loopTime = 1000 / loopTime;
+            updateGUI?.Invoke(GrabedDataHolder, loopTime);
+            GC.Collect();
+            timer.Restart();
         }
 
         private static void ScreenLoop()
@@ -203,21 +198,11 @@ namespace PoeFlasks3.BotLogic
                     if (Client.Resolution != null && screenM.Width > 1 && screenM.Height > 1)
                     {
                         using var screens = ScreenSliser.Slise(screenM, Client.Resolution.Value);
-                        GrabedData? grabedData = new();
-                        try
-                        {
-                            grabedData = NumbersFinder.GrabData(screens, BotResourseLoader.Numbers, Client.Resolution.Value);
-                        }
-                        catch {
-                            Log.Write("Error blyat!");
-                        }
+                        var grbedData = NumbersFinder.GrabData(screens, BotResourseLoader.Numbers, Client.Resolution.Value);
 
-                        if (grabedData.HasValue == false)
-                            grabedData = new();
-
-                        if (grabedData.Value.FindedFlags.Any_isFind)
-                            grabedData.Value.UpdateMaxNumbers();
-                        GrabedDataHolder = grabedData.Value;
+                        if (grbedData.FindedFlags.Any_isFind)
+                            grbedData.UpdateMaxNumbers();
+                        GrabedDataHolder = grbedData;
                         //GrabedDataHolder?.UpdateMaxNumbers();
                     }
                 }
@@ -227,7 +212,7 @@ namespace PoeFlasks3.BotLogic
         }
         private static void DoActions()
         {
-            Manager.UseFlasks(GrabedData);
+            Manager.UseFlasks(GrabedDataHolder);
         }
         public static void OnStartStopChange()
         {
@@ -248,7 +233,7 @@ namespace PoeFlasks3.BotLogic
             updateStartStopButton?.Invoke(state, whyPause);
         }
 
-        public static void OnPauseChange(bool pause, string? poeLogPath )
+        public static void OnPauseChange(bool pause, string? poeLogPath)
         {
             PauseEnable = pause;
             PoeLogReader.OnZoneWasChanged = null;
@@ -294,7 +279,7 @@ namespace PoeFlasks3.BotLogic
                 }
 
                 // Data
-                if (GrabedData == null || !GrabedData.Value.FindedFlags.Any_isFind)
+                if (GrabedDataHolder == null || !GrabedDataHolder.Value.FindedFlags.Any_isFind)
                 {
                     whyNotRun = BotResourseLoader.LanguegesText[AppLanguge][12];
                     return BotState.Pause;

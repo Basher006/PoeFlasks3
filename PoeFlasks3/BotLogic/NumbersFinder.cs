@@ -22,14 +22,14 @@ namespace PoeFlasks3.BotLogic
         private static readonly Dictionary<AcceptPoeResolutions, int> EachFlaskWidth = new()
         {
             { AcceptPoeResolutions.x_983, 41 },
-            { AcceptPoeResolutions.x_1050, 44 },
+            { AcceptPoeResolutions.x_1050, 43 },
             { AcceptPoeResolutions.x_1080, 46 }
         };
 
         private static readonly Dictionary<AcceptPoeResolutions, int> EachFlaskLineWidth = new()
         {
             { AcceptPoeResolutions.x_983, 31 },
-            { AcceptPoeResolutions.x_1050, 32 },
+            { AcceptPoeResolutions.x_1050, 33 },
             { AcceptPoeResolutions.x_1080, 34 }
         };
 
@@ -122,6 +122,12 @@ namespace PoeFlasks3.BotLogic
         {
             var numbersRECT_current = GetRECTForNumbersLication(slashArea, false);
             var numbersRECT_max = GetRECTForNumbersLication(slashArea, true);
+            if (screen.Empty() || screen.Width < 1 || screen.Height < 1)
+            {
+                number_current = 0;
+                number_max = 0;
+                return false;
+            }
 
             using Mat screenArea_current = new(screen, numbersRECT_current.ToRect());
             using Mat screenArea_max = new(screen, numbersRECT_max.ToRect());

@@ -84,7 +84,7 @@ namespace Drinker
             // UPS
             UPS_lable.Text = $"UPS: {ups}";
 
-            if (data != null)
+            if (data != null && data.Value.FindedFlags.Any_isFind)
             {
                 // HP
                 string hp = data.Value.FindedFlags.HP_isFind ? $"{data.Value.HP.Current} / {data.Value.HP.Max}" : "N/A";

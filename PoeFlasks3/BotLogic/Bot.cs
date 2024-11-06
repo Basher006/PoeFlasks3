@@ -124,7 +124,7 @@ namespace PoeFlasks3.BotLogic
                     DoActions(); // its already async!
 
                 // ===========================
-                // loop managment thigs
+                // loop management things
                 // ===========================
                 UpdGUI(timer);
 
@@ -136,13 +136,20 @@ namespace PoeFlasks3.BotLogic
 
         private static void UpdGUI(Stopwatch timer)
         {
-            timer.Stop();
-            var loopTime = timer.ElapsedMilliseconds;
-            if (loopTime > 0)
-                loopTime = 1000 / loopTime;
-            updateGUI?.Invoke(GrabedData, loopTime);
-            GC.Collect();
-            timer.Restart();
+            if (timer == null || GrabedDataHolder == null || GrabedDataHolder.HasValue == false)
+            {
+                return;
+            }
+            else
+            {
+                timer.Stop();
+                var loopTime = timer.ElapsedMilliseconds;
+                if (loopTime > 0)
+                    loopTime = 1000 / loopTime;
+                updateGUI?.Invoke(GrabedDataHolder, loopTime);
+                GC.Collect();
+                timer.Restart();
+            }    
         }
 
         private static void ScreenLoop()
@@ -196,8 +203,22 @@ namespace PoeFlasks3.BotLogic
                     if (Client.Resolution != null && screenM.Width > 1 && screenM.Height > 1)
                     {
                         using var screens = ScreenSliser.Slise(screenM, Client.Resolution.Value);
-                        var grbedData = NumbersFinder.GrabData(screens, BotResourseLoader.Numbers, Client.Resolution.Value);
-                        GrabedData = grbedData;
+                        GrabedData? grabedData = new();
+                        try
+                        {
+                            grabedData = NumbersFinder.GrabData(screens, BotResourseLoader.Numbers, Client.Resolution.Value);
+                        }
+                        catch {
+                            Log.Write("Error blyat!");
+                        }
+
+                        if (grabedData.HasValue == false)
+                            grabedData = new();
+
+                        if (grabedData.Value.FindedFlags.Any_isFind)
+                            grabedData.Value.UpdateMaxNumbers();
+                        GrabedDataHolder = grabedData.Value;
+                        //GrabedDataHolder?.UpdateMaxNumbers();
                     }
                 }
                 ScreenIsFetched = false;

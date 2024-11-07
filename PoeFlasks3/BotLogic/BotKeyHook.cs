@@ -80,7 +80,7 @@ namespace PoeFlasks3.BotLogic
             if (!KeysUsedRecently.ContainsKey(flask.Key))
             {
                 KeysUsedRecently.Add(flask.Key, new());
-                Hook?.AddHook(flask.Key, UpdateKeyTimer);
+                Hook?.AddHook(flask.Key, UpdateKeyTimer, method: KeyboardHook.HookOnKey.Pressed);
             }
         }
 
